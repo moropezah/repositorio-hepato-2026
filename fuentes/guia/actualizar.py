@@ -81,11 +81,11 @@ doc = f"""<!DOCTYPE html>
   <p>Clase de repaso de la patología hepática que un residente de gastroenterología debe manejar: cirrosis y sus complicaciones,
   etiologías, hepatocarcinoma y trasplante. Construida sobre el programa del Curso de Hepatología para Becados 2026 y del Curso de
   Cirrosis y Trasplante Hepático de Clínica Dávila 2026, contrastada con Baveno VIII y las guías EASL, AASLD, ACG y AGA vigentes,
-  y con el marco chileno (GES 88) declarado donde cambia la conducta.</p>
+  y con el marco chileno (GES, guías MINSAL, consensos ACHHEP) declarado donde cambia la conducta.</p>
   <div class="meta">
     <div><b>Actualizado</b> · {cfg["actualizado"]}</div>
     <div><b>Nivel</b> · residente de gastroenterología</div>
-    <div><b>Marco local</b> · GES 88 · Ley Ricarte Soto</div>
+    <div><b>Marco local</b> · GES · Ley Ricarte Soto · MINSAL</div>
     <div><b>{escritos} de {total} bloques</b> · {nfc} flashcards · {npreg} preguntas</div>
   </div>
   <div class="autor-g">
@@ -119,10 +119,11 @@ El listado de fármacos de cada canasta del GES 88 y la cobertura de la Ley Rica
 <div class="tw"><table class="sm">
 <thead><tr><th style="width:28%">Fuente</th><th>Contenido usado</th></tr></thead>
 <tbody>
-<tr><td><b>Curso de Cirrosis y Trasplante Hepático · Clínica Dávila</b><br><span class="small">31 de julio y 1 de agosto de 2026</span></td><td>Actualizaciones en cirrosis (Oropeza), ACLF (Olivares), futilidad del trasplante en ACLF (Berenguer), anticoagulación (Vélez), manejo ambulatorio (Lazarte), elastografía esplénica (Ginesta), riesgo quirúrgico (Poniachik), GES 88 (Godoy), sarcopenia en trasplante (Wolff), cirrosis por alcohol (Díaz).</td></tr>
-<tr><td><b>Curso de Hepatología para Becados 2026</b><br><span class="small">17 y 18 de abril de 2026</span></td><td>Hemorragia en hipertensión portal (Urzúa), ascitis refractaria y síndrome hepatorrenal (Henríquez), encefalopatía hepática (Ginesta), sarcopenia y fragilidad (Benítez), ACLF (Mezzano), consulta ambulatoria del cirrótico (Arnold), Fibroscan (Cattaneo), endohepatología (Vargas).</td></tr>
-<tr><td><b>Máster de Hepatología Clínica</b></td><td>Puntos clave de las asignaturas Cirrosis I, II y III.</td></tr>
-<tr><td><b>Curso de Hepatología Gastro Online</b></td><td>Diagnóstico de cirrosis, hemorragia variceal y su profilaxis, infecciones bacterianas, ACLF.</td></tr>
+<tr><td><b>Curso de Cirrosis y Trasplante Hepático · Clínica Dávila</b><br><span class="small">31 de julio y 1 de agosto de 2026</span></td><td>Actualizaciones en cirrosis (Oropeza), ACLF (Olivares), futilidad del trasplante en ACLF (Berenguer), anticoagulación (Vélez), manejo ambulatorio (Lazarte), elastografía esplénica (Ginesta), riesgo quirúrgico (Poniachik), GES 88 (Godoy), sarcopenia en trasplante (Wolff), hepatitis asociada al alcohol (Díaz), terapia de MASLD (Arrese), enfermedades colestásicas (Brahm).</td></tr>
+<tr><td><b>Curso de Hepatología para Becados 2026</b><br><span class="small">17 y 18 de abril de 2026</span></td><td>Hemorragia en hipertensión portal (Urzúa), ascitis refractaria y síndrome hepatorrenal (Henríquez), encefalopatía hepática (Ginesta), sarcopenia y fragilidad (Benítez), ACLF (Mezzano), consulta ambulatoria del cirrótico (Arnold), Fibroscan (Cattaneo), endohepatología (Vargas), falla hepática aguda (Rivas), MASLD y fibrosis (Barrera), farmacoterapia de MASLD (Arrese), MASH sistémica (Poniachik), hepatitis B (Zapata), hepatitis C (Soza), tamizaje y eliminación de hepatitis virales (Aravena), hepatitis autoinmune (Castro), CBP (Lazarte), CEP y sus imitadores (Jiménez), trastornos metabólicos raros (Brahm), DILI (Domínguez), hepatopatías agudas del embarazo (Catalán).</td></tr>
+<tr><td><b>Máster de Hepatología Clínica</b></td><td>Puntos clave de las asignaturas Cirrosis I, II y III, Enfermedad hepática metabólica, Hepatitis virales y Enfermedad hepática autoinmune.</td></tr>
+<tr><td><b>Consenso ACHHEP-SOCHIDIAB</b></td><td>Esteatosis hepática en DM2 en atención primaria (Díaz y cols., Rev Med Chile 2026).</td></tr>
+<tr><td><b>Curso de Hepatología Gastro Online</b></td><td>Diagnóstico de cirrosis, hemorragia variceal y su profilaxis, infecciones bacterianas, ACLF, alteración del perfil hepático (Urzúa), hepatitis aguda (Yaquich), falla hepática aguda (Norero), epidemiología de hepatitis B y C (Soza), enfermedades metabólicas (Zapata), hepatopatías autoinmunes (Brahm).</td></tr>
 </tbody></table></div>
 <p class="small">Generado con <code>fuentes/guia/actualizar.py</code> el {hoy}.</p>
 

@@ -2,31 +2,142 @@
   "titulo": "Hepatología 2026",
   "actualizado": "octubre 2026",
   "grupos": [
-    {"nombre": "Bases", "bloques": [
-      {"id": "b1", "num": 1, "titulo": "Perfil hepático alterado, hepatitis aguda y falla hepática aguda", "corto": "Perfil hepático · hepatitis aguda · FHA", "archivo": null}
-    ]},
-    {"nombre": "Cirrosis y sus complicaciones", "bloques": [
-      {"id": "b2", "num": 2, "titulo": "Cirrosis: diagnóstico, cACLD, HPCS y recompensación", "corto": "Cirrosis · cACLD · HPCS", "archivo": "b02_cirrosis_hpcs.html"},
-      {"id": "b3", "num": 3, "titulo": "Hipertensión portal: várices, hemorragia, TIPS y trombosis portal", "corto": "Hipertensión portal y HDA variceal", "archivo": "b03_hipertension_portal.html"},
-      {"id": "b4", "num": 4, "titulo": "Ascitis, PBE, HRS-AKI e hiponatremia", "corto": "Ascitis · PBE · HRS-AKI", "archivo": "b04_ascitis_renal.html"},
-      {"id": "b5", "num": 5, "titulo": "Encefalopatía hepática", "corto": "Encefalopatía hepática", "archivo": "b05_encefalopatia.html"},
-      {"id": "b6", "num": 6, "titulo": "ACLF: insuficiencia hepática aguda sobre crónica", "corto": "ACLF y futilidad", "archivo": "b06_aclf.html"},
-      {"id": "b7", "num": 7, "titulo": "El cirrótico integral: hemostasia, nutrición, consulta y cirugía", "corto": "Cirrótico integral · GES 88", "archivo": "b07_cirrotico_integral.html"}
-    ]},
-    {"nombre": "Etiologías", "bloques": [
-      {"id": "b8", "num": 8, "titulo": "MASLD/MASH y enfermedad hepática por alcohol", "corto": "MASLD · alcohol · HAA", "archivo": null},
-      {"id": "b9", "num": 9, "titulo": "Hepatitis virales B, C, D y E", "corto": "Hepatitis virales", "archivo": null},
-      {"id": "b10", "num": 10, "titulo": "Enfermedades autoinmunes: HAI, CBP, CEP, IgG4", "corto": "HAI · CBP · CEP", "archivo": null},
-      {"id": "b11", "num": 11, "titulo": "Enfermedades metabólicas: Wilson, hemocromatosis, A1AT", "corto": "Metabólicas", "archivo": null},
-      {"id": "b12", "num": 12, "titulo": "DILI y hepatotoxicidad por hierbas", "corto": "DILI · HILI", "archivo": null},
-      {"id": "b13", "num": 13, "titulo": "Hígado y embarazo", "corto": "Hígado y embarazo", "archivo": null}
-    ]},
-    {"nombre": "Oncología y trasplante", "bloques": [
-      {"id": "b14", "num": 14, "titulo": "Lesiones focales, hepatocarcinoma y colangiocarcinoma", "corto": "Lesiones focales · HCC", "archivo": null},
-      {"id": "b15", "num": 15, "titulo": "Trasplante hepático", "corto": "Trasplante hepático", "archivo": null}
-    ]},
-    {"nombre": "Talleres", "bloques": [
-      {"id": "b16", "num": 16, "titulo": "Imágenes, Fibroscan y endohepatología", "corto": "Imágenes · Fibroscan · endohepatología", "archivo": null}
-    ]}
+    {
+      "nombre": "Bases",
+      "bloques": [
+        {
+          "id": "b1",
+          "num": 1,
+          "titulo": "Perfil hepático alterado, hepatitis aguda y falla hepática aguda",
+          "corto": "Perfil hepático · hepatitis aguda · FHA",
+          "archivo": "b01_perfil_hepatitis_fha.html"
+        }
+      ]
+    },
+    {
+      "nombre": "Cirrosis y sus complicaciones",
+      "bloques": [
+        {
+          "id": "b2",
+          "num": 2,
+          "titulo": "Cirrosis: diagnóstico, cACLD, HPCS y recompensación",
+          "corto": "Cirrosis · cACLD · HPCS",
+          "archivo": "b02_cirrosis_hpcs.html"
+        },
+        {
+          "id": "b3",
+          "num": 3,
+          "titulo": "Hipertensión portal: várices, hemorragia, TIPS y trombosis portal",
+          "corto": "Hipertensión portal y HDA variceal",
+          "archivo": "b03_hipertension_portal.html"
+        },
+        {
+          "id": "b4",
+          "num": 4,
+          "titulo": "Ascitis, PBE, HRS-AKI e hiponatremia",
+          "corto": "Ascitis · PBE · HRS-AKI",
+          "archivo": "b04_ascitis_renal.html"
+        },
+        {
+          "id": "b5",
+          "num": 5,
+          "titulo": "Encefalopatía hepática",
+          "corto": "Encefalopatía hepática",
+          "archivo": "b05_encefalopatia.html"
+        },
+        {
+          "id": "b6",
+          "num": 6,
+          "titulo": "ACLF: insuficiencia hepática aguda sobre crónica",
+          "corto": "ACLF y futilidad",
+          "archivo": "b06_aclf.html"
+        },
+        {
+          "id": "b7",
+          "num": 7,
+          "titulo": "El cirrótico integral: hemostasia, nutrición, consulta y cirugía",
+          "corto": "Cirrótico integral · GES 88",
+          "archivo": "b07_cirrotico_integral.html"
+        }
+      ]
+    },
+    {
+      "nombre": "Etiologías",
+      "bloques": [
+        {
+          "id": "b8",
+          "num": 8,
+          "titulo": "MASLD/MASH y enfermedad hepática por alcohol",
+          "corto": "MASLD · alcohol · HAA",
+          "archivo": "b08_masld_alcohol.html"
+        },
+        {
+          "id": "b9",
+          "num": 9,
+          "titulo": "Hepatitis virales B, C, D y E",
+          "corto": "Hepatitis virales",
+          "archivo": "b09_virales.html"
+        },
+        {
+          "id": "b10",
+          "num": 10,
+          "titulo": "Enfermedades autoinmunes: HAI, CBP, CEP, IgG4",
+          "corto": "HAI · CBP · CEP · IgG4",
+          "archivo": "b10_autoinmunes.html"
+        },
+        {
+          "id": "b11",
+          "num": 11,
+          "titulo": "Enfermedades metabólicas: Wilson, hemocromatosis, A1AT",
+          "corto": "Metabólicas",
+          "archivo": "b11_metabolicas.html"
+        },
+        {
+          "id": "b12",
+          "num": 12,
+          "titulo": "DILI y hepatotoxicidad por hierbas",
+          "corto": "DILI · HILI · inmunoterapia",
+          "archivo": "b12_dili.html"
+        },
+        {
+          "id": "b13",
+          "num": 13,
+          "titulo": "Hígado y embarazo",
+          "corto": "Hígado y embarazo",
+          "archivo": "b13_embarazo.html"
+        }
+      ]
+    },
+    {
+      "nombre": "Oncología y trasplante",
+      "bloques": [
+        {
+          "id": "b14",
+          "num": 14,
+          "titulo": "Lesiones focales, hepatocarcinoma y colangiocarcinoma",
+          "corto": "Lesiones focales · HCC",
+          "archivo": null
+        },
+        {
+          "id": "b15",
+          "num": 15,
+          "titulo": "Trasplante hepático",
+          "corto": "Trasplante hepático",
+          "archivo": null
+        }
+      ]
+    },
+    {
+      "nombre": "Talleres",
+      "bloques": [
+        {
+          "id": "b16",
+          "num": 16,
+          "titulo": "Imágenes, Fibroscan y endohepatología",
+          "corto": "Imágenes · Fibroscan · endohepatología",
+          "archivo": null
+        }
+      ]
+    }
   ]
 }

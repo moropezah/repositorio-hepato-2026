@@ -41,7 +41,7 @@ document.getElementById('navsearch').addEventListener('input',function(e){
         var d=document.createElement('div'); d.className='q';
         d.innerHTML='<div class="qh">'+(i+1)+'. '+q.p+'</div>';
         q.o.forEach(function(op,j){
-          var o=document.createElement('div'); o.className='opt'; o.textContent=String.fromCharCode(65+j)+') '+op;
+          var o=document.createElement('div'); o.className='opt'; o.innerHTML=String.fromCharCode(65+j)+') '+op;
           o.addEventListener('click',function(){
             if(d.classList.contains('corr')) return;
             resp[i]=j;

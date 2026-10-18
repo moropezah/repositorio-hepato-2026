@@ -8,7 +8,7 @@ Material de estudio de hepatología para postgrado de gastroenterología, con el
 
 | Módulo | Qué es | Estado |
 |---|---|---|
-| 01 | **Guía de estudio Hepatología 2026** — 16 bloques. Cada uno abre con "qué cambió" frente a la guía previa, trae algoritmos con fármaco, dosis y criterio de falla, marcadores (idea clave, error frecuente, Chile) y cierra con caso clínico, flashcards y preguntas con corrección razonada. | Bloques 2–7 (cirrosis y complicaciones) escritos |
+| 01 | **Guía de estudio Hepatología 2026** — 16 bloques. Cada uno abre con "qué cambió" frente a la guía previa, trae algoritmos con fármaco, dosis y criterio de falla, marcadores (idea clave, error frecuente, Chile) y cierra con caso clínico, flashcards y preguntas con corrección razonada. | Bloques 1–13 escritos (bases, cirrosis y etiologías); 14–16 pendientes |
 | 02 | **Consulta rápida** — umbrales y conductas para el paciente delante. | En preparación |
 | 03 | **Vademécum hepatológico** — mecanismo, dosis, ajuste por Child-Pugh y función renal, criterio de falla y cobertura en Chile verificada contra los decretos vigentes. | En preparación |
 | 04 | **Calculadoras** — Child-Pugh, MELD, MELD-Na, MELD 3.0, CLIF-C ACLF, Maddrey, Lille, HAI simplificado, FIB-4, ANTICIPATE, Liver Frailty Index, VOCAL-Penn, BCLC, Milán, Metroticket y otras, validadas con casos de prueba. | En preparación |
@@ -16,19 +16,19 @@ Material de estudio de hepatología para postgrado de gastroenterología, con el
 
 ### Bloques de la guía
 
-1. Perfil hepático alterado, hepatitis aguda y falla hepática aguda
+1. **Perfil hepático alterado, hepatitis aguda y falla hepática aguda**
 2. **Cirrosis: diagnóstico, cACLD, HPCS y recompensación**
 3. **Hipertensión portal: várices, hemorragia, TIPS y trombosis portal**
 4. **Ascitis, PBE, HRS-AKI e hiponatremia**
 5. **Encefalopatía hepática**
 6. **ACLF: insuficiencia hepática aguda sobre crónica**
 7. **El cirrótico integral: hemostasia, nutrición, consulta (GES 88) y cirugía**
-8. MASLD/MASH y enfermedad hepática por alcohol
-9. Hepatitis virales B, C, D y E
-10. Enfermedades autoinmunes: HAI, CBP, CEP, IgG4
-11. Enfermedades metabólicas: Wilson, hemocromatosis, A1AT
-12. DILI y hepatotoxicidad por hierbas
-13. Hígado y embarazo
+8. **MASLD/MASH y enfermedad hepática por alcohol**
+9. **Hepatitis virales B, C, D y E**
+10. **Enfermedades autoinmunes: HAI, CBP, CEP, IgG4**
+11. **Enfermedades metabólicas: Wilson, hemocromatosis, A1AT**
+12. **DILI y hepatotoxicidad por hierbas**
+13. **Hígado y embarazo**
 14. Lesiones focales, hepatocarcinoma y colangiocarcinoma
 15. Trasplante hepático
 16. Imágenes, Fibroscan y endohepatología
