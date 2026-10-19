@@ -116,14 +116,14 @@
           "num": 14,
           "titulo": "Lesiones focales, hepatocarcinoma y colangiocarcinoma",
           "corto": "Lesiones focales · HCC",
-          "archivo": null
+          "archivo": "b14_lesiones_hcc.html"
         },
         {
           "id": "b15",
           "num": 15,
           "titulo": "Trasplante hepático",
           "corto": "Trasplante hepático",
-          "archivo": null
+          "archivo": "b15_trasplante.html"
         }
       ]
     },
@@ -135,7 +135,7 @@
           "num": 16,
           "titulo": "Imágenes, Fibroscan y endohepatología",
           "corto": "Imágenes · Fibroscan · endohepatología",
-          "archivo": null
+          "archivo": "b16_talleres.html"
         }
       ]
     }

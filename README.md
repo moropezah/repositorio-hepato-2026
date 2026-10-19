@@ -8,7 +8,7 @@ Material de estudio de hepatología para postgrado de gastroenterología, con el
 
 | Módulo | Qué es | Estado |
 |---|---|---|
-| 01 | **Guía de estudio Hepatología 2026** — 16 bloques. Cada uno abre con "qué cambió" frente a la guía previa, trae algoritmos con fármaco, dosis y criterio de falla, marcadores (idea clave, error frecuente, Chile) y cierra con caso clínico, flashcards y preguntas con corrección razonada. | Bloques 1–13 escritos (bases, cirrosis y etiologías); 14–16 pendientes |
+| 01 | **Guía de estudio Hepatología 2026** — 16 bloques. Cada uno abre con "qué cambió" frente a la guía previa, trae algoritmos con fármaco, dosis y criterio de falla, marcadores (idea clave, error frecuente, Chile) y cierra con caso clínico, flashcards y preguntas con corrección razonada. | 16 / 16 bloques escritos |
 | 02 | **Consulta rápida** — umbrales y conductas para el paciente delante. | En preparación |
 | 03 | **Vademécum hepatológico** — mecanismo, dosis, ajuste por Child-Pugh y función renal, criterio de falla y cobertura en Chile verificada contra los decretos vigentes. | En preparación |
 | 04 | **Calculadoras** — Child-Pugh, MELD, MELD-Na, MELD 3.0, CLIF-C ACLF, Maddrey, Lille, HAI simplificado, FIB-4, ANTICIPATE, Liver Frailty Index, VOCAL-Penn, BCLC, Milán, Metroticket y otras, validadas con casos de prueba. | En preparación |
@@ -29,9 +29,9 @@ Material de estudio de hepatología para postgrado de gastroenterología, con el
 11. **Enfermedades metabólicas: Wilson, hemocromatosis, A1AT**
 12. **DILI y hepatotoxicidad por hierbas**
 13. **Hígado y embarazo**
-14. Lesiones focales, hepatocarcinoma y colangiocarcinoma
-15. Trasplante hepático
-16. Imágenes, Fibroscan y endohepatología
+14. **Lesiones focales, hepatocarcinoma y colangiocarcinoma**
+15. **Trasplante hepático**
+16. **Imágenes, Fibroscan y endohepatología**
 
 ## Estructura de archivos
 
