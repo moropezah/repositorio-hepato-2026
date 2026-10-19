@@ -85,7 +85,7 @@ doc = f"""<!DOCTYPE html>
   <div class="meta">
     <div><b>Actualizado</b> · {cfg["actualizado"]}</div>
     <div><b>Nivel</b> · residente de gastroenterología</div>
-    <div><b>Marco local</b> · GES · Ley Ricarte Soto · MINSAL</div>
+    <div><b>Marco local</b> · GES 88 · MINSAL</div>
     <div><b>{escritos} de {total} bloques</b> · {nfc} flashcards · {npreg} preguntas</div>
   </div>
   <div class="autor-g">
@@ -110,7 +110,7 @@ doc = f"""<!DOCTYPE html>
 <div class="box nue"><div class="t">Sobre la evidencia</div>
 <p>Baveno VIII se publicó en agosto de 2026 (J Hepatol 2026;85:993–1018). Los umbrales que aquí se le atribuyen provienen de su resumen
 oficial y de las charlas del curso que ya los incorporaron; donde la redacción exacta del consenso importa para la conducta, el texto lo indica.
-El listado de fármacos de cada canasta del GES 88 y la cobertura de la Ley Ricarte Soto se verifican en el Módulo 03 (vademécum).</p></div>
+El listado de fármacos de la canasta del GES 88 se verifica en el Módulo 03 (vademécum). La Ley Ricarte Soto no cubre fármacos de hepatología (su única condición hepática es la tirosinemia tipo 1, con nitisinona).</p></div>
 {"".join(cuerpo)}
 
 <!-- ================= FUENTES ================= -->
