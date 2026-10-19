@@ -110,7 +110,7 @@ doc = f"""<!DOCTYPE html>
 <div class="box nue"><div class="t">Sobre la evidencia</div>
 <p>Baveno VIII se publicó en agosto de 2026 (J Hepatol 2026;85:993–1018). Los umbrales que aquí se le atribuyen provienen de su resumen
 oficial y de las charlas del curso que ya los incorporaron; donde la redacción exacta del consenso importa para la conducta, el texto lo indica.
-El listado de fármacos de la canasta del GES 88 se verifica en el Módulo 03 (vademécum). La Ley Ricarte Soto no cubre fármacos de hepatología (su única condición hepática es la tirosinemia tipo 1, con nitisinona).</p></div>
+La canasta de fármacos del GES 88 está verificada contra los lineamientos técnicos del MINSAL (Res. Exenta N° 1452, 2025) en el bloque 7. La Ley Ricarte Soto no cubre fármacos de hepatología (su única condición hepática es la tirosinemia tipo 1, con nitisinona).</p></div>
 {"".join(cuerpo)}
 
 <!-- ================= FUENTES ================= -->
