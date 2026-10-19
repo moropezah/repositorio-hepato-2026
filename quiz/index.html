@@ -187,7 +187,7 @@ textarea.dump{width:100%;min-height:180px;font:12px var(--mono);background:var(-
 
 <header class="top">
   <div class="row">
-    <div class="brand">Quiz Hepatología <small>2026 · 160 casos · 16 bloques</small></div>
+    <div class="brand">Quiz Hepatología <small>2026 · 164 casos · 16 bloques</small></div>
     <span class="spacer"></span>
     <span id="syncState" class="sync" title="Estado de guardado">● local</span>
     <button class="btn ghost" id="themeBtn" type="button" aria-label="Cambiar tema">◐ Tema</button>
@@ -401,6 +401,15 @@ p:"El GPVH puede ser normal o poco elevado en la EVPS: mide presión sinusoidal.
 r:"De Gottardi A, Lancet Gastroenterol Hepatol 2019 · Baveno VII"},
 
 /* ===================== Bloque 3 · Hipertensión portal y hemorragia variceal ===================== */
+
+{id:"CI11",b:"CI",t:"Cirrosis y HPCS",n:"R",md:"X",
+q:"Hombre de 63 años con cirrosis por alcohol, abstinente hace 2 años, con bloqueo AV de segundo grado que contraindica los BBNS. Rigidez hepática 21 kPa, plaquetas 142.000/mm³, rigidez esplénica 36 kPa. Nunca se ha hecho endoscopía. ¿Qué indica Baveno VIII?",
+o:["Endoscopía de tamizaje: no cumple rigidez &lt; 20 kPa con plaquetas ≥ 150.000","Evitar la endoscopía: la rigidez esplénica &lt; 40 kPa basta","Ligadura empírica de várices sin endoscopía previa","Medir GPVH antes de decidir"],
+c:1,
+e:"En la cACLD que no puede recibir BBNS, Baveno VIII (1.19) permite evitar la endoscopía con rigidez &lt; 20 kPa y plaquetas ≥ 150.000 <b>o</b> con <b>rigidez esplénica &lt; 40 kPa</b>. Este paciente cumple el segundo criterio. Los tests se repiten a los 12 meses.",
+w:{0:"Olvida el criterio nuevo de rigidez esplénica, que es alternativo y no acumulativo.",2:"No se liga sin documentar várices grandes.",3:"El GPVH no cambia la conducta: el BBNS está contraindicado de todos modos."},
+p:"Si se hace una endoscopía y no hay várices, se repite a los 3 años si la causa está suprimida, como aquí, o a los 2 años si sigue activa (1.20).",
+r:"Baveno VIII (J Hepatol 2026;85:993-1018), enunciados 1.19–1.20"},
 {id:"HP01",b:"CI",t:"Hipertensión portal y HDA",n:"R",md:"E",
 q:"Hombre de 57 años con cirrosis alcohólica ingresa con hematemesis. PA 96/60, FC 112, Hb 6,8 g/dL. ¿Cuál es la primera indicación farmacológica junto con la reanimación?",
 o:["Omeprazol en bolo e infusión como tratamiento principal","Terlipresina 2 mg EV c/4 h (u octreótido) y ceftriaxona 1 g/día","Plasma fresco para corregir el INR antes de la endoscopía","Ácido tranexámico 1 g EV"],
@@ -492,6 +501,33 @@ p:"La profilaxis reduce infecciones, resangrado y mortalidad.",
 r:"Baveno VIII 2026 · ACG 2026"},
 
 /* ===================== Bloque 4 · Ascitis, PBE, HRS-AKI e hiponatremia ===================== */
+
+{id:"HP11",b:"CI",t:"Hipertensión portal y HDA",n:"R",md:"E",
+q:"Mujer de 41 años con colitis ulcerosa en azatioprina desde hace 10 años. Plaquetas 98.000/mm³ y bazo de 15 cm. Rigidez hepática 6,2 kPa y esplénica 58 kPa. Várices esofágicas pequeñas. Porta permeable. Biopsia de 20 mm sin cirrosis, con vénulas portales muscularizadas. ¿Puntaje PSVD/NCPF de Baveno VIII y diagnóstico?",
+o:["6: posible","9: definitivo","8: definitivo","4: posible"],
+c:1,
+e:"Signo <b>específico</b> de hipertensión portal: rigidez esplénica &gt; 40 kPa sin neoplasia mieloproliferativa (+3; supera a las várices pequeñas y la plaquetopenia, que son inespecíficas, +2). Lesión histológica <b>mayor</b>: vénulas portales muscularizadas (+5). <b>Condición asociada</b>: tiopurina y EII (+1). Sin causa de cirrosis (0). Total <b>9: PSVD/NCPF definitivo</b> (≥ 5).",
+w:{0:"Suma mal los componentes; un signo específico más una lesión mayor ya dan 8.",2:"Omite el punto de la condición asociada (azatioprina y EII).",3:"Toma las várices pequeñas (+2) como el signo más alto y la lesión como menor."},
+p:"Rigidez hepática &lt; 10 kPa con signos de hipertensión portal: pensar en enfermedad vascular (Baveno VIII 1.6). Suspender la tiopurina en conjunto con el equipo de EII.",
+r:"Baveno VIII, Fig. 4 y enunciados 8.38–8.45"},
+
+{id:"HP12",b:"CI",t:"Hipertensión portal y HDA",n:"R",md:"X",
+q:"Hombre de 47 años con trombosis portal reciente no cirrótica. El estudio muestra mutación JAK2 V617F con hemograma normal. Anticoagulado, a los 6 meses tiene recanalización completa. ¿Conducta a largo plazo según Baveno VIII?",
+o:["Suspender: recanalizó por completo","ACOD a dosis baja indefinido","Anticoagulación indefinida a dosis plena","Aspirina y suspender la anticoagulación"],
+c:2,
+e:"La <b>neoplasia mieloproliferativa</b> (aunque sea oculta, con hemograma normal) es un factor de riesgo permanente <b>mayor</b>: el riesgo de recurrencia es alto y corresponde <b>anticoagulación indefinida a dosis terapéutica</b> (fuerte), aunque haya recanalizado. Derivar a hematología para el tratamiento de la neoplasia.",
+w:{0:"Suspender solo procede si la trombosis fue provocada, el factor reversible resolvió y no hay factor permanente.",1:"La dosis baja de ACOD es para riesgo intermedio: factor no mayor o trombosis no provocada sin factor permanente.",3:"La aspirina no reemplaza la anticoagulación en un factor mayor."},
+p:"Clasificar siempre: provocada (factor reversible en los 3 meses previos) o no provocada, y factor permanente ausente, no mayor o mayor (Baveno VIII, Fig. 5 y tabla S4).",
+r:"Baveno VIII, enunciados 9.5–9.10"},
+
+{id:"HP13",b:"CI",t:"Hipertensión portal y HDA",n:"S",md:"E",
+q:"Paciente con cirrosis Child-Pugh A6, no candidato a trasplante, con trombosis reciente del tronco portal con luz remanente del 30 %, asintomática. Filtración glomerular 75 mL/min, plaquetas 85.000/mm³. ¿Qué recomienda Baveno VIII?",
+o:["Vigilar con imagen cada 3 meses sin anticoagular","Anticoagular al menos 6 meses y considerar mantenerla a largo plazo aunque recanalice","Anticoagular solo si progresa a la mesentérica superior","TIPS de primera línea"],
+c:1,
+e:"Una luz remanente &lt; 50 % es oclusión <b>parcial</b> (VALDIG). La trombosis reciente parcial o completa del tronco es indicación de anticoagular (fuerte en Baveno VIII). Se mantiene <b>≥ 6 meses</b> y se considera a largo plazo independiente de la recanalización. En Child A los ACOD son seguros.",
+w:{0:"La vigilancia sin anticoagular se reserva para la trombosis mínima (luz remanente ≥ 50 %) estable en el no candidato.",2:"La progresión es criterio para anticoagular a quien se estaba vigilando; esta trombosis ya cumple indicación.",3:"El TIPS es primera línea solo si hay complicaciones de hipertensión portal y la anticoagulación está contraindicada."},
+p:"Riesgos de sangrado que obligan a individualizar: edad, fragilidad, filtración &lt; 30 mL/min, descompensación y plaquetas &lt; 50.000/mm³.",
+r:"Baveno VIII, enunciados 9.3, 9.19–9.24 · EASL vascular 2026"},
 {id:"AS01",b:"CI",t:"Ascitis, PBE y HRS-AKI",n:"R",md:"E",
 q:"Ascitis nueva: albúmina sérica 2,9 g/dL, albúmina en ascitis 1,0 g/dL, proteínas en ascitis 3,1 g/dL. ¿Orientación?",
 o:["Cirrosis","Insuficiencia cardíaca o Budd-Chiari","Carcinomatosis peritoneal","Síndrome nefrótico"],

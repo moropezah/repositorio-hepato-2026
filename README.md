@@ -9,16 +9,16 @@ Material de estudio de hepatología para postgrado de gastroenterología, con el
 | Módulo | Qué es | Estado |
 |---|---|---|
 | 01 | **Guía de estudio Hepatología 2026** — 16 bloques. Cada uno abre con "qué cambió" frente a la guía previa, trae algoritmos con fármaco, dosis y criterio de falla, marcadores (idea clave, error frecuente, Chile) y cierra con caso clínico, flashcards y preguntas con corrección razonada. | 16 / 16 bloques escritos |
-| 02 | **Consulta rápida** — 18 tarjetas con buscador: HPCS (Baveno VIII), hemorragia variceal, ascitis, PBE, HRS-AKI, encefalopatía, ACLF, hepatitis alcohólica, FHA, DILI, VHB, VHC, BCLC, trasplante, GES 88, MASLD, autoinmunes y embarazo. En `index.html#rapida`. | Escrito |
+| 02 | **Consulta rápida** — 19 tarjetas con buscador: HPCS (Baveno VIII), hemorragia variceal, enfermedad vascular hepática (trombosis portal, Budd-Chiari, PSVD), ascitis, PBE, HRS-AKI, encefalopatía, ACLF, hepatitis alcohólica, FHA, DILI, VHB, VHC, BCLC, trasplante, GES 88, MASLD, autoinmunes y embarazo. En `index.html#rapida`. | Escrito |
 | 03 | **Vademécum hepatológico** — 74 fármacos en 13 grupos: mecanismo, indicación, dosis, ajustes, monitoreo y criterio de falla, efectos adversos y cobertura en Chile (GES 88 confirmado / no confirmado, GES 68 y 69, Ley Ricarte Soto, sin registro). Filtros por grupo y cobertura. En `index.html#vademecum`. | Escrito |
-| 04 | **Calculadoras** — 22: Child-Pugh, MELD / MELD-Na / MELD 3.0, ALBI, cACLD y HPCS (Baveno VIII), ACLF (grado y CLIF-C), CLIF-C AD, LRA (ICA-ADQI), líquido ascítico, Maddrey, Lille, GAHS, ABIC, FIB-4, APRI, NFS, HAI simplificado, respuesta al AUDC, Leipzig, factor R y ley de Hy, King's College, BCLC con criterios de trasplante (Milán, UCSF, up-to-seven, Metroticket 2.0, AFP francés), PAGE-B. En `calc/`. | Escrito |
-| 05 | **Quiz Hepatología** — 160 casos propios (10 por bloque; 83 de estudio, 77 de examen) con explicación, por qué no las otras, perla y referencias; examen cronometrado, flashcards, progreso por tema, temario enlazado a la guía, siglas y exportación (HTML, CSV, Anki, JSON, PDF). Sincroniza con el Sheet propio «Quiz Hepatología 2026 · Progreso» vía Apps Script (`fuentes/quiz/Code.gs`, ver `INSTRUCCIONES.md`). En `quiz/`. | Escrito |
+| 04 | **Calculadoras** — 24: Child-Pugh, MELD / MELD-Na / MELD 3.0, ALBI, cACLD y HPCS (Baveno VIII), puntaje PSVD/NCPF y anticoagulación en trombosis portal no cirrótica (Baveno VIII), ACLF (grado y CLIF-C), CLIF-C AD, LRA (ICA-ADQI), líquido ascítico, Maddrey, Lille, GAHS, ABIC, FIB-4, APRI, NFS, HAI simplificado, respuesta al AUDC, Leipzig, factor R y ley de Hy, King's College, BCLC con criterios de trasplante (Milán, UCSF, up-to-seven, Metroticket 2.0, AFP francés), PAGE-B. En `calc/`. | Escrito |
+| 05 | **Quiz Hepatología** — 164 casos propios (al menos 10 por bloque; 85 de estudio, 79 de examen) con explicación, por qué no las otras, perla y referencias; examen cronometrado, flashcards, progreso por tema, temario enlazado a la guía, siglas y exportación (HTML, CSV, Anki, JSON, PDF). Sincroniza con el Sheet propio «Quiz Hepatología 2026 · Progreso» vía Apps Script (`fuentes/quiz/Code.gs`, ver `INSTRUCCIONES.md`). En `quiz/`. | Escrito |
 
 ### Bloques de la guía
 
 1. **Perfil hepático alterado, hepatitis aguda y falla hepática aguda**
 2. **Cirrosis: diagnóstico, cACLD, HPCS y recompensación**
-3. **Hipertensión portal: várices, hemorragia, TIPS y trombosis portal**
+3. **Hipertensión portal: várices, hemorragia, TIPS y enfermedad vascular hepática** (trombosis portal, Budd-Chiari, PSVD/NCPF)
 4. **Ascitis, PBE, HRS-AKI e hiponatremia**
 5. **Encefalopatía hepática**
 6. **ACLF: insuficiencia hepática aguda sobre crónica**

@@ -160,25 +160,32 @@ const CALCS=[
   return {vals:[V('ALBI',fmt(x,2),gr===1?'ok':gr===2?'mid':'bad'),V('Grado',gr,gr===1?'ok':gr===2?'mid':'bad')],txt:'Grado 1 ≤ −2,60 · grado 2 &gt; −2,60 a ≤ −1,39 · grado 3 &gt; −1,39. Discrimina dentro del Child A.'}},
  ref:'Johnson PJ et al. J Clin Oncol 2015;33:550-8.'},
 
-{id:'hpcs',g:'Cirrosis',t:'cACLD y HPCS no invasiva (Baveno VIII)',d:'Reglas de Baveno VIII con rigidez hepática (VCTE), plaquetas y rigidez esplénica a 100 Hz.',
+{id:'hpcs',g:'Cirrosis',t:'cACLD y HPCS no invasiva (Baveno VIII)',d:'Reglas de Baveno VIII con rigidez hepática (VCTE, en ayuno), plaquetas y rigidez esplénica a 100 Hz; incluye la decisión de endoscopía en quien no puede recibir BBNS.',
  i:[n('lsm','Rigidez hepática (VCTE)','kPa','18'),n('plt','Plaquetas','×10³/µL','128'),n('ssm','Rigidez esplénica 100 Hz (opcional)','kPa',''),
     s('et','Etiología',[['v','Viral'],['a','Alcohol'],['m','MASLD con IMC < 30'],['mo','MASLD con IMC ≥ 30'],['o','Otra']]),
-    c('bb','Ya recibe betabloqueador no selectivo')],
+    c('bb','Ya recibe betabloqueador no selectivo'),c('nobb','No puede recibir BBNS (contraindicación o intolerancia)'),
+    c('sup','Causa retirada o suprimida (abstinencia, RVS, VHB suprimido)')],
  f(v){if(!need(v,['lsm','plt']))return null;
-  const L=v.lsm,P=v.plt,S=v.ssm; let cacld=L<10?'Descarta cACLD':L<15?'Sugiere cACLD':'cACLD muy probable';
+  const L=v.lsm,P=v.plt,S=v.ssm; let cacld=L<10?'Descarta cACLD':L<=15?'Sugiere cACLD':'cACLD muy probable';
   let h,cls; const out=L<=15&&P>=150;
   const inA=(L>=25&&['v','a','m'].includes(v.et))||(S!==null&&S>55);
-  if(out){h='HPCS descartada';cls='ok'}else if(inA){h='HPCS confirmada';cls='bad'}else{h='Zona gris';cls='mid'}
+  const vasc=L<10&&(P<150||(S!==null&&S>40));
+  if(vasc){h='No aplica: sospecha vascular';cls='mid'}else if(out||L<10){h='HPCS descartada';cls='ok'}else if(inA){h='HPCS confirmada';cls='bad'}else{h='Zona gris';cls='mid'}
+  if(vasc) return {vals:[V('cACLD','Descarta cACLD','ok'),V('HPCS',h,cls)],txt:'<b>Rigidez &lt; 10 kPa con signos de hipertensión portal:</b> los criterios de cACLD y HPCS no aplican. Sospechar <b>enfermedad vascular hepática</b> (Baveno VIII 1.6): Doppler y TC con contraste para trombosis portal o Budd-Chiari; si no hay trombosis, biopsia adecuada y puntaje PSVD/NCPF (calculadora en «Enfermedad vascular»). En PSVD la endoscopía se evita solo con rigidez esplénica &lt; 40 kPa y bilirrubina &lt; 1 mg/dL.'};
+  const evita=(L<20&&P>=150)||(S!==null&&S<40);
+  const rep=v.sup?'3 años (causa suprimida)':'2 años (causa activa)';
   let endo='';
-  if(inA) endo='<b>Carvedilol</b> 6,25 mg/día → 6,25 mg c/12 h; no requiere endoscopía de tamizaje (endoscopía solo si no tolera BBNS).';
-  else if(v.bb) endo='En BBNS: no requiere endoscopía de tamizaje.';
-  else if(L<20&&P>150) endo='Evita endoscopía (Baveno VI: rigidez &lt; 20 kPa y plaquetas &gt; 150.000). Repetir anualmente.';
-  else if(L<25&&P>110) endo='Cumple el criterio expandido (&lt; 25 kPa y &gt; 110.000): riesgo bajo de várices que requieren tratamiento; decisión individual.';
-  else endo='Endoscopía de tamizaje indicada si no inicia BBNS.';
+  if(v.bb&&!v.nobb) endo='En BBNS: no requiere endoscopía de tamizaje (Baveno VIII 3.18).';
+  else if(inA&&!v.nobb) endo='<b>Carvedilol</b> 6,25 mg/día → 6,25 mg c/12 h; no requiere endoscopía de tamizaje.';
+  else if(evita) endo='Evita endoscopía: '+(L<20&&P>=150?'rigidez &lt; 20 kPa y plaquetas ≥ 150.000 (Baveno VI)':'rigidez esplénica &lt; 40 kPa (Baveno VIII 1.19)')+'. Repetir los tests en 12 meses.';
+  else if(v.nobb) endo='<b>Endoscopía</b>: ligar várices grandes (esofágicas o GOV1). Sin várices, repetir a los '+rep+', salvo que antes cumpla los criterios para evitarla (Baveno VIII 1.19–1.20).';
+  else if(L<25&&P>110) endo='Cumple el criterio expandido (&lt; 25 kPa y &gt; 110.000), que no es de consenso: riesgo bajo de várices que requieren tratamiento. Si no inicia BBNS, decisión individual.';
+  else endo='Si no inicia BBNS: endoscopía de tamizaje. Sin várices, repetir a los '+rep+'.';
   let nota=''; if(L>=25&&v.et==='mo'&&!(S>55)) nota='<br>En MASLD con obesidad el corte de 25 kPa pierde VPP: usar ANTICIPATE-NASH o rigidez esplénica.';
   if(h==='Zona gris') nota+='<br>Zona gris: calcular ANTICIPATE ± NASH o NICER (≥ 75 % confirma), agregar rigidez esplénica o reevaluar a los 12 meses; GPVH si cambia la conducta.';
-  return {vals:[V('cACLD',cacld,L<10?'ok':L<15?'mid':'bad'),V('HPCS',h,cls)],txt:endo+nota}},
- ref:'Baveno VIII – Advancing consensus in portal hypertension. J Hepatol 2026;85:993-1018 · Baveno VII (J Hepatol 2022;76:959).'},
+  if(L>=10) nota+='<br>Índice ≥ 10 kPa: confirmar con una segunda medición en ayuno u otro test de fibrosis avanzada antes de rotular la cACLD.';
+  return {vals:[V('cACLD',cacld,L<10?'ok':L<=15?'mid':'bad'),V('HPCS',h,cls)],txt:endo+nota}},
+ ref:'Baveno VIII – Advancing consensus in portal hypertension. J Hepatol 2026;85:993-1018 (1.3–1.20, 3.18–3.19) · Baveno VII (J Hepatol 2022;76:959).'},
 
 {id:'aclf',g:'Cirrosis',t:'ACLF: grado EASL-CLIF y CLIF-C ACLF',d:'Fallas orgánicas por CLIF-OF, grado de ACLF y score pronóstico (si no hay ACLF, usar CLIF-C AD).',
  i:[n('age','Edad','años','56'),n('wbc','Leucocitos','×10⁹/L','14'),n('bili','Bilirrubina','mg/dL','8'),n('cr','Creatinina','mg/dL','2.4'),c('rrt','Terapia de reemplazo renal'),
@@ -229,6 +236,40 @@ const CALCS=[
   if(need(v,['lit'])){ if(v.lit>5){vals.push(V('Albúmina','' + Math.round(6*v.lit)+'–'+Math.round(8*v.lit)+' g','')); t.push('6–8 g por litro extraído.');} else {vals.push(V('Albúmina','No necesaria','ok')); t.push('≤ 5 L: albúmina no obligatoria.');}}
   return vals.length?{vals,txt:t.filter(Boolean).join(' ')}:null},
  ref:'EASL CPG descompensada 2018 · Runyon BA.'},
+
+/* ---------- enfermedad vascular hepática ---------- */
+{id:'psvd',g:'Enfermedad vascular',t:'PSVD / NCPF: puntaje diagnóstico (Baveno VIII)',d:'Trastorno vascular porto-sinusoidal o fibrosis portal no cirrótica. Requiere biopsia adecuada (≥ 15 mm, un fragmento ≥ 10 mm) sin cirrosis y ausencia de criterios de exclusión.',
+ i:[s('hp','Signos de hipertensión portal (el más alto)',[[3,'Específico: várices esofágicas medianas o grandes, várices gástricas, colaterales espontáneas o rigidez esplénica > 40 kPa sin neoplasia mieloproliferativa'],[2,'Inespecífico: ascitis clínica, várices pequeñas, plaquetas < 150.000 o esplenomegalia'],[0,'Ninguno']]),
+    s('hi','Lesión histológica',[[5,'Mayor: HNR, vénulas portales muscularizadas, estenosis de vénulas en ≥ 50 % de los espacios porta, o las tres menores juntas'],[2,'Menor: distribución vascular anormal, estenosis en 25–49 %, cambios regenerativos sin HNR clara'],[0,'Normal']]),
+    c('aso','Condición asociada (tiopurinas, oxaliplatino, didanosina, inmunodeficiencia común variable, EII, celíaca, autoinmunes sistémicas, trombofilia, NMP, VIH, trasplante, genéticas…)'),
+    c('cir','Causa concomitante de cirrosis (virus, alcohol, síndrome metabólico)'),
+    c('ok','Biopsia adecuada sin cirrosis y sin criterios de exclusión (Budd-Chiari, cardiopatía/Fontan, colestasias, fibrosis congénita, esquistosomiasis hepatoesplénica, SOS < 6 meses, infiltración…)')],
+ f(v){const p=(+v.hp)+(+v.hi)+(v.aso?1:0)-(v.cir?1:0);
+  const cat=p>=5?'Definitivo':p>=3?'Posible':'No';
+  let txt=p>=5?'<b>PSVD/NCPF definitivo.</b> Estudiar condiciones asociadas (fármacos, inmunes, hematológicas, genéticas, VIH); endoscopía al diagnóstico salvo rigidez esplénica &lt; 40 kPa con bilirrubina &lt; 1 mg/dL; TC o RM con contraste; Doppler cada 6 meses si hay hipertensión portal. No aplicar Baveno VI.'
+   :p>=3?'<b>Posible PSVD/NCPF.</b> Completar estudios (nueva biopsia, rigidez hepática y esplénica), derivar a un centro con experiencia en enfermedad vascular y seguir para detectar signos nuevos.'
+   :'No cumple criterios de PSVD/NCPF.';
+  if(!v.ok) txt='<b>Atención:</b> el puntaje solo es válido con biopsia adecuada sin cirrosis y sin criterios de exclusión.<br>'+txt;
+  return {vals:[V('Puntaje',p,p>=5?'bad':p>=3?'mid':'ok'),V('PSVD/NCPF',cat,p>=5?'bad':p>=3?'mid':'ok')],
+   txt:txt+'<br>Hipertensión portal '+v.hp+' · histología '+v.hi+' · condición asociada '+(v.aso?1:0)+' · causa de cirrosis '+(v.cir?-1:0)+'. 0–2 no · 3–4 posible · ≥ 5 definitivo.'}},
+ ref:'Baveno VIII – J Hepatol 2026;85:993-1018, Fig. 4 y enunciados 8.38–8.53; tablas S2 y S3.'},
+
+{id:'tvpnc',g:'Enfermedad vascular',t:'Trombosis portal no cirrótica: anticoagulación',d:'Duración y estrategia a largo plazo según factores de riesgo de recurrencia (Baveno VIII, Fig. 5 y tabla S4). Siempre: anticoagulación terapéutica inmediata al diagnóstico.',
+ i:[s('pm','Factor de riesgo permanente',[['no','Ausente'],['nm','No mayor: FV Leiden o G20210A heterocigoto aislado, hiperhomocisteinemia, obesidad central, variantes NGS de alto riesgo'],['ma','Mayor: NMP, HPN, SAF, Behçet, trombofilia homocigota o compuesta, déficit AT/PC/PS, cáncer activo, TVP personal o familiar 1.er grado']]),
+    c('prov','Provocada: factor reversible en los 3 meses previos (cirugía, trauma o inflamación/infección abdominal, estrógenos, embarazo, CMV, SARS-CoV-2)'),
+    c('res','El factor reversible ya resolvió'),
+    s('rec','Recanalización',[['nd','Aún no evaluada'],['c3','Completa a los 3 meses'],['inc','Incompleta a los 6 meses']]),
+    c('ext','Extensión a la mesentérica superior o a la esplénica')],
+ f(v){let rc,cls,txt;
+  if(v.pm==='ma'){rc='Alto';cls='bad';txt='<b>Anticoagulación indefinida a dosis plena</b> (fuerte).';}
+  else if(v.pm==='nm'||!v.prov){rc='Intermedio o indeterminado';cls='mid';txt='Tras el período inicial, considerar <b>ACOD a dosis baja</b> indefinido (débil; dato disponible: rivaroxabán 15 mg/día).';}
+  else {rc='Bajo';cls='ok';txt=v.res?'Tras el período inicial, considerar <b>suspender</b> (débil).':'Mantener mientras persista el factor reversible; luego considerar suspender.';}
+  let dur='Duración mínima: <b>6 meses</b> (fuerte).';
+  if(v.rec==='c3'&&v.prov&&v.res&&v.pm==='no') dur='Recanalización completa a los 3 meses, factor reversible resuelto y sin factor permanente: <b>puede suspenderse ya</b> (débil, nuevo).';
+  if(v.rec==='inc'&&v.ext) dur='Sin recanalización a los 6 meses con extensión mesentérica o esplénica: puede seguir <b>6 meses más a dosis plena</b>, porque la recanalización tardía ocurre (débil).';
+  let extra=v.ext?'<br>Extensión mesentérica: vigilar isquemia intestinal; si persiste o empeora tras 24–48 h de anticoagulación sin indicación de resección, tratamiento endovascular en un centro experto.':'';
+  return {vals:[V('Riesgo de recurrencia',rc,cls)],txt:dur+'<br>'+txt+extra+'<br>Endoscopía al diagnóstico; sin várices de alto riesgo, repetir a los 12 meses y luego cada 2 años (se evita si la rigidez esplénica es &lt; 40 kPa). ACOD contraindicados en SAF doble o triple positivo, embarazo y filtración &lt; 30 mL/min.'}},
+ ref:'Baveno VIII – J Hepatol 2026;85:993-1018, enunciados 9.1–9.15, Fig. 5 y tabla S4.'},
 
 /* ---------- alcohol ---------- */
 {id:'maddrey',g:'Hepatitis alcohólica',t:'Función discriminante de Maddrey',d:'Gravedad de la hepatitis alcohólica.',
