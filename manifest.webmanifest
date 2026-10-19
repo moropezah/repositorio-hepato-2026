@@ -37,6 +37,10 @@
    "url": "calc/"
   },
   {
+   "name": "Quiz",
+   "url": "quiz/"
+  },
+  {
    "name": "Vademécum",
    "url": "./#vademecum"
   }

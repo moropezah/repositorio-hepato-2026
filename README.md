@@ -12,7 +12,7 @@ Material de estudio de hepatología para postgrado de gastroenterología, con el
 | 02 | **Consulta rápida** — 18 tarjetas con buscador: HPCS (Baveno VIII), hemorragia variceal, ascitis, PBE, HRS-AKI, encefalopatía, ACLF, hepatitis alcohólica, FHA, DILI, VHB, VHC, BCLC, trasplante, GES 88, MASLD, autoinmunes y embarazo. En `index.html#rapida`. | Escrito |
 | 03 | **Vademécum hepatológico** — 74 fármacos en 13 grupos: mecanismo, indicación, dosis, ajustes, monitoreo y criterio de falla, efectos adversos y cobertura en Chile (GES 88 confirmado / no confirmado, GES 68 y 69, Ley Ricarte Soto, sin registro). Filtros por grupo y cobertura. En `index.html#vademecum`. | Escrito |
 | 04 | **Calculadoras** — 22: Child-Pugh, MELD / MELD-Na / MELD 3.0, ALBI, cACLD y HPCS (Baveno VIII), ACLF (grado y CLIF-C), CLIF-C AD, LRA (ICA-ADQI), líquido ascítico, Maddrey, Lille, GAHS, ABIC, FIB-4, APRI, NFS, HAI simplificado, respuesta al AUDC, Leipzig, factor R y ley de Hy, King's College, BCLC con criterios de trasplante (Milán, UCSF, up-to-seven, Metroticket 2.0, AFP francés), PAGE-B. En `calc/`. | Escrito |
-| 05 | **Quiz Hepatología** — banco propio de casos clínicos con flashcards y progreso en Google Sheets (Sheet propio, independiente del de EII). | En preparación |
+| 05 | **Quiz Hepatología** — 160 casos propios (10 por bloque; 83 de estudio, 77 de examen) con explicación, por qué no las otras, perla y referencias; examen cronometrado, flashcards, progreso por tema, temario enlazado a la guía, siglas y exportación (HTML, CSV, Anki, JSON, PDF). Sincroniza con el Sheet propio «Quiz Hepatología 2026 · Progreso» vía Apps Script (`fuentes/quiz/Code.gs`, ver `INSTRUCCIONES.md`). En `quiz/`. | Escrito |
 
 ### Bloques de la guía
 
@@ -38,6 +38,7 @@ Material de estudio de hepatología para postgrado de gastroenterología, con el
 ```
 index.html          · portada (#inicio), consulta rápida (#rapida), vademécum (#vademecum), fuentes (#fuentes)
 calc/index.html     · módulo 04, calculadoras (autocontenido; se edita directamente)
+quiz/index.html     · módulo 05, GENERADO por fuentes/quiz/actualizar.py — no editar a mano
 guia-2026.html      · módulo 01, GENERADO por fuentes/guia/actualizar.py — no editar a mano
 manifest.webmanifest, sw.js, icons/   · app instalable (funciona sin conexión)
 fuentes/guia/
@@ -48,6 +49,10 @@ fuentes/guia/
 fuentes/rapida/rapida.html      · contenido del módulo 02
 fuentes/vademecum/farmacos.json · datos del módulo 03 (grupos, códigos de cobertura, fármacos)
 fuentes/repositorio/actualizar.py · inserta 02 y 03 en index.html entre sus marcas
+fuentes/quiz/plantilla.html     · motor del quiz (derivado del Quiz EII)
+fuentes/quiz/banco/*.js         · preguntas (Q1–Q4, por grupos de bloques)
+fuentes/quiz/actualizar.py      · valida el banco con Node y genera quiz/index.html
+fuentes/quiz/Code.gs, INSTRUCCIONES.md · conexión con Google Sheets
 .nojekyll           · evita el procesamiento Jekyll en GitHub Pages
 ```
 
@@ -58,6 +63,7 @@ fuentes/repositorio/actualizar.py · inserta 02 y 03 en index.html entre sus mar
 | Escribir o corregir un bloque | `fuentes/guia/bloques/bNN_*.html` (y `"archivo"` en `bloques.json` si es nuevo) | `python3 fuentes/guia/actualizar.py` |
 | Consulta rápida o vademécum | `fuentes/rapida/rapida.html` o `fuentes/vademecum/farmacos.json` | `python3 fuentes/repositorio/actualizar.py` |
 | Calculadoras | `calc/index.html` (arreglo `CALCS`) | — |
+| Preguntas del quiz | `fuentes/quiz/banco/*.js` | `python3 fuentes/quiz/actualizar.py` |
 | Portada | `index.html` (fuera de las marcas RAPIDA y VADEMECUM) | — |
 | Nueva versión de la app | subir la versión de `CACHE` en `sw.js` solo si cambia la lista de archivos | — |
 

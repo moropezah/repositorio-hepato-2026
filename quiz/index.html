@@ -1,0 +1,2160 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#173a5e">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Hepato 2026">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+</head>
+<body>
+<title>Quiz Hepatología 2026</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F2EF; --surface:#FFFFFF; --surface2:#F9F7F5; --ink:#1E1A1D; --muted:#675F66; --line:#E3DDD8;
+  --accent:#173a5e; --accent-ink:#FFFFFF; --accent-soft:#E3ECF5;
+  --ba:#8a6414; --ci:#173a5e; --et:#2f6b4f; --ot:#9e2b25;
+  --ok:#1D7A4E; --ok-soft:#E3F2EA; --bad:#B0281E; --bad-soft:#FBE7E4; --warn:#9A5B00; --warn-soft:#FBF0DC;
+  --shadow:0 1px 2px rgba(40,20,30,.06),0 4px 16px rgba(40,20,30,.05);
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#151214; --surface:#1F1B1E; --surface2:#262126; --ink:#EEE8EB; --muted:#A79CA4; --line:#372F35;
+    --accent:#8fbde6; --accent-ink:#0f1720; --accent-soft:#1c2c3d;
+    --ba:#d9b25c; --ci:#8fbde6; --et:#6fc296; --ot:#e88a84;
+    --ok:#62C792; --ok-soft:#173226; --bad:#F2887D; --bad-soft:#3A1C1A; --warn:#E6B45F; --warn-soft:#352812;
+    --shadow:0 1px 2px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#151214; --surface:#1F1B1E; --surface2:#262126; --ink:#EEE8EB; --muted:#A79CA4; --line:#372F35;
+  --accent:#8fbde6; --accent-ink:#0f1720; --accent-soft:#1c2c3d;
+  --ba:#d9b25c; --ci:#8fbde6; --et:#6fc296; --ot:#e88a84;
+  --ok:#62C792; --ok-soft:#173226; --bad:#F2887D; --bad-soft:#3A1C1A; --warn:#E6B45F; --warn-soft:#352812;
+  --shadow:0 1px 2px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.55;margin:0}
+.wrap{max-width:980px;margin:0 auto;padding-inline:16px;padding-block:0 48px}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.top .row{max-width:980px;margin:0 auto;padding:12px 16px 0;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+.brand{font-family:var(--serif);font-weight:700;font-size:21px;letter-spacing:-.01em}
+.brand small{font-family:var(--mono);font-size:11px;color:var(--muted);font-weight:400;margin-left:8px;letter-spacing:.04em}
+.tabs{max-width:980px;margin:0 auto;padding:8px 16px 0;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.tabs button{border:0;background:none;color:var(--muted);font:600 14px var(--sans);padding:8px 12px 10px;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+.tabs button:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.badge{font-family:var(--mono);font-size:11px;background:var(--surface2);border:1px solid var(--line);border-radius:999px;padding:1px 7px;margin-left:4px;color:var(--muted)}
+
+.filters{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;margin:18px 0 14px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.seg button{border:0;background:none;padding:6px 11px;font:500 13px var(--sans);color:var(--muted);cursor:pointer}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.flabel{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-right:6px}
+select{font:500 13px var(--sans);padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);max-width:100%}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+.qcard{padding:22px 22px 18px}
+.meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:12px}
+.chip{font:600 11px var(--mono);letter-spacing:.04em;padding:2px 8px;border-radius:5px;border:1px solid var(--line);color:var(--muted);background:var(--surface2)}
+.chip.b-BA{color:var(--ba);border-color:currentColor;background:transparent}
+.chip.b-CI{color:var(--ci);border-color:currentColor;background:transparent}
+.chip.b-ET{color:var(--et);border-color:currentColor;background:transparent}
+.chip.b-OT{color:var(--ot);border-color:currentColor;background:transparent}
+.cloudcfg{display:grid;gap:8px;margin-top:6px}.cloudcfg input{font:13px var(--mono);padding:7px 9px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);width:100%}
+.tema-l a{color:var(--accent)}
+.chip.lv-S{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip.fix{color:var(--warn);background:var(--warn-soft);border-color:transparent}
+.chip.new{color:var(--ok);background:var(--ok-soft);border-color:transparent}
+.counter{margin-left:auto;font:500 12px var(--mono);color:var(--muted)}
+.stem{font-family:var(--serif);font-size:18.5px;line-height:1.5;margin:0 0 16px;max-width:68ch;text-wrap:pretty}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:9px;background:var(--surface);color:var(--ink);font:15px/1.45 var(--sans);cursor:pointer;transition:border-color .15s,background .15s}
+.opt:hover:not([disabled]){border-color:var(--accent)}
+.opt .L{flex:0 0 26px;height:26px;border-radius:6px;display:grid;place-items:center;font:600 13px var(--mono);background:var(--surface2);border:1px solid var(--line)}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.right .L{background:var(--ok);color:var(--surface);border-color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt.wrong .L{background:var(--bad);color:var(--surface);border-color:var(--bad)}
+.opt[disabled]{cursor:default}
+.actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:16px}
+.btn{font:600 14px var(--sans);padding:9px 16px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn:disabled{opacity:.45;cursor:default}
+.btn.ghost{background:none}
+.spacer{flex:1}
+
+.explain{margin-top:18px;border-top:1px solid var(--line);padding-top:16px;display:grid;gap:14px}
+.verdict{font:700 15px var(--sans)}
+.verdict.ok{color:var(--ok)} .verdict.bad{color:var(--bad)}
+.blk h4{margin:0 0 6px;font:600 11px var(--sans);text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}
+.blk p,.blk li{margin:0;max-width:72ch}
+.blk ul{margin:0;padding-left:0;list-style:none;display:grid;gap:6px}
+.blk li b.L{font-family:var(--mono);margin-right:6px}
+.mech{background:var(--surface2);border-left:3px solid var(--ci);padding:12px 14px;border-radius:0 8px 8px 0}
+.pearl{background:var(--accent-soft);padding:12px 14px;border-radius:8px}
+.fixbox{background:var(--warn-soft);padding:10px 14px;border-radius:8px;color:var(--ink)}
+.newbox{background:var(--ok-soft);padding:10px 14px;border-radius:8px}
+.refs{font-size:13px;color:var(--muted)}
+
+.palette{display:flex;flex-wrap:wrap;gap:4px;margin-top:16px}
+.palette button{width:30px;height:28px;border-radius:6px;border:1px solid var(--line);background:var(--surface);font:500 11px var(--mono);color:var(--muted);cursor:pointer}
+.palette button.cur{border-color:var(--accent);color:var(--ink);font-weight:700}
+.palette button.ok{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}
+.palette button.bad{background:var(--bad-soft);border-color:var(--bad);color:var(--bad)}
+.palette button.ans{background:var(--accent-soft)}
+
+.setup{padding:22px;display:grid;gap:16px}
+.setup h2,.panel h2{font-family:var(--serif);font-size:22px;margin:0;text-wrap:balance}
+.setup p{margin:0;color:var(--muted);max-width:68ch}
+.timer{font:600 14px var(--mono);font-variant-numeric:tabular-nums}
+.timer.low{color:var(--bad)}
+.progressbar{height:4px;background:var(--line);border-radius:4px;overflow:hidden;margin:0 0 14px}
+.progressbar i{display:block;height:100%;background:var(--accent);transition:width .3s}
+
+.score{display:flex;gap:24px;flex-wrap:wrap;align-items:flex-end;padding:22px}
+.score .big{font:700 52px/1 var(--serif);font-variant-numeric:tabular-nums}
+.score .sub{color:var(--muted)}
+.bars{display:grid;gap:8px;padding:0 22px 22px}
+.bar{display:grid;grid-template-columns:minmax(120px,190px) 1fr 56px;gap:10px;align-items:center;font-size:13px}
+.bar .track{height:8px;background:var(--surface2);border:1px solid var(--line);border-radius:5px;overflow:hidden}
+.bar .track i{display:block;height:100%}
+.bar .v{font-family:var(--mono);text-align:right;font-variant-numeric:tabular-nums}
+.review{display:grid;gap:10px;margin-top:16px}
+details.rv{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px}
+details.rv summary{cursor:pointer;display:flex;gap:10px;align-items:baseline;list-style:none}
+details.rv summary::-webkit-details-marker{display:none}
+.mark{font:700 13px var(--mono);flex:0 0 auto}
+.mark.ok{color:var(--ok)} .mark.bad{color:var(--bad)} .mark.na{color:var(--muted)}
+.rvq{font-size:14px}
+
+.flash{perspective:1400px;margin-top:6px}
+.fc{position:relative;min-height:300px;cursor:pointer;transform-style:preserve-3d;transition:transform .5s}
+.fc.flip{transform:rotateY(180deg)}
+.fc .face{position:absolute;inset:0;backface-visibility:hidden;padding:24px;display:flex;flex-direction:column;gap:12px;overflow:auto}
+.fc .back{transform:rotateY(180deg)}
+.fc .face .hint{margin-top:auto;font-size:12px;color:var(--muted)}
+.fc .ans{font-family:var(--serif);font-size:19px;font-weight:600}
+@media (prefers-reduced-motion:reduce){.fc{transition:none}.progressbar i{transition:none}}
+
+.panel{padding:22px;display:grid;gap:14px}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 11px var(--sans);text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+td.id{font-family:var(--mono);white-space:nowrap}
+.gloss{columns:2 260px;column-gap:28px;font-size:14px}
+.gloss div{break-inside:avoid;padding:3px 0}
+.gloss b{font-family:var(--mono);font-size:13px}
+.muted{color:var(--muted)}
+.empty{padding:28px;text-align:center;color:var(--muted)}
+
+#printArea{display:none}
+textarea.dump{width:100%;min-height:180px;font:12px var(--mono);background:var(--surface2);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:10px}
+.expgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.expgrid .card{padding:16px;display:grid;gap:8px;align-content:start}
+.expgrid h3{margin:0;font:600 15px var(--sans)}
+.expgrid p{margin:0;font-size:13px;color:var(--muted)}
+@media print{
+  body.printing header.top, body.printing main{display:none!important}
+  body.printing #printArea{display:block!important;color:#000;background:#fff;font:11pt/1.4 Georgia,serif}
+  #printArea .pq{break-inside:avoid;border-bottom:1px solid #999;padding:8pt 0}
+  #printArea .pq h4{font:600 9pt Arial,sans-serif;margin:0 0 4pt;color:#444}
+  #printArea .pq p{margin:3pt 0}
+  #printArea .pb{break-before:page}
+}
+.sync{font-family:var(--mono);font-size:11px;color:var(--muted);margin-right:10px;white-space:nowrap}
+.sync.ok{color:var(--ok)}.sync.err{color:var(--warn)}
+@media (max-width:560px){.brand small{display:none}.top .row{padding-top:8px}#themeBtn{padding:6px 10px;font-size:13px}.qcard{padding:16px}.stem{font-size:17px}.bar{grid-template-columns:110px 1fr 48px}.score .big{font-size:42px}}
+</style>
+
+<header class="top">
+  <div class="row">
+    <div class="brand">Quiz Hepatología <small>2026 · 160 casos · 16 bloques</small></div>
+    <span class="spacer"></span>
+    <span id="syncState" class="sync" title="Estado de guardado">● local</span>
+    <button class="btn ghost" id="themeBtn" type="button" aria-label="Cambiar tema">◐ Tema</button>
+  </div>
+  <nav class="tabs" role="tablist">
+    <button role="tab" data-tab="study" aria-selected="true">Estudio <span class="badge" id="nStudy"></span></button>
+    <button role="tab" data-tab="exam" aria-selected="false">Examen <span class="badge" id="nExam"></span></button>
+    <button role="tab" data-tab="flash" aria-selected="false">Flashcards</button>
+    <button role="tab" data-tab="stats" aria-selected="false">Progreso</button>
+    <button role="tab" data-tab="changes" aria-selected="false">Temario</button>
+    <button role="tab" data-tab="gloss" aria-selected="false">Siglas</button>
+    <button role="tab" data-tab="export" aria-selected="false">Exportar</button>
+  </nav>
+</header>
+
+<main class="wrap">
+  <section id="tab-study"></section>
+  <section id="tab-exam" hidden></section>
+  <section id="tab-flash" hidden></section>
+  <section id="tab-stats" hidden></section>
+  <section id="tab-changes" hidden></section>
+  <section id="tab-gloss" hidden></section>
+  <section id="tab-export" hidden></section>
+</main>
+<div id="printArea" aria-hidden="true"></div>
+
+
+<script>
+// Bloques 1–4 · Perfil hepático y FHA · Cirrosis y HPCS · Hipertensión portal · Ascitis, PBE y HRS-AKI
+const Q1 = [
+/* ===================== Bloque 1 · Perfil hepático, hepatitis aguda y FHA ===================== */
+{id:"PH01",b:"BA",t:"Perfil hepático y FHA",n:"R",md:"E",
+q:"Hombre de 46 años, asintomático, con ALT 64 U/L, AST 41 U/L, FA y bilirrubina normales en un control laboral. IMC 31, triglicéridos 240 mg/dL. Consumo de alcohol 3 tragos los fines de semana. ¿Cuál es el siguiente paso más costo-efectivo?",
+o:["Repetir el perfil en 6 meses sin más estudio","HBsAg, anti-VHC, ecografía abdominal y FIB-4 en el mismo momento","Biopsia hepática para descartar esteatohepatitis","Panel autoinmune completo, ceruloplasmina y α1-antitripsina como primer escalón"],
+c:1,
+e:"Elevación leve y crónica (&lt; 5 × LSN) de patrón hepatocelular: el estudio inicial cubre las causas frecuentes (VHB, VHC, MASLD, alcohol, fármacos) y estratifica fibrosis. La ecografía documenta esteatosis y signos de hipertensión portal; el <b>FIB-4</b> decide si hace falta elastografía.",
+w:{0:"Esperar sin estudiar pierde la oportunidad de pesquisar VHB/VHC y fibrosis avanzada.",2:"La biopsia no es el primer paso; se reserva para discordancias o diagnóstico incierto.",3:"Las causas raras se estudian en un segundo escalón si el primero es negativo o el contexto lo sugiere."},
+p:"El LSN fisiológico de ALT es menor que el del laboratorio: ~33 U/L en hombres y ~25 U/L en mujeres (ACG); EASL VHB 2025 usa 30 y 19 U/L.",
+r:"ACG Clinical Guideline: evaluation of abnormal liver chemistries (Kwo, 2017) · EASL-EASD-EASO MASLD 2024"},
+
+{id:"PH02",b:"BA",t:"Perfil hepático y FHA",n:"R",md:"E",
+q:"Mujer de 62 años con FA 410 U/L (LSN 120), GGT 380 U/L, ALT 48 U/L y bilirrubina normal. Ecografía: vía biliar no dilatada. ¿Qué examen tiene mayor rendimiento como siguiente paso?",
+o:["Colangiorresonancia","Anticuerpos antimitocondriales (AMA)","Biopsia hepática","CPRE diagnóstica"],
+c:1,
+e:"Colestasis anictérica de origen hepático (GGT elevada) con vía biliar no dilatada en mujer de mediana edad: la causa más probable es <b>colangitis biliar primaria</b>. AMA &gt; 1:40 con FA ≥ 1,5 × LSN establece el diagnóstico sin biopsia.",
+w:{0:"La colangiorresonancia se pide si los AMA son negativos (buscar CEP) o hay sospecha de obstrucción.",2:"La biopsia queda para AMA negativos o sospecha de síndrome de sobreposición.",3:"La CPRE es terapéutica; no se usa como prueba diagnóstica con vía biliar no dilatada."},
+p:"Si AMA es negativo, pedir ANA específicos de CBP: anti-sp100 y anti-gp210 (este último de peor pronóstico).",
+r:"EASL CBP 2017 · AASLD PBC 2018 (actualización 2021)"},
+
+{id:"PH03",b:"BA",t:"Perfil hepático y FHA",n:"R",md:"X",
+q:"Hombre de 70 años, 48 h después de un shock séptico, presenta ALT 3.800 U/L, AST 4.500 U/L, LDH 2.900 U/L e INR 1,9. Bilirrubina 1,8 mg/dL. ¿Diagnóstico más probable y conducta?",
+o:["Hepatitis viral aguda; solicitar serologías y aislar","Hepatitis isquémica; optimizar la perfusión y esperar caída rápida de transaminasas","Hepatitis autoinmune aguda; iniciar corticoides","Intoxicación por paracetamol; NAC solo si hay niveles"],
+c:1,
+e:"Transaminasas &gt; 1.000 U/L con <b>LDH muy alta</b> (razón ALT/LDH &lt; 1,5) tras hipotensión sugieren <b>hepatitis isquémica</b>. Las transaminasas caen ~50 % en 72 h al restablecer la perfusión.",
+w:{0:"La hepatitis viral tiene LDH menos elevada y un curso más lento.",2:"No hay datos de autoinmunidad y el contexto hemodinámico explica el cuadro.",3:"Ante duda de paracetamol se da NAC sin esperar niveles, pero aquí el contexto apunta a isquemia."},
+p:"La hepatitis isquémica suele ocurrir en corazón congestivo previo: busque insuficiencia cardíaca derecha.",
+r:"ACG abnormal liver chemistries 2017"},
+
+{id:"PH04",b:"BA",t:"Perfil hepático y FHA",n:"R",md:"E",
+q:"Mujer de 24 años ingresa 10 horas después de ingerir 18 g de paracetamol. Está asintomática; ALT 45 U/L, INR 1,1. ¿Cuál es la conducta correcta?",
+o:["Esperar el nivel a las 4 h para decidir con el nomograma","Iniciar N-acetilcisteína EV de inmediato","Carbón activado y alta si el nivel está bajo la línea de tratamiento","Lavado gástrico y observación"],
+c:1,
+e:"Con más de 8 h desde una ingesta potencialmente tóxica (&gt; 150 mg/kg o &gt; 10–12 g), la NAC se inicia <b>sin esperar el nivel</b>: su eficacia es máxima dentro de 8 h y cae después. El nivel se mide igual para el nomograma de Rumack-Matthew.",
+w:{0:"A 10 h ya no se espera; retrasar la NAC aumenta el daño hepático.",2:"El carbón activado es útil dentro de 1–2 h de la ingesta.",3:"El lavado gástrico no tiene rol a las 10 h."},
+p:"Régimen SNAP (12 h): 100 mg/kg en 2 h y 200 mg/kg en 10 h; menos reacciones anafilactoides que el clásico de 21 h.",
+r:"ACG FHA 2023 · Bateman DN, Lancet 2014 (SNAP)"},
+
+{id:"PH05",b:"BA",t:"Perfil hepático y FHA",n:"F",md:"X",
+q:"Hombre de 52 años con FHA por amoxicilina-clavulánico. Encefalopatía grado II, INR 3,8, bilirrubina 19 mg/dL, creatinina 1,1 mg/dL. Ictericia de 12 días antes de la encefalopatía. ¿Cumple criterios de King's College?",
+o:["No: requiere INR &gt; 6,5","Sí: cumple al menos 3 de 5 criterios menores","No: los criterios menores solo aplican a paracetamol","Sí, pero solo si el pH es &lt; 7,30"],
+c:1,
+e:"No-paracetamol: INR &gt; 6,5 <b>o</b> 3 de 5 criterios menores. Cumple: edad &gt; 40, etiología desfavorable (idiosincrática), ictericia → encefalopatía &gt; 7 días, INR &gt; 3,5 y bilirrubina &gt; 17,5 mg/dL: 5 de 5. Corresponde listarlo en urgencia.",
+w:{0:"INR &gt; 6,5 es un criterio alternativo, no obligatorio.",2:"Los criterios menores son justamente los del grupo no-paracetamol.",3:"El pH &lt; 7,30 es criterio del grupo paracetamol."},
+p:"La DILI idiosincrática con FHA tiene sobrevida espontánea &lt; 30 %: derive precozmente.",
+r:"O'Grady JG, Gastroenterology 1989 · ACG FHA 2023"},
+
+{id:"PH06",b:"BA",t:"Perfil hepático y FHA",n:"F",md:"E",
+q:"Paciente con FHA no paracetamol, encefalopatía grado I, INR 2,4. ¿Qué intervención mostró aumentar la sobrevida libre de trasplante en este grupo?",
+o:["Corticoides en dosis altas","N-acetilcisteína EV por 72 h","Plasma fresco congelado para mantener INR &lt; 1,5","Lactulosa en dosis altas"],
+c:1,
+e:"Lee 2009: en FHA no paracetamol con encefalopatía grado I–II, la NAC EV (72 h) aumentó la sobrevida sin trasplante (52 % vs 30 %). Sin beneficio en grados III–IV.",
+w:{0:"Los corticoides se reservan para HAI aguda grave o DILI con rasgos autoinmunes.",2:"Corregir el INR enmascara el pronóstico y no se recomienda salvo sangrado o procedimiento.",3:"La lactulosa no mejora el desenlace en FHA y puede distender el intestino antes del trasplante."},
+p:"NAC no paracetamol: 150 mg/kg/h × 1 h, 12,5 mg/kg/h × 4 h, 6,25 mg/kg/h × 67 h.",
+r:"Lee WM, Gastroenterology 2009 · ACG FHA 2023"},
+
+{id:"PH07",b:"BA",t:"Perfil hepático y FHA",n:"R",md:"X",
+q:"Mujer de 33 años con ictericia, ALT 1.450 U/L, IgM anti-VHA negativo, HBsAg negativo, anti-HBc IgM positivo. ¿Interpretación?",
+o:["Infección resuelta por VHB","Hepatitis B aguda en período de ventana","Falso positivo: si HBsAg es negativo no hay VHB","Vacunación previa"],
+c:1,
+e:"HBsAg negativo con <b>anti-HBc IgM positivo</b> corresponde al período de ventana de la hepatitis B aguda (HBsAg ya negativizado, anti-HBs aún no detectable).",
+w:{0:"La infección resuelta tiene anti-HBc IgG y anti-HBs positivos, no IgM.",2:"El anti-HBc IgM positivo en este contexto es diagnóstico.",3:"La vacuna genera solo anti-HBs."},
+p:"Antiviral en VHB aguda solo si es grave (INR ≥ 1,5 o bilirrubina &gt; 10 mg/dL por &gt; 4 semanas), FHA o inmunosupresión.",
+r:"EASL VHB 2025"},
+
+{id:"PH08",b:"BA",t:"Perfil hepático y FHA",n:"R",md:"E",
+q:"Hombre de 58 años, receptor de trasplante renal, con ALT 280 U/L persistente por 4 meses. Serologías A, B y C negativas. Consume carne de cerdo poco cocida. ¿Qué examen pedir?",
+o:["Anti-VHE IgG aislado","RNA del VHE por PCR","Biopsia hepática como primer paso","IgG4 sérica"],
+c:1,
+e:"En inmunosuprimidos el <b>VHE genotipo 3</b> puede cronificar y la serología es poco sensible: el diagnóstico es por <b>PCR de RNA-VHE</b> en sangre o heces.",
+w:{0:"La serología puede ser negativa en inmunosuprimidos.",2:"La biopsia no es el primer paso; el diagnóstico es virológico.",3:"No hay datos de enfermedad por IgG4."},
+p:"Tratamiento de VHE crónica: reducir la inmunosupresión; si persiste, ribavirina 3 meses.",
+r:"EASL VHE 2018"},
+
+{id:"PH09",b:"BA",t:"Perfil hepático y FHA",n:"S",md:"X",
+q:"FHA por Wilson en mujer de 17 años: bilirrubina 28 mg/dL, FA 40 U/L, AST 210, ALT 85 U/L, hemólisis Coombs negativa. ¿Qué combinación de índices bioquímicos sugiere este diagnóstico?",
+o:["FA/bilirrubina &lt; 4 y AST/ALT &gt; 2,2","FA/bilirrubina &gt; 10 y AST/ALT &lt; 1","Ceruloplasmina alta y cobre urinario bajo","Ferritina &gt; 10.000 y triglicéridos altos"],
+c:0,
+e:"En la presentación fulminante del Wilson la FA es desproporcionadamente baja y predomina la AST: <b>FA/bilirrubina total &lt; 4 + AST/ALT &gt; 2,2</b> tiene alta sensibilidad y especificidad (Korman 2008).",
+w:{1:"Es el patrón opuesto.",2:"La ceruloplasmina suele estar baja (aunque en FHA puede ser normal) y el cobre urinario alto.",3:"Sugiere linfohistiocitosis hemofagocítica."},
+p:"El Wilson fulminante tiene mortalidad cercana al 100 % sin trasplante: puntaje de Dhawan (Nazer modificado) ≥ 11.",
+r:"Korman JD, Hepatology 2008 · EASL-ERN Wilson 2025"},
+
+{id:"PH10",b:"BA",t:"Perfil hepático y FHA",n:"F",md:"E",
+q:"Paciente con FHA y encefalopatía grado III intubado en UPC. Amonio arterial 210 µmol/L. ¿Cuál medida está indicada para reducir el riesgo de hipertensión endocraneana?",
+o:["Lactulosa por sonda","Hiponatremia permisiva (Na 128–132)","Terapia de reemplazo renal continua precoz y sodio 140–145 mmol/L","Corticoides EV"],
+c:2,
+e:"Amonio &gt; 150–200 µmol/L se asocia a edema cerebral. La <b>hemofiltración continua precoz</b> reduce el amonio, y la hipernatremia leve inducida (Na 140–145) es neuroprotectora.",
+w:{0:"La lactulosa no tiene beneficio demostrado en FHA y distiende el intestino.",1:"La hiponatremia empeora el edema cerebral.",3:"Los corticoides no tratan el edema cerebral de la FHA."},
+p:"Meta de presión media ≥ 75 mmHg; si hay hipertensión endocraneana: suero hipertónico o manitol, hipotermia leve como puente.",
+r:"ACG FHA 2023 · EASL FHA 2017"},
+
+/* ===================== Bloque 2 · Cirrosis, cACLD y HPCS ===================== */
+{id:"CI01",b:"CI",t:"Cirrosis y HPCS",n:"R",md:"E",
+q:"Hombre de 61 años con VHC curado hace 2 años. Hoy: rigidez hepática 11 kPa, plaquetas 172.000. Antes del tratamiento tenía 21 kPa. ¿Qué conducta corresponde?",
+o:["Alta de hepatología: la RVS cura la enfermedad hepática","Mantener vigilancia de HCC cada 6 meses","Endoscopía anual por HPCS","Biopsia para confirmar regresión antes de suspender la vigilancia"],
+c:1,
+e:"Quien tuvo cACLD antes de la RVS mantiene riesgo de HCC: la <b>vigilancia semestral continúa</b>. La caída de rigidez refleja en parte menos inflamación. Con &lt; 12 kPa y plaquetas &gt; 150.000 se puede descartar HPCS y no requiere endoscopía.",
+w:{0:"La RVS no elimina el riesgo de HCC en cACLD.",2:"No tiene HPCS (rigidez &lt; 12 kPa y plaquetas &gt; 150.000).",3:"La biopsia no cambia la conducta."},
+p:"Baveno VII/VIII: tras eliminar la causa, rigidez &lt; 12 kPa + plaquetas &gt; 150.000 descarta HPCS.",
+r:"Baveno VII · Baveno VIII 2026"},
+
+{id:"CI02",b:"CI",t:"Cirrosis y HPCS",n:"R",md:"X",
+q:"Mujer de 55 años con MASLD, IMC 27, rigidez hepática 27 kPa, plaquetas 135.000. Sin descompensaciones. Presión 128/78 mmHg. ¿Conducta?",
+o:["Endoscopía de tamizaje y BBNS solo si hay várices grandes","Carvedilol 6,25 mg/día y titular a 6,25 mg c/12 h, sin endoscopía de tamizaje","Medir GPVH antes de cualquier decisión","Propranolol titulado a frecuencia cardíaca 55 lpm y ligadura profiláctica"],
+c:1,
+e:"Rigidez ≥ 25 kPa en MASLD con IMC &lt; 30 <b>confirma HPCS</b>. El BBNS (preferentemente <b>carvedilol</b>) previene la descompensación (PREDESCI); quien inicia BBNS no necesita endoscopía de tamizaje.",
+w:{0:"El objetivo ya no es solo evitar el primer sangrado sino toda descompensación.",2:"El GPVH no es necesario cuando las pruebas no invasivas confirman HPCS.",3:"No corresponde combinar BBNS con ligadura en profilaxis primaria."},
+p:"Carvedilol: máximo 12,5 mg/día salvo hipertensión arterial; no se titula por frecuencia cardíaca.",
+r:"Baveno VIII 2026 · Villanueva C, Lancet 2019 (PREDESCI)"},
+
+{id:"CI03",b:"CI",t:"Cirrosis y HPCS",n:"F",md:"E",
+q:"Hombre de 50 años con cirrosis por alcohol en abstinencia, IMC 34 (MASLD concomitante), rigidez 26 kPa, plaquetas 160.000. ¿Puede confirmarse HPCS con la rigidez hepática?",
+o:["Sí: 26 kPa supera el corte de 25 kPa en cualquier etiología","No con certeza: con obesidad el corte de 25 kPa pierde VPP; usar ANTICIPATE-NASH o rigidez esplénica","Sí, porque las plaquetas son normales","No: se requiere siempre GPVH en alcohol"],
+c:1,
+e:"El corte de 25 kPa se validó en etiología viral, alcohólica y MASLD <b>sin obesidad</b>. Con IMC ≥ 30 su VPP cae: calcular <b>ANTICIPATE-NASH</b> (incluye IMC) o medir rigidez esplénica (&gt; 55 kPa confirma por Baveno VIII).",
+w:{0:"Desconoce la limitación en obesidad.",2:"Plaquetas normales no confirman HPCS.",3:"El GPVH se reserva para cuando la decisión no puede tomarse de forma no invasiva."},
+p:"Baveno VIII: confirmar HPCS con modelo ≥ 75 %, rigidez ≥ 25 kPa (no obesos) o esplénica &gt; 55 kPa.",
+r:"Baveno VIII 2026 · Pons M, Am J Gastroenterol 2021"},
+
+{id:"CI04",b:"CI",t:"Cirrosis y HPCS",n:"R",md:"E",
+q:"¿Cuál define la <b>recompensación</b> según Baveno VIII?",
+o:["Child A en un control aislado","Control de la causa, sin ascitis, encefalopatía ni hemorragia sin fármacos, con Child A sostenido más de 6 meses","MELD &lt; 15 durante 3 meses","Desaparición de las várices en la endoscopía"],
+c:1,
+e:"Recompensación: eliminación o control de la causa + resolución de ascitis (sin diuréticos), encefalopatía (sin lactulosa ni rifaximina) y ausencia de hemorragia variceal + mejoría de la función hepática; Baveno VIII exige que se sostenga &gt; 6 meses y Child A.",
+w:{0:"Un control aislado no basta.",2:"El MELD no forma parte de la definición.",3:"La erradicación de várices no define recompensación."},
+p:"El recompensado mantiene vigilancia de HCC y control de HPCS.",
+r:"Baveno VII · Baveno VIII 2026"},
+
+{id:"CI05",b:"CI",t:"Cirrosis y HPCS",n:"R",md:"X",
+q:"Cirrosis compensada, rigidez 13 kPa, plaquetas 155.000. ¿Qué significa?",
+o:["HPCS confirmada","HPCS descartada; repetir elastografía anual","Zona gris; endoscopía obligatoria","Descarta cACLD"],
+c:1,
+e:"Rigidez ≤ 15 kPa <b>y</b> plaquetas ≥ 150.000 descarta HPCS (VPN &gt; 90 %). Sugiere cACLD (10–15 kPa). Seguimiento anual.",
+w:{0:"No cumple ningún criterio de confirmación.",2:"Cumple el criterio de descarte, no está en zona gris.",3:"&gt; 10 kPa sugiere cACLD."},
+p:"Criterios para evitar endoscopía: rigidez &lt; 20 kPa y plaquetas &gt; 150.000.",
+r:"Baveno VII/VIII"},
+
+{id:"CI06",b:"CI",t:"Cirrosis y HPCS",n:"F",md:"X",
+q:"Paciente con cirrosis por VHB suprimido con entecavir, rigidez 19 kPa, plaquetas 118.000, rigidez esplénica 38 kPa. ¿Cómo se clasifica la HPCS?",
+o:["Confirmada por rigidez hepática","Descartada","Zona gris: ni descarta ni confirma","Confirmada por rigidez esplénica"],
+c:2,
+e:"Rigidez entre 15 y 25 kPa con plaquetas &lt; 150.000: no descarta ni confirma. La rigidez esplénica de 38 kPa no alcanza el corte de confirmación (&gt; 55 kPa en Baveno VIII). Zona gris: reevaluar a los 12 meses, considerar ANTICIPATE o GPVH si cambia la conducta.",
+w:{0:"No alcanza 25 kPa.",1:"Las plaquetas &lt; 150.000 y la rigidez &gt; 15 kPa impiden descartar.",3:"Requiere &gt; 55 kPa (o &gt; 50 kPa en Baveno VII)."},
+p:"Rigidez esplénica ≤ 40 kPa descarta várices de alto riesgo.",
+r:"Baveno VIII 2026 · Dajti E, Lancet Gastroenterol Hepatol 2023"},
+
+{id:"CI07",b:"CI",t:"Cirrosis y HPCS",n:"R",md:"E",
+q:"¿Qué valor de GPVH define hipertensión portal clínicamente significativa?",
+o:["≥ 5 mmHg","≥ 10 mmHg","≥ 12 mmHg","≥ 20 mmHg"],
+c:1,
+e:"GPVH normal 1–5 mmHg; &gt; 5 hipertensión portal; <b>≥ 10 mmHg HPCS</b> (várices, descompensación, HCC); ≥ 12 riesgo de sangrado; ≥ 16 mortalidad; ≥ 20 falla del control en hemorragia aguda.",
+w:{0:"Define hipertensión portal, no HPCS.",2:"Es el umbral de sangrado variceal.",3:"Predice falla del tratamiento en hemorragia aguda."},
+p:"El GPVH mide presión sinusoidal: subestima la hipertensión presinusoidal (vascular porto-sinusoidal, trombosis portal).",
+r:"Baveno VII"},
+
+{id:"CI08",b:"CI",t:"Cirrosis y HPCS",n:"R",md:"X",
+q:"Paciente con cirrosis compensada en carvedilol 6,25 mg c/12 h ingresa con neumonía y presión 84/48 mmHg. ¿Qué hacer con el carvedilol?",
+o:["Mantenerlo para evitar hemorragia","Suspenderlo transitoriamente y reintroducirlo al estabilizarse","Cambiar a propranolol","Duplicar la dosis"],
+c:1,
+e:"BBNS se suspenden transitoriamente con <b>PAS &lt; 90 mmHg</b>, sepsis, hemorragia aguda, lesión renal aguda o hiponatremia &lt; 130; se reintroducen al resolver el evento.",
+w:{0:"Mantenerlo en hipotensión empeora la perfusión renal.",2:"Propranolol también es BBNS; el problema es la hipotensión.",3:"Contraindicado."},
+p:"La ventana terapéutica del BBNS se estrecha en la ascitis refractaria: vigilar PAS y función renal.",
+r:"Baveno VII/VIII · EASL 2018"},
+
+{id:"CI09",b:"CI",t:"Cirrosis y HPCS",n:"F",md:"E",
+q:"En el ensayo PREDESCI, el BBNS en pacientes con HPCS compensada redujo principalmente…",
+o:["La hemorragia variceal","La aparición de ascitis","La mortalidad global","El HCC"],
+c:1,
+e:"PREDESCI (Lancet 2019): BBNS redujo el desenlace compuesto de descompensación o muerte (16 % vs 27 %), a expensas sobre todo de <b>menos ascitis</b>.",
+w:{0:"Hubo pocos sangrados en ambos grupos; el beneficio principal fue en ascitis.",2:"No tuvo poder para mortalidad.",3:"No evaluó HCC."},
+p:"Por eso el objetivo del BBNS en HPCS es prevenir la descompensación, no solo el sangrado.",
+r:"Villanueva C, Lancet 2019"},
+
+{id:"CI10",b:"CI",t:"Cirrosis y HPCS",n:"S",md:"X",
+q:"Hombre de 38 años con trombocitopenia, esplenomegalia y várices esofágicas. Rigidez hepática 6 kPa, rigidez esplénica 82 kPa. Portografía: vena porta permeable. ¿Diagnóstico más probable?",
+o:["Cirrosis compensada con HPCS","Enfermedad vascular porto-sinusoidal","MASLD sin fibrosis","Error técnico de la elastografía"],
+c:1,
+e:"Hipertensión portal con <b>rigidez hepática normal</b> y esplénica muy alta, sin trombosis, sugiere <b>enfermedad vascular porto-sinusoidal</b> (presinusoidal). Se confirma con biopsia (venopatía obliterativa, hiperplasia nodular regenerativa).",
+w:{0:"La rigidez hepática &lt; 10 kPa hace improbable la cirrosis.",2:"MASLD sin fibrosis no explica la hipertensión portal.",3:"La disociación hígado-bazo es característica, no un error."},
+p:"El GPVH puede ser normal o poco elevado en la EVPS: mide presión sinusoidal.",
+r:"De Gottardi A, Lancet Gastroenterol Hepatol 2019 · Baveno VII"},
+
+/* ===================== Bloque 3 · Hipertensión portal y hemorragia variceal ===================== */
+{id:"HP01",b:"CI",t:"Hipertensión portal y HDA",n:"R",md:"E",
+q:"Hombre de 57 años con cirrosis alcohólica ingresa con hematemesis. PA 96/60, FC 112, Hb 6,8 g/dL. ¿Cuál es la primera indicación farmacológica junto con la reanimación?",
+o:["Omeprazol en bolo e infusión como tratamiento principal","Terlipresina 2 mg EV c/4 h (u octreótido) y ceftriaxona 1 g/día","Plasma fresco para corregir el INR antes de la endoscopía","Ácido tranexámico 1 g EV"],
+c:1,
+e:"Ante sospecha de hemorragia variceal: <b>vasoactivo</b> desde la sospecha (antes de la endoscopía) y <b>profilaxis antibiótica</b> con ceftriaxona. Transfusión restrictiva (Hb &lt; 7, meta 7–8).",
+w:{0:"El IBP no trata la hemorragia variceal; se suspende tras confirmar la causa.",2:"El plasma aumenta la volemia y la presión portal sin corregir la hemostasia real.",3:"HALT-IT: el tranexámico no reduce la mortalidad y aumenta la trombosis."},
+p:"Endoscopía dentro de 12 h tras la estabilización.",
+r:"Baveno VII/VIII · Villanueva, NEJM 2013 · HALT-IT, Lancet 2020"},
+
+{id:"HP02",b:"CI",t:"Hipertensión portal y HDA",n:"R",md:"X",
+q:"Paciente del caso anterior: Child-Pugh C 11, ligadura exitosa de várices esofágicas. ¿Qué intervención reduce la mortalidad?",
+o:["Mantener terlipresina por 14 días","TIPS preventivo dentro de 72 h (ideal &lt; 24 h)","Repetir ligadura a las 48 h","Iniciar propranolol de inmediato y alta precoz"],
+c:1,
+e:"En <b>Child C 10–13</b> (o B 8–9 con sangrado activo), el <b>TIPS preventivo</b> con prótesis cubierta reduce resangrado y mortalidad (García-Pagán, NEJM 2010).",
+w:{0:"El vasoactivo se mantiene 2–5 días.",2:"La ligadura de control es a las 2–4 semanas.",3:"El BBNS se inicia al suspender el vasoactivo, pero no sustituye al TIPS en alto riesgo."},
+p:"Baveno VIII: el beneficio persiste hasta ~1 semana en Child B y ~2 semanas en Child C.",
+r:"García-Pagán JC, NEJM 2010 · Baveno VIII 2026"},
+
+{id:"HP03",b:"CI",t:"Hipertensión portal y HDA",n:"F",md:"E",
+q:"Hemorragia variceal que persiste pese a terlipresina y dos intentos de ligadura. Hemodinámicamente inestable. ¿Mejor puente al TIPS de rescate?",
+o:["Balón de Sengstaken-Blakemore por 72 h","Prótesis esofágica metálica autoexpandible","Tercera ligadura","Cirugía de derivación portosistémica"],
+c:1,
+e:"Como puente, la <b>prótesis esofágica autoexpandible</b> controla el sangrado con menos complicaciones que el balón y puede mantenerse hasta 7 días.",
+w:{0:"El balón tiene alta tasa de complicaciones y no debe pasar de 24 h.",2:"Tras dos fallas no se recomienda un tercer intento.",3:"La cirugía quedó desplazada por el TIPS."},
+p:"Definición de falla: hematemesis fresca o ≥ 100 mL de sangre por sonda ≥ 2 h tras iniciar el tratamiento, shock o caída de Hb ≥ 3 g/dL sin transfusión.",
+r:"Escorsell A, Hepatology 2016 · Baveno VII"},
+
+{id:"HP04",b:"CI",t:"Hipertensión portal y HDA",n:"R",md:"X",
+q:"Tras una primera hemorragia variceal controlada, ¿cuál es la prevención secundaria estándar?",
+o:["Ligadura sola","BBNS solo","BBNS + ligadura seriada hasta erradicación","Escleroterapia"],
+c:2,
+e:"Profilaxis secundaria: <b>BBNS (propranolol o carvedilol) + ligadura</b> cada 2–4 semanas hasta erradicar, y luego control endoscópico.",
+w:{0:"La ligadura sola tiene más resangrado y no previene otras descompensaciones.",1:"El BBNS solo es inferior a la combinación.",3:"La escleroterapia tiene más complicaciones."},
+p:"Si hay ascitis refractaria con PAS &lt; 90, Na &lt; 130 o LRA, reducir o suspender el BBNS.",
+r:"Baveno VII/VIII"},
+
+{id:"HP05",b:"CI",t:"Hipertensión portal y HDA",n:"F",md:"E",
+q:"Mujer con cirrosis y sangrado de várices gástricas IGV1 (fúndicas aisladas). ¿Tratamiento endoscópico de elección?",
+o:["Ligadura con bandas","Inyección de cianoacrilato (o coils + cianoacrilato guiado por EUS)","Escleroterapia con etanolamina","Argón plasma"],
+c:1,
+e:"Las várices fúndicas (GOV2, IGV1) se tratan con <b>cianoacrilato</b>; la técnica guiada por EUS con coils reduce la embolía y la recurrencia. TIPS o BRTO según anatomía.",
+w:{0:"La ligadura en várices fúndicas tiene alto resangrado.",2:"La escleroterapia es ineficaz en várices gástricas.",3:"El argón no trata várices."},
+p:"Metaanálisis EUS vs endoscópico: obliteración 84 % vs 63 %, recurrencia 9 % vs 18 %.",
+r:"Baveno VII · Laleman W, J Hepatol 2024"},
+
+{id:"HP06",b:"CI",t:"Hipertensión portal y HDA",n:"R",md:"E",
+q:"En la hemorragia variceal, ¿qué meta de hemoglobina se recomienda?",
+o:["Hb ≥ 10 g/dL","Transfundir con Hb &lt; 7 g/dL y mantener 7–8 g/dL","No transfundir hasta Hb &lt; 5 g/dL","Hb ≥ 9 en todos"],
+c:1,
+e:"La estrategia restrictiva (umbral 7, meta 7–8 g/dL) redujo mortalidad y resangrado; la sobretransfusión aumenta la presión portal.",
+w:{0:"Aumenta la presión portal y el resangrado.",2:"Demasiado restrictivo.",3:"Solo se considera más alta en cardiopatía isquémica o sangrado masivo."},
+p:"Villanueva NEJM 2013: sobrevida a 6 semanas 95 % vs 91 %.",
+r:"Villanueva C, NEJM 2013"},
+
+{id:"HP07",b:"CI",t:"Hipertensión portal y HDA",n:"F",md:"X",
+q:"Hombre de 49 años con cirrosis Child A y trombosis portal parcial (50 % del lumen) reciente, sin candidatura a trasplante por ahora. ¿Conducta?",
+o:["Observar: la trombosis parcial no se trata","Anticoagular (HBPM o ACOD en Child A) y controlar con imagen a 6 meses","TIPS de inmediato","Trombólisis sistémica"],
+c:1,
+e:"Baveno VII/VIII: anticoagular la trombosis portal reciente, sobre todo &gt; 50 % del lumen, progresiva o con extensión mesentérica; los ACOD son opción en Child A. Recanalización 60–70 %.",
+w:{0:"La trombosis &gt; 50 % y reciente debe anticoagularse.",2:"El TIPS se considera si no recanaliza o hay complicaciones de hipertensión portal.",3:"La trombólisis sistémica no se recomienda."},
+p:"En candidato a trasplante: anticoagular cualquier trombosis, independiente del grado.",
+r:"Baveno VII/VIII · AASLD vascular 2020"},
+
+{id:"HP08",b:"CI",t:"Hipertensión portal y HDA",n:"R",md:"X",
+q:"Cirrosis descompensada con várices pequeñas sin signos rojos y ascitis grado 2. ¿Profilaxis primaria?",
+o:["Ninguna hasta que crezcan","BBNS","Ligadura","TIPS"],
+c:1,
+e:"En el descompensado con várices, el BBNS es de elección (también previene otras descompensaciones); la ligadura se reserva para várices de alto riesgo con intolerancia o contraindicación a BBNS.",
+w:{0:"El descompensado con várices tiene alto riesgo.",2:"La ligadura no previene otras descompensaciones.",3:"No hay indicación de TIPS."},
+p:"Con ascitis: carvedilol máx. 12,5 mg/día, propranolol máx. 160 mg/día.",
+r:"Baveno VII/VIII"},
+
+{id:"HP09",b:"CI",t:"Hipertensión portal y HDA",n:"S",md:"E",
+q:"Paciente con TIPS hace 3 semanas desarrolla encefalopatía grado II recurrente pese a lactulosa y rifaximina. ¿Siguiente paso?",
+o:["Ocluir el TIPS de inmediato","Reducir el diámetro del TIPS (stent de reducción)","Aumentar lactulosa al doble","Listar en urgencia para trasplante"],
+c:1,
+e:"La encefalopatía refractaria post-TIPS (~5–10 %) se maneja con <b>reducción del calibre</b> del stent; la oclusión completa reaparece la hipertensión portal.",
+w:{0:"La oclusión total es la última opción.",2:"Ya está en tratamiento óptimo.",3:"No es indicación de urgencia."},
+p:"Prevención: TIPS cubierto de 8 mm dilatado a demanda; rifaximina profiláctica reduce la encefalopatía post-TIPS (Bureau, Ann Intern Med 2021).",
+r:"EASL TIPS 2025 · Bureau C, Ann Intern Med 2021"},
+
+{id:"HP10",b:"CI",t:"Hipertensión portal y HDA",n:"R",md:"E",
+q:"¿Cuánto dura la profilaxis antibiótica en la hemorragia variceal según Baveno VIII y ACG 2026?",
+o:["Máximo 7 días; puede acortarse (2–3 días) según riesgo y gravedad","Siempre 14 días","Solo si hay fiebre","Hasta el alta, sin límite"],
+c:0,
+e:"Ceftriaxona 1 g/día hasta 7 días; Baveno VIII individualiza la duración (puede no ser necesaria en Child A) y la ACG 2026 sugiere un curso corto de 2–3 días.",
+w:{1:"Excesivo.",2:"La profilaxis es universal en el cirrótico que sangra.",3:"Excesivo y selecciona resistencias."},
+p:"La profilaxis reduce infecciones, resangrado y mortalidad.",
+r:"Baveno VIII 2026 · ACG 2026"},
+
+/* ===================== Bloque 4 · Ascitis, PBE, HRS-AKI e hiponatremia ===================== */
+{id:"AS01",b:"CI",t:"Ascitis, PBE y HRS-AKI",n:"R",md:"E",
+q:"Ascitis nueva: albúmina sérica 2,9 g/dL, albúmina en ascitis 1,0 g/dL, proteínas en ascitis 3,1 g/dL. ¿Orientación?",
+o:["Cirrosis","Insuficiencia cardíaca o Budd-Chiari","Carcinomatosis peritoneal","Síndrome nefrótico"],
+c:1,
+e:"GASA 1,9 (≥ 1,1 = hipertensión portal) con <b>proteínas ≥ 2,5 g/dL</b>: congestión postsinusoidal (cardíaca, Budd-Chiari, obstrucción sinusoidal). En cirrosis las proteínas suelen ser &lt; 2,5.",
+w:{0:"La cirrosis suele tener proteínas bajas.",2:"La carcinomatosis tiene GASA &lt; 1,1.",3:"El nefrótico tiene GASA &lt; 1,1 y proteínas bajas."},
+p:"Pida NT-proBNP: &gt; 364 pg/mL orienta a causa cardíaca.",
+r:"EASL 2018 · AASLD 2021"},
+
+{id:"AS02",b:"CI",t:"Ascitis, PBE y HRS-AKI",n:"R",md:"X",
+q:"Cirrótico con fiebre y dolor abdominal: PMN en ascitis 820/mm³, proteínas 2,4 g/dL, glucosa 32 mg/dL, LDH ascítica mayor que el LSN sérico. Gram con flora mixta. ¿Diagnóstico y conducta?",
+o:["PBE; ceftriaxona y albúmina","Peritonitis secundaria; TC de abdomen, antibiótico amplio y evaluación quirúrgica","Bacteriascitis; repetir paracentesis","Ascitis quilosa"],
+c:1,
+e:"Criterios de Runyon (≥ 2 de: proteínas &gt; 1 g/dL, glucosa &lt; 50 mg/dL, LDH &gt; LSN sérico) y flora polimicrobiana: <b>peritonitis secundaria</b> (perforación o absceso).",
+w:{0:"La PBE es monomicrobiana y sin esos criterios bioquímicos.",2:"Bacteriascitis es cultivo + con PMN &lt; 250.",3:"La quilosa tiene triglicéridos &gt; 200 mg/dL."},
+p:"CEA &gt; 5 ng/mL o FA &gt; 240 U/L en ascitis sugieren perforación de víscera hueca.",
+r:"EASL 2018"},
+
+{id:"AS03",b:"CI",t:"Ascitis, PBE y HRS-AKI",n:"R",md:"E",
+q:"PBE comunitaria en paciente con bilirrubina 5 mg/dL y creatinina 1,4 mg/dL. Además de ceftriaxona, ¿qué reduce la lesión renal y la mortalidad?",
+o:["Albúmina 1,5 g/kg día 1 y 1 g/kg día 3","Furosemida EV","Terlipresina profiláctica","Paracentesis evacuadora diaria"],
+c:0,
+e:"Sort NEJM 1999: la albúmina en PBE redujo la falla renal (10 % vs 33 %) y la mortalidad (10 % vs 29 %), sobre todo con creatinina &gt; 1 mg/dL, BUN &gt; 30 o bilirrubina &gt; 4.",
+w:{1:"Los diuréticos se suspenden en PBE.",2:"No hay indicación sin HRS-AKI.",3:"Las paracentesis grandes sin albúmina empeoran la función renal."},
+p:"Control con paracentesis a las 48 h: caída de PMN &lt; 25 % = falla.",
+r:"Sort P, NEJM 1999 · EASL 2018"},
+
+{id:"AS04",b:"CI",t:"Ascitis, PBE y HRS-AKI",n:"R",md:"X",
+q:"Tras un episodio de PBE resuelto, ¿qué profilaxis corresponde?",
+o:["Ninguna","Norfloxacino 400 mg/día o ciprofloxacino 500 mg/día de forma indefinida","Ceftriaxona semanal","Rifaximina como única opción"],
+c:1,
+e:"La recurrencia de PBE al año es ~70 % sin profilaxis: <b>profilaxis secundaria indefinida</b> (o hasta trasplante) con norfloxacino o ciprofloxacino.",
+w:{0:"La recurrencia es muy alta.",2:"No es estándar.",3:"La rifaximina no es la profilaxis estándar de PBE."},
+p:"Profilaxis primaria: proteínas &lt; 1,5 g/dL + (Child ≥ 9 con bilirrubina ≥ 3, o creatinina ≥ 1,2, BUN ≥ 25 o Na ≤ 130).",
+r:"EASL 2018"},
+
+{id:"AS05",b:"CI",t:"Ascitis, PBE y HRS-AKI",n:"R",md:"E",
+q:"Cirrótico con ascitis: creatinina basal 0,9 mg/dL, hoy 1,7 mg/dL. Suspendió diuréticos hace 48 h y recibió albúmina 1 g/kg × 2 días sin mejoría. Sin shock ni nefrotóxicos, sedimento normal. ¿Diagnóstico y tratamiento?",
+o:["Necrosis tubular aguda; diálisis","HRS-AKI; terlipresina + albúmina","LRA prerrenal; más volumen","Nefropatía por IgA; biopsia renal"],
+c:1,
+e:"Cumple HRS-AKI: cirrosis con ascitis, LRA (≥ 1,5 × basal), sin respuesta a expansión, sin shock, sin nefrotóxicos, sin daño estructural. <b>Terlipresina + albúmina</b>.",
+w:{0:"El sedimento normal y la falta de proteinuria van contra NTA.",2:"Ya no respondió a la expansión.",3:"No hay hematuria ni proteinuria."},
+p:"ICA-ADQI 2024: la expansión se individualiza según volemia; ya no es obligatoria a todos por 48 h.",
+r:"Nadim MK, J Hepatol 2024 (ICA-ADQI)"},
+
+{id:"AS06",b:"CI",t:"Ascitis, PBE y HRS-AKI",n:"F",md:"X",
+q:"Al día 3 de terlipresina 1 mg c/6 h por HRS-AKI, la creatinina bajó de 2,4 a 2,1 mg/dL. ¿Conducta?",
+o:["Suspender por falta de respuesta","Aumentar la terlipresina (hasta 2 mg c/4–6 h o 12 mg/día en infusión)","Mantener la dosis hasta el día 14","Agregar midodrina"],
+c:1,
+e:"Caída &lt; 25 % al día 3 → <b>escalar la dosis</b> si se tolera. Respuesta completa: creatinina dentro de 0,3 mg/dL del basal; máximo 14 días.",
+w:{0:"Se escala antes de declarar falla.",2:"Mantener la dosis cuando la respuesta es insuficiente es subóptimo.",3:"La midodrina no se combina con terlipresina."},
+p:"La infusión continua (2 mg/día inicial) tiene menos efectos isquémicos que los bolos.",
+r:"ICA-ADQI 2024 · Cavallin M, Hepatology 2016"},
+
+{id:"AS07",b:"CI",t:"Ascitis, PBE y HRS-AKI",n:"F",md:"E",
+q:"¿Qué efecto adverso de la terlipresina destacó el ensayo CONFIRM y obliga a vigilancia diaria?",
+o:["Hiperkalemia","Insuficiencia respiratoria por sobrecarga de volumen","Hepatotoxicidad","Neutropenia"],
+c:1,
+e:"CONFIRM: insuficiencia respiratoria 10 % vs 3 % con placebo, sobre todo con ACLF-3 y creatinina ≥ 5. Monitorizar SpO₂ y volemia; reducir la albúmina si hay sobrecarga.",
+w:{0:"Hiponatremia, no hiperkalemia.",2:"No es un efecto relevante.",3:"No es un efecto descrito."},
+p:"Evitar terlipresina con SpO₂ &lt; 90 %, isquemia coronaria o periférica activa.",
+r:"Wong F, NEJM 2021 (CONFIRM)"},
+
+{id:"AS08",b:"CI",t:"Ascitis, PBE y HRS-AKI",n:"R",md:"X",
+q:"Paciente con ascitis en espironolactona 400 mg + furosemida 160 mg/día que sigue acumulando ascitis con restricción de sodio adecuada. ¿Cómo se clasifica y qué opción definitiva existe?",
+o:["Ascitis grado 2; aumentar furosemida a 240 mg","Ascitis refractaria resistente a diuréticos; TIPS cubierto si no hay contraindicaciones","Ascitis quilosa; dieta con triglicéridos de cadena media","Ascitis por hipoalbuminemia; albúmina semanal"],
+c:1,
+e:"Refractaria: sin respuesta a dosis máximas (400/160) o complicaciones que impiden alcanzarlas. El <b>TIPS cubierto</b> mejora el control de la ascitis y la sobrevida en seleccionados; evaluar trasplante.",
+w:{0:"Se superó la dosis máxima.",2:"No hay datos de quilosidad.",3:"La albúmina crónica no es estándar."},
+p:"Contraindicaciones de TIPS: bilirrubina &gt; 5 mg/dL, insuficiencia cardíaca, hipertensión pulmonar, encefalopatía recurrente.",
+r:"EASL 2018 · Bureau C, Gastroenterology 2017"},
+
+{id:"AS09",b:"CI",t:"Ascitis, PBE y HRS-AKI",n:"R",md:"E",
+q:"Cirrótico con Na 124 mmol/L asintomático, euvolémico-hipervolémico con ascitis. ¿Manejo inicial?",
+o:["Suero salino hipertónico","Restricción hídrica a 1–1,5 L/día y suspender diuréticos si Na &lt; 125","Tolvaptán ambulatorio","Corregir a 135 mmol/L en 24 h"],
+c:1,
+e:"Hiponatremia hipervolémica: suspender diuréticos con Na &lt; 125 y <b>restringir líquidos</b> (1–1,5 L/día). El hipertónico solo si hay síntomas graves; corrección ≤ 8 mmol/L/24 h.",
+w:{0:"Solo en hiponatremia sintomática grave.",2:"El tolvaptán no se recomienda en cirrosis (hepatotoxicidad) salvo excepción hospitalizada.",3:"Corrección rápida = mielinólisis."},
+p:"Na &lt; 130 empeora el pronóstico y es parte del MELD-Na.",
+r:"EASL 2018"},
+
+{id:"AS10",b:"CI",t:"Ascitis, PBE y HRS-AKI",n:"R",md:"X",
+q:"Paracentesis evacuadora de 8 L. ¿Cuánta albúmina corresponde?",
+o:["No requiere","20 g","48–64 g (6–8 g/L)","100 g"],
+c:2,
+e:"Sobre 5 L, reponer <b>6–8 g de albúmina por litro</b> extraído para prevenir la disfunción circulatoria post-paracentesis: 48–64 g.",
+w:{0:"Sobre 5 L sí se requiere.",1:"Insuficiente.",3:"Excesivo."},
+p:"La albúmina es superior a los cristaloides y otros expansores en paracentesis grandes.",
+r:"EASL 2018"}
+];
+
+// Bloques 5–8 · Encefalopatía · ACLF · Cirrótico integral · MASLD y alcohol
+const Q2 = [
+/* ===================== Bloque 5 · Encefalopatía hepática ===================== */
+{id:"EH01",b:"CI",t:"Encefalopatía",n:"R",md:"E",
+q:"Cirrótico traído por somnolencia y desorientación temporal, con asterixis. Afebril, Na 133, K 3,1 mmol/L, glicemia 110 mg/dL. Constipado hace 4 días; usa furosemida. ¿Primera conducta?",
+o:["Solicitar amonio para confirmar el diagnóstico","Buscar y corregir precipitantes (hipokalemia, constipación, diuréticos, infección) e iniciar lactulosa","TC de cerebro a todos antes de tratar","Rifaximina en monoterapia"],
+c:1,
+e:"Encefalopatía grado II: ~90 % tiene un <b>precipitante</b>. Corregir K, suspender diuréticos, descartar infección y hemorragia, y <b>lactulosa</b> titulada a 2–3 deposiciones.",
+w:{0:"El amonio no se requiere para el diagnóstico; un valor normal obliga a buscar otra causa.",2:"La TC se reserva para focalidad, trauma, primer episodio atípico o mala respuesta.",3:"La rifaximina no se usa como monoterapia del episodio."},
+p:"La hipokalemia aumenta la amoniogénesis renal.",
+r:"AASLD/EASL 2014 · EASL EH 2022"},
+
+{id:"EH02",b:"CI",t:"Encefalopatía",n:"R",md:"X",
+q:"Segundo episodio de encefalopatía manifiesta en 4 meses pese a lactulosa bien titulada. ¿Qué se agrega?",
+o:["Neomicina","Rifaximina 550 mg c/12 h","Metronidazol crónico","Restricción proteica a 0,6 g/kg/día"],
+c:1,
+e:"Bass NEJM 2010: <b>rifaximina + lactulosa</b> redujo la recurrencia (22 % vs 46 %) y las hospitalizaciones (HR 0,50).",
+w:{0:"Neomicina: nefro y ototoxicidad.",2:"Metronidazol: neurotoxicidad periférica en uso crónico.",3:"La restricción proteica empeora la sarcopenia; meta 1,2–1,5 g/kg/día."},
+p:"Rifaximina está confirmada en la canasta del GES 88.",
+r:"Bass NS, NEJM 2010 · EASL 2022"},
+
+{id:"EH03",b:"CI",t:"Encefalopatía",n:"F",md:"E",
+q:"Encefalopatía recurrente con función hepática relativamente conservada (MELD 11). ¿Qué estudio debe solicitarse?",
+o:["Electroencefalograma","TC o angio-TC de abdomen para buscar shunt portosistémico espontáneo","Biopsia hepática","Cobre urinario"],
+c:1,
+e:"Encefalopatía recurrente con MELD bajo sugiere un <b>shunt portosistémico espontáneo grande</b> (esplenorrenal), tratable con embolización.",
+w:{0:"El EEG no cambia la conducta.",2:"No aporta.",3:"No es la primera sospecha."},
+p:"La embolización de shunts en MELD ≤ 11 mejora la encefalopatía sin aumentar mucho la hipertensión portal.",
+r:"Laleman W, Hepatology 2013 · EASL 2022"},
+
+{id:"EH04",b:"CI",t:"Encefalopatía",n:"R",md:"X",
+q:"¿Qué distingue la encefalopatía grado I (encubierta) del grado II (manifiesta)?",
+o:["La presencia de coma","Desorientación temporal y asterixis aparecen en el grado II","El grado I requiere amonio elevado","El grado II solo se detecta con pruebas psicométricas"],
+c:1,
+e:"Grado II: letargia, <b>desorientación en tiempo</b>, cambio de personalidad, <b>asterixis</b>. Grado I: inversión del sueño, atención acortada, errores de cálculo, sin desorientación.",
+w:{0:"Coma es grado IV.",2:"El amonio no gradúa.",3:"Es la encefalopatía mínima la que solo se detecta con pruebas."},
+p:"ISHEN: mínima + grado I = encubierta; II–IV = manifiesta.",
+r:"AASLD/EASL 2014"},
+
+{id:"EH05",b:"CI",t:"Encefalopatía",n:"F",md:"X",
+q:"Cirrótico de 63 años, conductor profesional, sin episodios manifiestos. PHES alterado. ¿Qué implica y qué hacer?",
+o:["Nada: sin síntomas no tiene relevancia","Encefalopatía mínima: aumenta riesgo de accidentes y caídas; considerar lactulosa y consejería sobre la conducción","Indicación de TIPS","Suspender todos los fármacos"],
+c:1,
+e:"La <b>encefalopatía mínima</b> empeora la calidad de vida, aumenta accidentes de tránsito y predice encefalopatía manifiesta. Se trata con lactulosa (o rifaximina) caso a caso.",
+w:{0:"Tiene relevancia pronóstica y de seguridad.",2:"El TIPS la empeora.",3:"Sin fundamento."},
+p:"Stroop (EncephalApp) es una alternativa rápida al PHES.",
+r:"EASL 2022"},
+
+{id:"EH06",b:"CI",t:"Encefalopatía",n:"R",md:"E",
+q:"¿Cuál es el aporte proteico recomendado en el cirrótico con encefalopatía?",
+o:["0,5 g/kg/día","0,8 g/kg/día","1,2–1,5 g/kg/día con colación nocturna","2,5 g/kg/día"],
+c:2,
+e:"No se restringen proteínas: <b>1,2–1,5 g/kg/día</b> y 35 kcal/kg/día, con colación nocturna para reducir el catabolismo.",
+w:{0:"Restringir empeora la sarcopenia y la encefalopatía.",1:"Insuficiente.",3:"Excesivo."},
+p:"Los aminoácidos de cadena ramificada orales son útiles si hay intolerancia proteica.",
+r:"EASL nutrición 2019"},
+
+{id:"EH07",b:"CI",t:"Encefalopatía",n:"F",md:"X",
+q:"Encefalopatía grado II que no responde a 48 h de lactulosa ni rifaximina, sin precipitante evidente. ¿Qué opción tiene respaldo débil?",
+o:["Flumazenil en todos","L-ornitina L-aspartato EV 20–30 g/día","Corticoides","Albúmina 1,5 g/kg"],
+c:1,
+e:"EASL 2022: <b>LOLA EV</b> en no respondedores (recomendación débil). El flumazenil solo si se sospechan benzodiacepinas.",
+w:{0:"Solo en contexto de benzodiacepinas.",2:"Sin rol.",3:"La albúmina no mejoró la resolución en ensayos."},
+p:"Siempre reconsidere otros diagnósticos: hipoglicemia, Wernicke, hematoma subdural, infección del SNC.",
+r:"EASL 2022"},
+
+{id:"EH08",b:"CI",t:"Encefalopatía",n:"R",md:"E",
+q:"¿Cuál es la meta clínica al titular la lactulosa?",
+o:["4–6 deposiciones líquidas al día","2–3 deposiciones blandas al día","Una deposición diaria formada","Diarrea hasta normalizar el amonio"],
+c:1,
+e:"Titular a <b>2–3 deposiciones blandas al día</b>. La sobredosificación causa deshidratación, hipernatremia y LRA, que precipitan encefalopatía.",
+w:{0:"Excesivo.",2:"Insuficiente.",3:"El amonio no guía la dosis."},
+p:"Enema de lactulosa (300 mL en 700 mL de agua) si no hay vía oral.",
+r:"AASLD/EASL 2014"},
+
+{id:"EH09",b:"CI",t:"Encefalopatía",n:"S",md:"X",
+q:"En el ensayo HELP, el polietilenglicol 4 L frente a lactulosa en encefalopatía aguda…",
+o:["Fue inferior","Resolvió más rápido la encefalopatía en 24 h","Aumentó la mortalidad","Solo sirvió en grado IV"],
+c:1,
+e:"HELP (JAMA Intern Med 2014): PEG 4 L mejoró más pacientes a las 24 h (91 % vs 52 % con mejoría de ≥ 1 grado) y acortó la estancia.",
+w:{0:"Fue superior en rapidez.",2:"No.",3:"Incluyó varios grados."},
+p:"Útil cuando la lactulosa no está disponible o es mal tolerada.",
+r:"Rahimi RS, JAMA Intern Med 2014"},
+
+{id:"EH10",b:"CI",t:"Encefalopatía",n:"R",md:"E",
+q:"Cirrótico con encefalopatía grado III, vómitos y Glasgow 9. ¿Prioridad?",
+o:["Lactulosa por sonda nasogástrica de inmediato","Protección de la vía aérea y manejo en UPC","Rifaximina","TC solo si persiste 72 h"],
+c:1,
+e:"Grado III–IV con compromiso de conciencia y vómitos: riesgo de aspiración → <b>vía aérea</b> y UPC; luego lactulosa por sonda o enema.",
+w:{0:"Sin proteger la vía aérea el riesgo de aspiración es alto.",2:"No es la prioridad.",3:"La TC se indica si hay dudas diagnósticas, no se difiere."},
+p:"Encefalopatía III–IV es falla cerebral en la definición de ACLF.",
+r:"EASL 2022"},
+
+/* ===================== Bloque 6 · ACLF ===================== */
+{id:"AC01",b:"CI",t:"ACLF",n:"R",md:"E",
+q:"Cirrótico con neumonía: bilirrubina 4 mg/dL, creatinina 2,3 mg/dL, INR 1,8, sin encefalopatía, PAM 72, sin vasopresores. ¿Grado de ACLF (EASL-CLIF)?",
+o:["Sin ACLF","ACLF-1","ACLF-2","ACLF-3"],
+c:1,
+e:"Única falla: <b>renal</b> (creatinina ≥ 2). La falla renal aislada es <b>ACLF-1</b> (mortalidad a 28 días ~22 %).",
+w:{0:"La falla renal aislada ya define ACLF.",2:"Requiere dos fallas.",3:"Requiere ≥ 3 fallas."},
+p:"Una falla no renal aislada es ACLF-1 solo si se acompaña de creatinina 1,5–1,9 y/o encefalopatía I–II.",
+r:"Moreau R, Gastroenterology 2013 (CANONIC)"},
+
+{id:"AC02",b:"CI",t:"ACLF",n:"R",md:"X",
+q:"Cirrótico con bilirrubina 14 mg/dL, creatinina 1,2 mg/dL, sin encefalopatía, INR 2,0, hemodinamia y respiración normales. ¿Grado?",
+o:["Sin ACLF","ACLF-1","ACLF-2","ACLF-3"],
+c:0,
+e:"Falla hepática aislada (bilirrubina ≥ 12) con creatinina &lt; 1,5 y sin encefalopatía: <b>no cumple ACLF</b> (descompensación aguda).",
+w:{1:"Faltaría creatinina 1,5–1,9 o encefalopatía I–II.",2:"Solo una falla.",3:"Solo una falla."},
+p:"Usar CLIF-C AD para el pronóstico de la descompensación aguda sin ACLF.",
+r:"CANONIC 2013"},
+
+{id:"AC03",b:"CI",t:"ACLF",n:"F",md:"E",
+q:"Paciente con ACLF-3 al ingreso. ¿Cuándo predice mejor el grado el pronóstico?",
+o:["Solo al ingreso","Al reevaluarlo entre los días 3 y 7","Al alta","Al mes"],
+c:1,
+e:"El curso es dinámico: el <b>grado a los 3–7 días</b> de tratamiento predice mejor la mortalidad a 28 y 90 días (Gustot 2015).",
+w:{0:"El ingreso subestima la reversibilidad.",2:"Demasiado tarde para decidir.",3:"Demasiado tarde."},
+p:"ACLF-3 persistente con ≥ 4 fallas: mortalidad &gt; 90 % sin trasplante.",
+r:"Gustot T, Hepatology 2015"},
+
+{id:"AC04",b:"CI",t:"ACLF",n:"F",md:"X",
+q:"¿Cuál es el desencadenante más frecuente de ACLF en Occidente?",
+o:["Hepatitis viral aguda","Infección bacteriana y hepatitis alcohólica","Cirugía electiva","Fármacos herbales"],
+c:1,
+e:"En Europa y Latinoamérica predominan la <b>infección bacteriana</b> y la <b>hepatitis alcohólica</b>; en Asia, la reactivación de VHB. En ~40 % no se identifica precipitante.",
+w:{0:"Es más frecuente en Asia (VHB).",2:"Posible pero menos frecuente.",3:"Menos frecuente."},
+p:"Siempre buscar infección: hemocultivos, urocultivo, paracentesis, radiografía.",
+r:"Moreau R, Gastroenterology 2013"},
+
+{id:"AC05",b:"CI",t:"ACLF",n:"S",md:"E",
+q:"Paciente con ACLF-3 evaluado para trasplante. Edad 55, lactato 4,6 mmol/L, ventilación mecánica con PaO₂/FiO₂ 180, leucocitos 14.000. ¿Qué indica el modelo TAM?",
+o:["Candidato ideal","TAM 3: sobrevida a 1 año postrasplante &lt; 10 %; considerar futilidad","El TAM no aplica a ACLF","TAM 0"],
+c:1,
+e:"TAM suma: edad ≥ 53, lactato ≥ 4, VM con PaO₂/FiO₂ ≤ 200, leucocitos ≤ 10 ×10⁹/L. Este paciente tiene 3 (leucocitos &gt; 10 no suman). TAM &gt; 2 → sobrevida a 1 año &lt; 10 %.",
+w:{0:"Tiene criterios de alto riesgo.",2:"Se diseñó para ACLF-3.",3:"Suma 3 puntos."},
+p:"Evaluar el TAM en el momento de la oferta, no al ingreso.",
+r:"Artzner T, Am J Transplant 2020 · EASL ACLF 2023"},
+
+{id:"AC06",b:"CI",t:"ACLF",n:"F",md:"X",
+q:"¿Qué sistema de soporte o terapia mostró beneficio de sobrevida en ACLF en ensayos aleatorizados?",
+o:["MARS","G-CSF","Ninguno de forma consistente; el trasplante es la única terapia que cambia el pronóstico","Albúmina en dosis altas"],
+c:2,
+e:"MARS (RELIEF) y G-CSF (GRAFT) no mejoraron la sobrevida; la plasmaféresis (APACHE) tiene señal a corto plazo aún no estándar. El <b>trasplante</b> en ACLF-2/3 seleccionado: sobrevida ~80–90 %.",
+w:{0:"RELIEF negativo.",1:"GRAFT negativo.",3:"Sin beneficio demostrado en ACLF."},
+p:"Sin trasplante, la mortalidad a 1 mes en ACLF grave es 64–93 %.",
+r:"EASL ACLF 2023"},
+
+{id:"AC07",b:"CI",t:"ACLF",n:"R",md:"E",
+q:"¿Qué variables componen el CLIF-C ACLF score?",
+o:["Bilirrubina, INR y creatinina","CLIF-OF, edad y leucocitos","MELD y sodio","Lactato y albúmina"],
+c:1,
+e:"CLIF-C ACLF = 10 × [0,33 × CLIF-OF + 0,04 × edad + 0,63 × ln(leucocitos) − 2]. Reemplaza al MELD en ACLF.",
+w:{0:"Es el MELD.",2:"MELD-Na.",3:"No forman parte."},
+p:"A-TANGO (J Hepatol 2026) agrega ACLF-4 y reemplaza leucocitos por PCR.",
+r:"Jalan R, J Hepatol 2014"},
+
+{id:"AC08",b:"CI",t:"ACLF",n:"R",md:"X",
+q:"Cirrótico con hemorragia variceal: INR 2,7, bilirrubina 3 mg/dL, creatinina 1,7 mg/dL, sin encefalopatía. ¿Grado?",
+o:["Sin ACLF","ACLF-1","ACLF-2","ACLF-3"],
+c:1,
+e:"Falla de coagulación aislada (INR ≥ 2,5) con <b>creatinina 1,5–1,9</b>: ACLF-1.",
+w:{0:"La creatinina 1,7 la convierte en ACLF-1.",2:"Solo una falla.",3:"Solo una falla."},
+p:"La creatinina 1,5–1,9 modifica el grado: siempre mídala.",
+r:"CANONIC 2013"},
+
+{id:"AC09",b:"CI",t:"ACLF",n:"S",md:"X",
+q:"Según la definición de APASL, ¿qué diferencia central tiene la ACLF frente a EASL-CLIF?",
+o:["APASL exige infección","APASL se centra en la falla hepática (ictericia + coagulopatía) con ascitis o encefalopatía en 4 semanas, incluso sin cirrosis previa","APASL usa el MELD","No hay diferencias"],
+c:1,
+e:"APASL: insulto hepático agudo con <b>ictericia (bilirrubina ≥ 5) y coagulopatía (INR ≥ 1,5)</b>, complicado con ascitis y/o encefalopatía en 4 semanas, en enfermedad hepática crónica con o sin cirrosis. EASL-CLIF exige cirrosis y fallas orgánicas.",
+w:{0:"No exige infección.",2:"Usa su propio score (AARC).",3:"Son definiciones distintas."},
+p:"Kyoto 2025: propuesta de definición global como espectro (tipo hepático y extrahepático).",
+r:"Sarin SK, Hepatol Int 2019 · EASL ACLF 2023"},
+
+{id:"AC10",b:"CI",t:"ACLF",n:"F",md:"E",
+q:"¿En qué grado de ACLF se acepta hoy el trasplante en centros con experiencia?",
+o:["Solo ACLF-1","Hasta ACLF-2","Incluso ACLF-3 seleccionado (sin criterios de futilidad)","Nunca en ACLF"],
+c:2,
+e:"EASL 2024: el trasplante en <b>ACLF-3 seleccionado</b> logra sobrevida a 1 año de 80–85 %. Excluir futilidad (TAM &gt; 2, sepsis no controlada, SDRA grave, noradrenalina &gt; 1 µg/kg/min).",
+w:{0:"Restrictivo.",1:"Restrictivo.",3:"Desactualizado."},
+p:"La ventana es corta: ACLF-3 debe evaluarse en días.",
+r:"EASL trasplante 2024 · EASL ACLF 2023"},
+
+/* ===================== Bloque 7 · El cirrótico integral ===================== */
+{id:"CX01",b:"CI",t:"Cirrótico integral",n:"R",md:"E",
+q:"Cirrótico Child B con INR 2,0 y plaquetas 58.000 programado para ligadura de várices. ¿Qué corrección previa corresponde?",
+o:["Plasma 15 mL/kg","Transfusión de plaquetas a &gt; 100.000","Ninguna: la ligadura es de bajo riesgo y el INR no refleja el riesgo hemorrágico","Vitamina K y esperar 48 h"],
+c:2,
+e:"En cirrosis la hemostasia está <b>rebalanceada</b>: el INR no predice sangrado. Para procedimientos de bajo riesgo no se corrige; en alto riesgo se individualiza (plaquetas ≥ 50.000, fibrinógeno &gt; 120 mg/dL).",
+w:{0:"El plasma aumenta la presión portal.",1:"Innecesario para bajo riesgo.",3:"La vitamina K no corrige la coagulopatía por síntesis."},
+p:"AGA 2021 · ISTH: no usar el INR para estimar riesgo de sangrado en cirrosis.",
+r:"AGA CPU coagulación en cirrosis 2021 · Baveno VII"},
+
+{id:"CX02",b:"CI",t:"Cirrótico integral",n:"R",md:"X",
+q:"Cirrótico Child A con fibrilación auricular, CHA₂DS₂-VASc 3. ¿Anticoagulación?",
+o:["Contraindicada por la cirrosis","ACOD (apixabán o rivaroxabán) con control de función renal","Solo aspirina","Warfarina con meta INR 4"],
+c:1,
+e:"En <b>Child A</b> los ACOD son seguros y al menos tan eficaces como warfarina. Child B: apixabán con cautela; Child C: evitar.",
+w:{0:"La cirrosis no contraindica.",2:"Aspirina no previene el ictus en FA.",3:"Meta incorrecta y difícil de controlar."},
+p:"Tratar várices de alto riesgo antes de anticoagular.",
+r:"AASLD vascular 2020 · Baveno VIII"},
+
+{id:"CX03",b:"CI",t:"Cirrótico integral",n:"R",md:"E",
+q:"¿Cuál es la herramienta recomendada para evaluar fragilidad en el cirrótico ambulatorio?",
+o:["Índice de masa corporal","Liver Frailty Index (prensión, levantarse de la silla, equilibrio)","Albúmina sérica","Escala de Karnofsky"],
+c:1,
+e:"El <b>LFI</b> es objetivo, rápido y predice mortalidad en lista independiente del MELD. Robusto &lt; 3,2; prefrágil 3,2–4,4; frágil ≥ 4,5.",
+w:{0:"El IMC subestima la desnutrición por ascitis y edema.",2:"Refleja síntesis, no fragilidad.",3:"Subjetivo."},
+p:"Sarcopenia por TC en L3: &lt; 38,5 cm²/m² mujeres, &lt; 52,4 cm²/m² hombres.",
+r:"Lai JC, Hepatology 2017 · AASLD frailty 2021"},
+
+{id:"CX04",b:"CI",t:"Cirrótico integral",n:"F",md:"X",
+q:"Cirrótico Child B 8, MELD 14, requiere colecistectomía electiva. ¿Riesgo y conducta?",
+o:["Riesgo bajo; operar sin más evaluación","Riesgo intermedio-alto; calcular VOCAL-Penn o Mayo, optimizar ascitis y considerar alternativas no quirúrgicas o diferir","Contraindicación absoluta","Operar solo con TIPS previo en todos"],
+c:1,
+e:"Child B y MELD 10–15: mortalidad perioperatoria relevante. Estimar riesgo con <b>VOCAL-Penn</b> o Mayo, controlar ascitis, nutrición, decidir en centro con hepatología; TIPS preoperatorio solo seleccionado.",
+w:{0:"Subestima el riesgo.",2:"No es absoluta en Child B.",3:"El TIPS preoperatorio no tiene evidencia sólida para todos."},
+p:"Cirugía electiva generalmente contraindicada en Child C o MELD &gt; 20.",
+r:"AGA CPU riesgo quirúrgico en cirrosis (Northup, Clin Gastroenterol Hepatol 2019) · Mahmud N, Hepatology 2021 (VOCAL-Penn)"},
+
+{id:"CX05",b:"CI",t:"Cirrótico integral",n:"R",md:"E",
+q:"Según el GES 88, ¿cuál de estos pacientes egresado por cirrosis debe derivarse a especialidad?",
+o:["Child A6, MELD-Na 11, por alcohol en abstinencia","Child B7, MELD-Na 13","Child A5, MELD-Na 10, con colangitis biliar primaria","Child B7, MELD-Na 14, MASLD"],
+c:2,
+e:"Deriva a especialidad: Child ≥ 8, MELD-Na ≥ 15, <b>cirrosis autoinmune</b> (CBP, HAI, CEP), encefalopatía ≥ II recurrente o persistente, antecedente de HCC, todo paciente pediátrico.",
+w:{0:"Puede seguir en APS.",1:"Puede seguir en APS.",3:"Puede seguir en APS (MELD-Na ≤ 14 y B7)."},
+p:"Oportunidad GES 88: tratamiento dentro de 30 días desde la indicación.",
+r:"Godoy A, Curso Dávila 2026 · Ficha GES 88"},
+
+{id:"CX06",b:"CI",t:"Cirrótico integral",n:"R",md:"X",
+q:"¿Qué vacunas se recomiendan en el cirrótico?",
+o:["Ninguna: están contraindicadas","Hepatitis A y B (si no inmune), neumocócica, influenza anual, COVID-19 y zóster recombinante","Solo influenza","Vacunas vivas atenuadas en Child C"],
+c:1,
+e:"Todas las inactivadas: VHA, VHB, neumocócica, influenza, COVID-19, <b>zóster recombinante</b>. Las vivas se evitan en inmunosupresión y antes del trasplante con precaución.",
+w:{0:"Están indicadas.",2:"Incompleto.",3:"Evitar vivas en inmunosupresión."},
+p:"La respuesta a la vacuna VHB es menor en cirrosis: usar esquemas de doble dosis o adyuvadas.",
+r:"ACG cuidados preventivos en cirrosis 2024"},
+
+{id:"CX07",b:"CI",t:"Cirrótico integral",n:"F",md:"E",
+q:"Cirrótico con disnea y SpO₂ 88 % de pie que mejora acostado (ortodesoxia). Ecocardiograma con burbujas: paso tardío al corazón izquierdo (&gt; 3 latidos). PaO₂ 58 mmHg. ¿Diagnóstico y conducta?",
+o:["Hipertensión portopulmonar; vasodilatadores","Síndrome hepatopulmonar grave; oxígeno y priorizar trasplante","Hidrotórax hepático; toracocentesis","Embolia pulmonar"],
+c:1,
+e:"Dilataciones intrapulmonares con paso tardío de burbujas + PaO₂ &lt; 60 mmHg: <b>síndrome hepatopulmonar grave</b>. El trasplante es curativo y tiene puntos de excepción.",
+w:{0:"La HPoP tiene PAPm elevada y RVP alta.",2:"No hay derrame.",3:"El patrón de burbujas es diagnóstico de SHP."},
+p:"PaO₂ &lt; 50 mmHg aumenta el riesgo perioperatorio.",
+r:"ERS/EASL hepatopulmonar 2016 · EASL trasplante 2024"},
+
+{id:"CX08",b:"CI",t:"Cirrótico integral",n:"R",md:"X",
+q:"Hidrotórax hepático derecho recurrente pese a diuréticos. ¿Qué evitar?",
+o:["Toracocentesis evacuadora","Tubo de drenaje pleural permanente","TIPS","Evaluación de trasplante"],
+c:1,
+e:"El <b>tubo pleural</b> en hidrotórax hepático produce pérdida de proteínas, infección, insuficiencia renal y alta mortalidad. Toracocentesis repetidas, TIPS o trasplante.",
+w:{0:"Es el tratamiento sintomático adecuado.",2:"Opción en refractarios.",3:"Indicada."},
+p:"Empiema bacteriano espontáneo: PMN en líquido pleural &gt; 250 con cultivo + o &gt; 500 sin cultivo.",
+r:"EASL 2018"},
+
+{id:"CX09",b:"CI",t:"Cirrótico integral",n:"R",md:"E",
+q:"¿Cuál es el aporte calórico recomendado en el cirrótico no obeso?",
+o:["20 kcal/kg/día","30–35 kcal/kg/día","45 kcal/kg/día","No se calcula"],
+c:1,
+e:"<b>30–35 kcal/kg/día</b> y 1,2–1,5 g/kg/día de proteínas, comidas fraccionadas y colación nocturna. En obesos, reducción calórica moderada manteniendo proteínas.",
+w:{0:"Insuficiente.",2:"Excesivo.",3:"Se calcula con peso seco."},
+p:"El ayuno nocturno en cirrosis equivale a 3 días de ayuno en sano.",
+r:"EASL nutrición 2019"},
+
+{id:"CX10",b:"CI",t:"Cirrótico integral",n:"F",md:"X",
+q:"En LIVERHOPE (JAMA 2025), simvastatina + rifaximina en cirrosis descompensada…",
+o:["Redujo la ACLF y la muerte","No redujo ACLF, trasplante ni muerte","Aumentó la rabdomiólisis sin beneficio","Fue suspendido por eficacia"],
+c:1,
+e:"LIVERHOPE (237 pacientes) no redujo el desenlace primario. Las estatinas se mantienen si hay indicación cardiovascular, en dosis bajas en Child B.",
+w:{0:"Fue negativo.",2:"No se reportó exceso de rabdomiólisis con 20 mg.",3:"No."},
+p:"PRECIOSA (albúmina 1,5 g/kg c/10 días) tampoco alcanzó su desenlace primario.",
+r:"Pose E, JAMA 2025 (LIVERHOPE)"},
+
+/* ===================== Bloque 8 · MASLD y enfermedad hepática por alcohol ===================== */
+{id:"MA01",b:"ET",t:"MASLD y alcohol",n:"R",md:"E",
+q:"Mujer de 49 años con esteatosis ecográfica, IMC 29 y prediabetes. Consumo de alcohol 180 g/semana. ¿Cómo se clasifica según la nomenclatura 2023?",
+o:["MASLD","MetALD","Enfermedad hepática por alcohol","Esteatosis criptogénica"],
+c:1,
+e:"Esteatosis + ≥ 1 criterio cardiometabólico + consumo de <b>140–350 g/semana en mujeres</b> (210–420 en hombres) = <b>MetALD</b>. Bajo 140 g/semana sería MASLD; sobre 350 g/semana, enfermedad hepática por alcohol.",
+w:{0:"Supera el umbral de 140 g/semana en mujeres.",2:"Requiere &gt; 350 g/semana en mujeres.",3:"Hay criterios cardiometabólicos y una causa identificada."},
+p:"Cortes: mujeres 140–350 g/semana (20–50 g/día), hombres 210–420 g/semana (30–60 g/día).",
+r:"Rinella ME, J Hepatol 2023 (nomenclatura Delphi)"},
+
+{id:"MA02",b:"ET",t:"MASLD y alcohol",n:"R",md:"X",
+q:"Hombre de 56 años con MASLD y diabetes tipo 2. FIB-4 1,9. ¿Siguiente paso?",
+o:["Repetir FIB-4 en 3 años","Elastografía de transición (o ELF)","Biopsia hepática","Alta: la diabetes no cambia el riesgo"],
+c:1,
+e:"FIB-4 1,3–2,67 es indeterminado: segundo escalón con <b>elastografía</b> (&lt; 8 kPa bajo riesgo; ≥ 12 fibrosis avanzada).",
+w:{0:"Corresponde a FIB-4 &lt; 1,3.",2:"No es el segundo paso.",3:"La diabetes aumenta el riesgo de fibrosis avanzada."},
+p:"Los diabéticos tipo 2 tienen ~2 veces más riesgo de fibrosis avanzada.",
+r:"EASL-EASD-EASO 2024 · AGA 2026"},
+
+{id:"MA03",b:"ET",t:"MASLD y alcohol",n:"F",md:"E",
+q:"MASH F3 por biopsia, IMC 36, diabético con HbA1c 7,8 %. ¿Opción farmacológica con aprobación FDA específica para MASH que además trata sus comorbilidades?",
+o:["Vitamina E 800 UI","Semaglutida 2,4 mg semanal","Ácido obeticólico","Pentoxifilina"],
+c:1,
+e:"<b>Semaglutida 2,4 mg</b> (FDA, agosto 2025) para MASH F2–F3: ESSENCE mostró resolución de esteatohepatitis 63 % vs 34 % y mejoría de fibrosis 37 % vs 22 %; trata obesidad y diabetes.",
+w:{0:"Fuera de indicación en diabéticos.",2:"No aprobado para MASH.",3:"Sin beneficio establecido."},
+p:"Resmetirom (FDA 2024) es la otra opción aprobada; la guía EASL-EASD-EASO 2026 orienta la elección.",
+r:"Sanyal AJ, NEJM 2025 (ESSENCE)"},
+
+{id:"MA04",b:"ET",t:"MASLD y alcohol",n:"R",md:"X",
+q:"Hepatitis alcohólica: bilirrubina 16 mg/dL, MELD 26, sin infección ni sangrado. ¿Tratamiento?",
+o:["Pentoxifilina 400 mg c/8 h","Prednisolona 40 mg/día × 28 días","N-acetilcisteína en monoterapia","Solo soporte"],
+c:1,
+e:"MELD 21–39 sin contraindicaciones: <b>prednisolona 40 mg/día</b> (reduce mortalidad a 28 días). Lille al día 4–7 para decidir continuar.",
+w:{0:"STOPAH: sin beneficio.",2:"Se asocia a corticoides, no en monoterapia.",3:"MELD 26 es grave."},
+p:"Siempre tiamina, nutrición 35–40 kcal/kg y manejo del trastorno por consumo.",
+r:"STOPAH, NEJM 2015 · ACG 2024"},
+
+{id:"MA05",b:"ET",t:"MASLD y alcohol",n:"R",md:"E",
+q:"Lille al día 7 = 0,62 en paciente con hepatitis alcohólica en prednisolona. ¿Conducta?",
+o:["Continuar 28 días","Suspender corticoides y evaluar trasplante precoz en comité","Duplicar la dosis","Agregar pentoxifilina"],
+c:1,
+e:"Lille &gt; 0,45 = <b>no respondedor</b> (sobrevida a 6 meses ~25 %): suspender corticoides y discutir trasplante precoz en seleccionados.",
+w:{0:"Sin beneficio y mayor riesgo infeccioso.",2:"Sin evidencia.",3:"Sin beneficio."},
+p:"El Lille al día 4 tiene rendimiento similar al día 7.",
+r:"Louvet A, Hepatology 2007 · ACG 2024"},
+
+{id:"MA06",b:"ET",t:"MASLD y alcohol",n:"F",md:"X",
+q:"Para el trastorno por consumo de alcohol en cirrosis descompensada, ¿cuál fármaco tiene más evidencia de seguridad?",
+o:["Disulfiram","Naltrexona","Baclofeno","Benzodiacepinas de vida media larga"],
+c:2,
+e:"<b>Baclofeno</b> (Addolorato, Lancet 2007) es el más estudiado en cirrosis avanzada. Acamprosato también es seguro hepáticamente (ajuste renal).",
+w:{0:"Hepatotóxico: contraindicado.",1:"Evitar en descompensada.",3:"Solo para abstinencia aguda, con cautela."},
+p:"Medir fosfatidiletanol (PEth) para objetivar abstinencia.",
+r:"ACG 2024 · EASL alcohol 2018"},
+
+{id:"MA07",b:"ET",t:"MASLD y alcohol",n:"R",md:"E",
+q:"¿Qué valor de MELD define hepatitis alcohólica grave según ACG 2024?",
+o:["&gt; 11","&gt; 15","&gt; 20","&gt; 30"],
+c:2,
+e:"ACG 2024: <b>MELD &gt; 20</b> define gravedad (Maddrey ≥ 32 es equivalente clásico). La ventana de corticoides es MELD 21–39.",
+w:{0:"Corte bajo.",1:"Corte de derivación a trasplante.",3:"Demasiado alto."},
+p:"MELD &gt; 39: beneficio improbable de corticoides.",
+r:"ACG ALD 2024"},
+
+{id:"MA08",b:"ET",t:"MASLD y alcohol",n:"F",md:"X",
+q:"Paciente con MASLD y elastografía 9,5 kPa (zona gris). ¿Qué opción ayuda a reclasificar sin biopsia?",
+o:["CAP","ELF o elastografía por resonancia","APRI","Ecografía con contraste"],
+c:1,
+e:"Zona gris 8–12 kPa: <b>ELF</b> o <b>RM elastografía</b> reclasifican; biopsia si persiste la duda y cambia la conducta.",
+w:{0:"El CAP mide esteatosis, no fibrosis.",2:"Menor rendimiento que FIB-4 en MASLD.",3:"No evalúa fibrosis."},
+p:"El riesgo de eventos hepáticos se relaciona con la fibrosis, no con la esteatosis.",
+r:"EASL-EASD-EASO 2024"},
+
+{id:"MA09",b:"ET",t:"MASLD y alcohol",n:"S",md:"E",
+q:"Trasplante precoz en hepatitis alcohólica grave no respondedora (estudio de Mathurin 2011). ¿Qué mostró?",
+o:["Sin beneficio","Sobrevida a 6 meses 77 % vs 23 % en no trasplantados, con recaída baja en seleccionados","Recaída del 80 %","Mayor mortalidad postrasplante"],
+c:1,
+e:"Mathurin NEJM 2011: en no respondedores seleccionados (primer episodio, buen soporte), sobrevida a 6 meses 77 % vs 23 %.",
+w:{0:"Fue positivo.",2:"La recaída fue baja (~10 %).",3:"No."},
+p:"La regla de 6 meses de abstinencia ya no se exige en hepatitis alcohólica seleccionada (EASL 2024).",
+r:"Mathurin P, NEJM 2011 · EASL trasplante 2024"},
+
+{id:"MA10",b:"ET",t:"MASLD y alcohol",n:"R",md:"X",
+q:"Criterio de diagnóstico clínico de hepatitis alcohólica (NIAAA):",
+o:["Ictericia &lt; 8 semanas, consumo &gt; 40 g/día (mujeres) o &gt; 60 g/día (hombres) por ≥ 6 meses, AST &gt; 50, AST/ALT &gt; 1,5, ambas &lt; 400 U/L, bilirrubina &gt; 3 mg/dL","AST &gt; 1.000 U/L","Biopsia obligatoria","Fiebre &gt; 39 °C"],
+c:0,
+e:"NIAAA: inicio de ictericia en &lt; 8 semanas, consumo intenso ≥ 6 meses (con &lt; 60 días de abstinencia), bilirrubina &gt; 3, AST &gt; 50 con AST/ALT &gt; 1,5 y ambas &lt; 400 U/L.",
+w:{1:"Transaminasas &gt; 400 sugieren otra causa.",2:"La biopsia se reserva para casos dudosos.",3:"La fiebre puede existir pero no define."},
+p:"Transaminasas &gt; 400 obligan a buscar paracetamol, isquemia o virus.",
+r:"Crabb DW, Gastroenterology 2016 (NIAAA)"}
+];
+
+// Bloques 9–12 · Hepatitis virales · Autoinmunes · Metabólicas · DILI
+const Q3 = [
+/* ===================== Bloque 9 · Hepatitis virales ===================== */
+{id:"VI01",b:"ET",t:"Hepatitis virales",n:"R",md:"E",
+q:"Hombre de 38 años, HBsAg positivo, HBeAg negativo, DNA-VHB 8.500 UI/mL, ALT 52 U/L (LSN 30), rigidez 6 kPa. ¿Conducta según EASL 2025?",
+o:["Observar: hepatitis B crónica HBeAg negativa sin fibrosis","Tratar con entecavir o tenofovir","Peg-interferón obligatorio","Solo vacunar a los contactos"],
+c:1,
+e:"EASL 2025 simplificó la indicación: <b>DNA &gt; 2.000 UI/mL con ALT elevada</b> (LSN 30 hombres, 19 mujeres) basta para tratar, aun sin fibrosis significativa.",
+w:{0:"Con el nuevo LSN de ALT y DNA &gt; 2.000 corresponde tratar.",2:"Es opción en casos seleccionados, no obligatorio.",3:"Se vacuna a los contactos además de tratar."},
+p:"GES 68: evaluación en 30 días y tratamiento en 30 días desde la indicación.",
+r:"EASL VHB 2025"},
+
+{id:"VI02",b:"ET",t:"Hepatitis virales",n:"R",md:"X",
+q:"Paciente con cirrosis compensada y HBsAg positivo, DNA-VHB 120 UI/mL, ALT normal. ¿Tratamiento?",
+o:["No: la viremia es baja","Sí: en cirrosis se trata cualquier viremia detectable","Solo si HBeAg es positivo","Solo si hay HCC"],
+c:1,
+e:"En <b>cirrosis se trata con cualquier DNA detectable</b>, independiente de ALT y HBeAg.",
+w:{0:"En cirrosis no hay umbral de DNA.",2:"No depende del HBeAg.",3:"Se trata para prevenir HCC y descompensación."},
+p:"Vigilancia de HCC semestral persiste aunque el DNA sea indetectable.",
+r:"EASL VHB 2025"},
+
+{id:"VI03",b:"ET",t:"Hepatitis virales",n:"F",md:"E",
+q:"Mujer HBsAg negativo, anti-HBc positivo, anti-HBs positivo, que iniciará rituximab por linfoma. ¿Conducta?",
+o:["Nada: infección resuelta","Profilaxis con entecavir o tenofovir desde el inicio y hasta ≥ 18 meses tras la última dosis","Solo monitorizar ALT mensual","Lamivudina por 3 meses"],
+c:1,
+e:"Anti-CD20 en anti-HBc positivo = <b>riesgo alto</b> de reactivación (seroconversión reversa): profilaxis con análogo de alta barrera, mantenida al menos 18 meses tras la última dosis.",
+w:{0:"La infección resuelta reactiva con anti-CD20.",2:"El monitoreo solo es para riesgo moderado-bajo.",3:"Lamivudina tiene resistencia y duración insuficiente."},
+p:"Anti-HBs positivo no elimina el riesgo con rituximab.",
+r:"EASL VHB 2025 · AGA reactivación VHB 2025"},
+
+{id:"VI04",b:"ET",t:"Hepatitis virales",n:"R",md:"X",
+q:"Embarazada de 26 semanas, HBsAg positivo, DNA-VHB 3,5 × 10⁷ UI/mL. ¿Conducta?",
+o:["Solo vacuna e inmunoglobulina al recién nacido","Tenofovir disoproxil desde la semana 24–28, más vacuna e inmunoglobulina al recién nacido","Cesárea obligatoria","Contraindicar la lactancia"],
+c:1,
+e:"DNA &gt; 200.000 UI/mL: <b>TDF desde la semana 24–28</b> reduce la transmisión vertical, además de inmunoprofilaxis del recién nacido en las primeras 12 h.",
+w:{0:"Con carga alta la inmunoprofilaxis sola falla en ~10 %.",2:"La cesárea no está indicada por VHB.",3:"La lactancia se permite."},
+p:"TAF es alternativa en embarazo según datos recientes (EASL 2025).",
+r:"EASL embarazo 2023 · EASL VHB 2025"},
+
+{id:"VI05",b:"ET",t:"Hepatitis virales",n:"R",md:"E",
+q:"Hepatitis C crónica sin cirrosis, sin tratamiento previo, en tratamiento con omeprazol 40 mg/día y amiodarona. ¿Qué es correcto?",
+o:["Sofosbuvir/velpatasvir sin precauciones","La amiodarona contraindica sofosbuvir (bradicardia grave); preferir glecaprevir/pibrentasvir y revisar interacciones","Ribavirina en monoterapia","No tratar"],
+c:1,
+e:"<b>Sofosbuvir + amiodarona</b>: bradicardia grave y paro. Glecaprevir/pibrentasvir 8 semanas es una opción (revisar estatinas y anticonceptivos). Además, el IBP en dosis alta reduce la absorción de velpatasvir.",
+w:{0:"Interacción grave.",2:"Ineficaz.",3:"Debe tratarse."},
+p:"Consultar siempre hep-druginteractions.org (Liverpool).",
+r:"EASL VHC 2020 · AASLD-IDSA HCV guidance"},
+
+{id:"VI06",b:"ET",t:"Hepatitis virales",n:"F",md:"X",
+q:"Hepatitis C con cirrosis Child B 8. ¿Esquema?",
+o:["Glecaprevir/pibrentasvir 8 semanas","Sofosbuvir/velpatasvir + ribavirina 12 semanas","Sofosbuvir/velpatasvir/voxilaprevir 12 semanas","Diferir hasta el trasplante siempre"],
+c:1,
+e:"En descompensados se evitan los <b>inhibidores de proteasa</b> (glecaprevir, voxilaprevir): hepatotoxicidad. Sofosbuvir/velpatasvir + ribavirina 12 semanas (o 24 sin ribavirina).",
+w:{0:"Contraindicado en Child B y C.",2:"Contiene inhibidor de proteasa.",3:"Se puede tratar antes; con MELD muy alto se discute tratar postrasplante."},
+p:"Con MELD &gt; 18–20 en lista, a veces se difiere el tratamiento para no perder prioridad (purgatorio MELD).",
+r:"EASL VHC 2020"},
+
+{id:"VI07",b:"ET",t:"Hepatitis virales",n:"R",md:"E",
+q:"Todo paciente HBsAg positivo debe estudiarse además con…",
+o:["Anti-VHE","Anti-VHD (y RNA-VHD si es positivo)","Anti-VHA IgM","Carga viral de VHC"],
+c:1,
+e:"EASL 2023: <b>tamizaje universal de VHD</b> en todo HBsAg positivo; la coinfección acelera la progresión a cirrosis y HCC.",
+w:{0:"No es estándar.",2:"Solo si hay hepatitis aguda.",3:"Se tamiza VHC por anticuerpos, no carga directa."},
+p:"Tratamiento de VHD: bulevirtida 2 mg/día SC (sin registro en Chile).",
+r:"EASL VHD 2023"},
+
+{id:"VI08",b:"ET",t:"Hepatitis virales",n:"R",md:"X",
+q:"¿Qué define la curación de la hepatitis C?",
+o:["ALT normal al terminar el tratamiento","RNA-VHC indetectable 12 semanas después de terminar (RVS 12)","Anti-VHC negativo","Rigidez &lt; 7 kPa"],
+c:1,
+e:"<b>RVS 12</b>: RNA indetectable 12 semanas post-tratamiento; la recaída tardía es &lt; 1 %. El anti-VHC permanece positivo de por vida.",
+w:{0:"No define curación.",2:"El anticuerpo persiste.",3:"La rigidez no define curación virológica."},
+p:"Reinfección posible: tamizar con RNA, no con anticuerpos, en personas en riesgo.",
+r:"EASL VHC 2020"},
+
+{id:"VI09",b:"ET",t:"Hepatitis virales",n:"S",md:"E",
+q:"Paciente HBeAg negativo con DNA indetectable y HBsAg cuantitativo 60 UI/mL tras 6 años de entecavir, sin cirrosis. ¿Qué opción plantea EASL 2025?",
+o:["Continuar indefinidamente siempre","Suspender el análogo con seguimiento estrecho (HBsAg bajo predice pérdida de HBsAg)","Cambiar a lamivudina","Agregar ribavirina"],
+c:1,
+e:"En no cirróticos HBeAg negativos con supresión prolongada, la <b>suspensión del análogo</b> es opción; HBsAg &lt; 100 UI/mL (o &lt; 1.000 en algunos genotipos) predice pérdida de HBsAg. Requiere seguimiento por riesgo de exacerbación.",
+w:{0:"La suspensión es una opción reconocida.",2:"Menor barrera.",3:"Sin rol."},
+p:"Nunca suspender en cirrosis.",
+r:"EASL VHB 2025 · Hirode G, Gastroenterology 2022 (RETRACT-B)"},
+
+{id:"VI10",b:"ET",t:"Hepatitis virales",n:"R",md:"X",
+q:"Según GES 69, ¿cuál es la garantía de oportunidad para iniciar el tratamiento de la hepatitis C tras la indicación?",
+o:["7 días","30 días","90 días","No tiene garantía de oportunidad"],
+c:1,
+e:"GES 69: diagnóstico en 45 días desde la sospecha, evaluación pretratamiento en 30 días y <b>tratamiento en 30 días</b> desde la indicación.",
+w:{0:"No.",2:"No.",3:"Sí la tiene."},
+p:"Copago FONASA A–D 0 %, ISAPRE 20 %.",
+r:"Superintendencia de Salud, GES 69"},
+
+/* ===================== Bloque 10 · Autoinmunes ===================== */
+{id:"AI01",b:"ET",t:"Autoinmunes",n:"R",md:"E",
+q:"Mujer de 34 años: ALT 380 U/L, ANA 1:160, IgG 1,4 × LSN, biopsia típica de hepatitis autoinmune, virus negativos. Sin cirrosis. ¿Puntaje simplificado y tratamiento?",
+o:["6 puntos; observar","8 puntos; prednisona (o budesonida) + azatioprina o micofenolato","5 puntos; biopsia repetida","8 puntos; solo ursodeoxicólico"],
+c:1,
+e:"ANA ≥ 1:80 (2) + IgG &gt; 1,1 × LSN (2) + histología típica (2) + sin virus (2) = <b>8: HAI definida</b>. Inducción con corticoide (budesonida 9 mg si no hay cirrosis) + ahorrador de corticoides.",
+w:{0:"El puntaje es 8 y hay actividad.",2:"El puntaje no es 5.",3:"El AUDC no trata la HAI."},
+p:"CAMARO: micofenolato logró más respuesta completa que azatioprina (56 % vs 29 %).",
+r:"Hennes EM, Hepatology 2008 · EASL HAI 2025 · Snijders, J Hepatol 2024"},
+
+{id:"AI02",b:"ET",t:"Autoinmunes",n:"R",md:"X",
+q:"¿Cuál es la meta de tratamiento de la hepatitis autoinmune?",
+o:["ALT &lt; 2 × LSN","Respuesta bioquímica completa: ALT e IgG normales a los 6 meses","Anticuerpos negativos","Solo mejoría de síntomas"],
+c:1,
+e:"Respuesta bioquímica completa = <b>ALT e IgG normales</b>; la actividad residual se asocia a progresión.",
+w:{0:"Insuficiente.",2:"Los anticuerpos no guían el tratamiento.",3:"Insuficiente."},
+p:"La mantención dura al menos 3 años y ≥ 2 años de remisión antes de intentar suspender.",
+r:"EASL HAI 2025"},
+
+{id:"AI03",b:"ET",t:"Autoinmunes",n:"F",md:"E",
+q:"Paciente con HAI en azatioprina 100 mg sin respuesta completa: 6-TGN bajo y 6-MMP 12.000. ¿Interpretación y conducta?",
+o:["No adherencia; reforzar","Perfil hipermetilador: alopurinol 100 mg y reducir azatioprina al 25–50 %","Deficiencia de TPMT; suspender","Dosis insuficiente; subir a 200 mg"],
+c:1,
+e:"6-TGN bajo con <b>6-MMP alto</b> = hipermetilador (riesgo hepatotóxico). Alopurinol desvía el metabolismo hacia 6-TGN.",
+w:{0:"La no adherencia daría ambos metabolitos bajos.",2:"La deficiencia de TPMT da 6-TGN muy alto.",3:"Aumentaría la hepatotoxicidad."},
+p:"Alternativa: cambiar a micofenolato.",
+r:"EASL HAI 2025"},
+
+{id:"AI04",b:"ET",t:"Autoinmunes",n:"R",md:"X",
+q:"CBP en AUDC 15 mg/kg por 12 meses: FA 2,3 × LSN, bilirrubina normal. ¿Conducta?",
+o:["Continuar igual","Respuesta incompleta: agregar seladelpar, elafibranor o bezafibrato","Suspender AUDC","Corticoides"],
+c:1,
+e:"FA &gt; 1,67 × LSN o bilirrubina &gt; LSN tras 6–12 meses = <b>respuesta incompleta</b>; segunda línea con agonistas PPAR.",
+w:{0:"Persiste riesgo de progresión.",2:"El AUDC se mantiene.",3:"Solo en sobreposición con HAI."},
+p:"En Chile, bezafibrato 400 mg/día es la opción disponible fuera de indicación.",
+r:"EASL CBP 2017 · ELATIVE/RESPONSE, NEJM 2024"},
+
+{id:"AI05",b:"ET",t:"Autoinmunes",n:"F",md:"E",
+q:"CBP con prurito intenso que no responde a colestiramina. ¿Siguiente escalón?",
+o:["Antihistamínicos en dosis altas","Rifampicina 150–300 mg/día con control de transaminasas","Ácido obeticólico","Corticoides"],
+c:1,
+e:"Escalera del prurito: colestiramina → <b>rifampicina</b> → naltrexona → sertralina. Fibratos y seladelpar también mejoran el prurito.",
+w:{0:"Poco eficaces salvo sedación.",2:"Empeora el prurito.",3:"Sin rol."},
+p:"Rifampicina: hepatotoxicidad ~5–10 %; transaminasas a las 2, 6 y 12 semanas.",
+r:"EASL CBP 2017"},
+
+{id:"AI06",b:"ET",t:"Autoinmunes",n:"R",md:"X",
+q:"Hombre de 29 años con colitis ulcerosa y FA 3 × LSN. Colangiorresonancia: estenosis multifocales y dilataciones intrahepáticas. ¿Diagnóstico y qué estudio adicional?",
+o:["CBP; AMA","CEP de grandes ductos; IgG4 sérica, colonoscopía con biopsias y vigilancia","Colangitis isquémica; angio-TC","Coledocolitiasis; CPRE"],
+c:1,
+e:"Patrón en rosario en paciente con EII: <b>CEP</b>. Descartar colangitis por IgG4; colonoscopía (riesgo de cáncer colorrectal) y vigilancia de colangiocarcinoma.",
+w:{0:"La CBP no da estenosis en colangiorresonancia.",2:"No hay contexto isquémico.",3:"No hay litiasis."},
+p:"AUDC en dosis altas (28–30 mg/kg) es dañino en CEP.",
+r:"EASL CEP 2022"},
+
+{id:"AI07",b:"ET",t:"Autoinmunes",n:"S",md:"E",
+q:"En CEP, ¿qué vigilancia de colangiocarcinoma recomienda EASL 2022?",
+o:["CA 19-9 mensual","Ecografía o colangiorresonancia anual (± CA 19-9)","CPRE anual con cepillado","No se vigila"],
+c:1,
+e:"Imagen anual (ecografía o colangiorresonancia) ± CA 19-9; la CPRE con cepillado y FISH solo ante estenosis dominante o deterioro.",
+w:{0:"Sin evidencia.",2:"Invasiva y con complicaciones.",3:"Riesgo de 10–20 % en la vida."},
+p:"Colonoscopía anual si hay EII asociada.",
+r:"EASL CEP 2022"},
+
+{id:"AI08",b:"ET",t:"Autoinmunes",n:"F",md:"X",
+q:"Hombre de 66 años con ictericia indolora, páncreas en salchicha y estenosis de colédoco distal e hiliar. IgG4 sérica 4 × LSN. ¿Tratamiento?",
+o:["Duodenopancreatectomía","Prednisona 0,6 mg/kg/día por 2–4 semanas y descenso","AUDC","Quimioterapia"],
+c:1,
+e:"Colangitis asociada a IgG4 con pancreatitis autoinmune: <b>corticoides</b> (respuesta rápida). Recaída: rituximab o ahorradores. Descartar siempre colangiocarcinoma y cáncer de páncreas.",
+w:{0:"Se evita la cirugía si el diagnóstico es firme.",2:"Sin rol.",3:"No es neoplasia."},
+p:"IgG4 &gt; 4 × LSN tiene alta especificidad; la ausencia de respuesta a corticoides obliga a replantear el diagnóstico.",
+r:"Consenso internacional IgG4 2019 · EASL CEP 2022"},
+
+{id:"AI09",b:"ET",t:"Autoinmunes",n:"R",md:"E",
+q:"¿Cuándo está contraindicada la budesonida en la HAI?",
+o:["En mujeres jóvenes","En cirrosis (pierde el primer paso hepático)","En diabéticos","En HAI tipo 1"],
+c:1,
+e:"Con <b>cirrosis o shunts portosistémicos</b> la budesonida pierde su metabolismo de primer paso: efectos sistémicos y riesgo de trombosis portal.",
+w:{0:"Es de elección para evitar efectos esteroidales.",2:"Puede ser preferible en diabéticos.",3:"Se usa en tipo 1."},
+p:"Budesonida 9 mg/día; mantención 6 mg.",
+r:"EASL HAI 2025"},
+
+{id:"AI10",b:"ET",t:"Autoinmunes",n:"F",md:"X",
+q:"Mujer de 45 años con CBP (AMA +) que además tiene ALT 6 × LSN e IgG 1,8 × LSN; biopsia con hepatitis de interfase moderada-grave. ¿Conducta?",
+o:["Solo AUDC","AUDC + inmunosupresión (variante con rasgos de HAI)","Solo prednisona","Trasplante"],
+c:1,
+e:"Variante CBP con rasgos de HAI (criterios de París): <b>AUDC + corticoide ± azatioprina</b>.",
+w:{0:"La actividad de interfase no responde al AUDC solo.",2:"La CBP requiere AUDC.",3:"Sin indicación."},
+p:"Criterios de París para HAI: ALT ≥ 5 × LSN, IgG ≥ 2 × LSN o AML +, e interfase moderada-grave (2 de 3).",
+r:"EASL CBP 2017"},
+
+/* ===================== Bloque 11 · Metabólicas ===================== */
+{id:"MT01",b:"ET",t:"Metabólicas",n:"R",md:"E",
+q:"Hombre de 22 años con ALT 140 U/L, temblor y disartria. Ceruloplasmina 9 mg/dL, cobre urinario 240 µg/24 h, anillos de Kayser-Fleischer. ¿Puntaje de Leipzig y conducta?",
+o:["3; estudio genético antes de tratar","≥ 4 (KF 2 + neuro + ceruloplasmina 2 + cobre urinario): Wilson establecido; quelación (trientina o penicilamina) titulada","2; observar","Biopsia obligatoria antes de tratar"],
+c:1,
+e:"KF (2) + síntomas neurológicos (1–2) + ceruloplasmina &lt; 10 (2) + cobre urinario &gt; 2 × LSN (2) ≥ 4: <b>diagnóstico establecido</b>. En forma neurológica, subir la dosis lentamente (riesgo de empeoramiento).",
+w:{0:"El puntaje ya es diagnóstico.",2:"Puntaje mayor.",3:"No es necesaria con Leipzig ≥ 4."},
+p:"Tamizar a hermanos (riesgo 25 %).",
+r:"EASL-ERN Wilson 2025"},
+
+{id:"MT02",b:"ET",t:"Metabólicas",n:"F",md:"X",
+q:"Paciente con Wilson en mantención con penicilamina 1 g/día: cobre urinario 1.600 µg/24 h. ¿Interpretación?",
+o:["Tratamiento adecuado","Probable no adherencia reciente (o reinicio)","Sobretratamiento","Falla hepática inminente"],
+c:1,
+e:"En mantención con quelante se espera <b>200–500 µg/24 h</b>; &gt; 1.000 sugiere no adherencia (reinicio con gran cupriuresis) y &lt; 100 sobretratamiento.",
+w:{0:"Está fuera de rango.",2:"Sería &lt; 100.",3:"No se deduce del cobre urinario."},
+p:"Con zinc, la meta es &lt; 75 µg/24 h.",
+r:"EASL-ERN Wilson 2025"},
+
+{id:"MT03",b:"ET",t:"Metabólicas",n:"R",md:"E",
+q:"Hombre de 48 años con ferritina 1.250 µg/L, saturación de transferrina 78 %, ALT 70 U/L. HFE C282Y homocigoto. ¿Qué define la necesidad de biopsia o elastografía?",
+o:["Siempre biopsia","Ferritina &gt; 1.000 µg/L o transaminasas elevadas: evaluar fibrosis (elastografía; biopsia si duda)","Solo si hay diabetes","Nunca"],
+c:1,
+e:"Ferritina &gt; 1.000 µg/L, transaminasas elevadas o hepatomegalia aumentan el riesgo de fibrosis avanzada: <b>elastografía</b> y biopsia si hay duda; con cirrosis, vigilancia de HCC.",
+w:{0:"No es necesaria en todos.",2:"No es el único criterio.",3:"Hay subgrupo de riesgo."},
+p:"Flebotomía hasta ferritina 50–100 µg/L.",
+r:"EASL HH 2022"},
+
+{id:"MT04",b:"ET",t:"Metabólicas",n:"R",md:"X",
+q:"¿Cuál es la meta de ferritina en la fase de depleción de la hemocromatosis?",
+o:["&lt; 300 µg/L","50–100 µg/L","&lt; 10 µg/L","Normalizar la saturación sin importar la ferritina"],
+c:1,
+e:"Flebotomías semanales o quincenales hasta <b>ferritina 50–100 µg/L</b>; luego mantención (3–4 por año).",
+w:{0:"Insuficiente.",2:"Anemia ferropénica.",3:"La meta es la ferritina."},
+p:"Cada flebotomía de 500 mL extrae ~250 mg de hierro.",
+r:"EASL HH 2022"},
+
+{id:"MT05",b:"ET",t:"Metabólicas",n:"F",md:"E",
+q:"Hombre de 35 años con enfisema basal y elevación de transaminasas; α1-antitripsina sérica 30 mg/dL. ¿Genotipo más probable y daño hepático?",
+o:["PiMM; sin daño","PiZZ: polímeros retenidos en el retículo del hepatocito (glóbulos PAS + resistentes a diastasa)","PiSS; hemocromatosis asociada","Pi nulo; cirrosis por acumulación"],
+c:1,
+e:"<b>PiZZ</b>: la proteína Z polimeriza y se retiene en el hepatocito (daño hepático por ganancia de función) y su déficit sérico causa enfisema (pérdida de función).",
+w:{0:"Niveles normales.",2:"PiSS no da enfermedad relevante.",3:"El alelo nulo no produce proteína: enfisema sin daño hepático."},
+p:"Fazirsiran (ARNi) reduce los polímeros hepáticos: fase 3 en curso.",
+r:"EASL α1-antitripsina 2023"},
+
+{id:"MT06",b:"ET",t:"Metabólicas",n:"S",md:"X",
+q:"¿Cuál es la única condición hepatológica cubierta por la Ley Ricarte Soto?",
+o:["Hepatitis autoinmune","Tirosinemia tipo 1 (nitisinona)","Enfermedad de Wilson","Colangitis biliar primaria"],
+c:1,
+e:"La LRS cubre la <b>tirosinemia tipo 1</b> con nitisinona: confirmación (succinilacetona) en 4 días hábiles e inicio en 48 h.",
+w:{0:"No está en la LRS.",2:"No está en la LRS.",3:"No está en la LRS."},
+p:"Los fármacos de la cirrosis tras el alta están en el GES 88, no en la LRS.",
+r:"Superintendencia de Salud · Ley 20.850"},
+
+{id:"MT07",b:"ET",t:"Metabólicas",n:"R",md:"E",
+q:"Ceruloplasmina baja aislada (15 mg/dL) en mujer asintomática con transaminasas normales y cobre urinario normal, sin anillos. ¿Interpretación?",
+o:["Wilson confirmado","Puede ser heterocigota o hipoceruloplasminemia por otras causas; Leipzig 1: diagnóstico improbable, considerar estudio genético si hay sospecha familiar","Inicio inmediato de penicilamina","Biopsia obligatoria"],
+c:1,
+e:"Ceruloplasmina 10–20 suma 1 punto en Leipzig; sin otros hallazgos el diagnóstico es improbable. Causas de ceruloplasmina baja: heterocigotos, desnutrición, nefrótico, enteropatía perdedora.",
+w:{0:"No cumple criterios.",2:"Sin diagnóstico no se trata.",3:"No es el primer paso."},
+p:"La ceruloplasmina puede ser normal en Wilson con inflamación (reactante de fase aguda).",
+r:"EASL-ERN Wilson 2025"},
+
+{id:"MT08",b:"ET",t:"Metabólicas",n:"F",md:"X",
+q:"En la porfiria aguda intermitente con crisis abdominal y neuropatía, ¿cuál es el tratamiento específico?",
+o:["Opioides y glucosa solamente","Hemina EV (o givosirán para prevención de crisis recurrentes)","Flebotomía","Hidroxicloroquina"],
+c:1,
+e:"Crisis aguda: <b>hemina EV</b> 3–4 mg/kg/día × 4 días + carbohidratos; suspender inductores. Givosirán (ARNi) reduce crisis recurrentes.",
+w:{0:"La glucosa sola es insuficiente en crisis graves.",2:"Es para porfiria cutánea tarda.",3:"Es para porfiria cutánea tarda."},
+p:"Riesgo de HCC aumentado en porfirias agudas: vigilancia desde los 50 años.",
+r:"Balwani M, NEJM 2020 (ENVISION)"},
+
+{id:"MT09",b:"ET",t:"Metabólicas",n:"R",md:"E",
+q:"Mujer de 41 años con Wilson diagnosticado, asintomática y con transaminasas normales tras 3 años de quelación. ¿Mantención?",
+o:["Suspender el tratamiento","Zinc 150 mg/día de zinc elemental (o quelante en dosis de mantención)","D-penicilamina en dosis de inducción","Dieta libre de cobre como único tratamiento"],
+c:1,
+e:"En fase de mantención estable, <b>zinc</b> o el quelante en dosis menor. El tratamiento es de por vida: suspenderlo puede causar FHA.",
+w:{0:"Riesgo de FHA.",2:"Innecesariamente alta.",3:"La dieta sola no basta."},
+p:"Embarazo: mantener el tratamiento, reduciendo la dosis de quelante en el tercer trimestre.",
+r:"EASL-ERN Wilson 2025"},
+
+{id:"MT10",b:"ET",t:"Metabólicas",n:"R",md:"X",
+q:"¿Qué saturación de transferrina hace sospechar sobrecarga primaria de hierro?",
+o:["&gt; 20 %","&gt; 45 %","&gt; 90 %","La saturación no sirve"],
+c:1,
+e:"Saturación de transferrina <b>&gt; 45 %</b> (en ayunas) con ferritina elevada → estudio HFE.",
+w:{0:"Rango normal.",2:"Demasiado alto como umbral de sospecha.",3:"Es el primer filtro."},
+p:"Ferritina alta con saturación normal sugiere síndrome dismetabólico, alcohol o inflamación.",
+r:"EASL HH 2022"},
+
+/* ===================== Bloque 12 · DILI ===================== */
+{id:"DI01",b:"ET",t:"DILI",n:"R",md:"E",
+q:"Mujer de 67 años con ictericia colestásica 4 semanas después de un ciclo de amoxicilina-clavulánico. ALT 180 U/L (LSN 40), FA 620 U/L (LSN 120). ¿Factor R y patrón?",
+o:["R ≈ 1 · colestásico","R ≈ 6 · hepatocelular","R ≈ 3 · mixto","No calculable"],
+c:0,
+e:"R = (180/40)/(620/120) ≈ 4,5/5,2 ≈ 0,9: <b>colestásico</b> (≤ 2). Típico de amoxicilina-clavulánico en adultos mayores, con latencia que puede aparecer tras suspender.",
+w:{1:"Cálculo incorrecto.",2:"No.",3:"Sí es calculable."},
+p:"Amoxicilina-clavulánico es la primera causa de DILI idiosincrática en Occidente y en LATIN DILI.",
+r:"AASLD DILI 2023 · LATIN DILI"},
+
+{id:"DI02",b:"ET",t:"DILI",n:"R",md:"X",
+q:"Paciente en isoniazida-rifampicina-pirazinamida con ALT 6 × LSN, asintomático. ¿Conducta según ATS?",
+o:["Continuar y controlar en 1 semana","Suspender los tres; esquema sin hepatotóxicos y reintroducción secuencial al normalizar","Suspender solo pirazinamida","Agregar AUDC"],
+c:1,
+e:"Suspender si ALT &gt; 5 × LSN asintomático o &gt; 3 × LSN con síntomas/ictericia. Esquema puente (etambutol, levofloxacino, aminoglicósido) y reintroducción secuencial con ALT &lt; 2 × LSN: rifampicina → isoniazida.",
+w:{0:"Supera el umbral de suspensión.",2:"No se sabe cuál es el culpable.",3:"Sin rol."},
+p:"La pirazinamida se reintroduce al final o se omite.",
+r:"ATS 2006 · AASLD DILI 2023"},
+
+{id:"DI03",b:"ET",t:"DILI",n:"F",md:"E",
+q:"Paciente con melanoma en nivolumab + ipilimumab: ALT 9 × LSN (grado 3), bilirrubina normal. ¿Conducta?",
+o:["Continuar inmunoterapia","Suspender y prednisona/metilprednisolona 1–2 mg/kg/día; si no responde en 2–3 días, agregar micofenolato","Infliximab de primera línea","Solo AUDC"],
+c:1,
+e:"Hepatitis inmunomediada grado 3 (5–20 × LSN): <b>suspender + corticoides</b>; refractaria → micofenolato (infliximab se evita por hepatotoxicidad).",
+w:{0:"Contraindicado en grado 3.",2:"No en hepatitis.",3:"Insuficiente."},
+p:"Grado 2 (3–5 × LSN): suspender temporalmente y controlar; corticoides si persiste.",
+r:"ASCO irAEs 2021 · ESMO 2022 · AASLD DILI 2023"},
+
+{id:"DI04",b:"ET",t:"DILI",n:"R",md:"E",
+q:"¿Qué define la ley de Hy?",
+o:["ALT &gt; 3 × LSN + bilirrubina &gt; 2 × LSN sin colestasis significativa (FA &lt; 2 × LSN)","ALT &gt; 10 × LSN","FA &gt; 3 × LSN","INR &gt; 1,5 aislado"],
+c:0,
+e:"Daño hepatocelular con ictericia: mortalidad o trasplante <b>~10 %</b>. Es señal de alarma regulatoria.",
+w:{1:"No incluye bilirrubina.",2:"Es colestasis.",3:"Incompleto."},
+p:"Útil para estimar gravedad junto al MELD.",
+r:"AASLD DILI 2023"},
+
+{id:"DI05",b:"ET",t:"DILI",n:"F",md:"X",
+q:"Mujer con hepatitis aguda tras nitrofurantoína crónica: ANA 1:320, IgG elevada, biopsia con interfase. ¿Cómo distinguir DILI con rasgos autoinmunes de HAI?",
+o:["Por la serología","Respuesta a corticoides y ausencia de recaída al suspenderlos tras 3–6 meses = DILI","Por la edad","No se puede distinguir"],
+c:1,
+e:"Ambas responden a corticoides; si <b>no recae al suspender</b> (tras 3–6 meses), corresponde a DILI. Recaída = HAI que requiere mantención.",
+w:{0:"La serología se superpone.",2:"No discrimina.",3:"El curso clínico discrimina."},
+p:"Nitrofurantoína, minociclina, metildopa, hidralazina e infliximab son los clásicos.",
+r:"AASLD DILI 2023"},
+
+{id:"DI06",b:"ET",t:"DILI",n:"R",md:"E",
+q:"¿Cuál de los siguientes es un hepatotóxico <b>directo</b> (dosis-dependiente y predecible)?",
+o:["Amoxicilina-clavulánico","Paracetamol","Isoniazida","Diclofenaco"],
+c:1,
+e:"DILI directa: <b>paracetamol</b>, metotrexato en dosis altas, amiodarona EV. Las otras son idiosincráticas.",
+w:{0:"Idiosincrática.",2:"Idiosincrática (con componente metabólico).",3:"Idiosincrática."},
+p:"Tercer tipo: DILI indirecta (por el efecto del fármaco, p. ej., inmunoterapia, reactivación de VHB).",
+r:"Hoofnagle JH, NEJM 2019 · AASLD DILI 2023"},
+
+{id:"DI07",b:"ET",t:"DILI",n:"R",md:"X",
+q:"Paciente con hepatitis aguda grave tras consumir suplemento de cúrcuma y té verde para bajar de peso. ¿Conducta?",
+o:["Continuar los suplementos con control","Suspender todos los suplementos; evaluar gravedad (INR, encefalopatía) y causalidad (RUCAM/RECAM)","Prednisona empírica","No es posible que los suplementos causen daño"],
+c:1,
+e:"Los suplementos herbales (HDS) son causa creciente de DILI grave: <b>suspender todo</b>, estratificar gravedad y documentar causalidad.",
+w:{0:"Riesgo de progresión.",2:"No es estándar.",3:"Té verde (EGCG) y cúrcuma son hepatotóxicos reconocidos."},
+p:"LiverTox (NIH) es la base de referencia por agente.",
+r:"AASLD DILI 2023"},
+
+{id:"DI08",b:"ET",t:"DILI",n:"S",md:"E",
+q:"¿Qué antídoto o terapia específica corresponde en hepatotoxicidad por valproato con hiperamonemia?",
+o:["N-acetilcisteína","L-carnitina EV","Colestiramina","Silibinina"],
+c:1,
+e:"Valproato: la deficiencia de carnitina altera la β-oxidación; <b>L-carnitina EV</b> es el tratamiento específico.",
+w:{0:"Paracetamol.",2:"Lavado de leflunomida.",3:"<i>Amanita</i>."},
+p:"Colestiramina acelera la eliminación de leflunomida y terbinafina.",
+r:"AASLD DILI 2023"},
+
+{id:"DI09",b:"ET",t:"DILI",n:"R",md:"X",
+q:"¿Cuál de estas recomendaciones es correcta tras un episodio de DILI grave?",
+o:["Reexposición controlada para confirmar la causa","Evitar la reexposición al agente y a fármacos con estructura relacionada","Reintroducir en dosis menor","No es necesario registrarlo"],
+c:1,
+e:"La reexposición puede ser más grave y rápida: <b>evitarla</b> y registrar la alergia/reacción.",
+w:{0:"Contraindicada tras DILI grave.",2:"Riesgo de recurrencia grave.",3:"Debe registrarse y notificarse a farmacovigilancia."},
+p:"Notificar al ISP (farmacovigilancia).",
+r:"AASLD DILI 2023"},
+
+{id:"DI10",b:"ET",t:"DILI",n:"F",md:"E",
+q:"Paciente con artritis reumatoide en metotrexato: ¿qué recomendación sobre seguimiento hepático es correcta?",
+o:["Biopsia cada 1,5 g acumulados","Transaminasas cada 1–3 meses y evaluación de fibrosis no invasiva si hay factores de riesgo (MASLD, alcohol)","No requiere control","Suspender si ALT &gt; LSN una vez"],
+c:1,
+e:"Monitoreo con transaminasas y <b>elastografía</b> en pacientes con riesgo; la biopsia por dosis acumulada se abandonó.",
+w:{0:"Desactualizado.",2:"Riesgo de fibrosis.",3:"Elevaciones leves se manejan ajustando la dosis."},
+p:"El metotrexato en dosis bajas causa fibrosis sobre todo con MASLD, diabetes y alcohol.",
+r:"ACR 2021 · AASLD DILI 2023"}
+];
+
+// Bloques 13–16 · Embarazo · Lesiones focales y HCC · Trasplante · Imágenes y Fibroscan
+const Q4 = [
+/* ===================== Bloque 13 · Hígado y embarazo ===================== */
+{id:"EM01",b:"ET",t:"Embarazo",n:"R",md:"E",
+q:"Embarazada de 31 semanas con prurito palmoplantar nocturno, sin lesiones cutáneas. Ácidos biliares 42 µmol/L, ALT 110 U/L. ¿Diagnóstico y conducta?",
+o:["Hígado graso agudo; interrupción inmediata","Colestasis intrahepática del embarazo; AUDC y parto a las 38–39 semanas","HELLP; sulfato de magnesio","Hepatitis viral; serologías y alta"],
+c:1,
+e:"<b>CIE</b> con ácidos biliares 40–99 µmol/L: AUDC (prurito y bioquímica) y parto a las 38–39 semanas con controles más frecuentes. Con ≥ 100 µmol/L, parto a las 35–36 semanas.",
+w:{0:"No hay insuficiencia hepática ni hipoglicemia.",2:"No hay hipertensión, hemólisis ni trombocitopenia.",3:"El cuadro es típico de CIE; igual descartar virus."},
+p:"Mortinato ~3,4 % con ácidos biliares ≥ 100 µmol/L (Ovadia, Lancet 2019).",
+r:"EASL embarazo 2023 · Ovadia C, Lancet 2019"},
+
+{id:"EM02",b:"ET",t:"Embarazo",n:"R",md:"X",
+q:"Primigesta de 35 semanas con vómitos, polidipsia, encefalopatía leve, glicemia 52 mg/dL, bilirrubina 4 mg/dL, leucocitos 16.000, ácido úrico 8 mg/dL, INR 1,8. ¿Diagnóstico y tratamiento?",
+o:["Hiperémesis gravídica; antieméticos","Hígado graso agudo del embarazo (Swansea ≥ 6); estabilizar e interrumpir el embarazo","CIE grave; AUDC","Hepatitis E; ribavirina"],
+c:1,
+e:"Cumple ≥ 6 criterios de Swansea: <b>hígado graso agudo del embarazo</b>. El tratamiento es la <b>interrupción</b> tras estabilizar (glucosa, corrección de coagulopatía).",
+w:{0:"La hiperémesis es del primer trimestre.",2:"La CIE no causa encefalopatía ni hipoglicemia.",3:"Sin datos de VHE."},
+p:"Estudiar al recién nacido por déficit de LCHAD.",
+r:"EASL embarazo 2023"},
+
+{id:"EM03",b:"ET",t:"Embarazo",n:"R",md:"E",
+q:"Embarazada de 34 semanas con PA 162/104, LDH 780 U/L, AST 240 U/L, plaquetas 72.000 y esquistocitos. ¿Diagnóstico?",
+o:["Hígado graso agudo","Síndrome HELLP","Púrpura trombocitopénica trombótica sin relación con el embarazo","CIE"],
+c:1,
+e:"Hemólisis (LDH, esquistocitos) + transaminasas elevadas + plaquetas &lt; 100.000 en el contexto de preeclampsia: <b>HELLP</b>. Tratamiento: interrupción, control de presión, sulfato de magnesio.",
+w:{0:"Predominan hipoglicemia y falla hepática.",2:"Es diagnóstico diferencial, pero el contexto es HELLP.",3:"No explica hemólisis ni trombocitopenia."},
+p:"Complicación temida: hematoma subcapsular y rotura hepática.",
+r:"EASL embarazo 2023"},
+
+{id:"EM04",b:"ET",t:"Embarazo",n:"F",md:"X",
+q:"Mujer con HAI en micofenolato que desea embarazarse. ¿Conducta?",
+o:["Mantener micofenolato","Cambiar a azatioprina (± prednisona) y suspender micofenolato ≥ 6 semanas antes de concebir","Suspender toda inmunosupresión","Contraindicar el embarazo"],
+c:1,
+e:"El micofenolato es <b>teratogénico</b>. La azatioprina es segura en el embarazo; suspender la inmunosupresión aumenta el riesgo de brote posparto.",
+w:{0:"Teratogénico.",2:"Riesgo de brote.",3:"No está contraindicado con enfermedad controlada."},
+p:"Los brotes de HAI son más frecuentes en el posparto.",
+r:"EASL embarazo 2023 · EASL HAI 2025"},
+
+{id:"EM05",b:"ET",t:"Embarazo",n:"F",md:"E",
+q:"Embarazada con cirrosis compensada y várices grandes no tratadas. ¿Qué recomendación es correcta?",
+o:["Endoscopía en el segundo trimestre y BBNS (propranolol) o ligadura si hay várices de alto riesgo","Evitar endoscopía durante todo el embarazo","Interrumpir el embarazo","TIPS profiláctico"],
+c:0,
+e:"El mayor riesgo de sangrado ocurre en el 2.º–3.º trimestre y el expulsivo: <b>endoscopía en el segundo trimestre</b> y tratar várices de alto riesgo (propranolol preferido sobre carvedilol; ligadura es segura).",
+w:{1:"La endoscopía es segura.",2:"Sin indicación.",3:"Sin indicación."},
+p:"Expulsivo asistido para evitar Valsalva prolongado.",
+r:"EASL embarazo 2023"},
+
+{id:"EM06",b:"ET",t:"Embarazo",n:"R",md:"X",
+q:"Hiperémesis gravídica en semana 10 con ALT 180 U/L. ¿Conducta?",
+o:["Biopsia hepática","Hidratación, antieméticos y tiamina; las transaminasas se normalizan al controlar los vómitos","AUDC","Interrupción"],
+c:1,
+e:"La hiperémesis (1.er trimestre) eleva las transaminasas (&lt; 200 habitualmente) y cede con el control de los vómitos. Dar <b>tiamina</b> antes de la glucosa (Wernicke).",
+w:{0:"Innecesaria.",2:"Sin rol.",3:"Sin indicación."},
+p:"Transaminasas &gt; 1.000 obligan a buscar otra causa.",
+r:"EASL embarazo 2023"},
+
+{id:"EM07",b:"ET",t:"Embarazo",n:"R",md:"E",
+q:"¿Qué hallazgo de laboratorio es fisiológico en el tercer trimestre?",
+o:["ALT 2 × LSN","FA elevada (origen placentario) y albúmina baja","Bilirrubina 3 mg/dL","Ácidos biliares 40 µmol/L"],
+c:1,
+e:"La <b>FA</b> sube por la isoenzima placentaria y la albúmina baja por hemodilución. Transaminasas, bilirrubina y ácidos biliares elevados no son fisiológicos.",
+w:{0:"Patológico.",2:"Patológico.",3:"Patológico (CIE)."},
+p:"La GGT tiende a bajar en el embarazo.",
+r:"EASL embarazo 2023"},
+
+{id:"EM08",b:"ET",t:"Embarazo",n:"S",md:"X",
+q:"Hepatitis E aguda en embarazada del tercer trimestre (genotipo 1). ¿Por qué es relevante?",
+o:["Es más leve en el embarazo","Riesgo de FHA con mortalidad materna de hasta 20–25 %","Es crónica siempre","No afecta al feto"],
+c:1,
+e:"El <b>VHE genotipo 1</b> (regiones endémicas) causa FHA en embarazadas con alta mortalidad materna y fetal.",
+w:{0:"Es más grave.",2:"No se cronifica en inmunocompetentes.",3:"Hay transmisión vertical y muerte fetal."},
+p:"La ribavirina está contraindicada en el embarazo.",
+r:"EASL VHE 2018"},
+
+{id:"EM09",b:"ET",t:"Embarazo",n:"F",md:"E",
+q:"Embarazada con Wilson estable en penicilamina. ¿Conducta?",
+o:["Suspender el tratamiento","Mantener, reduciendo la dosis del quelante (~25–50 %) en el tercer trimestre","Cambiar a trientina obligatoriamente","Interrumpir el embarazo"],
+c:1,
+e:"Suspender expone a FHA. Se mantiene el tratamiento, reduciendo la dosis del quelante en el <b>tercer trimestre</b> (cicatrización si hay cesárea). El zinc no requiere ajuste.",
+w:{0:"Riesgo de descompensación.",2:"No es obligatorio.",3:"Sin indicación."},
+p:"Lactancia: penicilamina y trientina se excretan poco; individualizar.",
+r:"EASL-ERN Wilson 2025"},
+
+{id:"EM10",b:"ET",t:"Embarazo",n:"R",md:"X",
+q:"Mujer con HBsAg positivo, DNA 1.500 UI/mL, embarazo de 20 semanas. ¿Requiere tenofovir?",
+o:["Sí, siempre en HBsAg positivo","No: el umbral para profilaxis de transmisión es DNA &gt; 200.000 UI/mL; inmunoprofilaxis del recién nacido","Sí, desde el primer trimestre","No requiere tampoco inmunoprofilaxis"],
+c:1,
+e:"El antiviral para prevenir transmisión vertical se indica con <b>DNA &gt; 200.000 UI/mL</b> (o HBsAg &gt; 4 log). Siempre vacuna + inmunoglobulina al recién nacido.",
+w:{0:"No es universal (salvo indicación materna propia).",2:"No con esta carga.",3:"Siempre requiere inmunoprofilaxis."},
+p:"OMS 2024 sugiere tratar a toda embarazada HBsAg+ donde no se puede medir DNA.",
+r:"EASL embarazo 2023 · OMS VHB 2024"},
+
+/* ===================== Bloque 14 · Lesiones focales y HCC ===================== */
+{id:"HC01",b:"OT",t:"Lesiones focales y HCC",n:"R",md:"E",
+q:"Cirrótico en vigilancia con nódulo nuevo de 2,3 cm: hiperrealce arterial no periférico y lavado en fase portal en TC multifásica. ¿Conducta?",
+o:["Biopsia obligatoria","LI-RADS 5: diagnóstico de HCC sin biopsia; estadificar","Repetir TC en 3 meses","Ecografía con contraste antes de decidir"],
+c:1,
+e:"Nódulo ≥ 10 mm (≥ 20 mm aquí) con hiperrealce arterial no periférico + lavado = <b>LR-5</b>: HCC sin biopsia en cirrosis.",
+w:{0:"No es necesaria en LR-5.",2:"Sería para LR-3.",3:"No cambia la conducta."},
+p:"Sin cirrosis (o VHB sin cirrosis), los criterios no invasivos no aplican: biopsia.",
+r:"EASL HCC 2025 · LI-RADS v2018"},
+
+{id:"HC02",b:"OT",t:"Lesiones focales y HCC",n:"R",md:"X",
+q:"HCC único de 2,8 cm, Child A, ECOG 0, plaquetas 85.000 y várices pequeñas (HPCS). ¿Estadio BCLC y tratamiento de primera opción?",
+o:["BCLC 0; resección","BCLC A; ablación (o trasplante si cumple criterios)","BCLC B; TACE","BCLC C; atezolizumab-bevacizumab"],
+c:1,
+e:"Único &gt; 2 cm con ECOG 0 = <b>BCLC A</b>. La <b>HPCS</b> desaconseja la resección: ablación (≤ 3–4 cm) o trasplante.",
+w:{0:"BCLC 0 es ≤ 2 cm.",2:"Es nódulo único.",3:"No hay invasión ni ECOG ≥ 1."},
+p:"BCLC 2026 amplió la ablación hasta 3–4 cm.",
+r:"BCLC 2026 · EASL HCC 2025"},
+
+{id:"HC03",b:"OT",t:"Lesiones focales y HCC",n:"F",md:"E",
+q:"HCC con trombosis tumoral portal, Child A, ECOG 1. Endoscopía hace 2 meses con várices grandes ligadas. ¿Primera línea?",
+o:["Sorafenib","Atezolizumab + bevacizumab (o STRIDE)","TACE","Trasplante"],
+c:1,
+e:"BCLC C: inmunoterapia combinada. Atezolizumab + bevacizumab (IMbrave150: 19,2 vs 13,4 meses) requiere endoscopía en los 6 meses previos con várices tratadas; STRIDE si hay riesgo de sangrado.",
+w:{0:"Inferior en sobrevida.",2:"Contraindicada con invasión portal tumoral.",3:"Contraindicado."},
+p:"Nivolumab + ipilimumab (CheckMate 9DW) es otra opción de primera línea.",
+r:"Finn RS, NEJM 2020 · EASL HCC 2025"},
+
+{id:"HC04",b:"OT",t:"Lesiones focales y HCC",n:"R",md:"X",
+q:"Mujer de 28 años, usuaria de anticonceptivos orales, con adenoma hepatocelular de 6 cm. ¿Conducta?",
+o:["Observar sin cambios","Suspender anticonceptivos, bajar de peso; resección si persiste ≥ 5 cm a los 6 meses","Embolización inmediata en todos","Biopsia y quimioterapia"],
+c:1,
+e:"Adenoma en mujer: suspender estrógenos y reevaluar a los 6 meses; <b>resección si ≥ 5 cm</b> persistente o crecimiento. En hombres o subtipo β-catenina: resección independiente del tamaño.",
+w:{0:"Riesgo de sangrado y malignización.",2:"Se reserva para sangrado.",3:"No es maligno."},
+p:"El subtipo β-catenina activado (exón 3) tiene mayor riesgo de transformación.",
+r:"EASL lesiones benignas 2016"},
+
+{id:"HC05",b:"OT",t:"Lesiones focales y HCC",n:"R",md:"E",
+q:"Hemangioma típico de 7 cm asintomático, hallazgo incidental. ¿Conducta?",
+o:["Resección","Biopsia","Ninguna: no requiere seguimiento ni tratamiento","Embolización"],
+c:2,
+e:"El hemangioma típico no requiere seguimiento independiente del tamaño; la cirugía solo si hay síntomas claros o síndrome de Kasabach-Merritt.",
+w:{0:"Sin indicación.",1:"Contraindicada por riesgo de sangrado.",3:"Sin indicación."},
+p:"No contraindica embarazo ni anticonceptivos.",
+r:"EASL lesiones benignas 2016"},
+
+{id:"HC06",b:"OT",t:"Lesiones focales y HCC",n:"F",md:"X",
+q:"HCC multinodular (5 nódulos, el mayor 4 cm), Child A5, ECOG 0, sin invasión. ¿Estadio y opciones?",
+o:["BCLC A; resección","BCLC B; TACE, o trasplante si cumple criterios extendidos o tras downstaging","BCLC C; sistémica","BCLC D"],
+c:1,
+e:"<b>BCLC B</b>. BCLC 2026 lo subdivide según carga tumoral: trasplante (criterios extendidos), TACE/TARE, o sistémica si es difuso.",
+w:{0:"Supera los criterios de A.",2:"Sin invasión ni ECOG ≥ 1.",3:"Función preservada."},
+p:"EMERALD-1 y LEAP-012: TACE + sistémica mejora la sobrevida libre de progresión.",
+r:"BCLC 2026"},
+
+{id:"HC07",b:"OT",t:"Lesiones focales y HCC",n:"R",md:"E",
+q:"¿Cuál es la vigilancia recomendada de HCC en cirrosis?",
+o:["TC cada 3 meses","Ecografía ± AFP cada 6 meses","AFP sola anual","RM anual en todos"],
+c:1,
+e:"<b>Ecografía cada 6 meses</b> (± AFP). Si la visualización es mala (LI-RADS US C), cambiar a RM abreviada o TC.",
+w:{0:"Excesivo.",2:"Insuficiente.",3:"Se reserva para mala visualización ecográfica."},
+p:"La vigilancia se justifica si la incidencia anual de HCC es ≥ 1,5 %.",
+r:"EASL HCC 2025 · AASLD 2023"},
+
+{id:"HC08",b:"OT",t:"Lesiones focales y HCC",n:"S",md:"X",
+q:"Según la actualización crítica de AASLD 2025, ¿se recomienda atezolizumab-bevacizumab adyuvante tras resección o ablación de HCC de alto riesgo?",
+o:["Sí, en todos","No: IMbrave050 no mostró beneficio en sobrevida libre de recurrencia en el análisis actualizado","Solo en HCC por VHB","Sí, por 6 meses"],
+c:1,
+e:"El beneficio inicial de IMbrave050 no se sostuvo en el seguimiento; AASLD 2025 <b>no recomienda</b> la adyuvancia.",
+w:{0:"No.",2:"No hay subgrupo validado.",3:"No."},
+p:"Tras resección: vigilancia con imagen cada 3–6 meses los primeros 2 años.",
+r:"AASLD HCC critical update 2025"},
+
+{id:"HC09",b:"OT",t:"Lesiones focales y HCC",n:"R",md:"E",
+q:"Mujer de 33 años con lesión de 4 cm con cicatriz central, hiperrealce arterial homogéneo y retención en fase hepatobiliar con gadoxetato. ¿Diagnóstico?",
+o:["Adenoma","Hiperplasia nodular focal","HCC fibrolamelar","Metástasis"],
+c:1,
+e:"<b>HNF</b>: cicatriz central y retención en fase hepatobiliar (hepatocitos funcionales con ductos anómalos). No requiere seguimiento.",
+w:{0:"El adenoma suele ser hipointenso en fase hepatobiliar.",2:"El fibrolamelar tiene cicatriz calcificada y no retiene gadoxetato.",3:"Hipointensa en fase hepatobiliar."},
+p:"La HNF no se relaciona con anticonceptivos de forma causal.",
+r:"EASL lesiones benignas 2016"},
+
+{id:"HC10",b:"OT",t:"Lesiones focales y HCC",n:"F",md:"X",
+q:"Colangiocarcinoma intrahepático irresecable. ¿Primera línea sistémica?",
+o:["Sorafenib","Gemcitabina + cisplatino + durvalumab (o pembrolizumab)","Lenvatinib","Solo soporte"],
+c:1,
+e:"TOPAZ-1 (durvalumab) y KEYNOTE-966 (pembrolizumab): gemcitabina-cisplatino + inmunoterapia mejora la sobrevida. Hacer perfil molecular (FGFR2, IDH1, HER2, BRAF) para segunda línea dirigida.",
+w:{0:"Sin rol.",2:"Sin rol.",3:"Hay tratamiento efectivo."},
+p:"Pemigatinib (FGFR2) e ivosidenib (IDH1) son terapias dirigidas de segunda línea.",
+r:"Oh DY, NEJM Evid 2022 · Kelley RK, Lancet 2023 · EASL eCCA 2025"},
+
+/* ===================== Bloque 15 · Trasplante ===================== */
+{id:"TX01",b:"OT",t:"Trasplante",n:"R",md:"E",
+q:"Cirrótico con MELD-Na 16 y primer episodio de ascitis controlada. ¿Cuándo derivar a trasplante?",
+o:["Cuando MELD &gt; 25","Ahora: MELD ≥ 15 o primera descompensación","Solo si tiene HCC","Tras 6 meses de observación"],
+c:1,
+e:"Derivar con <b>MELD ≥ 15</b> o a la <b>primera descompensación mayor</b>: desde ahí el trasplante da beneficio de sobrevida.",
+w:{0:"Tardío.",2:"No.",3:"Pierde tiempo."},
+p:"En Chile, más de un tercio de los enlistados sale de la lista al año.",
+r:"EASL trasplante 2024 · Díaz LA, Ann Hepatol 2019"},
+
+{id:"TX02",b:"OT",t:"Trasplante",n:"F",md:"X",
+q:"Candidato con presión sistólica pulmonar estimada 58 mmHg. Cateterismo: PAPm 42 mmHg, RVP 4,5 UW, presión capilar 10. ¿Conducta?",
+o:["Enlistar sin más","Iniciar terapia vasomoduladora y reevaluar; enlistar si PAPm &lt; 35 o 35–45 con RVP &lt; 3","Contraindicación absoluta","TIPS"],
+c:1,
+e:"Hipertensión portopulmonar con PAPm ≥ 35 y RVP ≥ 3: <b>vasomoduladores</b> y reevaluar. PAPm &gt; 45 refractaria contraindica.",
+w:{0:"Riesgo perioperatorio alto.",2:"Aún no es refractaria.",3:"El TIPS empeora la hipertensión pulmonar."},
+p:"La HPoP no tiene MELD de excepción automático: depende de la respuesta.",
+r:"EASL trasplante 2024"},
+
+{id:"TX03",b:"OT",t:"Trasplante",n:"R",md:"E",
+q:"HCC de 3 nódulos de 2,5, 2 y 1,5 cm, AFP 40 ng/mL, sin invasión. ¿Cumple Milán?",
+o:["No","Sí","Solo si AFP &lt; 20","Solo con un nódulo"],
+c:1,
+e:"Milán: único ≤ 5 cm o <b>2–3 nódulos ≤ 3 cm</b>, sin invasión macrovascular ni extrahepática.",
+w:{0:"Cumple.",2:"La AFP no forma parte de Milán.",3:"Permite hasta 3."},
+p:"Metroticket 2.0 con AFP &lt; 200: suma (n.º + mayor) ≤ 7.",
+r:"Mazzaferro V, NEJM 1996"},
+
+{id:"TX04",b:"OT",t:"Trasplante",n:"F",md:"X",
+q:"HCC con AFP 1.450 ng/mL dentro de Milán. ¿Conducta respecto del trasplante?",
+o:["Enlistar de inmediato","AFP &gt; 1.000 excluye; tratamiento locorregional y reconsiderar solo si la AFP desciende de forma sostenida","Trasplante con donante vivo urgente","La AFP no importa"],
+c:1,
+e:"EASL 2024: AFP &gt; 1.000 ng/mL <b>contraindica</b> el trasplante por alta recurrencia, salvo descenso significativo y sostenido con tratamiento.",
+w:{0:"Alta recurrencia.",2:"Mismo problema.",3:"Es un marcador biológico de agresividad."},
+p:"Lavado de inmunoterapia previa: ≥ 4–6 semanas antes del trasplante.",
+r:"EASL trasplante 2024"},
+
+{id:"TX05",b:"OT",t:"Trasplante",n:"R",md:"E",
+q:"¿Cuál es el nivel valle de tacrolimus recomendado el primer mes postrasplante (EASL 2024)?",
+o:["2–4 ng/mL","6–10 ng/mL","15–20 ng/mL","No se monitoriza"],
+c:1,
+e:"<b>6–10 ng/mL</b> el primer mes y 4–8 ng/mL después; combinar con micofenolato o everolimus para niveles más bajos y proteger el riñón.",
+w:{0:"Demasiado bajo al inicio.",2:"Nefrotóxico.",3:"Se monitoriza siempre."},
+p:"Riesgo renal: basiliximab y tacrolimus diferido ~5 días.",
+r:"EASL trasplante 2024"},
+
+{id:"TX06",b:"OT",t:"Trasplante",n:"R",md:"X",
+q:"Trasplantado hepático en tacrolimus que inicia claritromicina. ¿Qué esperar?",
+o:["Caída del nivel de tacrolimus","Aumento del nivel con nefro y neurotoxicidad","Sin interacción","Hepatotoxicidad aislada"],
+c:1,
+e:"La claritromicina inhibe el <b>CYP3A4</b> y eleva el tacrolimus. Preferir azitromicina o ajustar con niveles.",
+w:{0:"Es al revés.",2:"Interacción relevante.",3:"No es el mecanismo."},
+p:"Rifampicina, carbamazepina y fenitoína bajan el tacrolimus.",
+r:"EASL trasplante 2024"},
+
+{id:"TX07",b:"OT",t:"Trasplante",n:"F",md:"E",
+q:"Día 5 postrasplante: alza brusca de transaminasas (ALT 2.800) y Doppler sin flujo en la arteria hepática. ¿Conducta?",
+o:["Corticoides por rechazo","Revascularización urgente o retrasplante por trombosis de arteria hepática","Antivirales","Observar"],
+c:1,
+e:"<b>Trombosis precoz de la arteria hepática</b>: emergencia; trombectomía/revascularización o retrasplante urgente.",
+w:{0:"El Doppler apunta a trombosis.",2:"Sin relación.",3:"Riesgo de necrosis y pérdida del injerto."},
+p:"Doppler diario la primera semana.",
+r:"EASL trasplante 2024"},
+
+{id:"TX08",b:"OT",t:"Trasplante",n:"R",md:"X",
+q:"Trasplantado por CBP. ¿Qué medida reduce la recurrencia y la pérdida del injerto?",
+o:["Ciclosporina en todos","AUDC 10–15 mg/kg/día de por vida","Bezafibrato profiláctico","Corticoides indefinidos"],
+c:1,
+e:"EASL 2024: <b>AUDC de por vida</b> postrasplante por CBP.",
+w:{0:"No se recomienda un inhibidor específico.",2:"Sin evidencia.",3:"Sin beneficio y con toxicidad."},
+p:"CEP recurre en 20–30 % sin prevención eficaz.",
+r:"EASL trasplante 2024"},
+
+{id:"TX09",b:"OT",t:"Trasplante",n:"S",md:"E",
+q:"En el ECA XXL, el trasplante tras downstaging exitoso de HCC fuera de Milán frente a no trasplante…",
+o:["Sin diferencia","Sobrevida libre de eventos tumorales a 5 años 77 % vs 18 %","Mayor mortalidad","Solo benefició a VHC"],
+c:1,
+e:"XXL (Lancet Oncol 2020): el trasplante tras downstaging exitoso mejoró la sobrevida libre de eventos tumorales (77 % vs 18 %) y la global.",
+w:{0:"Fue positivo.",2:"No.",3:"No hubo restricción etiológica."},
+p:"Éxito de downstaging: dentro de Milán con AFP &lt; 500 y ≥ 3 meses de observación.",
+r:"Mazzaferro V, Lancet Oncol 2020"},
+
+{id:"TX10",b:"OT",t:"Trasplante",n:"R",md:"X",
+q:"En Chile, ¿cómo se asigna el órgano en la lista de trasplante hepático adulto?",
+o:["Por tiempo en lista","Por MELD-Na, con MELD operacional para excepciones y urgencia nacional para FHA","Por Child-Pugh","Por edad"],
+c:1,
+e:"Asignación por <b>MELD-Na</b>; excepciones (HCC y otras) con <b>MELD operacional</b>; la FHA tiene urgencia nacional.",
+w:{0:"No.",2:"Abandonado.",3:"No."},
+p:"Las excepciones generan inequidad contra el cirrótico priorizado solo por MELD-Na (Díaz 2019; Wolff 2020).",
+r:"Wolff R, Rev Med Chile 2020 · Díaz LA, Ann Hepatol 2019"},
+
+/* ===================== Bloque 16 · Imágenes, Fibroscan y endohepatología ===================== */
+{id:"IM01",b:"OT",t:"Imágenes y Fibroscan",n:"R",md:"E",
+q:"Fibroscan: 10 mediciones válidas, mediana 11,4 kPa, IQR/mediana 36 %. ¿Interpretación?",
+o:["cACLD confirmado","Medición poco fiable: repetir","Descarta fibrosis","Indica HPCS"],
+c:1,
+e:"IQR/mediana &gt; 30 % con LSM ≥ 7,1 kPa: <b>poco fiable</b>. Repetir en ayunas, con buena técnica (sonda adecuada).",
+w:{0:"La calidad no permite concluir.",2:"Tampoco permite descartar.",3:"No."},
+p:"Usar sonda XL si la distancia piel-cápsula es &gt; 25 mm.",
+r:"EASL NIT 2021"},
+
+{id:"IM02",b:"OT",t:"Imágenes y Fibroscan",n:"R",md:"X",
+q:"Paciente con insuficiencia cardíaca derecha descompensada y rigidez hepática 32 kPa. ¿Interpretación?",
+o:["Cirrosis con HPCS","Rigidez sobrestimada por congestión: repetir compensado","Error del equipo","Indica trasplante"],
+c:1,
+e:"La <b>congestión</b> (como la inflamación y la colestasis) eleva la rigidez independiente de la fibrosis.",
+w:{0:"No se puede afirmar.",2:"Es un efecto fisiológico.",3:"Sin fundamento."},
+p:"Otros confusores: hepatitis aguda, ingesta reciente, alcohol activo, infiltración.",
+r:"EASL NIT 2021"},
+
+{id:"IM03",b:"OT",t:"Imágenes y Fibroscan",n:"F",md:"E",
+q:"¿Qué ventaja tiene la medición de presión portal por endosonografía (EUS-PPG) frente al GPVH?",
+o:["No requiere sedación","Mide directamente el gradiente portal-hepático e incluye el componente presinusoidal; combinable con biopsia","Es más barata y disponible","Tolera plaquetas &lt; 20.000"],
+c:1,
+e:"El GPVH mide presión sinusoidal (indirecta); la <b>EUS-PPG</b> mide la porta directamente y puede combinarse con EUS-LB y elastografía en un solo procedimiento.",
+w:{0:"Requiere sedación.",2:"Requiere endoscopía avanzada.",3:"Requiere plaquetas ≥ 50.000."},
+p:"Aún no tiene cortes propios validados como el GPVH.",
+r:"Laleman W, J Hepatol 2024 · Vargas JI, Curso Becados 2026"},
+
+{id:"IM04",b:"OT",t:"Imágenes y Fibroscan",n:"R",md:"X",
+q:"¿Qué valor de CAP sugiere esteatosis con buen valor predictivo positivo (sonda M)?",
+o:["≥ 150 dB/m","≥ 275 dB/m","≥ 400 dB/m","El CAP no mide esteatosis"],
+c:1,
+e:"CAP <b>≥ 275 dB/m</b> sugiere esteatosis; menor exactitud para graduar y no se usa como marcador único de seguimiento.",
+w:{0:"Rango normal.",2:"Muy alto.",3:"Sí la mide."},
+p:"RM-PDFF ≥ 5 % es el estándar no invasivo de cuantificación de grasa.",
+r:"EASL-EASD-EASO 2024"},
+
+{id:"IM05",b:"OT",t:"Imágenes y Fibroscan",n:"F",md:"X",
+q:"Nódulo en cirrótico con realce arterial en anillo y lavado precoz (&lt; 60 s) en ecografía con contraste. ¿Categoría y conducta?",
+o:["LR-5; tratar sin biopsia","LR-M; biopsia (sospecha de colangiocarcinoma o metástasis)","LR-3; control a 3 meses","LR-1"],
+c:1,
+e:"Realce en anillo y lavado <b>precoz o intenso</b> = <b>LR-M</b>: maligno no específico de HCC → biopsia.",
+w:{0:"El lavado del HCC es tardío y leve.",2:"Hay rasgos de malignidad.",3:"No es benigno."},
+p:"La CEUS no tiene nefrotoxicidad: útil en falla renal.",
+r:"LI-RADS CEUS 2017 · EASL HCC 2025"},
+
+{id:"IM06",b:"OT",t:"Imágenes y Fibroscan",n:"R",md:"E",
+q:"Paciente en vigilancia de HCC con obesidad mórbida: la ecografía informa visualización C (limitada). ¿Conducta?",
+o:["Continuar con ecografía semestral","Cambiar a RM abreviada o TC multifásica","Suspender la vigilancia","AFP sola"],
+c:1,
+e:"Con visualización limitada la sensibilidad cae: cambiar a <b>RM abreviada</b> o TC.",
+w:{0:"Baja sensibilidad.",2:"El riesgo persiste.",3:"Insuficiente."},
+p:"MASLD y obesidad son las principales causas de mala visualización.",
+r:"AASLD HCC 2023 · LI-RADS US"},
+
+{id:"IM07",b:"OT",t:"Imágenes y Fibroscan",n:"S",md:"E",
+q:"Serie UC (Vargas): biopsia hepática por EUS frente a percutánea. ¿Hallazgo principal?",
+o:["Menos espacios porta","Más espacios porta (21,8 vs 13,2), más muestras adecuadas y menos complicaciones (1,1 % vs 9,8 %)","Más complicaciones graves","Sin diferencias"],
+c:1,
+e:"EUS-LB: más espacios porta, muestra adecuada 77 % vs 34 %, complicaciones 1,1 % vs 9,8 %.",
+w:{0:"Al revés.",2:"No.",3:"Hubo diferencias."},
+p:"Técnica: aguja 19G FNB con aspiración húmeda con heparina, 1–2 pases.",
+r:"Vargas JI et al. (manuscrito) · Curso Becados 2026"},
+
+{id:"IM08",b:"OT",t:"Imágenes y Fibroscan",n:"R",md:"X",
+q:"¿En qué fase de la RM con gadoxetato se lee el lavado del HCC?",
+o:["Fase de transición (3 min)","Fase portal","Fase hepatobiliar (20 min)","Fase sin contraste"],
+c:1,
+e:"Con gadoxetato el lavado solo se lee en <b>fase portal</b>; la hipointensidad en transición o hepatobiliar puede ser seudolavado.",
+w:{0:"Puede simular lavado.",2:"Hipointensidad hepatobiliar no es lavado (aunque es rasgo auxiliar).",3:"No."},
+p:"La fase hepatobiliar es más sensible para lesiones pequeñas.",
+r:"LI-RADS v2018"},
+
+{id:"IM09",b:"OT",t:"Imágenes y Fibroscan",n:"F",md:"E",
+q:"Hombre con várices y trombocitopenia; rigidez hepática 5,5 kPa y esplénica 100 kPa con IQR casi 0. ¿Qué significa el valor esplénico?",
+o:["Cuantificación exacta de 100 kPa","Valor en el techo del equipo: confirma hipertensión portal pero no la cuantifica ni sirve de basal","Error: repetir siempre","Excluye hipertensión portal"],
+c:1,
+e:"El módulo de 100 Hz tiene <b>techo de 100 kPa</b>: un valor de 100 con IQR mínimo está fuera de rango. La disociación hígado normal-bazo alto sugiere hipertensión portal prehepática o presinusoidal.",
+w:{0:"Está fuera de rango.",2:"Es un resultado real de techo.",3:"Al contrario."},
+p:"La rigidez esplénica es el único informante no invasivo en la hipertensión portal presinusoidal.",
+r:"Ginesta A, Curso Dávila 2026 · Baveno VIII"},
+
+{id:"IM10",b:"OT",t:"Imágenes y Fibroscan",n:"R",md:"X",
+q:"¿Cuál es la regla de los 5 de Baveno para rigidez hepática?",
+o:["&lt; 5 normal, 5–10 cirrosis","&lt; 10 descarta cACLD; 10–15 sugiere; 15–20 muy sugestivo; 20–25 sospecha de HPCS; ≥ 25 HPCS","Solo aplica a VHC","≥ 5 kPa = HPCS"],
+c:1,
+e:"Regla de los 5: <b>10 – 15 – 20 – 25 kPa</b>, válida para cualquier etiología (con cautela en MASLD obesa para el corte de 25).",
+w:{0:"No.",2:"Aplica a todas las etiologías.",3:"No."},
+p:"El seguimiento con cambios ≥ 20 % es clínicamente relevante.",
+r:"Baveno VII · EASL NIT 2021"}
+];
+
+</script>
+<script>
+(function(){
+"use strict";
+const SNAP="<!doctype html>\n"+document.documentElement.outerHTML;
+const ALL=[...Q1,...Q2,...Q3,...Q4].map(q=>({...q,mode:q.md||"E",m:q.m||""}));
+const byId=Object.fromEntries(ALL.map(q=>[q.id,q]));
+const BL={BA:"Bases y FHA",CI:"Cirrosis y complicaciones",ET:"Etiologías",OT:"Oncología, trasplante e imágenes"};
+const BS={BA:"Bases",CI:"Cirrosis",ET:"Etiologías",OT:"Onco · Tx · Img"};
+const BSEG=[["all","Todos"],["BA","Bases"],["CI","Cirrosis"],["ET","Etiologías"],["OT","Onco·Tx·Img"]];
+const NV={R:"Residente",F:"Fellow",S:"Staff"};
+const LET="ABCDE";
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* ---------- almacenamiento: este navegador + nube (Google Sheets) ---------- */
+const KEY="quizHepato_2026";
+const CLOUD_DEF={api:"",token:"hepato-2026"};
+const CLOUD=(()=>{let o={};try{o=JSON.parse(localStorage.getItem("quizHepato_cloud")||"{}")}catch(e){}
+  const api=o.api||CLOUD_DEF.api, tk=o.token||CLOUD_DEF.token;return {api:api.startsWith("http")?api:"",tokens:[tk],token:tk,id:"quizHepato_2026"}})();
+let tokenReady=null;         // se resuelve cuando se sabe qué clave acepta el script
+let booting=true;            // durante la carga no se marca cambio ni se envía a la nube
+const LOG=[];                // respuestas pendientes de enviar a la hoja "respuestas"
+let pushTimer=null,dirty=false;
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return {}}}
+function writeLocal(){try{localStorage.setItem(KEY,JSON.stringify(DB))}catch(e){}}
+function save(){
+  if(!booting){DB._t=Date.now();dirty=true;clearTimeout(pushTimer);pushTimer=setTimeout(pushCloud,1500);}
+  writeLocal();
+}
+function setSync(st,txt){const el=document.getElementById("syncState");if(!el)return;el.className="sync "+st;el.textContent=txt;el.title=st==="err"?"Motivo: "+syncWhy:"Estado de guardado";
+  const p=document.getElementById("syncNote");if(p)p.textContent=syncNote();}
+let lastSync=null,syncErr=false,syncWhy="";
+function syncNote(){if(!CLOUD.api)return "Sin conexión configurada con Google Sheets: el progreso se guarda solo en este navegador. Pegue abajo la URL del Apps Script para sincronizar entre dispositivos.";return syncErr?`Sin conexión con la nube (${syncWhy||"error desconocido"}): el progreso queda en este navegador y se sincroniza al volver la conexión.`:lastSync?`Progreso sincronizado con Google Sheets (${lastSync.toLocaleTimeString("es-CL",{hour:"2-digit",minute:"2-digit"})}): lo retomas desde cualquier dispositivo.`:"Conectando con la nube…"}
+async function readJSON(r){const t=await r.text();try{return JSON.parse(t)}catch(e){
+  const m=t.replace(/<[^>]+>/g," ").replace(/\s+/g," ").trim().slice(0,140);throw new Error("Google respondió una página en vez de datos: "+m)}}
+async function resolveToken(){
+  for(const t of CLOUD.tokens){
+    const r=await fetch(`${CLOUD.api}?action=load&quizId=${encodeURIComponent(CLOUD.id)}&token=${encodeURIComponent(t)}`);
+    const d=await readJSON(r);
+    if(d.ok){CLOUD.token=t;return d;}
+    if(d.error!=="token inválido")throw new Error(d.error);
+  }
+  throw new Error("token inválido (la clave del script no coincide con la del quiz)");
+}
+async function pushCloud(){
+  clearTimeout(pushTimer);pushTimer=null;
+  if(!CLOUD.api){dirty=false;LOG.length=0;return;}
+  if(tokenReady)try{await tokenReady}catch(e){}
+  if(!dirty&&!LOG.length)return;
+  const lote=LOG.splice(0);dirty=false;
+  try{
+    const r=await fetch(CLOUD.api,{method:"POST",body:JSON.stringify({token:CLOUD.token,action:"save",quizId:CLOUD.id,estado:DB,respuestas:lote})});
+    const d=await readJSON(r);if(!d.ok)throw new Error(d.error);
+    lastSync=new Date();syncErr=false;setSync("ok","☁ guardado");
+  }catch(e){LOG.unshift(...lote);dirty=true;syncErr=true;syncWhy=e.message||String(e);setSync("err","● sin conexión");}
+}
+addEventListener("pagehide",()=>{
+  if(!CLOUD.api||(!dirty&&!LOG.length))return;
+  try{navigator.sendBeacon(CLOUD.api,new Blob([JSON.stringify({token:CLOUD.token,action:"save",quizId:CLOUD.id,estado:DB,respuestas:LOG.splice(0)})],{type:"text/plain"}));dirty=false}catch(e){}
+});
+addEventListener("online",()=>{if(dirty||LOG.length)pushCloud()});
+const DB=load(); DB.q=DB.q||{}; DB.exams=DB.exams||[];
+function record(id,ok,chosen){const r=DB.q[id]||{n:0,ok:0};r.n++;if(ok)r.ok++;r.last=ok?1:0;DB.q[id]=r;
+  const q=byId[id];if(q)LOG.push({preguntaId:id,tema:`${q.b} · ${q.t}`,elegida:chosen==null?"":chosen,correcta:q.c,fecha:new Date().toISOString()});
+  save()}
+
+/* ---------- tema ---------- */
+$("#themeBtn").addEventListener("click",()=>{
+  const root=document.documentElement;
+  const cur=root.getAttribute("data-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");
+  const next=cur==="dark"?"light":"dark";root.setAttribute("data-theme",next);DB.theme=next;save();
+});
+if(DB.theme)document.documentElement.setAttribute("data-theme",DB.theme);
+
+/* ---------- pestañas ---------- */
+const tabs=[...document.querySelectorAll(".tabs button")];
+function showTab(t){tabs.forEach(b=>b.setAttribute("aria-selected",b.dataset.tab===t));
+  document.querySelectorAll("main>section").forEach(s=>s.hidden=s.id!=="tab-"+t);
+  DB.tab=t;save(); if(t==="stats")renderStats(); if(t==="flash")renderFlash(); if(t==="changes")renderChanges();}
+tabs.forEach(b=>b.addEventListener("click",()=>showTab(b.dataset.tab)));
+$("#nStudy").textContent=ALL.filter(q=>q.mode==="E").length;
+$("#nExam").textContent=ALL.filter(q=>q.mode==="X").length;
+
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function segHTML(name,opts,val){return `<div class="seg" data-seg="${name}">`+opts.map(([v,l])=>`<button type="button" data-v="${v}" aria-pressed="${v===val}">${l}</button>`).join("")+`</div>`}
+function bindSeg(root,name,cb){root.querySelectorAll(`[data-seg="${name}"] button`).forEach(b=>b.addEventListener("click",()=>cb(b.dataset.v)))}
+function chips(q){return `<span class="chip b-${q.b}">${BS[q.b]}</span><span class="chip lv-${q.n}">${NV[q.n]}</span><span class="chip">${esc(q.t)}</span>`+(q.fix?`<span class="chip fix">corrige v5</span>`:"")+(q.nuevo?`<span class="chip new">actualización</span>`:"")}
+function explainHTML(q,order,chosen){
+  const ok=chosen===q.c;
+  const wrongs=order.map((oi,pos)=>oi===q.c?"":`<li><b class="L">${LET[pos]}</b>${q.w[oi]}</li>`).join("");
+  return `<div class="explain">
+    ${chosen==null?`<div class="verdict bad">Sin responder</div>`:`<div class="verdict ${ok?"ok":"bad"}">${ok?"Correcto.":"Incorrecto."} Respuesta: ${LET[order.indexOf(q.c)]}</div>`}
+    <div class="blk"><h4>Explicación</h4><p>${q.e}</p></div>
+    <div class="blk"><h4>Por qué no las otras</h4><ul>${wrongs}</ul></div>
+    ${q.m?`<div class="blk mech"><h4>Mecanismo / fisiopatología</h4><p>${q.m}</p></div>`:""}
+    <div class="blk pearl"><h4>Perla</h4><p>${q.p}</p></div>
+    ${q.nuevo?`<div class="blk newbox"><h4>Qué cambió</h4><p>${q.nuevo}</p></div>`:""}
+    ${q.fix?`<div class="blk fixbox"><h4>Corrección respecto de v5 / otras herramientas</h4><p>${q.fix}</p></div>`:""}
+    <div class="blk refs"><h4>Referencias</h4><p>${q.r}</p></div>
+  </div>`;
+}
+function themes(list){return [...new Set(list.map(q=>q.t))].sort((a,b)=>a.localeCompare(b,"es"))}
+
+/* ================= ESTUDIO ================= */
+const ST_DEF=()=>({bank:"E",b:"all",n:"all",t:"all",failed:false,i:0,orders:{},ans:{}});
+const ST=ST_DEF();
+function restoreST(){const d=ST_DEF();Object.keys(ST).forEach(k=>delete ST[k]);Object.assign(ST,d,DB.st||{});ST.orders=ST.orders||{};ST.ans=ST.ans||{};}
+restoreST();
+function studyList(){return ALL.filter(q=>(ST.bank==="all"||q.mode==="E")&&(ST.b==="all"||q.b===ST.b)&&(ST.n==="all"||q.n===ST.n)&&(ST.t==="all"||q.t===ST.t)&&(!ST.failed||(DB.q[q.id]&&DB.q[q.id].last===0)))}
+function renderStudy(){
+  const root=$("#tab-study");const list=studyList();
+  if(ST.i>=list.length)ST.i=Math.max(0,list.length-1);
+  const pool=ALL.filter(q=>ST.bank==="all"||q.mode==="E");
+  let h=`<div class="filters">
+    <span><span class="flabel">Banco</span>${segHTML("bank",[["E",`Estudio (${ALL.filter(q=>q.mode==="E").length})`],["all",`Todo (${ALL.length})`]],ST.bank)}</span>
+    <span><span class="flabel">Bloque</span>${segHTML("b",BSEG,ST.b)}</span>
+    <span><span class="flabel">Nivel</span>${segHTML("n",[["all","Todos"],["R","Residente"],["F","Fellow"],["S","Staff"]],ST.n)}</span>
+    <span><label class="flabel" for="stTema">Tema</label><select id="stTema"><option value="all">Todos</option>${themes(pool).map(t=>`<option ${t===ST.t?"selected":""}>${esc(t)}</option>`).join("")}</select></span>
+    <span>${segHTML("failed",[["0","Todas"],["1","Solo falladas"]],ST.failed?"1":"0")}</span>
+  </div>`;
+  if(!list.length){root.innerHTML=h+`<div class="card empty">No hay preguntas con estos filtros${ST.failed?" (aún no registras preguntas falladas)":""}.</div>`;bindStudy(root);persistST();return;}
+  const q=list[ST.i];
+  if(!ST.orders[q.id])ST.orders[q.id]=shuffle(q.o.map((_,i)=>i));
+  const order=ST.orders[q.id];const chosen=ST.ans[q.id];const done=chosen!==undefined;
+  h+=`<div class="progressbar"><i style="width:${((ST.i+1)/list.length*100).toFixed(1)}%"></i></div>
+  <article class="card qcard">
+    <div class="meta">${chips(q)}<span class="counter">${q.id} · ${ST.i+1}/${list.length}</span></div>
+    <p class="stem">${q.q}</p>
+    <div class="opts">${order.map((oi,pos)=>{
+      let cls="opt";if(done){if(oi===q.c)cls+=" right";else if(oi===chosen)cls+=" wrong";}
+      return `<button type="button" class="${cls}" data-oi="${oi}" ${done?"disabled":""}><span class="L">${LET[pos]}</span><span>${q.o[oi]}</span></button>`}).join("")}</div>
+    ${done?explainHTML(q,order,chosen):""}
+    <div class="actions">
+      <button class="btn" type="button" id="stPrev" ${ST.i===0?"disabled":""}>← Anterior</button>
+      <span class="spacer"></span>
+      ${done?`<button class="btn ghost" type="button" id="stRetry">Reintentar</button>`:""}
+      <button class="btn primary" type="button" id="stNext" ${ST.i>=list.length-1?"disabled":""}>Siguiente →</button>
+    </div>
+    <div class="palette" aria-label="Navegación">${list.map((x,k)=>{const a=ST.ans[x.id];let c=k===ST.i?"cur":"";if(a!==undefined)c+=a===x.c?" ok":" bad";return `<button type="button" class="${c}" data-k="${k}" title="${x.id}">${k+1}</button>`}).join("")}</div>
+  </article>`;
+  root.innerHTML=h;bindStudy(root);persistST();
+  root.querySelectorAll(".opt").forEach(b=>b.addEventListener("click",()=>{const oi=+b.dataset.oi;ST.ans[q.id]=oi;record(q.id,oi===q.c,oi);renderStudy();}));
+  const r=$("#stRetry");if(r)r.addEventListener("click",()=>{delete ST.ans[q.id];ST.orders[q.id]=shuffle(q.o.map((_,i)=>i));renderStudy()});
+  $("#stPrev").addEventListener("click",()=>{ST.i--;renderStudy();scrollTop()});
+  $("#stNext").addEventListener("click",()=>{ST.i++;renderStudy();scrollTop()});
+  root.querySelectorAll(".palette button").forEach(b=>b.addEventListener("click",()=>{ST.i=+b.dataset.k;renderStudy()}));
+}
+function persistST(){const nw=JSON.stringify(ST);if(JSON.stringify(DB.st||null)===nw)return;DB.st=JSON.parse(nw);save();}
+function bindStudy(root){
+  bindSeg(root,"bank",v=>{ST.bank=v;ST.t="all";ST.i=0;renderStudy()});
+  bindSeg(root,"b",v=>{ST.b=v;ST.i=0;renderStudy()});
+  bindSeg(root,"n",v=>{ST.n=v;ST.i=0;renderStudy()});
+  bindSeg(root,"failed",v=>{ST.failed=v==="1";ST.i=0;renderStudy()});
+  const s=root.querySelector("#stTema");if(s)s.addEventListener("change",()=>{ST.t=s.value;ST.i=0;renderStudy()});
+}
+function scrollTop(){const t=$("#tab-study");if(t&&t.getBoundingClientRect().top<0)window.scrollTo({top:0});}
+
+/* ================= EXAMEN ================= */
+const EX={b:"all",n:"all",count:"20",timer:"on",state:"setup",qs:[],orders:{},ans:{},i:0,t0:0,limit:0,tick:null,confirm:false,only:null};
+function examPool(){return ALL.filter(q=>q.mode==="X"&&(EX.b==="all"||q.b===EX.b)&&(EX.n==="all"||q.n===EX.n))}
+function persistEX(){
+  if(EX.state==="run")DB.ex={b:EX.b,n:EX.n,count:EX.count,timer:EX.timer,qids:EX.qs.map(q=>q.id),orders:EX.orders,ans:EX.ans,i:EX.i,t0:EX.t0,limit:EX.limit};
+  else if(!DB.ex)return; else delete DB.ex;
+  save();
+}
+function restoreEX(){
+  clearInterval(EX.tick);EX.tick=null;
+  const d=DB.ex;
+  if(d&&Array.isArray(d.qids)){const qs=d.qids.map(id=>byId[id]).filter(Boolean);
+    if(qs.length){Object.assign(EX,{b:d.b,n:d.n,count:d.count,timer:d.timer,qs,orders:d.orders||{},ans:d.ans||{},i:Math.min(d.i||0,qs.length-1),t0:d.t0,limit:d.limit||0,state:"run",confirm:false});
+      qs.forEach(q=>{if(!EX.orders[q.id])EX.orders[q.id]=shuffle(q.o.map((_,i)=>i))});
+      if(EX.limit)EX.tick=setInterval(updTimer,1000);return;}}
+  if(EX.state==="run")EX.state="setup";
+}
+function renderExam(){
+  const root=$("#tab-exam");persistEX();
+  if(EX.state==="setup"){
+    const pool=examPool();
+    root.innerHTML=`<div class="filters"></div><div class="card setup">
+      <h2>Simulación de examen</h2>
+      <p>Casos clínicos integrados (${ALL.filter(q=>q.mode==="X").length} en el banco), sin retroalimentación hasta finalizar. Al terminar ves el puntaje por bloque y nivel, y la explicación completa de cada caso.</p>
+      <div class="filters" style="margin:0">
+        <span><span class="flabel">Bloque</span>${segHTML("b",BSEG,EX.b)}</span>
+        <span><span class="flabel">Nivel</span>${segHTML("n",[["all","Todos"],["R","Residente"],["F","Fellow"],["S","Staff"]],EX.n)}</span>
+      </div>
+      <div class="filters" style="margin:0">
+        <span><span class="flabel">Preguntas</span>${segHTML("count",[["10","10"],["20","20"],["30","30"],["50","50"],["all",`Todas (${pool.length})`]],EX.count)}</span>
+        <span><span class="flabel">Tiempo</span>${segHTML("timer",[["on","90 s por pregunta"],["off","Sin límite"]],EX.timer)}</span>
+      </div>
+      <div class="actions" style="margin:0"><button class="btn primary" type="button" id="exStart" ${pool.length?"":"disabled"}>Comenzar (${Math.min(pool.length,EX.count==="all"?pool.length:+EX.count)} preguntas)</button>
+      <span class="muted" style="font-size:13px">${pool.length} casos disponibles con estos filtros</span></div>
+    </div>`;
+    bindSeg(root,"b",v=>{EX.b=v;renderExam()});bindSeg(root,"n",v=>{EX.n=v;renderExam()});
+    bindSeg(root,"count",v=>{EX.count=v;renderExam()});bindSeg(root,"timer",v=>{EX.timer=v;renderExam()});
+    $("#exStart").addEventListener("click",()=>startExam(shuffle(pool)));
+    return;
+  }
+  if(EX.state==="run"){
+    const q=EX.qs[EX.i];const order=EX.orders[q.id];const chosen=EX.ans[q.id];
+    const answered=EX.qs.filter(x=>EX.ans[x.id]!==undefined).length;
+    root.innerHTML=`<div class="filters"><span class="flabel">Examen en curso</span><span class="muted">${answered}/${EX.qs.length} respondidas</span><span class="spacer"></span>${EX.timer==="on"?`<span class="timer" id="exTimer"></span>`:""}</div>
+    <div class="progressbar"><i style="width:${(answered/EX.qs.length*100).toFixed(1)}%"></i></div>
+    <article class="card qcard">
+      <div class="meta">${chips({...q,fix:null,nuevo:null})}<span class="counter">${EX.i+1}/${EX.qs.length}</span></div>
+      <p class="stem">${q.q}</p>
+      <div class="opts">${order.map((oi,pos)=>`<button type="button" class="opt ${chosen===oi?"sel":""}" data-oi="${oi}"><span class="L">${LET[pos]}</span><span>${q.o[oi]}</span></button>`).join("")}</div>
+      <div class="actions">
+        <button class="btn" type="button" id="exPrev" ${EX.i===0?"disabled":""}>← Anterior</button>
+        <button class="btn" type="button" id="exNext" ${EX.i>=EX.qs.length-1?"disabled":""}>Siguiente →</button>
+        <span class="spacer"></span>
+        <button class="btn ${EX.confirm?"primary":""}" type="button" id="exEnd">${EX.confirm?`Confirmar: finalizar (${EX.qs.length-answered} sin responder)`:"Finalizar examen"}</button>
+      </div>
+      <div class="palette">${EX.qs.map((x,k)=>`<button type="button" class="${k===EX.i?"cur":""} ${EX.ans[x.id]!==undefined?"ans":""}" data-k="${k}">${k+1}</button>`).join("")}</div>
+    </article>`;
+    root.querySelectorAll(".opt").forEach(b=>b.addEventListener("click",()=>{EX.ans[q.id]=+b.dataset.oi;EX.confirm=false;if(EX.i<EX.qs.length-1)EX.i++;renderExam()}));
+    $("#exPrev").addEventListener("click",()=>{EX.i--;EX.confirm=false;renderExam()});
+    $("#exNext").addEventListener("click",()=>{EX.i++;EX.confirm=false;renderExam()});
+    $("#exEnd").addEventListener("click",()=>{if(EX.confirm)finishExam();else{EX.confirm=true;renderExam()}});
+    root.querySelectorAll(".palette button").forEach(b=>b.addEventListener("click",()=>{EX.i=+b.dataset.k;EX.confirm=false;renderExam()}));
+    updTimer();return;
+  }
+  if(EX.state==="done"){
+    const qs=EX.qs;const ok=qs.filter(q=>EX.ans[q.id]===q.c).length;const pct=Math.round(ok/qs.length*100);
+    const group=(key,labels)=>Object.keys(labels).map(k=>{const g=qs.filter(q=>q[key]===k);if(!g.length)return "";const o=g.filter(q=>EX.ans[q.id]===q.c).length;const p=Math.round(o/g.length*100);
+      return `<div class="bar"><span>${labels[k]}</span><span class="track"><i style="width:${p}%;background:${p>=70?"var(--ok)":p>=50?"var(--warn)":"var(--bad)"}"></i></span><span class="v">${o}/${g.length}</span></div>`}).join("");
+    const secs=Math.round((Date.now()-EX.t0)/1000);
+    root.innerHTML=`<div class="filters"></div><div class="card">
+      <div class="score"><div><div class="big">${pct}%</div><div class="sub">${ok} de ${qs.length} correctas · ${Math.floor(secs/60)} min ${secs%60} s</div></div>
+      <div class="sub" style="max-width:40ch">${pct>=80?"Nivel sólido. Revisa igual las explicaciones de las correctas por azar.":pct>=60?"Base adecuada; enfócate en los bloques bajo 70%.":"Conviene repasar en modo estudio los temas con más errores."}</div></div>
+      <div class="bars">${group("b",BL)}${group("n",NV)}</div>
+    </div>
+    <div class="actions">
+      <button class="btn primary" type="button" id="exWrong" ${ok===qs.length?"disabled":""}>Repetir solo las falladas</button>
+      <button class="btn" type="button" id="exNew">Nuevo examen</button>
+    </div>
+    <div class="review">${qs.map((q,k)=>{const a=EX.ans[q.id];const st=a===undefined?"na":a===q.c?"ok":"bad";
+      return `<details class="rv"><summary><span class="mark ${st}">${st==="ok"?"✓":st==="bad"?"✗":"—"} ${k+1}</span><span class="rvq">${q.q}</span></summary>
+      <div class="meta" style="margin-top:12px">${chips(q)}<span class="counter">${q.id}</span></div>
+      <div class="opts">${EX.orders[q.id].map((oi,pos)=>{let c="opt";if(oi===q.c)c+=" right";else if(oi===a)c+=" wrong";return `<div class="${c}"><span class="L">${LET[pos]}</span><span>${q.o[oi]}</span></div>`}).join("")}</div>
+      ${explainHTML(q,EX.orders[q.id],a===undefined?null:a)}</details>`}).join("")}</div>`;
+    $("#exWrong").addEventListener("click",()=>startExam(qs.filter(q=>EX.ans[q.id]!==q.c)));
+    $("#exNew").addEventListener("click",()=>{EX.state="setup";renderExam()});
+  }
+}
+function startExam(pool){
+  const n=EX.count==="all"?pool.length:Math.min(pool.length,+EX.count);
+  EX.qs=pool.slice(0,n);EX.orders={};EX.ans={};EX.i=0;EX.confirm=false;
+  EX.qs.forEach(q=>EX.orders[q.id]=shuffle(q.o.map((_,i)=>i)));
+  EX.t0=Date.now();EX.limit=EX.timer==="on"?EX.qs.length*90:0;EX.state="run";
+  clearInterval(EX.tick);if(EX.limit)EX.tick=setInterval(updTimer,1000);
+  renderExam();window.scrollTo({top:0});
+}
+function updTimer(){
+  const el=$("#exTimer");if(!EX.limit||EX.state!=="run")return;
+  const left=EX.limit-Math.floor((Date.now()-EX.t0)/1000);
+  if(left<=0){finishExam();return;}
+  if(el){el.textContent=`⏱ ${Math.floor(left/60)}:${String(left%60).padStart(2,"0")}`;el.classList.toggle("low",left<60);}
+}
+function finishExam(){
+  clearInterval(EX.tick);EX.state="done";
+  EX.qs.forEach(q=>{if(EX.ans[q.id]!==undefined)record(q.id,EX.ans[q.id]===q.c,EX.ans[q.id])});
+  const ok=EX.qs.filter(q=>EX.ans[q.id]===q.c).length;
+  DB.exams.push({d:Date.now(),n:EX.qs.length,ok});if(DB.exams.length>30)DB.exams.shift();save();
+  renderExam();window.scrollTo({top:0});
+}
+
+/* ================= FLASHCARDS ================= */
+const FL={b:"all",list:null,i:0,flip:false};
+function renderFlash(){
+  const root=$("#tab-flash");
+  if(!FL.list)FL.list=ALL.filter(q=>FL.b==="all"||q.b===FL.b);
+  const q=FL.list[FL.i];
+  root.innerHTML=`<div class="filters">
+    <span><span class="flabel">Bloque</span>${segHTML("b",BSEG,FL.b)}</span>
+    <button class="btn ghost" type="button" id="flShuffle">Barajar</button>
+    <span class="muted" style="font-size:13px">Clic o espacio para girar · ← → para avanzar</span></div>
+  <div class="flash"><div class="card fc ${FL.flip?"flip":""}" id="fc" tabindex="0" role="button" aria-label="Girar tarjeta">
+    <div class="face front"><div class="meta">${chips({...q,fix:null,nuevo:null})}<span class="counter">${FL.i+1}/${FL.list.length}</span></div>
+      <p class="stem" style="margin:0">${q.q}</p><span class="hint">Piensa tu respuesta y gira la tarjeta.</span></div>
+    <div class="face back"><div class="meta"><span class="chip">Respuesta</span><span class="counter">${q.id}</span></div>
+      <div class="ans">${q.o[q.c]}</div><p style="margin:0">${q.p}</p><p class="refs" style="margin:0">${q.r}</p></div>
+  </div></div>
+  <div class="actions"><button class="btn" type="button" id="flPrev" ${FL.i===0?"disabled":""}>← Anterior</button><span class="spacer"></span><button class="btn primary" type="button" id="flNext" ${FL.i>=FL.list.length-1?"disabled":""}>Siguiente →</button></div>`;
+  const fc=$("#fc");
+  const fit=()=>{const f=fc.querySelectorAll(".face");let h=300;f.forEach(x=>{h=Math.max(h,x.scrollHeight)});fc.style.minHeight=h+"px"};fit();
+  fc.addEventListener("click",()=>{FL.flip=!FL.flip;fc.classList.toggle("flip",FL.flip)});
+  bindSeg(root,"b",v=>{FL.b=v;FL.list=null;FL.i=0;FL.flip=false;renderFlash()});
+  $("#flShuffle").addEventListener("click",()=>{FL.list=shuffle(FL.list);FL.i=0;FL.flip=false;renderFlash()});
+  $("#flPrev").addEventListener("click",()=>{FL.i--;FL.flip=false;renderFlash()});
+  $("#flNext").addEventListener("click",()=>{FL.i++;FL.flip=false;renderFlash()});
+}
+document.addEventListener("keydown",e=>{
+  if($("#tab-flash").hidden||e.target.tagName==="SELECT")return;
+  if(e.key===" "){e.preventDefault();const fc=$("#fc");if(fc){FL.flip=!FL.flip;fc.classList.toggle("flip",FL.flip)}}
+  if(e.key==="ArrowRight"&&FL.list&&FL.i<FL.list.length-1){FL.i++;FL.flip=false;renderFlash()}
+  if(e.key==="ArrowLeft"&&FL.i>0){FL.i--;FL.flip=false;renderFlash()}
+});
+
+/* ================= PROGRESO ================= */
+function renderStats(){
+  const root=$("#tab-stats");const seen=ALL.filter(q=>DB.q[q.id]);
+  const tot=seen.reduce((a,q)=>a+DB.q[q.id].n,0),okc=seen.reduce((a,q)=>a+DB.q[q.id].ok,0);
+  const failed=seen.filter(q=>DB.q[q.id].last===0);
+  const rows=themes(ALL).map(t=>{const g=ALL.filter(q=>q.t===t);const s=g.filter(q=>DB.q[q.id]);const n=s.reduce((a,q)=>a+DB.q[q.id].n,0),o=s.reduce((a,q)=>a+DB.q[q.id].ok,0);const p=n?Math.round(o/n*100):null;
+    return `<div class="bar"><span>${esc(t)} <span class="muted">(${s.length}/${g.length})</span></span><span class="track"><i style="width:${p||0}%;background:${p==null?"transparent":p>=70?"var(--ok)":p>=50?"var(--warn)":"var(--bad)"}"></i></span><span class="v">${p==null?"—":p+"%"}</span></div>`}).join("");
+  root.innerHTML=`<div class="filters"></div><div class="card">
+    <div class="score"><div><div class="big">${tot?Math.round(okc/tot*100)+"%":"—"}</div><div class="sub">aciertos · ${seen.length}/${ALL.length} casos vistos · ${tot} respuestas</div></div>
+    <div class="sub">Exámenes rendidos: ${DB.exams.length}${DB.exams.length?` · último ${Math.round(DB.exams[DB.exams.length-1].ok/DB.exams[DB.exams.length-1].n*100)}%`:""}</div></div>
+    <div class="bars">${rows}</div></div>
+  <div class="actions"><button class="btn primary" type="button" id="goFailed" ${failed.length?"":"disabled"}>Repasar ${failed.length} falladas en modo estudio</button>
+  <span class="spacer"></span><button class="btn ghost" type="button" id="resetP">${statsConfirm?"Confirmar: borrar progreso":"Borrar progreso"}</button></div>
+  <p class="muted" style="font-size:13px" id="syncNote">${syncNote()}</p>
+  <details class="card panel" style="margin-top:12px"><summary style="cursor:pointer;font-weight:600">Conexión con Google Sheets</summary>
+    <div class="cloudcfg"><label class="muted" for="cfgApi" style="font-size:13px">URL de la aplicación web de Apps Script (termina en /exec)</label>
+    <input id="cfgApi" placeholder="https://script.google.com/macros/s/…/exec" value="${esc(CLOUD.api)}">
+    <label class="muted" for="cfgTok" style="font-size:13px">Clave (la misma que TOKEN en Code.gs)</label>
+    <input id="cfgTok" value="${esc(CLOUD.token||"")}">
+    <div class="actions" style="margin:0"><button class="btn primary" type="button" id="cfgSave">Guardar y reconectar</button><button class="btn ghost" type="button" id="cfgDel">Quitar conexión</button></div></div></details>`;
+  $("#cfgSave").addEventListener("click",()=>{try{localStorage.setItem("quizHepato_cloud",JSON.stringify({api:$("#cfgApi").value.trim(),token:$("#cfgTok").value.trim()}))}catch(e){};location.reload()});
+  $("#cfgDel").addEventListener("click",()=>{try{localStorage.setItem("quizHepato_cloud",JSON.stringify({api:"-",token:""}))}catch(e){};location.reload()});
+  $("#goFailed").addEventListener("click",()=>{ST.bank="all";ST.failed=true;ST.b="all";ST.n="all";ST.t="all";ST.i=0;renderStudy();showTab("study")});
+  $("#resetP").addEventListener("click",()=>{if(statsConfirm){DB.q={};DB.exams=[];DB.st=null;delete DB.ex;restoreST();EX.state="setup";clearInterval(EX.tick);save();statsConfirm=false;renderStudy();renderExam()}else statsConfirm=true;renderStats()});
+}
+let statsConfirm=false;
+
+/* ================= TEMARIO ================= */
+const TMAP={"Perfil hepático y FHA": [1, "BA"], "Cirrosis y HPCS": [2, "CI"], "Hipertensión portal y HDA": [3, "CI"], "Ascitis, PBE y HRS-AKI": [4, "CI"], "Encefalopatía": [5, "CI"], "ACLF": [6, "CI"], "Cirrótico integral": [7, "CI"], "MASLD y alcohol": [8, "ET"], "Hepatitis virales": [9, "ET"], "Autoinmunes": [10, "ET"], "Metabólicas": [11, "ET"], "DILI": [12, "ET"], "Embarazo": [13, "ET"], "Lesiones focales y HCC": [14, "OT"], "Trasplante": [15, "OT"], "Imágenes y Fibroscan": [16, "OT"]};
+function renderChanges(){
+  const rows=Object.keys(TMAP).map(t=>{const g=ALL.filter(q=>q.t===t);const e=g.filter(q=>q.mode==="E").length,x=g.length-e;
+    const s=g.filter(q=>DB.q[q.id]);const n=s.reduce((a,q)=>a+DB.q[q.id].n,0),o=s.reduce((a,q)=>a+DB.q[q.id].ok,0);
+    return `<tr><td class="id">${TMAP[t][0]}</td><td class="tema-l"><a href="../guia-2026.html#b${TMAP[t][0]}">${esc(t)}</a></td><td>${BL[TMAP[t][1]]}</td><td>${e}</td><td>${x}</td><td>${n?Math.round(o/n*100)+"%":"—"}</td></tr>`}).join("");
+  $("#tab-changes").innerHTML=`<div class="filters"></div><div class="card panel">
+    <h2>Temario: un tema por bloque de la guía</h2>
+    <p class="muted" style="margin:0">Banco propio escrito sobre los 16 bloques de la Guía Hepatología 2026 (Curso Dávila 2026, Curso de Becados 2026 y guías vigentes). El enlace abre el bloque correspondiente.</p>
+    <div class="tbl"><table><thead><tr><th>Bloque</th><th>Tema</th><th>Grupo</th><th>Estudio</th><th>Examen</th><th>Aciertos</th></tr></thead><tbody>${rows}</tbody></table></div>
+    <p class="refs" style="margin:0">Marco de referencia: Baveno VIII 2026 · EASL (VHB 2025, HAI 2025, HCC 2025, trasplante 2024, MASLD 2024, embarazo 2023, Wilson 2025) · AASLD · ACG (FHA 2023, ALD 2024) · ICA-ADQI 2024 · BCLC 2026 · GES 68, 69 y 88. Verificar ficha técnica y cobertura vigente antes de prescribir.</p>
+  </div>`;
+}
+
+/* ================= EXPORTAR ================= */
+const EMBED=(()=>{try{return window.self!==window.top}catch(e){return true}})();
+const plain=h=>{const d=document.createElement("div");d.innerHTML=h;return (d.textContent||"").replace(/\s+/g," ").trim()};
+const csvCell=v=>'"'+String(v).replace(/"/g,'""')+'"';
+function seededOrder(q){let h=2166136261;for(const ch of q.id+"hep"){h^=ch.charCodeAt(0);h=Math.imul(h,16777619)>>>0}
+  const o=q.o.map((_,i)=>i);for(let i=o.length-1;i>0;i--){h=(Math.imul(h,1664525)+1013904223)>>>0;const j=h%(i+1);[o[i],o[j]]=[o[j],o[i]]}return o}
+function bankRows(list){return list.map(q=>{const or=seededOrder(q);const L=oi=>LET[or.indexOf(+oi)];return {id:q.id,modo:q.mode==="E"?"Estudio":"Examen",bloque:BL[q.b],nivel:NV[q.n],tema:q.t,pregunta:plain(q.q),opciones:or.map(i=>plain(q.o[i])),correcta:L(q.c),respuesta:plain(q.o[q.c]),explicacion:plain(q.e),porQueNo:Object.keys(q.w).sort((x,y)=>or.indexOf(+x)-or.indexOf(+y)).map(k=>L(k)+": "+plain(q.w[k])).join(" | "),mecanismo:plain(q.m||""),perla:plain(q.p),cambio:plain(q.nuevo||""),correccionV5:plain(q.fix||""),referencias:plain(q.r)}})}
+function exportCSV(list){const R=bankRows(list);const H=["id","modo","bloque","nivel","tema","pregunta","A","B","C","D","correcta","respuesta","explicacion","porQueNo","mecanismo","perla","cambio","correccionV5","referencias"];
+  return "﻿"+H.join(";")+"\n"+R.map(r=>[r.id,r.modo,r.bloque,r.nivel,r.tema,r.pregunta,...[0,1,2,3].map(i=>r.opciones[i]||""),r.correcta,r.respuesta,r.explicacion,r.porQueNo,r.mecanismo,r.perla,r.cambio,r.correccionV5,r.referencias].map(csvCell).join(";")).join("\n")}
+function exportAnki(list){const t=s=>String(s).replace(/\t/g," ").replace(/\n/g,"<br>");
+  return "#separator:tab\n#html:true\n#tags column:3\n"+list.map(q=>{const or=seededOrder(q);const front=`<b>${q.id}</b> · ${q.t}<br>${q.q}<br><br>`+or.map((oi,i)=>`${LET[i]}) ${q.o[oi]}`).join("<br>");
+    const back=`<b>${LET[or.indexOf(q.c)]}) ${q.o[q.c]}</b><br><br>${q.e}<br><br><i>Perla:</i> ${q.p}`+(q.m?`<br><br><i>Mecanismo:</i> ${q.m}`:"")+`<br><br><small>${q.r}</small>`;
+    return [t(front),t(back),["Hepatologia",q.b,NV[q.n],q.mode==="E"?"estudio":"examen",q.t.replace(/\s+/g,"_")].join(" ")].join("\t")}).join("\n")}
+function exportProgress(){const H=["id","bloque","nivel","tema","modo","intentos","correctas","ultima"];return "﻿"+H.join(";")+"\n"+ALL.filter(q=>DB.q[q.id]).map(q=>{const r=DB.q[q.id];return [q.id,BL[q.b],NV[q.n],q.t,q.mode==="E"?"Estudio":"Examen",r.n,r.ok,r.last?"correcta":"incorrecta"].map(csvCell).join(";")}).join("\n")}
+let DL=null;
+if(EMBED&&window.claude&&window.claude.use){window.claude.use("downloads").then(d=>{DL=d;if(!$("#tab-export").hidden)renderExport()}).catch(()=>{})}
+function copyFallback(name,content,msg){const out=$("#expOut");
+  out.innerHTML=`<p class="muted" style="margin:0 0 6px">${msg||"Esta vista no permite descargas."} Copia el contenido y pégalo en un archivo <b>${esc(name)}</b>.</p><textarea class="dump" id="dump" readonly></textarea><div class="actions"><button class="btn primary" type="button" id="copyDump">Copiar</button></div>`;
+  $("#dump").value=content;
+  $("#copyDump").addEventListener("click",()=>{const ta=$("#dump");const done=()=>{$("#copyDump").textContent="Copiado"};
+    const legacy=()=>{ta.select();try{document.execCommand("copy");done()}catch(e){}};
+    if(navigator.clipboard)navigator.clipboard.writeText(content).then(done).catch(legacy);else legacy();});}
+function deliver(name,content,mime){
+  const out=$("#expOut");
+  if(!EMBED){try{const b=new Blob([content],{type:mime+";charset=utf-8"});const u=URL.createObjectURL(b);const a=document.createElement("a");a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),2000);out.innerHTML=`<p class="muted">Descargado: <b>${esc(name)}</b></p>`;return}catch(e){}}
+  if(DL){out.innerHTML=`<p class="muted">Confirma la descarga de <b>${esc(name)}</b> en el aviso.</p>`;
+    DL.save({filename:name,data:content}).then(r=>{out.innerHTML=`<p class="muted">${r&&r.status==="delivered"?"Enviado":"Descargado"}: <b>${esc(name)}</b></p>`})
+      .catch(e=>{const c=e&&e.code;if(c==="declined")out.innerHTML=`<p class="muted">Descarga cancelada.</p>`;else if(c==="rate_limited")out.innerHTML=`<p class="muted">Ya hay un aviso de descarga abierto; intenta de nuevo en unos segundos.</p>`;else copyFallback(name,content,"No se pudo descargar en esta vista.")});return}
+  copyFallback(name,content);
+}
+const EXP={set:"all"};
+function expList(){return ALL.filter(q=>EXP.set==="all"||q.mode===EXP.set)}
+function printBank(){
+  const list=expList();const area=$("#printArea");
+  const qs=list.map((q,k)=>{const or=seededOrder(q);return `<div class="pq"><h4>${k+1}. ${q.id} · ${BL[q.b]} · ${NV[q.n]} · ${esc(q.t)}</h4><p>${q.q}</p>${or.map((oi,i)=>`<p>${LET[i]}) ${q.o[oi]}</p>`).join("")}</div>`}).join("");
+  const key=list.map((q,k)=>{const or=seededOrder(q);return `<div class="pq"><h4>${k+1}. ${q.id} — Respuesta ${LET[or.indexOf(q.c)]}</h4><p>${q.e}</p><p><i>Por qué no las otras:</i> ${Object.keys(q.w).sort((x,y)=>or.indexOf(+x)-or.indexOf(+y)).map(i=>LET[or.indexOf(+i)]+": "+q.w[i]).join(" · ")}</p>${q.m?`<p><i>Mecanismo:</i> ${q.m}</p>`:""}<p><i>Perla:</i> ${q.p}</p><p style="font-size:9pt">${q.r}</p></div>`}).join("");
+  area.innerHTML=`<h1 style="font:700 18pt Georgia,serif">Quiz Hepatología 2026 — ${EXP.set==="E"?"Estudio":EXP.set==="X"?"Examen":"Banco completo"} (${list.length} casos)</h1>${qs}<div class="pb"><h2 style="font:700 15pt Georgia,serif">Respuestas y explicaciones</h2>${key}</div>`;
+  document.body.classList.add("printing");
+  const done=()=>{document.body.classList.remove("printing");window.removeEventListener("afterprint",done)};
+  window.addEventListener("afterprint",done);window.print();setTimeout(done,1500);
+}
+function renderExport(){
+  const nE=ALL.filter(q=>q.mode==="E").length,nX=ALL.filter(q=>q.mode==="X").length;
+  $("#tab-export").innerHTML=`<div class="filters"><span><span class="flabel">Qué exportar</span>${segHTML("set",[["all",`Todo (${ALL.length})`],["E",`Estudio (${nE})`],["X",`Examen (${nX})`]],EXP.set)}</span></div>
+  ${EMBED?`<div class="card panel" style="margin-bottom:14px"><p style="margin:0">Para imprimir o guardar como PDF, descarga el quiz como HTML y ábrelo en tu computador (funciona sin conexión).</p></div>`:""}
+  <div class="expgrid">
+    <div class="card"><h3>Quiz completo (HTML sin conexión)</h3><p>Un solo archivo con los ${ALL.length} casos y todas las funciones. Ábrelo en cualquier navegador, también sin internet.</p><button class="btn primary" type="button" data-exp="html">Descargar HTML</button></div>
+    <div class="card"><h3>CSV para Excel / Sheets</h3><p>Una fila por caso: pregunta, opciones, respuesta, explicación, mecanismo, perla y referencias. Separador punto y coma, UTF-8.</p><button class="btn" type="button" data-exp="csv">${EMBED&&!DL?"Ver para copiar":"Descargar CSV"}</button></div>
+    <div class="card"><h3>Anki (texto separado por tabulaciones)</h3><p>Frente: caso y opciones. Reverso: respuesta, explicación, perla y referencia. Etiquetas por bloque, nivel, modo y tema.</p><button class="btn" type="button" data-exp="anki">${EMBED&&!DL?"Ver para copiar":"Descargar .txt"}</button></div>
+    <div class="card"><h3>JSON</h3><p>Banco completo estructurado, para reutilizar en otra herramienta.</p><button class="btn" type="button" data-exp="json">${EMBED&&!DL?"Ver para copiar":"Descargar JSON"}</button></div>
+    <div class="card"><h3>Mi progreso</h3><p>Intentos y aciertos por caso guardados en este navegador.</p><button class="btn" type="button" data-exp="prog">${EMBED&&!DL?"Ver para copiar":"Descargar CSV"}</button></div>
+    ${EMBED?"":`<div class="card"><h3>Imprimir o guardar como PDF</h3><p>Cuadernillo con los casos y, al final, la hoja de respuestas con explicaciones.</p><button class="btn primary" type="button" data-exp="print">Imprimir / PDF</button></div>`}
+  </div>
+  <div id="expOut" style="margin-top:14px"></div>`;
+  bindSeg($("#tab-export"),"set",v=>{EXP.set=v;renderExport()});
+  $("#tab-export").querySelectorAll("[data-exp]").forEach(b=>b.addEventListener("click",()=>{const k=b.dataset.exp,l=expList(),suf=EXP.set==="E"?"estudio":EXP.set==="X"?"examen":"completo";
+    if(k==="csv")deliver(`Quiz_Hepato_${suf}.csv`,exportCSV(l),"text/csv");
+    if(k==="anki")deliver(`Quiz_Hepato_${suf}_anki.txt`,exportAnki(l),"text/plain");
+    if(k==="json")deliver(`Quiz_Hepato_${suf}.json`,JSON.stringify(bankRows(l),null,1),"application/json");
+    if(k==="prog")deliver("Quiz_Hepato_progreso.csv",exportProgress(),"text/csv");
+    if(k==="print")printBank();
+    if(k==="html")deliver("Quiz_Hepato_2026.html",SNAP,"text/html");}));
+}
+
+/* ================= SIGLAS ================= */
+const SIG=[["AAD", "Antivirales de acción directa (VHC)"], ["ACLF", "Insuficiencia hepática aguda sobre crónica"], ["ACOD", "Anticoagulantes orales directos"], ["AFP", "Alfafetoproteína"], ["AMA", "Anticuerpos antimitocondriales"], ["ANA", "Anticuerpos antinucleares"], ["AUDC", "Ácido ursodesoxicólico"], ["BBNS", "Betabloqueador no selectivo"], ["BCLC", "Barcelona Clinic Liver Cancer"], ["cACLD", "Enfermedad hepática crónica avanzada compensada"], ["CAP", "Parámetro de atenuación controlada (esteatosis)"], ["CBP", "Colangitis biliar primaria"], ["CEP", "Colangitis esclerosante primaria"], ["CEUS", "Ecografía con contraste"], ["CIE", "Colestasis intrahepática del embarazo"], ["CLIF-C", "Chronic Liver Failure Consortium (scores ACLF y AD)"], ["DILI", "Daño hepático inducido por fármacos"], ["EH", "Encefalopatía hepática"], ["EUS", "Endosonografía"], ["EUS-LB", "Biopsia hepática por endosonografía"], ["EUS-PPG", "Gradiente de presión portal por endosonografía"], ["EVPS", "Enfermedad vascular porto-sinusoidal"], ["FA", "Fosfatasa alcalina"], ["FHA", "Falla hepática aguda"], ["FIB-4", "Índice de fibrosis 4"], ["GASA", "Gradiente de albúmina suero-ascitis"], ["GES", "Garantías Explícitas en Salud"], ["GPVH", "Gradiente de presión venosa hepática"], ["HAI", "Hepatitis autoinmune"], ["HCC", "Hepatocarcinoma"], ["HNF", "Hiperplasia nodular focal"], ["HPCS", "Hipertensión portal clínicamente significativa"], ["HPoP", "Hipertensión portopulmonar"], ["HRS-AKI", "Síndrome hepatorrenal con lesión renal aguda"], ["IQR", "Rango intercuartílico"], ["LEP", "Listado de Prestaciones Específico (GES)"], ["LFI", "Liver Frailty Index"], ["LI-RADS", "Liver Imaging Reporting and Data System"], ["LOLA", "L-ornitina L-aspartato"], ["LRA", "Lesión renal aguda"], ["LRS", "Ley Ricarte Soto"], ["LSM", "Rigidez hepática (liver stiffness measurement)"], ["LSN", "Límite superior normal"], ["MASH", "Esteatohepatitis asociada a disfunción metabólica"], ["MASLD", "Enfermedad hepática esteatósica asociada a disfunción metabólica"], ["MELD", "Model for End-stage Liver Disease"], ["MetALD", "MASLD con consumo de alcohol aumentado"], ["NAC", "N-acetilcisteína"], ["PAPm", "Presión arterial pulmonar media"], ["PBE", "Peritonitis bacteriana espontánea"], ["PEth", "Fosfatidiletanol"], ["PMN", "Polimorfonucleares"], ["RVP", "Resistencia vascular pulmonar"], ["RVS", "Respuesta virológica sostenida"], ["SHP", "Síndrome hepatopulmonar"], ["SSM", "Rigidez esplénica"], ["TACE", "Quimioembolización transarterial"], ["TARE", "Radioembolización transarterial"], ["TAF", "Tenofovir alafenamida"], ["TDF", "Tenofovir disoproxil fumarato"], ["TIPS", "Derivación portosistémica intrahepática transyugular"], ["UCI/UPC", "Unidad de paciente crítico"], ["VCTE", "Elastografía de transición (Fibroscan)"], ["VHB, VHC, VHD, VHE", "Virus de hepatitis B, C, D, E"]];
+$("#tab-gloss").innerHTML=`<div class="filters"></div><div class="card panel"><h2>Siglas usadas en el banco</h2><div class="gloss">${SIG.map(([a,b])=>`<div><b>${a}</b> · ${b}</div>`).join("")}</div></div>`;
+
+restoreEX();
+renderStudy();renderExam();renderChanges();renderExport();
+if(DB.tab&&DB.tab!=="study")showTab(DB.tab);
+booting=false;
+
+/* ---------- traer el progreso de la nube (gana la versión más reciente) ---------- */
+function applyRemote(src){
+  booting=true;
+  Object.keys(DB).forEach(k=>delete DB[k]);Object.assign(DB,src);DB.q=DB.q||{};DB.exams=DB.exams||[];
+  if(DB.theme)document.documentElement.setAttribute("data-theme",DB.theme);
+  restoreST();restoreEX();renderStudy();renderExam();
+  if(!$("#tab-stats").hidden)renderStats();
+  writeLocal();booting=false;
+}
+(async()=>{
+  if(!CLOUD.api){setSync("","● este navegador");return;}
+  try{
+    tokenReady=resolveToken();
+    const d=await tokenReady;
+    const remote=d.estado;
+    if(remote&&(remote._t||0)>(DB._t||0))applyRemote(remote);
+    else if(!remote||(remote._t||0)<(DB._t||0)){
+      // la nube está vacía o más atrasada: sube lo de este navegador (incluye el progreso previo a la sincronización)
+      if(Object.keys(DB.q).length||DB.exams.length||DB.ex||(DB.st&&Object.keys(DB.st.ans||{}).length)){DB._t=DB._t||Date.now();writeLocal();dirty=true;await pushCloud();return;}
+    }
+    lastSync=new Date();syncErr=false;setSync("ok","☁ guardado");
+  }catch(e){syncErr=true;syncWhy=e.message||String(e);setSync("err","● sin conexión");}
+})();
+})();
+
+</script>
+
+<style>
+#pwa-ui{position:fixed;right:14px;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);z-index:300;display:flex;flex-direction:column;align-items:flex-end;gap:8px;font-family:Inter,-apple-system,"Segoe UI",sans-serif}
+#pwa-ui button{border:0;border-radius:999px;padding:9px 16px;font:600 .82rem Inter,-apple-system,sans-serif;background:#173a5e;color:#fff;box-shadow:0 4px 18px rgba(0,0,0,.22);cursor:pointer}
+#pwa-ios{max-width:300px;background:#fffefb;color:#1c2530;border:1px solid #ddd6cb;border-radius:12px;padding:11px 14px;font-size:.8rem;line-height:1.45;box-shadow:0 6px 24px rgba(0,0,0,.18)}
+#pwa-ios b{display:block;margin-bottom:3px}#pwa-ios .x{float:right;background:none;border:0;color:#6f7a86;font-size:1rem;padding:0 0 0 8px;box-shadow:none;cursor:pointer}
+#pwa-back{position:fixed;left:14px;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);z-index:300;border-radius:999px;padding:8px 14px;font:600 .8rem Inter,-apple-system,sans-serif;background:#fffefb;color:#173a5e;border:1px solid #c9c0b2;text-decoration:none;box-shadow:0 3px 12px rgba(0,0,0,.15)}
+@media (prefers-color-scheme:dark){#pwa-ios{background:#1a2029;color:#e6e9ed;border-color:#2c3642}#pwa-back{background:#1a2029;color:#a8cdf0;border-color:#3d4956}}
+@media print{#pwa-ui,#pwa-back{display:none}}
+</style>
+<div id="pwa-ui"></div>
+<script>
+(function(){
+  var SW="../sw.js", KEY="pwa-ios-hepato", APP="Hepatología 2026", BACK="../", MODE="always";
+  var standalone=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true;
+  if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol)&&!/claude\.ai|claudeusercontent/.test(location.hostname)){
+    window.addEventListener('load',function(){navigator.serviceWorker.register(SW).catch(function(){})});
+  }
+  if(MODE==='always'||(MODE==='param'&&new URLSearchParams(location.search).get('from')==='hepato')){
+    var a=document.createElement('a');a.id='pwa-back';a.href=BACK;a.textContent='← Repositorio';document.body.appendChild(a)}
+  if(standalone)return;
+  var ui=document.getElementById('pwa-ui'),dp=null;
+  window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();dp=e;
+    var b=document.createElement('button');b.type='button';b.textContent='Instalar '+APP;
+    b.onclick=function(){dp.prompt();dp.userChoice.finally(function(){b.remove()})};ui.appendChild(b)});
+  var ios=/iphone|ipad|ipod/i.test(navigator.userAgent)&&/safari/i.test(navigator.userAgent)&&!/crios|fxios/i.test(navigator.userAgent);
+  var seen=false;try{seen=localStorage.getItem(KEY)==='1'}catch(e){}
+  if(ios&&!seen){var d=document.createElement('div');d.id='pwa-ios';
+    d.innerHTML='<button class="x" type="button" aria-label="Cerrar">✕</button><b>Instalar '+APP+'</b>Toca <span aria-label="Compartir">Compartir ⬆︎</span> y luego «Agregar a inicio». Funcionará sin conexión.';
+    d.querySelector('.x').onclick=function(){d.remove();try{localStorage.setItem(KEY,'1')}catch(e){}};ui.appendChild(d)}
+})();
+</script>
+
+</body>
+</html>
