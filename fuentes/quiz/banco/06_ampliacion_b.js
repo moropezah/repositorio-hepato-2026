@@ -1,4 +1,4 @@
-// Ampliación 2026-10 · bloques 9–16 · énfasis en nivel fellow/staff y casos de examen oral
+// Ampliación 2026-10 · bloques 9–17 · énfasis en nivel fellow/staff y casos de examen oral
 const Q6 = [
 /* ---------- Bloque 9 ---------- */
 {id:"VI11",b:"ET",t:"Hepatitis virales",n:"F",md:"X",
@@ -276,7 +276,7 @@ w:{0:"Desactualizado.",2:"Insuficiente.",3:"No."},
 p:"Primera línea: gemcitabina-cisplatino + durvalumab o pembrolizumab.",
 r:"EASL eCCA 2025"},
 
-/* ---------- Bloque 15 ---------- */
+/* ---------- Bloque 16 ---------- */
 {id:"TX11",b:"OT",t:"Trasplante",n:"S",md:"X",
 q:"Trasplantado hace 2 años por alcohol con ALT 3 × LSN, PEth 380 ng/mL. ¿Interpretación?",
 o:["Rechazo agudo","Recaída de consumo intenso: intervención en adicción y evaluar daño del injerto","DILI","Recurrencia de MASLD"],
@@ -322,7 +322,7 @@ w:{0:"Ley Ricarte Soto.",2:"Ley GES.",3:"Interrupción del embarazo."},
 p:"La FHA tiene prioridad de urgencia nacional.",
 r:"Ley 19.451 (Chile)"},
 
-/* ---------- Bloque 16 ---------- */
+/* ---------- Bloque 17 ---------- */
 {id:"IM11",b:"OT",t:"Imágenes y Fibroscan",n:"F",md:"X",
 q:"Fibroscan en paciente con hepatitis aguda por VHA (ALT 1.200 U/L): rigidez 28 kPa. ¿Conducta?",
 o:["Diagnosticar cirrosis","Repetir la elastografía tras normalizar las transaminasas","Biopsia","Iniciar carvedilol"],

@@ -17,8 +17,8 @@ TMAP = {
     "Perfil hepático y FHA": [1, "BA"], "Cirrosis y HPCS": [2, "CI"], "Hipertensión portal y HDA": [3, "CI"],
     "Ascitis, PBE y HRS-AKI": [4, "CI"], "Encefalopatía": [5, "CI"], "ACLF": [6, "CI"], "Cirrótico integral": [7, "CI"],
     "MASLD y alcohol": [8, "ET"], "Hepatitis virales": [9, "ET"], "Autoinmunes": [10, "ET"], "Metabólicas": [11, "ET"],
-    "DILI": [12, "ET"], "Embarazo": [13, "ET"], "Lesiones focales y HCC": [14, "OT"], "Trasplante": [15, "OT"],
-    "Imágenes y Fibroscan": [16, "OT"],
+    "DILI": [12, "ET"], "Embarazo": [13, "ET"], "Lesiones focales y HCC": [14, "OT"], "Trasplante": [16, "OT"],
+    "Imágenes y Fibroscan": [17, "OT"],
 }
 
 SIG = [

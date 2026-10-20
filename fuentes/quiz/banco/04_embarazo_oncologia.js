@@ -1,4 +1,4 @@
-// Bloques 13–16 · Embarazo · Lesiones focales y HCC · Trasplante · Imágenes y Fibroscan
+// Bloques 13–17 · Embarazo · Lesiones focales y HCC · Trasplante · Imágenes y Fibroscan
 const Q4 = [
 /* ===================== Bloque 13 · Hígado y embarazo ===================== */
 {id:"EM01",b:"ET",t:"Embarazo",n:"R",md:"E",
@@ -182,7 +182,7 @@ w:{0:"Sin rol.",2:"Sin rol.",3:"Hay tratamiento efectivo."},
 p:"Pemigatinib (FGFR2) e ivosidenib (IDH1) son terapias dirigidas de segunda línea.",
 r:"Oh DY, NEJM Evid 2022 · Kelley RK, Lancet 2023 · EASL eCCA 2025"},
 
-/* ===================== Bloque 15 · Trasplante ===================== */
+/* ===================== Bloque 16 · Trasplante ===================== */
 {id:"TX01",b:"OT",t:"Trasplante",n:"R",md:"E",
 q:"Cirrótico con MELD-Na 16 y primer episodio de ascitis controlada. ¿Cuándo derivar a trasplante?",
 o:["Cuando MELD &gt; 25","Ahora: MELD ≥ 15 o primera descompensación","Solo si tiene HCC","Tras 6 meses de observación"],
@@ -273,7 +273,7 @@ w:{0:"No.",2:"Abandonado.",3:"No."},
 p:"Las excepciones generan inequidad contra el cirrótico priorizado solo por MELD-Na (Díaz 2019; Wolff 2020).",
 r:"Wolff R, Rev Med Chile 2020 · Díaz LA, Ann Hepatol 2019"},
 
-/* ===================== Bloque 16 · Imágenes, Fibroscan y endohepatología ===================== */
+/* ===================== Bloque 17 · Imágenes, Fibroscan y endohepatología ===================== */
 {id:"IM01",b:"OT",t:"Imágenes y Fibroscan",n:"R",md:"E",
 q:"Fibroscan: 10 mediciones válidas, mediana 11,4 kPa, IQR/mediana 36 %. ¿Interpretación?",
 o:["cACLD confirmado","Medición poco fiable: repetir","Descarta fibrosis","Indica HPCS"],

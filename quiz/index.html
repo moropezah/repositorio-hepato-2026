@@ -1353,7 +1353,7 @@ p:"El metotrexato en dosis bajas causa fibrosis sobre todo con MASLD, diabetes y
 r:"ACR 2021 · AASLD DILI 2023"}
 ];
 
-// Bloques 13–16 · Embarazo · Lesiones focales y HCC · Trasplante · Imágenes y Fibroscan
+// Bloques 13–17 · Embarazo · Lesiones focales y HCC · Trasplante · Imágenes y Fibroscan
 const Q4 = [
 /* ===================== Bloque 13 · Hígado y embarazo ===================== */
 {id:"EM01",b:"ET",t:"Embarazo",n:"R",md:"E",
@@ -1537,7 +1537,7 @@ w:{0:"Sin rol.",2:"Sin rol.",3:"Hay tratamiento efectivo."},
 p:"Pemigatinib (FGFR2) e ivosidenib (IDH1) son terapias dirigidas de segunda línea.",
 r:"Oh DY, NEJM Evid 2022 · Kelley RK, Lancet 2023 · EASL eCCA 2025"},
 
-/* ===================== Bloque 15 · Trasplante ===================== */
+/* ===================== Bloque 16 · Trasplante ===================== */
 {id:"TX01",b:"OT",t:"Trasplante",n:"R",md:"E",
 q:"Cirrótico con MELD-Na 16 y primer episodio de ascitis controlada. ¿Cuándo derivar a trasplante?",
 o:["Cuando MELD &gt; 25","Ahora: MELD ≥ 15 o primera descompensación","Solo si tiene HCC","Tras 6 meses de observación"],
@@ -1628,7 +1628,7 @@ w:{0:"No.",2:"Abandonado.",3:"No."},
 p:"Las excepciones generan inequidad contra el cirrótico priorizado solo por MELD-Na (Díaz 2019; Wolff 2020).",
 r:"Wolff R, Rev Med Chile 2020 · Díaz LA, Ann Hepatol 2019"},
 
-/* ===================== Bloque 16 · Imágenes, Fibroscan y endohepatología ===================== */
+/* ===================== Bloque 17 · Imágenes, Fibroscan y endohepatología ===================== */
 {id:"IM01",b:"OT",t:"Imágenes y Fibroscan",n:"R",md:"E",
 q:"Fibroscan: 10 mediciones válidas, mediana 11,4 kPa, IQR/mediana 36 %. ¿Interpretación?",
 o:["cACLD confirmado","Medición poco fiable: repetir","Descarta fibrosis","Indica HPCS"],
@@ -2055,7 +2055,7 @@ p:"Consumo &gt; 140 g/semana en mujer reclasifica a MetALD.",
 r:"EASL-EASD-EASO 2024"}
 ];
 
-// Ampliación 2026-10 · bloques 9–16 · énfasis en nivel fellow/staff y casos de examen oral
+// Ampliación 2026-10 · bloques 9–17 · énfasis en nivel fellow/staff y casos de examen oral
 const Q6 = [
 /* ---------- Bloque 9 ---------- */
 {id:"VI11",b:"ET",t:"Hepatitis virales",n:"F",md:"X",
@@ -2333,7 +2333,7 @@ w:{0:"Desactualizado.",2:"Insuficiente.",3:"No."},
 p:"Primera línea: gemcitabina-cisplatino + durvalumab o pembrolizumab.",
 r:"EASL eCCA 2025"},
 
-/* ---------- Bloque 15 ---------- */
+/* ---------- Bloque 16 ---------- */
 {id:"TX11",b:"OT",t:"Trasplante",n:"S",md:"X",
 q:"Trasplantado hace 2 años por alcohol con ALT 3 × LSN, PEth 380 ng/mL. ¿Interpretación?",
 o:["Rechazo agudo","Recaída de consumo intenso: intervención en adicción y evaluar daño del injerto","DILI","Recurrencia de MASLD"],
@@ -2379,7 +2379,7 @@ w:{0:"Ley Ricarte Soto.",2:"Ley GES.",3:"Interrupción del embarazo."},
 p:"La FHA tiene prioridad de urgencia nacional.",
 r:"Ley 19.451 (Chile)"},
 
-/* ---------- Bloque 16 ---------- */
+/* ---------- Bloque 17 ---------- */
 {id:"IM11",b:"OT",t:"Imágenes y Fibroscan",n:"F",md:"X",
 q:"Fibroscan en paciente con hepatitis aguda por VHA (ALT 1.200 U/L): rigidez 28 kPa. ¿Conducta?",
 o:["Diagnosticar cirrosis","Repetir la elastografía tras normalizar las transaminasas","Biopsia","Iniciar carvedilol"],
@@ -2753,7 +2753,7 @@ function renderStats(){
 let statsConfirm=false;
 
 /* ================= TEMARIO ================= */
-const TMAP={"Perfil hepático y FHA": [1, "BA"], "Cirrosis y HPCS": [2, "CI"], "Hipertensión portal y HDA": [3, "CI"], "Ascitis, PBE y HRS-AKI": [4, "CI"], "Encefalopatía": [5, "CI"], "ACLF": [6, "CI"], "Cirrótico integral": [7, "CI"], "MASLD y alcohol": [8, "ET"], "Hepatitis virales": [9, "ET"], "Autoinmunes": [10, "ET"], "Metabólicas": [11, "ET"], "DILI": [12, "ET"], "Embarazo": [13, "ET"], "Lesiones focales y HCC": [14, "OT"], "Trasplante": [15, "OT"], "Imágenes y Fibroscan": [16, "OT"]};
+const TMAP={"Perfil hepático y FHA": [1, "BA"], "Cirrosis y HPCS": [2, "CI"], "Hipertensión portal y HDA": [3, "CI"], "Ascitis, PBE y HRS-AKI": [4, "CI"], "Encefalopatía": [5, "CI"], "ACLF": [6, "CI"], "Cirrótico integral": [7, "CI"], "MASLD y alcohol": [8, "ET"], "Hepatitis virales": [9, "ET"], "Autoinmunes": [10, "ET"], "Metabólicas": [11, "ET"], "DILI": [12, "ET"], "Embarazo": [13, "ET"], "Lesiones focales y HCC": [14, "OT"], "Trasplante": [16, "OT"], "Imágenes y Fibroscan": [17, "OT"]};
 function renderChanges(){
   const rows=Object.keys(TMAP).map(t=>{const g=ALL.filter(q=>q.t===t);const e=g.filter(q=>q.mode==="E").length,x=g.length-e;
     const s=g.filter(q=>DB.q[q.id]);const n=s.reduce((a,q)=>a+DB.q[q.id].n,0),o=s.reduce((a,q)=>a+DB.q[q.id].ok,0);

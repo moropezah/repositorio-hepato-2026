@@ -419,7 +419,7 @@ Laboratorio: CA 19-9 sube también en colestasis y colangitis; el ~10 % **Lewis 
 - Perihiliar irresecable < 3 cm sin metástasis: trasplante tras quimiorradioterapia (protocolo Mayo).
 - **Cáncer de vesícula**: Chile tiene una de las incidencias más altas del mundo (mujeres, ascendencia mapuche, colelitiasis); el GES cubre la colecistectomía preventiva entre los 35 y 49 años. Vesícula en porcelana y pólipos > 10 mm (> 8 mm en CEP): colecistectomía.
 
-# b17_litiasis.html
+# b18_litiasis.html
 @ Colecistitis aguda (Tokio 2018) :: Vesícula y vía biliar: semiología
 Examen físico: **Signo de Murphy** (detención de la inspiración al palpar el hipocondrio derecho). **Signo de Courvoisier-Terrier**: vesícula palpable no dolorosa con ictericia → neoplasia periampular o de páncreas (la vesícula litiásica es fibrótica y no se distiende). Signo de Boas: hiperestesia bajo la escápula derecha.
 Patología: **Colesterolosis** (macrófagos cargados de colesterol en la mucosa: vesícula «en fresa», seudopólipos) y **adenomiomatosis** (senos de Rokitansky-Aschoff: artefacto en cola de cometa en la ecografía y «collar de perlas» en la RM); ninguna es premaligna.
@@ -428,7 +428,7 @@ Patología: **Colesterolosis** (macrófagos cargados de colesterol en la mucosa:
 - Fiebre, ictericia y dolor (Charcot) es colangitis hasta demostrar lo contrario; agregar shock y confusión (Reynolds) = grado III.
 - **LPAC** (ABCB4): cálculos antes de los 40 años que recurren tras la colecistectomía; focos intrahepáticos con cola de cometa; AUDC.
 
-# b18_benignas.html
+# b15_benignas.html
 @ Tumores sólidos benignos :: Hemangioma
 Definición: El tumor hepático benigno más frecuente; malformación vascular, más en mujeres.
 Imagen: Ecografía hiperecogénica homogénea; TC o RM con **realce periférico nodular discontinuo y llenado centrípeto**; muy hiperintenso en T2 («en bombilla», light bulb).
@@ -463,7 +463,7 @@ Imagen: **Signo del punto central** (rama portal rodeada por el conducto dilatad
 - Enfermedad poliquística: los estrógenos y embarazos la agravan; análogos de somatostatina reducen el volumen hepático.
 - La aspiración sola de un quiste simple recidiva casi siempre: fenestración o escleroterapia si da síntomas.
 
-# b15_trasplante.html
+# b16_trasplante.html
 @ Cuándo derivar :: Trasplante: indicaciones y contraindicaciones
 - Derivar con **MELD-Na ≥ 15**, primera descompensación mayor, HCC dentro de criterios o falla hepática aguda.
 - Puntos de excepción clásicos: HCC, síndrome hepatopulmonar (PaO₂ < 60), hipertensión portopulmonar controlada, polineuropatía amiloidótica familiar, hiperoxaluria primaria, colangitis recurrente en CEP y prurito intratable.
@@ -479,7 +479,7 @@ Patología: **Rechazo crónico (ductopénico)**: pérdida de conductos en > 50 %
 - Neoplasias de novo: piel la más frecuente; trastorno linfoproliferativo postrasplante asociado a VEB.
 - Recurrencia: CEP en 20–25 %, CBP, HAI, MASH y el consumo de alcohol.
 
-# b16_talleres.html
+# b17_talleres.html
 @ Elastografía de transición (Fibroscan) :: Fibroscan: física y trampas
 Fisiopatología: Un vibrador genera una onda de corte (shear wave) de 50 Hz y el ultrasonido mide su velocidad; la rigidez se calcula como **E = 3ρv²** (kPa). Más fibrosis, más rápida la onda.
 - Factores que **elevan falsamente** la rigidez: inflamación (ALT > 5 × LSN), congestión (insuficiencia cardíaca), colestasis extrahepática, ingesta reciente (ayuno ≥ 3 h), alcohol reciente e infiltración (amiloidosis, linfoma).

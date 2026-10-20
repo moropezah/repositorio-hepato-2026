@@ -119,18 +119,18 @@
           "archivo": "b14_lesiones_hcc.html"
         },
         {
-          "id": "b18",
-          "num": 18,
-          "titulo": "Lesiones hepáticas benignas, quísticas e infecciosas",
-          "corto": "Lesiones benignas · quistes · abscesos",
-          "archivo": "b18_benignas.html"
-        },
-        {
           "id": "b15",
           "num": 15,
+          "titulo": "Lesiones hepáticas benignas, quísticas e infecciosas",
+          "corto": "Lesiones benignas · quistes · abscesos",
+          "archivo": "b15_benignas.html"
+        },
+        {
+          "id": "b16",
+          "num": 16,
           "titulo": "Trasplante hepático",
           "corto": "Trasplante hepático",
-          "archivo": "b15_trasplante.html"
+          "archivo": "b16_trasplante.html"
         }
       ]
     },
@@ -138,11 +138,11 @@
       "nombre": "Talleres",
       "bloques": [
         {
-          "id": "b16",
-          "num": 16,
+          "id": "b17",
+          "num": 17,
           "titulo": "Imágenes, Fibroscan y endohepatología",
           "corto": "Imágenes · Fibroscan · endohepatología",
-          "archivo": "b16_talleres.html"
+          "archivo": "b17_talleres.html"
         }
       ]
     },
@@ -150,11 +150,11 @@
       "nombre": "Vía biliar",
       "bloques": [
         {
-          "id": "b17",
-          "num": 17,
+          "id": "b18",
+          "num": 18,
           "titulo": "Litiasis biliar: colelitiasis, coledocolitiasis, colecistitis y colangitis",
           "corto": "Litiasis biliar · Tokio · ASGE",
-          "archivo": "b17_litiasis.html"
+          "archivo": "b18_litiasis.html"
         }
       ]
     }
