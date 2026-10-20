@@ -235,10 +235,9 @@
    "mon": "Igual que octreótido.",
    "ea": "Hiperglicemia, bradicardia.",
    "cob": [
-    "hosp",
-    "ver"
+    "hosp"
    ],
-   "ch": "Arsenal hospitalario según centro.",
+   "ch": "Compras públicas hospitalarias de somatostatina inyectable; marca local (Stilamin) no confirmada. No confundir con octreotido ni lanreotida. <i>(revisión documental, 20-10-2026)</i>",
    "ev": "Baveno VII"
   },
   {
@@ -338,7 +337,7 @@
    "cob": [
     "bol"
    ],
-   "ch": "Disponible en Chile como <b>Gutron</b> (de bolsillo).",
+   "ch": "Disponible como <b>Gutron</b> (comprimidos de 2,5 y 5 mg), registro ISP desde 1997; de bolsillo. <i>(revisión documental, 20-10-2026)</i>",
    "ev": "EASL 2018 · AASLD 2021"
   },
   {
@@ -368,9 +367,9 @@
    "mon": "Na cada 6–8 h al inicio: corrección ≤ 8 mmol/L/24 h (riesgo de desmielinización osmótica).",
    "ea": "Hepatotoxicidad, sed, corrección rápida de sodio.",
    "cob": [
-    "ver"
+    "nd"
    ],
-   "ch": "Disponibilidad en Chile no confirmada.",
+   "ch": "Sin registro ISP ni comercialización encontrados en Chile (Samsca y Jinarc son marcas internacionales). <i>(revisión documental, 20-10-2026)</i>",
    "ev": "EASL 2018 · AASLD 2021"
   },
   {
@@ -460,9 +459,9 @@
    "mon": "—",
    "ea": "Náuseas.",
    "cob": [
-    "ver"
+    "nd"
    ],
-   "ch": "Disponibilidad no confirmada.",
+   "ch": "Sin registro ISP ni comercialización formal en Chile (Hepa-Merz es marca internacional). <i>(revisión documental, 20-10-2026)</i>",
    "ev": "EASL 2022 (recomendación débil)"
   },
   {
@@ -625,9 +624,9 @@
    "mon": "—",
    "ea": "Diarrea.",
    "cob": [
-    "ver"
+    "nd"
    ],
-   "ch": "Disponibilidad en Chile no confirmada.",
+   "ch": "Registro sanitario (Campral) no vigente desde 2017; sin comercialización actual confirmada. Alternativas disponibles: baclofeno, naltrexona, topiramato. <i>(revisión documental, 20-10-2026)</i>",
    "ev": "ACG 2024"
   },
   {
@@ -930,9 +929,9 @@
    "ea": "Mejor perfil renal y óseo que TDF; ↑ LDL leve.",
    "cob": [
     "g68",
-    "ver"
+    "bol"
    ],
-   "ch": "Verificar disponibilidad e inclusión en GES 68.",
+   "ch": "<b>Vemlidy</b> 25 mg: registro ISP F-24719 y venta en farmacias. Inclusión en el LEP del GES 68 por verificar. <i>(revisión documental, 20-10-2026)</i>",
    "ev": "EASL VHB 2025",
    "lin": "1.ª línea en VHB con riesgo renal u óseo, o mayores de 60 años.",
    "resp": "Igual que entecavir.",
@@ -962,9 +961,9 @@
    "mon": "HBsAg cuantitativo a semana 12 y 24 (reglas de suspensión).",
    "ea": "Síndrome gripal, citopenias, depresión, tiroiditis.",
    "cob": [
-    "ver"
+    "bol"
    ],
-   "ch": "Verificar disponibilidad.",
+   "ch": "<b>Pegasys</b> 180 µg/0,5 mL: compras hospitalarias y venta bajo pedido. <i>(revisión documental, 20-10-2026)</i>",
    "ev": "EASL VHB 2025 · EASL VHD 2023"
   },
   {
@@ -1042,9 +1041,9 @@
    "mon": "RVS 12.",
    "ea": "Mismas interacciones que sus componentes.",
    "cob": [
-    "ver"
+    "bol"
    ],
-   "ch": "Verificar disponibilidad.",
+   "ch": "<b>Vosevi</b> 400/100/100 mg: registro ISP F-24934/19; stock no confirmado. <i>(revisión documental, 20-10-2026)</i>",
    "ev": "POLARIS-1 (NEJM 2017)"
   },
   {
@@ -1061,7 +1060,7 @@
     "g69",
     "ver"
    ],
-   "ch": "Verificar.",
+   "ch": "<b>Copegus</b> 200 mg con antecedentes de registro y venta en Chile; vigencia actual no confirmada. <i>(revisión documental, 20-10-2026)</i>",
    "ev": "EASL 2020"
   },
   {
@@ -1212,10 +1211,9 @@
    "mon": "",
    "ea": "Diarrea, leucopenia, infecciones.",
    "cob": [
-    "bol",
-    "ver"
+    "bol"
    ],
-   "ch": "Disponible; cobertura según contexto.",
+   "ch": "<b>CellCept</b>, <b>Linfonex</b> (500 mg) y genéricos en farmacias. <i>(revisión documental, 20-10-2026)</i>",
    "ev": "EASL HAI 2025",
    "lin": "1.ª línea alternativa a azatioprina (EASL 2025) o 2.ª línea tras falla o intolerancia.",
    "resp": "Igual que azatioprina: 3–6 meses.",
@@ -1498,9 +1496,9 @@
    "mon": "Cobre urinario 24 h: inducción &gt; 1.000 µg; mantención 200–500 µg (&gt; 1.000 = no adherencia; &lt; 100 = sobretratamiento).",
    "ea": "Hipersensibilidad precoz, proteinuria, citopenias, lupus inducido, elastosis.",
    "cob": [
-    "ver"
+    "bol"
    ],
-   "ch": "Verificar disponibilidad.",
+   "ch": "<b>Cupripen</b> 250 mg (registro ISP F-7807), en farmacias y compras hospitalarias. <i>(revisión documental, 20-10-2026)</i>",
    "ev": "EASL-ERN Wilson 2025",
    "lin": "Quelante de inducción en Wilson hepático (trientina como alternativa de igual eficacia y mejor tolerada).",
    "resp": "Mejoría hepática en 2–6 meses; el cuadro neurológico puede empeorar al inicio. Inducción hasta estabilizar (1–5 años), luego mantención con dosis menor o zinc.",
@@ -1534,9 +1532,9 @@
    "mon": "",
    "ea": "Menos efectos que penicilamina; anemia sideroblástica rara.",
    "cob": [
-    "ver"
+    "nd"
    ],
-   "ch": "Verificar disponibilidad.",
+   "ch": "Sin registro ni comercialización en Chile (Cufence, Cuprior): solo por importación con acceso especial. <i>(revisión documental, 20-10-2026)</i>",
    "ev": "EASL-ERN Wilson 2025",
    "lin": "Quelante de 1.ª línea en Wilson o tras intolerancia a penicilamina.",
    "resp": "Igual que penicilamina.",
@@ -1558,9 +1556,9 @@
    "mon": "Cobre urinario &lt; 75 µg/24 h con zinc.",
    "ea": "Dispepsia.",
    "cob": [
-    "ver"
+    "bol"
    ],
-   "ch": "Preparación magistral o importada.",
+   "ch": "Sulfato de zinc: <b>Altazinc</b> gotas 5 mg/mL (pensado para dosis pediátricas; verificar el zinc elemental). Acetato de zinc sin presentación farmacéutica local. Para 150 mg/día de zinc elemental en adultos: preparado magistral (sulfato de zinc heptahidratado 220 mg ≈ 50 mg de zinc elemental). <i>(revisión documental, 20-10-2026)</i>",
    "ev": "EASL-ERN Wilson 2025",
    "lin": "Mantención en Wilson tras la quelación; 1.ª línea en presintomáticos.",
    "resp": "Balance negativo de cobre en meses; meta cobre urinario < 75 µg/24 h.",
@@ -1827,9 +1825,9 @@
    "mon": "",
    "ea": "Nefrotoxicidad, neurotoxicidad (temblor, PRES), diabetes, hiperkalemia, hipertensión. <b>Interacciones CYP3A4</b>: suben azoles, claritromicina, diltiazem, nirmatrelvir/ritonavir; bajan rifampicina, carbamazepina, fenitoína.",
    "cob": [
-    "ver"
+    "bol"
    ],
-   "ch": "Cobertura según programa de trasplante del centro.",
+   "ch": "<b>Prograf</b>, <b>Cidimus</b> y genéricos (cápsulas e inyectable); cobertura según el programa de trasplante. <i>(revisión documental, 20-10-2026)</i>",
    "ev": "EASL trasplante 2024",
    "lin": "Postrasplante: base de la inmunosupresión. HAI: 2.ª–3.ª línea.",
    "resp": "Postrasplante: niveles en rango en 3–5 días. HAI: respuesta en 3–6 meses.",
@@ -1859,9 +1857,9 @@
    "mon": "Niveles, lípidos, proteinuria.",
    "ea": "Dislipidemia, aftas, proteinuria, neumonitis, mala cicatrización.",
    "cob": [
-    "ver"
+    "bol"
    ],
-   "ch": "Según programa de trasplante.",
+   "ch": "<b>Certican</b> 0,5 mg (trasplante); Afinitor es la presentación oncológica, no intercambiable en la dispensación. <i>(revisión documental, 20-10-2026)</i>",
    "ev": "EASL trasplante 2024"
   },
   {
@@ -1891,9 +1889,9 @@
    "mon": "Hemograma; PCR de CMV.",
    "ea": "Leucopenia, neutropenia.",
    "cob": [
-    "ver"
+    "bol"
    ],
-   "ch": "Según programa de trasplante.",
+   "ch": "<b>Valixa</b> 450 mg y otros registrados; stock variable. <i>(revisión documental, 20-10-2026)</i>",
    "ev": "EASL trasplante 2024"
   },
   {
