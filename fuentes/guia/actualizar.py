@@ -18,6 +18,46 @@ css = (AQUI / "estilos.css").read_text(encoding="utf-8") + (AQUI / "extra.css").
 pwa_css = (AQUI / "pwa.css").read_text(encoding="utf-8")
 js = (AQUI / "guia.js").read_text(encoding="utf-8")
 
+
+# ---------- Perlas por patología (perlas.txt) ----------
+ETQ = {"Definición", "Clínica", "Examen físico", "Patología", "Laboratorio", "Imagen", "Endoscopía", "Fisiopatología", "Tratamiento"}
+def _fmt(t):
+    t = html.escape(t, quote=False)
+    return re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", t)
+def leer_perlas():
+    por_archivo, actual, p = {}, None, None
+    for n, linea in enumerate((AQUI / "perlas.txt").read_text(encoding="utf-8").splitlines(), 1):
+        s = linea.strip()
+        if not s or (s.startswith("#") and not s.startswith("# b")):
+            continue
+        if s.startswith("# b"):
+            actual = s[2:].strip(); por_archivo.setdefault(actual, []); continue
+        if s.startswith("@"):
+            h3, _, tit = s[1:].partition("::")
+            p = {"h3": h3.strip(), "t": tit.strip(), "f": [], "q": []}; por_archivo[actual].append(p); continue
+        if s.startswith("- "):
+            p["q"].append(_fmt(s[2:])); continue
+        k, sep, v = s.partition(":")
+        if sep and k.strip() in ETQ:
+            p["f"].append((k.strip(), _fmt(v.strip()))); continue
+        raise SystemExit(f"perlas.txt línea {n}: no se entiende «{s[:60]}»")
+    return por_archivo
+def html_perla(p):
+    filas = "".join(f"<dt>{k}</dt><dd>{v}</dd>" for k, v in p["f"])
+    q = ("<div class=\"pq\"><b>Lo que preguntan</b><ul>" + "".join(f"<li>{x}</li>" for x in p["q"]) + "</ul></div>") if p["q"] else ""
+    return (f'\n<div class="perla"><div class="pt"><span>Perlas</span>{html.escape(p["t"])}</div>'
+            + (f"<dl>{filas}</dl>" if filas else "") + q + "</div>\n")
+def insertar_perlas(frag, lista):
+    for p in reversed(lista):  # en orden inverso para respetar el orden de varias perlas bajo el mismo h3
+        m = re.search(r"<h3[^>]*>\s*" + re.escape(html.escape(p["h3"], quote=False)) + r"\s*</h3>", frag)
+        if not m:
+            m = re.search(r"<h3[^>]*>\s*" + re.escape(p["h3"]) + r"\s*</h3>", frag)
+        if not m:
+            raise SystemExit(f"Perla «{p['t']}»: no encontré el h3 «{p['h3']}»")
+        frag = frag[:m.end()] + html_perla(p) + frag[m.end():]
+    return frag
+PERLAS = leer_perlas()
+nperlas = 0
 escritos, total, nfc, npreg = 0, 0, 0, 0
 nav, cuerpo = [], []
 for g in cfg["grupos"]:
@@ -28,6 +68,8 @@ for g in cfg["grupos"]:
         if b["archivo"] and (AQUI / "bloques" / b["archivo"]).exists():
             escritos += 1
             frag = (AQUI / "bloques" / b["archivo"]).read_text(encoding="utf-8")
+            if b["archivo"] in PERLAS:
+                frag = insertar_perlas(frag, PERLAS[b["archivo"]]); nperlas += len(PERLAS[b["archivo"]])
             if f'id="{b["id"]}"' not in frag:
                 raise SystemExit(f'El bloque {b["archivo"]} no contiene id="{b["id"]}"')
             nfc += frag.count('class="fc"')
@@ -68,6 +110,7 @@ doc = f"""<!DOCTYPE html>
 <aside id="nav">
   <div class="brand"><span>Guía de estudio</span><b>Hepatología 2026</b></div>
   <input id="navsearch" type="search" placeholder="Filtrar secciones…" autocomplete="off">
+  <button id="soloperlas" type="button" aria-pressed="false">Solo perlas</button>
   <div id="navlinks">
   <a href="#inicio">Cómo usar esta guía</a>
 {chr(10).join(nav)}
@@ -86,7 +129,7 @@ doc = f"""<!DOCTYPE html>
     <div><b>Actualizado</b> · {cfg["actualizado"]}</div>
     <div><b>Nivel</b> · residente de gastroenterología</div>
     <div><b>Marco local</b> · GES 88 · MINSAL</div>
-    <div><b>{escritos} de {total} bloques</b> · {nfc} flashcards · {npreg} preguntas</div>
+    <div><b>{escritos} de {total} bloques</b> · {nperlas} perlas · {nfc} flashcards · {npreg} preguntas</div>
   </div>
   <div class="autor-g">
     <span class="ini-g">MO</span>
@@ -104,6 +147,7 @@ doc = f"""<!DOCTYPE html>
 <div class="cards">
   <div class="card"><h5>Contenido</h5><p>Definiciones y clasificaciones vigentes, umbrales numéricos y algoritmos con fármaco, dosis y criterio de falla.</p></div>
   <div class="card"><h5>Qué cambió</h5><p>Tabla al inicio de cada bloque con lo nuevo frente a la guía previa (Baveno VIII frente a Baveno VII, EASL 2026 frente a 2016, etc.).</p></div>
+  <div class="card"><h5>Perlas</h5><p>Caja ámbar en cada patología: definición, examen físico, anatomía patológica, laboratorio y lo que se pregunta en la visita. El botón <b>Solo perlas</b> del índice deja visibles únicamente estas cajas para un repaso rápido.</p></div>
   <div class="card"><h5>Marcadores</h5><p><b>Idea clave</b> para el examen oral, <b>error frecuente</b>, <b>perla</b> y <b>Chile</b> cuando el GES o la disponibilidad cambian la conducta.</p></div>
   <div class="card"><h5>Autoevaluación</h5><p>Cada bloque cierra con un caso clínico, flashcards (clic para ver la respuesta) y preguntas con corrección razonada.</p></div>
 </div>
@@ -161,4 +205,4 @@ La canasta de fármacos del GES 88 está verificada contra los lineamientos téc
 </html>
 """
 (RAIZ / "guia-2026.html").write_text(doc, encoding="utf-8")
-print(f"guia-2026.html: {escritos}/{total} bloques, {nfc} flashcards, {npreg} preguntas, {len(doc)//1024} KB")
+print(f"guia-2026.html: {escritos}/{total} bloques, {nperlas} perlas, {nfc} flashcards, {npreg} preguntas, {len(doc)//1024} KB")

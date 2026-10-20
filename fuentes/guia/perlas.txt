@@ -1,0 +1,480 @@
+# Perlas por patología · fuente de las cajas «Perlas» de la guía
+# Formato:
+#   # bNN_archivo.html          → bloque al que pertenecen las perlas siguientes
+#   @ <texto exacto del h3> :: <título de la perla>   → la caja se inserta después de ese h3
+#   Etiqueta: texto             → fila (Definición, Clínica, Examen físico, Patología, Laboratorio, Imagen, Endoscopía, Fisiopatología, Tratamiento)
+#   - texto                     → ítem de «Lo que preguntan»
+#   **texto**                   → negrita
+# Se regenera la guía con: python3 fuentes/guia/actualizar.py
+
+# b01_perfil_hepatitis_fha.html
+@ El perfil hepático: qué mide cada examen :: Perfil hepático
+Definición: Las transaminasas miden daño del hepatocito, la FA y la GGT colestasis, y la bilirrubina, la albúmina y el INR la función. «Pruebas de función hepática» es un mal nombre: solo las tres últimas miden función.
+Fisiopatología: La ALT es casi exclusiva del hígado y citosólica. La AST es también muscular, cardíaca y eritrocitaria, y en parte mitocondrial. La vida media de la albúmina es de ~20 días y la del factor VII de ~6 horas: el INR cae primero en la falla aguda y la albúmina, en la crónica.
+Laboratorio: **Prueba de Koller**: si el INR se corrige con vitamina K parenteral, el problema es malabsorción por colestasis y no falla de síntesis.
+- **AST/ALT > 2** orienta a alcohol: la AST es en parte mitocondrial y la ALT necesita piridoxal-5-fosfato, que falta en el alcohólico. También se invierte en cirrosis de cualquier causa.
+- **ALT > 1.000 U/L**: virus, isquemia, paracetamol, HAI aguda o coledocolitiasis (pico transitorio que cae en 24–72 h). La hepatitis alcohólica casi nunca supera 300–400 U/L.
+- **ALT/LDH < 1,5**: hepatitis isquémica o paracetamol; > 1,5 orienta a hepatitis viral.
+- **FA aislada**: confirmar origen hepático con GGT. FA alta normal: embarazo (placentaria), adolescentes (ósea), grupos O y B secretores tras comida grasa (intestinal).
+- **FA baja con hemólisis e hiperbilirrubinemia**: Wilson fulminante (FA/bilirrubina < 4).
+- **Hiperbilirrubinemia indirecta**: Gilbert (promotor de UGT1A1, repetición (TA)₇; sube con ayuno o enfermedad intercurrente, rara vez > 4 mg/dL; mayor toxicidad de irinotecán) o hemólisis. **Directa congénita**: Dubin-Johnson (ABCC2/MRP2; hígado negro por pigmento lisosomal; coproporfirina I urinaria > 80 %) y Rotor (histología normal).
+- AST y ALT elevadas con CK alta: origen muscular (rabdomiólisis, ejercicio) antes de estudiar el hígado.
+
+@ Hepatitis aguda :: Hepatitis aguda
+Definición: Daño hepatocelular de menos de 6 meses de evolución, con transaminasas habitualmente > 10 × LSN.
+Patología: Desorganización lobulillar, hepatocitos balonizados, cuerpos apoptóticos (acidófilos o de Councilman) e infiltrado portal y lobulillar mononuclear. La hepatitis isquémica muestra **necrosis coagulativa centrolobulillar (zona 3)** con poca inflamación.
+Clínica: Pródromo seudogripal, coluria e ictericia; dolor en el hipocondrio derecho y hepatomegalia sensible. Fiebre alta, leucopenia y transaminasas altísimas sin ictericia: pensar en herpes simple (sobre todo en embarazo e inmunosupresión).
+- **Hepatitis isquémica**: insuficiencia cardíaca, shock o hipoxemia; AST > ALT al inicio, LDH muy alta y caída ≥ 50 % de las transaminasas en 72 h; la bilirrubina sube después.
+- **VHA**: el adulto hace ictericia (~70 %) más que el niño; formas colestásica prolongada, recidivante y gatillante de HAI.
+- **IgM anti-HBc** es el marcador de hepatitis B aguda (positiva en el período de ventana, cuando el HBsAg ya se negativizó).
+- Hepatitis aguda «seronegativa»: buscar VHE, herpes, Wilson (< 40 años), HAI (IgG, autoanticuerpos), DILI y suplementos.
+
+@ Falla hepática aguda :: Falla hepática aguda
+Definición: INR ≥ 1,5 con encefalopatía, sin cirrosis previa y con menos de 26 semanas de evolución. Excepciones aceptadas con hepatopatía previa: Wilson, HAI y VHB de transmisión vertical.
+Clínica: Clasificación de O'Grady por el intervalo ictericia–encefalopatía: **hiperaguda ≤ 7 días** (paracetamol, isquemia; más edema cerebral pero mejor sobrevida espontánea), **aguda 8–28 días** y **subaguda 4–12 semanas** (DILI idiosincrática, indeterminada; menos edema y peor pronóstico sin trasplante). El hígado que se achica en imágenes es mal signo.
+Patología: Necrosis masiva o submasiva. La biopsia rara vez cambia la conducta; si se hace, transyugular.
+Laboratorio: Amonio arterial > 150–200 µmol/L se asocia a hipertensión intracraneana y herniación.
+- **Clave de Wilson fulminante**: FA/bilirrubina < 4, AST/ALT > 2,2, hemólisis Coombs negativa, < 40 años.
+- **N-acetilcisteína también en FHA no paracetamol**, con encefalopatía I–II (Lee 2009): mejora la sobrevida sin trasplante.
+- Embarazo: hígado graso agudo, HELLP, VHE (genotipo 1) y herpes; el parto es parte del tratamiento en las dos primeras.
+
+# b02_cirrosis_hpcs.html
+@ Definición operativa :: Cirrosis: semiología y anatomía patológica
+Definición: Fibrosis en puentes con nódulos de regeneración que distorsionan la arquitectura lobulillar; es el estadio final común de cualquier hepatopatía crónica.
+Examen físico: **Telangiectasias aracniformes** (arteriola central que blanquea a la presión; en territorio de la vena cava superior; más de 5 es anormal), **eritema palmar** (eminencias tenar e hipotenar), ginecomastia y atrofia testicular (hiperestrogenismo; también por espironolactona), pérdida de vello axilar y pubiano, **uñas de Terry** (lecho blanco con banda distal rosada), hipocratismo digital (síndrome hepatopulmonar), **circulación colateral** (cabeza de medusa), **asterixis** y **fetor hepaticus** (dimetilsulfuro). Alcohol: contractura de Dupuytren e hipertrofia parotídea.
+Examen físico: Hígado duro, de borde cortante y nodular, a menudo pequeño con lóbulo izquierdo palpable; esplenomegalia.
+Patología: **Micronodular** (< 3 mm): alcohol, hemocromatosis, obstrucción biliar. **Macronodular** (> 3 mm): virus, Wilson, A1AT. La biopsia ya no es necesaria para el diagnóstico si los tests no invasivos y la imagen son concluyentes.
+Imagen: Contorno nodular (el signo ecográfico más específico), hipertrofia del caudado (drena directo a la vena cava inferior; también en Budd-Chiari), atrofia del lóbulo derecho, signos de hipertensión portal.
+Laboratorio: Trombocitopenia (< 150.000: el marcador más precoz, por hiperesplenismo y trombopoyetina baja), AST/ALT > 1, hipergammaglobulinemia policlonal (IgA en alcohol, IgG en HAI, IgM en CBP).
+- **Cabeza de medusa frente a obstrucción de cava**: en hipertensión portal el flujo se aleja del ombligo; en la obstrucción de la vena cava inferior las venas infraumbilicales fluyen hacia arriba.
+- **Soplo de Cruveilhier-Baumgarten**: zumbido venoso periumbilical por recanalización de la vena umbilical.
+- Las telangiectasias y el eritema palmar también aparecen en el embarazo normal, la tirotoxicosis y la artritis reumatoide.
+
+@ Función hepática y pronóstico: Child-Pugh y MELD :: Origen de los puntajes
+- **Child-Turcotte (1964)** se creó para predecir mortalidad de la cirugía de derivación portosistémica e incluía el estado nutricional; **Pugh (1973)** lo cambió por el tiempo de protrombina, en pacientes sometidos a transección esofágica.
+- **MELD (Malinchoc, 2000)** nació para predecir la sobrevida a 3 meses tras TIPS electivo; luego se validó para la lista de trasplante (2002).
+- Child-Pugh tiene techo y variables subjetivas (ascitis, encefalopatía); el MELD es objetivo pero ignora la ascitis, la sarcopenia y la hiponatremia (de ahí MELD-Na y MELD 3.0).
+
+# b03_hipertension_portal.html
+@ Historia natural de las várices :: Hipertensión portal y várices
+Definición: Gradiente de presión venosa hepática (GPVH) > 5 mmHg. **≥ 10 mmHg**: HPCS (aparecen várices y descompensación). **≥ 12 mmHg**: riesgo de sangrado variceal. **≥ 20 mmHg** durante la hemorragia: alto riesgo de falla de control y muerte.
+Fisiopatología: La sangre portal busca la circulación sistémica: vena gástrica izquierda (coronaria) → várices esofágicas; gástricas cortas y posteriores → várices fúndicas; vena umbilical → cabeza de medusa; hemorroidales → várices rectales (no son hemorroides).
+Endoscopía: **Pequeñas < 5 mm, grandes > 5 mm.** Signos rojos: marcas en látigo (red wale), manchas rojo cereza y manchas hematoquísticas; predicen sangrado junto con el tamaño y el Child.
+Endoscopía: **Clasificación de Sarin**: GOV1 (continuación de las esofágicas por la curvatura menor; la más frecuente), GOV2 (hacia el fondo), IGV1 (fondo aislada) e IGV2 (ectópica gástrica o duodenal).
+- **IGV1 aislada sin cirrosis**: buscar trombosis de la vena esplénica (hipertensión portal segmentaria o «sinistra»; pancreatitis o tumor de páncreas) — se cura con esplenectomía.
+- **GPVH normal con hipertensión portal**: causa presinusoidal (PSVD, trombosis portal, esquistosomiasis); el GPVH solo mide la hipertensión sinusoidal.
+- Las várices gástricas sangran menos pero más grave; la GOV2 e IGV1 se asocian a derivación gastrorrenal (candidatas a BRTO).
+
+@ Gastropatía portal hipertensiva y ectasia vascular antral :: GAVE frente a gastropatía portal
+Definición: Dos causas de sangrado crónico (anemia ferropénica) en el cirrótico, con mecanismo y tratamiento opuestos.
+Endoscopía: **GAVE**: franjas rojas longitudinales que convergen en el píloro («estómago en sandía», watermelon stomach) o patrón difuso puntiforme en panal, predominio antral. **Gastropatía portal**: patrón en mosaico o «piel de serpiente» con puntos rojos, predominio fúndico y del cuerpo proximal.
+Patología: **GAVE**: capilares de la mucosa dilatados con **trombos de fibrina**, **hiperplasia fibromuscular de la lámina propia** (proliferación de células fusiformes) y fibrohialinosis. **Gastropatía portal**: dilatación de capilares y vénulas mucosas y submucosas, sin trombos ni inflamación.
+Tratamiento: **GAVE**: argón plasma, ligadura con bandas o radiofrecuencia; **no responde a BBNS ni a TIPS** porque no depende de la presión portal; el trasplante la resuelve en el cirrótico. **Gastropatía portal**: BBNS y hierro; TIPS si persiste el sangrado.
+- GAVE se asocia a esclerosis sistémica (CREST), enfermedad renal crónica, trasplante de médula y mujeres mayores; solo ~30 % de los casos ocurre en cirrosis.
+- La biopsia distingue ambas cuando la endoscopía es ambigua (patrón difuso de GAVE frente a gastropatía grave).
+
+@ TIPS: indicaciones y selección :: TIPS
+Definición: Derivación entre una rama portal y una vena suprahepática a través del parénquima, con prótesis recubierta de PTFE (politetrafluoroetileno), hoy de 8 mm de preferencia.
+- Meta hemodinámica: gradiente portosistémico < 12 mmHg o caída ≥ 50 %.
+- Encefalopatía post-TIPS en 30–50 %: edad, encefalopatía previa, sarcopenia y prótesis de mayor diámetro; el diámetro de 8 mm la reduce.
+- Contraindicaciones: insuficiencia cardíaca, insuficiencia tricuspídea grave, hipertensión pulmonar (PAPm > 45 mmHg), sepsis no controlada y quistes hepáticos múltiples. Bilirrubina > 5 mg/dL y MELD > 18–20 elevan la mortalidad.
+- El TIPS no resuelve la ectasia vascular antral (GAVE).
+
+@ Trombosis portal en cirrosis (Baveno VIII · EASL 2026) :: Trombosis portal
+Definición: Trombo en la porta o sus ramas; en el cirrótico se asocia a flujo lento (< 15 cm/s), gravedad de la cirrosis y factores locales.
+Imagen: **Cavernoma portal**: red de colaterales periportales que reemplaza a la porta, se establece en semanas a meses; marca trombosis crónica.
+Clínica: Aguda sin cirrosis: dolor abdominal, fiebre si es pileflebitis (Bacteroides, apendicitis o diverticulitis) y riesgo de isquemia mesentérica (dolor desproporcionado, acidosis láctica).
+- **Colangiopatía portal (biliopatía portal)**: compresión biliar por las colaterales del cavernoma; ictericia o colangitis.
+- Trombo que realza con contraste o expande la vena: trombo tumoral (HCC), no blando.
+- Clasificación de Yerdel (grados 1–4) para el trasplante: el grado 4 (porta, mesentérica y esplénica completas) complica la anastomosis.
+
+@ Enfermedad vascular hepática no cirrótica (Baveno VIII · VALDIG) :: Budd-Chiari
+Definición: Obstrucción del flujo venoso hepático desde las vénulas suprahepáticas hasta la desembocadura de la cava inferior en la aurícula, excluyendo causas cardíacas y el síndrome de obstrucción sinusoidal.
+Clínica: Tríada de dolor abdominal, ascitis y hepatomegalia; forma aguda, subaguda o crónica.
+Laboratorio: Ascitis con **proteínas > 2,5 g/dL y GASA ≥ 1,1** (como la cardíaca).
+Patología: Congestión centrolobulillar, hemorragia y necrosis en **zona 3** («hígado en nuez moscada»), con fibrosis que progresa de la vena central.
+Imagen: Hipertrofia del caudado (drena directo a la cava), ausencia de flujo suprahepático y nódulos regenerativos benignos que imitan HCC.
+- **Causa más frecuente: neoplasia mieloproliferativa** (JAK2 V617F en ~40 %; buscar CALR y MPL si es negativo); SAF, HPN, anticonceptivos y embarazo.
+- Manejo escalonado: anticoagulación → angioplastia o stent de estenosis cortas → TIPS → trasplante.
+
+@ Enfermedad vascular hepática no cirrótica (Baveno VIII · VALDIG) :: Síndrome de obstrucción sinusoidal
+Definición: Daño del endotelio sinusoidal con obstrucción de las vénulas centrales (antes «enfermedad venooclusiva»).
+Clínica: Hepatomegalia dolorosa, ascitis, alza de peso e ictericia tras acondicionamiento de trasplante de progenitores; criterios de Baltimore (bilirrubina ≥ 2 mg/dL más 2 de hepatomegalia dolorosa, ascitis y aumento de peso ≥ 5 % en 21 días).
+Patología: Daño endotelial y congestión sinusoidal en zona 3, con obliteración fibrosa de las vénulas centrales.
+- **Causas**: busulfán y ciclofosfamida (trasplante de médula), **oxaliplatino** (hígado «azul» en la hepatectomía por metástasis colorrectales), azatioprina y **alcaloides de pirrolizidina** (tés de hierbas, Senecio).
+- Tratamiento específico: **defibrotide**.
+
+@ Enfermedad vascular hepática no cirrótica (Baveno VIII · VALDIG) :: PSVD e hiperplasia nodular regenerativa
+Definición: Enfermedad vascular porto-sinusoidal (PSVD): hipertensión portal o lesiones vasculares típicas sin cirrosis en una biopsia adecuada.
+Patología: **Venopatía portal obliterativa** (vénulas portales estrechas o ausentes), **hiperplasia nodular regenerativa** (nódulos sin fibrosis que se ven con tinción de reticulina) y fibrosis septal incompleta.
+Laboratorio: Perfil hepático normal o casi normal con trombocitopenia y várices; rigidez hepática baja (< 10 kPa) con rigidez esplénica alta.
+- El GPVH está **normal o subestima** la presión portal porque el bloqueo es presinusoidal.
+- Asociaciones: tiopurinas (sobre todo tioguanina), oxaliplatino, didanosina, inmunodeficiencia común variable, VIH, celíaca, EII y trombofilias.
+
+@ Enfermedad vascular hepática no cirrótica (Baveno VIII · VALDIG) :: Telangiectasia hemorrágica hereditaria
+Definición: Enfermedad de Rendu-Osler-Weber (ENG, ACVRL1); criterios de Curaçao: epistaxis recurrente, telangiectasias mucocutáneas, malformaciones arteriovenosas viscerales e historia familiar (≥ 3 = definitiva).
+Clínica: Malformaciones hepáticas en hasta 70 % (la mayoría asintomáticas): insuficiencia cardíaca de alto gasto, hipertensión portal, isquemia biliar y encefalopatía.
+- **No biopsiar** el hígado (riesgo de hemorragia); diagnóstico por TC o Doppler.
+- Telangiectasias en labios, lengua y dedos, distintas de las arañas vasculares de la cirrosis (no tienen arteriola central).
+
+# b04_ascitis_renal.html
+@ Paracentesis diagnóstica: la regla de oro :: Ascitis: semiología y líquido
+Examen físico: La **matidez cambiante** aparece con ~1.500 mL; el signo del charco detecta ~120 mL. Ecografía si hay duda.
+Examen físico: Punción en el **cuadrante inferior izquierdo** (pared más delgada y más líquido que en la línea media; el ciego es menos móvil a la izquierda), 2 traveses de dedo medial y cefálico a la espina ilíaca anterosuperior, evitando la vaina de los rectos (vasos epigástricos inferiores).
+Laboratorio: **GASA ≥ 1,1 g/dL** = hipertensión portal. Con proteínas ≥ 2,5 g/dL: cardíaca o Budd-Chiari; < 2,5: cirrosis. GASA < 1,1: carcinomatosis, tuberculosis, pancreática o nefrótica.
+- **No es contraindicación** la coagulopatía ni la trombocitopenia; sí la CID clínica y la hiperfibrinólisis.
+- **Peritonitis secundaria** (criterios de Runyon, 2 de 3): proteínas > 1 g/dL, glucosa < 50 mg/dL, LDH > LSN sérico; cultivo polimicrobiano; CEA > 5 ng/mL o FA > 240 U/L sugieren perforación.
+- **Tuberculosa**: linfocitos, proteínas altas, ADA > 40 U/L; la citología es la clave de la carcinomatosis peritoneal (sensibilidad ~96 %).
+- **Quilosa**: triglicéridos > 200 mg/dL (linfoma, cirugía, cirrosis); **pancreática**: amilasa alta.
+
+@ Peritonitis bacteriana espontánea :: Peritonitis bacteriana espontánea
+Definición: PMN ≥ 250/mm³ en líquido ascítico sin foco intraabdominal quirúrgico. **Bacterascitis**: cultivo positivo con PMN < 250.
+Clínica: Hasta un tercio es asintomática: paracentesis a todo cirrótico con ascitis que se hospitaliza, aunque no tenga fiebre ni dolor.
+Laboratorio: Inocular **10 mL en frascos de hemocultivo al lado de la cama** sube el rendimiento a ~80 %. Gérmenes: E. coli, Klebsiella, estreptococos; aumentan los multirresistentes en la nosocomial.
+- **Albúmina 1,5 g/kg el día 1 y 1 g/kg el día 3** reduce el síndrome hepatorrenal y la mortalidad (Sort, NEJM 1999), sobre todo con bilirrubina > 4 mg/dL o creatinina > 1 mg/dL.
+- Falla de tratamiento: caída de PMN < 25 % en la paracentesis de control a las 48 h.
+
+@ Hiponatremia :: Hiponatremia del cirrótico
+Fisiopatología: Hipervolémica y dilucional: la vasodilatación esplácnica activa la vasopresina (no osmótica) y se retiene agua libre.
+- Na < 130 mmol/L marca riesgo de encefalopatía, infecciones y peor sobrevida en lista; Na < 125: suspender diuréticos.
+- Corrección máxima **8 mmol/L en 24 h**: el cirrótico es de alto riesgo de desmielinización osmótica (desnutrición, alcohol, hipokalemia).
+- Tolvaptán: advertencia de hepatotoxicidad; no se usa en hepatopatía (máximo 30 días si no hay alternativa).
+
+@ Lesión renal aguda y HRS-AKI (ICA-ADQI 2024) :: Síndrome hepatorrenal
+Definición: Lesión renal funcional por vasoconstricción renal extrema en el contexto de vasodilatación esplácnica, sin respuesta a la expansión con albúmina y sin otra causa.
+Patología: **Riñones histológicamente normales**: trasplantados a otro receptor funcionan (observación clásica de Koppel, 1969), y la función se recupera tras el trasplante hepático.
+Laboratorio: Sodio urinario < 10 mmol/L y FENa < 0,2 % sugieren causa funcional; el NGAL urinario alto orienta a necrosis tubular aguda.
+- Terlipresina: contraindicada con SpO₂ < 90 %, isquemia coronaria o periférica y sobrecarga de volumen; con creatinina ≥ 5 mg/dL el beneficio es mínimo.
+- La infusión continua de terlipresina tiene menos efectos adversos que los bolos.
+
+@ Hidrotórax hepático y hernia umbilical :: Hidrotórax hepático
+Definición: Derrame pleural trasudado (> 500 mL) en cirrótico sin causa cardiopulmonar; **derecho en ~85 %**, por defectos en la porción tendinosa del diafragma.
+- **Tubo pleural contraindicado** (pérdida de proteínas, infección, fístula); toracocentesis evacuadora y TIPS si es refractario.
+- **Empiema bacteriano espontáneo**: PMN pleurales > 500/mm³, o cultivo positivo con PMN > 250.
+- **Síndrome de Flood**: rotura espontánea de la hernia umbilical con salida de ascitis; urgencia quirúrgica.
+
+# b05_encefalopatia.html
+@ Clasificación :: Encefalopatía: semiología
+Clínica: **West Haven**: I (alteración del sueño, atención disminuida, euforia o ansiedad, error en sumas simples); II (letargia, desorientación temporal, cambio de conducta, **asterixis**); III (somnolencia a estupor con respuesta, desorientación espacial, conducta extraña); IV (coma). Encubierta = mínima + grado I.
+Examen físico: **Asterixis** (flapping): mioclonía negativa por pérdida intermitente del tono postural, con muñecas en dorsiflexión; no es exclusiva (uremia, hipercapnia). Fetor hepaticus, hiperreflexia y Babinski en grados avanzados.
+Patología: **Astrocitos de Alzheimer tipo II** (núcleo grande, pálido y vacío): el astrocito metaboliza el amonio a glutamina y se edematiza; las neuronas están casi indemnes.
+Imagen: RM con **hiperintensidad en T1 de los globos pálidos** por depósito de manganeso; se revierte tras el trasplante.
+- **Amonio normal** en sospecha de encefalopatía manifiesta tiene alto valor predictivo negativo: buscar otra causa. No se usa para graduar ni seguir.
+- La encefalopatía mínima se diagnostica con tests psicométricos (PHES, Stroop/EncephalApp, frecuencia crítica de parpadeo) y afecta la conducción de vehículos.
+- Degeneración hepatocerebral adquirida: parkinsonismo y ataxia irreversibles en cirróticos con grandes derivaciones.
+
+# b06_aclf.html
+@ Definiciones :: ACLF: definiciones y pistas
+Definición: **EASL-CLIF**: descompensación aguda con fallas orgánicas (CLIF-OF), exige cirrosis. **APASL**: injuria hepática (bilirrubina ≥ 5 mg/dL e INR ≥ 1,5) complicada en 4 semanas con ascitis o encefalopatía, en hepatopatía crónica con o sin cirrosis. **NACSELD**: ≥ 2 fallas extrahepáticas (shock, encefalopatía III–IV, diálisis, ventilación mecánica).
+Fisiopatología: Inflamación sistémica intensa (PAMP y DAMP): leucocitosis, PCR alta y disfunción mitocondrial; la inmunoparálisis posterior favorece infecciones.
+Patología: **Bilirrubinostasis ductular** (colangiolar) en la biopsia o el explante: se asocia a sepsis y mal pronóstico.
+- La falla más frecuente es la **renal**; la hepática y la de coagulación son las propias de APASL.
+- Precipitantes: infección bacteriana y alcohol; en ~40 % no se identifica.
+- La ACLF sin precipitante aparente puede tener una infección oculta: cultivos, paracentesis e imágenes antes de rotularla.
+
+# b07_cirrotico_integral.html
+@ Infecciones bacterianas :: Infecciones en el cirrótico
+Fisiopatología: Disfunción inmune asociada a cirrosis (CAID): translocación bacteriana, fagocitosis defectuosa y complemento bajo.
+- Infecciones más frecuentes: PBE, urinaria, neumonía, celulitis y bacteriemia espontánea.
+- **Vibrio vulnificus** (mariscos crudos, ostras): sepsis fulminante con lesiones bulosas hemorrágicas en cirrosis y hemocromatosis.
+- Listeria, tuberculosis (peritoneal) y Strongyloides (antes de corticoides) son oportunistas a recordar.
+- Una infección multiplica por ~4 la mortalidad y es el precipitante principal de ACLF.
+
+@ Hemostasia rebalanceada y anticoagulación :: Hemostasia rebalanceada
+Fisiopatología: Cae la síntesis de factores procoagulantes y anticoagulantes (proteínas C y S, antitrombina) a la vez; el **factor VIII y el von Willebrand están altos**. El equilibrio es frágil y tiende a la trombosis.
+- El **INR no predice sangrado** en cirrosis (solo mide factores procoagulantes); no se corrige con plasma antes de procedimientos.
+- Sangrado tardío (24–72 h) tras extracción dental o paracentesis: **hiperfibrinólisis**; responde a ácido tranexámico.
+- Tests viscoelásticos (TEG, ROTEM) reducen las transfusiones antes de procedimientos.
+- Plaquetas < 50.000 antes de procedimientos de alto riesgo: avatrombopag o lusutrombopag; el eltrombopag aumentó la trombosis portal (ELEVATE).
+
+@ Nutrición, sarcopenia y fragilidad :: Sarcopenia y nutrición
+Definición: Pérdida de masa y función muscular; índice muscular en L3 < 50 cm²/m² en hombres y < 39 cm²/m² en mujeres.
+Examen físico: Atrofia de temporales y de la musculatura interósea de la mano; el peso engaña por ascitis y edema (usar peso seco).
+- **No restringir proteínas** en encefalopatía: 1,2–1,5 g/kg/día; 35–40 kcal/kg/día y colación nocturna rica en carbohidratos.
+- La sarcopenia predice mortalidad en lista, infecciones y encefalopatía post-TIPS, independiente del MELD.
+- Alcohol: tiamina antes de la glucosa (Wernicke); déficit frecuente de zinc, vitamina D, ácido fólico y magnesio.
+
+@ Complicaciones cardiopulmonares :: Síndrome hepatopulmonar e hipertensión portopulmonar
+Definición: **SHP**: hipoxemia (PaO₂ < 80 mmHg o gradiente A-a ≥ 15 mmHg; ≥ 20 en ≥ 65 años) por dilataciones vasculares intrapulmonares. **HPoP**: hipertensión arterial pulmonar precapilar (PAPm > 20 mmHg, RVP > 2 UW, presión de enclavamiento ≤ 15) en hipertensión portal.
+Examen físico: SHP: **platipnea** (disnea al pasar a de pie) y **ortodesoxia** (desaturación de pie), por predominio de las dilataciones en las bases; hipocratismo, cianosis y arañas vasculares abundantes.
+Imagen: **Ecocardiograma con burbujas**: el contraste aparece en la aurícula izquierda después de 3 ciclos cardíacos (shunt intrapulmonar; antes de 3 = intracardíaco).
+- SHP: gravedad por PaO₂ (≥ 80 leve, 60–80 moderado, 50–60 grave, < 50 muy grave); el trasplante lo revierte y PaO₂ < 60 da puntos de excepción.
+- HPoP: **PAPm ≥ 50 mmHg contraindica el trasplante**; con tratamiento vasodilatador se trasplanta si baja a PAPm < 35 con RVP < 5 UW. Los BBNS empeoran la HPoP.
+- Miocardiopatía cirrótica: respuesta contráctil atenuada al estrés, disfunción diastólica y QT prolongado; se desenmascara con TIPS o trasplante.
+
+# b08_masld_alcohol.html
+@ Definiciones y alcohol :: MASLD: definición y fenotipo metabólico
+Definición: Esteatosis (> 5 % de hepatocitos o por imagen) con **al menos 1 de 5 criterios cardiometabólicos**: IMC ≥ 25 (≥ 23 en asiáticos) o cintura > 94/80 cm; glicemia ≥ 100 mg/dL, HbA1c ≥ 5,7 %, DM2 o tratamiento; PA ≥ 130/85 o tratamiento; triglicéridos ≥ 150 mg/dL o tratamiento; HDL < 40/50 mg/dL o tratamiento. Alcohol < 20 g/día en mujeres y < 30 g/día en hombres.
+Examen físico: Obesidad central, **acantosis nigricans** (cuello y axilas: resistencia a la insulina), acrocordones, hipertensión. Buscar el resto del síndrome: **apnea obstructiva del sueño**, **ovario poliquístico**, hipotiroidismo, hipogonadismo, psoriasis y DM2.
+Laboratorio: **Hiperferritinemia dismetabólica**: ferritina alta con saturación de transferrina normal; no es sobrecarga de hierro (sí lo es si la saturación es ≥ 45 %).
+- **Primera causa de muerte: cardiovascular**, luego cánceres extrahepáticos y recién después la hepática. La fibrosis es lo que predice la mortalidad hepática.
+- Genética: PNPLA3 I148M (más frecuente en hispanos, la población con mayor prevalencia) y TM6SF2.
+- MetALD: 140–350 g/semana en mujeres y 210–420 g/semana en hombres. MASLD «delgada» (lean): peor pronóstico relativo, no benigna.
+
+@ La fibrosis manda :: Biopsia de hígado graso: macro o microvesicular
+Patología: **Macrovesicular**: una gran vacuola (o pocas gotas medianas) que **desplaza el núcleo a la periferia**. Proceso crónico y de buen pronóstico inmediato: MASLD, alcohol, corticoides, metotrexato, tamoxifeno, nutrición parenteral, desnutrición proteica (kwashiorkor), VHC genotipo 3 y Wilson.
+Patología: **Microvesicular**: múltiples gotas finas que dejan el **núcleo central** y un citoplasma espumoso. Traduce **falla mitocondrial de la β-oxidación** y es de mal pronóstico: falla hepática, hipoglicemia, acidosis láctica e hiperamonemia. Causas: **hígado graso agudo del embarazo**, **síndrome de Reye** (aspirina en niños con virosis), **valproato**, tetraciclinas EV en dosis altas, análogos de nucleósidos antiguos (didanosina, estavudina, zidovudina), cocaína y la **degeneración espumosa alcohólica**.
+Patología: La grasa microvesicular puede pasar inadvertida con hematoxilina-eosina: se confirma con **Oil Red O** en tejido congelado (la fijación en parafina disuelve los lípidos).
+Patología: **MASH**: esteatosis + inflamación lobulillar + **balonamiento hepatocitario** (± cuerpos de Mallory-Denk), con predominio en **zona 3**; fibrosis **perisinusoidal o pericelular en zona 3** («en alambre de gallinero», chicken-wire). En niños el patrón es periportal (zona 1). Núcleos glucogenados frecuentes en diabetes.
+- **NAS** (NAFLD Activity Score): esteatosis 0–3, inflamación lobulillar 0–3, balonamiento 0–2. Gradúa actividad, pero **no diagnostica MASH** por sí solo: el diagnóstico es por patrón.
+- **Fibrosis de Kleiner**: F1 perisinusoidal en zona 3, F2 + portal o periportal, F3 puentes, F4 cirrosis.
+- **«MASH quemada» (burnt-out)**: en la cirrosis avanzada la grasa desaparece; muchas cirrosis «criptogénicas» son MASH.
+
+@ Enfermedad hepática asociada al alcohol :: Alcohol: clínica y biomarcadores
+Examen físico: Contractura de Dupuytren, hipertrofia parotídea, ginecomastia, telangiectasias abundantes, neuropatía periférica y signos de desnutrición.
+Laboratorio: AST/ALT > 2 con AST rara vez > 300 U/L, GGT alta, VCM elevado, hipertrigliceridemia, IgA alta.
+Laboratorio: Biomarcadores de consumo: **fosfatidiletanol (PEth)** en sangre detecta las últimas 2–4 semanas; **etilglucurónido urinario**, los últimos 3–5 días; la transferrina deficiente en carbohidratos (CDT), consumo sostenido.
+- **Síndrome de Zieve**: ictericia, anemia hemolítica e hiperlipidemia tras un consumo intenso.
+- Riesgo hepático con consumo sostenido > 20 g/día en mujeres y > 30 g/día en hombres (umbral que separa MASLD de MetALD).
+
+@ Hepatitis asociada al alcohol :: Hepatitis asociada al alcohol: biopsia y clínica
+Definición: Criterios NIAAA de probable HAA: ictericia de inicio < 8 semanas, consumo > 40 (mujeres) o 60 g/día (hombres) por ≥ 6 meses con < 60 días de abstinencia, bilirrubina > 3 mg/dL, AST > 50 U/L, AST/ALT > 1,5 y ambas < 400 U/L.
+Clínica: Ictericia, fiebre, leucocitosis, hepatomegalia dolorosa y a veces **soplo hepático**; puede imitar una colangitis.
+Patología: **Balonamiento**, **cuerpos de Mallory-Denk** (hialina alcohólica: citoqueratinas agregadas), **infiltrado neutrofílico con satelitosis** (neutrófilos rodeando hepatocitos con Mallory), **fibrosis pericelular en zona 3**, megamitocondrias y bilirrubinostasis; a veces esclerosis hialina central.
+- La biopsia (transyugular) se reserva para dudas diagnósticas; la bilirrubinostasis y la ausencia de megamitocondrias marcan peor pronóstico.
+- Cuerpos de Mallory-Denk no son exclusivos: también en MASH, Wilson, CBP, amiodarona y HCC.
+
+# b09_virales.html
+@ Hepatitis B :: Hepatitis B: serología y biopsia
+Laboratorio: **HBsAg**: infección (> 6 meses = crónica). **IgM anti-HBc**: aguda (o reactivación grave). **Anti-HBc IgG aislado**: infección resuelta con anti-HBs perdido, infección oculta (DNA bajo) o falso positivo. **Anti-HBs ≥ 10 mUI/mL**: inmunidad. **HBeAg**: replicación alta; el mutante precore o del promotor basal produce hepatitis HBeAg negativa con DNA alto.
+Patología: **Hepatocitos en vidrio esmerilado** (ground-glass: HBsAg acumulado en el retículo endoplásmico; tinción de orceína de Shikata o inmunohistoquímica) y **núcleos «en arena»** (sanded nuclei: HBcAg).
+Clínica: Extrahepáticas: **poliarteritis nodosa**, **glomerulonefritis membranosa** (más en niños) y pródromo de enfermedad del suero (artralgias, urticaria, fiebre) en la aguda.
+- El VHB causa HCC **sin cirrosis** (integración del DNA viral): vigilancia en hombres asiáticos > 40 años, mujeres asiáticas > 50, africanos > 20 y con historia familiar de HCC.
+- Reactivación con rituximab (anti-CD20): riesgo alto incluso con HBsAg negativo y anti-HBc positivo.
+- HBsAg cuantitativo < 1.000 UI/mL con DNA < 2.000 en HBeAg negativo: infección inactiva de bajo riesgo.
+
+@ Hepatitis D (delta) :: Hepatitis D
+Definición: Virus RNA defectuoso que usa el HBsAg como envoltura: solo existe con VHB.
+- **Coinfección** (VHB y VHD juntos): cura en > 90 %. **Sobreinfección** de un portador de VHB: cronifica en ~90 % y es la hepatitis viral crónica más agresiva.
+- Pedir anti-VHD a todo HBsAg positivo; si es positivo, RNA-VHD.
+- Bulevirtida bloquea el receptor de entrada NTCP; los análogos de nucleósidos no actúan sobre el VHD.
+
+@ Hepatitis C :: Hepatitis C: extrahepáticas y biopsia
+Clínica: **Crioglobulinemia mixta tipo II** (IgM monoclonal con factor reumatoide e IgG policlonal): tríada de Meltzer (**púrpura palpable, artralgias, debilidad**), glomerulonefritis membranoproliferativa y neuropatía periférica; complemento C4 bajo.
+Clínica: **Linfoma B no Hodgkin** (esplénico de zona marginal: remite con antivirales), **porfiria cutánea tarda** (ampollas y fragilidad en el dorso de las manos expuestas al sol), liquen plano oral, DM2 y resistencia a la insulina.
+Patología: **Agregados o folículos linfoides portales**, daño de conductos biliares (lesión de Poulsen) y esteatosis macrovesicular, sobre todo con **genotipo 3** (efecto viral directo).
+Laboratorio: Anti-VHC positivo con RNA negativo: infección resuelta (o falso positivo). La respuesta virológica sostenida a las 12 semanas equivale a cura.
+- Después de la RVS el anti-VHC queda positivo de por vida: la reinfección se diagnostica con RNA.
+- Con cirrosis la **vigilancia de HCC continúa** tras la cura.
+- Pedir HBsAg y anti-HBc antes de los AAD: reactivación de VHB durante el tratamiento.
+
+@ Hepatitis E y A :: Hepatitis E y A
+Definición: VHE: virus RNA; genotipos 1 y 2 de transmisión hídrica (Asia, África); **genotipo 3 zoonótico** (cerdo, jabalí, ciervo, carne poco cocida) en países desarrollados.
+Clínica: **Neurológicas del VHE**: síndrome de Guillain-Barré y **amiotrofia neurálgica** (Parsonage-Turner); también glomerulonefritis.
+- **Genotipo 1 en el embarazo**: falla hepática aguda con mortalidad de 20–25 % en el tercer trimestre.
+- **Genotipo 3 cronifica en inmunosuprimidos** (trasplantados): reducir inmunosupresión y ribavirina.
+- VHA: fecal-oral, IgM anti-VHA; más grave en > 50 años y con hepatopatía crónica. Vacunar a todo hepatópata crónico no inmune.
+
+# b10_autoinmunes.html
+@ Hepatitis autoinmune :: Hepatitis autoinmune
+Definición: Hepatitis crónica inmunomediada con hipergammaglobulinemia, autoanticuerpos y respuesta a inmunosupresión. **Tipo 1**: ANA o anti-músculo liso. **Tipo 2**: anti-LKM1 o anti-LC1 (niños, más agresiva; parte del síndrome APECED por mutación de AIRE).
+Clínica: Mujer de cualquier edad, con picos en adolescencia y a los 40–60 años; un tercio es asintomática y un cuarto o más debuta en forma aguda, incluso como falla hepática. Asociación con tiroiditis, celiaquía, DM1, artritis reumatoide y vitiligo.
+Patología: **Hepatitis de interfase linfoplasmocitaria** (antes «necrosis en sacabocado»), con **células plasmáticas abundantes**, **emperipolesis** (linfocito dentro del hepatocito) y **rosetas hepatocitarias**. En la presentación aguda: **necrosis centrolobulillar (zona 3)** y hepatitis panlobulillar. El consenso IAIHG 2022 resta especificidad a la emperipolesis y las rosetas: basta hepatitis portal linfoplasmocitaria con interfase o hepatitis lobulillar más que leve, sin rasgos de otra enfermedad.
+Laboratorio: **IgG elevada** (aislada, no las otras inmunoglobulinas); **anti-SLA/LP**, el autoanticuerpo más específico, marca mayor gravedad y recaída. Hasta 20 % es seronegativa.
+Tratamiento: **Cuándo esperar respuesta**: caída ≥ 50 % de las transaminasas a las **4 semanas** (si no, «no respuesta»: replantear el diagnóstico o la adherencia); normalización de transaminasas e IgG a los **6 meses** (respuesta completa). La **remisión histológica se atrasa 3–8 meses** o más respecto de la bioquímica. **HAI aguda grave**: si INR y bilirrubina (MELD) no mejoran en **7 días** de corticoides o empeoran antes, derivar a trasplante.
+- **Fármacos que inducen HAI** (HAI-like): **nitrofurantoína y minociclina** (los clásicos, ~90 % de los casos), metildopa, hidralazina, estatinas, anti-TNF (infliximab), interferón y diclofenaco. Se comportan igual en la biopsia, pero **no recaen al retirar los corticoides**.
+- **Hepatitis por inhibidores de punto de control**: menos células plasmáticas, IgG normal y autoanticuerpos negativos; no es HAI.
+- **Sobreposición HAI-CBP** (criterios de París, 2 de 3 de cada una): CBP con FA ≥ 2 × LSN o GGT ≥ 5 ×, AMA ≥ 1:40, lesión ductal florida; HAI con ALT ≥ 5 × LSN, IgG ≥ 2 × LSN o anti-músculo liso, y hepatitis de interfase moderada a grave (obligatoria).
+- Anti-LKM1 aparece también en hepatitis C (reacción contra CYP2D6): descartar VHC antes de rotular HAI tipo 2.
+- Medir TPMT o NUDT15 antes de la azatioprina. Recaída frecuente en el **posparto** (primeros 3 meses).
+
+@ Colangitis biliar primaria :: Colangitis biliar primaria
+Definición: Colangitis destructiva crónica no supurativa de los **conductos interlobulillares pequeños** (< 100 µm), autoinmune; ~90 % mujeres de 40–60 años.
+Clínica: **Fatiga** (el síntoma más frecuente; no mejora con AUDC) y **prurito** (palmas y plantas, de predominio nocturno, no se relaciona con la gravedad, puede preceder a la ictericia por años y empeora en el tercer trimestre del embarazo). Xantelasmas y xantomas, hiperpigmentación cutánea, síndrome seco frecuente (Sjögren), Raynaud, esclerodermia limitada (anti-centrómero), tiroiditis y celiaquía.
+Patología: **Lesión ductal florida**: conducto interlobulillar rodeado de linfocitos y células plasmáticas, con **granulomas periductales**. Luego **ductopenia** (pérdida de conductos en > 50 % de los espacios porta), proliferación ductular, colestasis periportal (depósito de cobre, cuerpos de Mallory) y cirrosis biliar. Estadios de Ludwig y Scheuer (I–IV) o de Nakanuma.
+Laboratorio: **AMA (anti-M2, contra PDC-E2) ≥ 1:40** en ~95 %; IgM elevada; FA alta. **AMA negativa**: ANA específicos **anti-sp100** (patrón de «múltiples puntos nucleares») y **anti-gp210** (patrón de membrana nuclear o anillo; peor pronóstico); también anti-KLHL12 y anti-hexoquinasa 1.
+- Diagnóstico **sin biopsia** con FA > 1,5 × LSN y AMA positiva. Biopsia si la AMA es negativa o se sospecha sobreposición con HAI.
+- **AMA positiva con FA normal**: no es CBP, pero un porcentaje la desarrolla; control anual de FA.
+- Hipercolesterolemia con HDL alto: no aumenta claramente el riesgo cardiovascular.
+- Hipertensión portal presinusoidal precoz, antes de la cirrosis. Osteoporosis y déficit de vitaminas A, D, E y K en colestasis avanzada.
+- **Escalera del prurito**: colestiramina 4 → 16 g/día (4 h antes o después de otros fármacos) → rifampicina 150–300 mg/día, hasta 600 (vigilar transaminasas) → naltrexona 25 → 50 mg/día (síndrome de abstinencia opioide al inicio) → sertralina 75–100 mg/día. El bezafibrato (FITCH) y el seladelpar reducen el prurito; linerixibat (inhibidor de IBAT) aprobado por la FDA en 2026. Refractario: trasplante.
+
+@ Colangitis esclerosante primaria :: Colangitis esclerosante primaria
+Definición: Inflamación y fibrosis progresiva de la vía biliar intra y extrahepática, con estenosis multifocales; ~2:1 hombres, diagnóstico a los 30–40 años.
+Clínica: Asintomática con FA alta en la mayoría; colangitis bacteriana, prurito e ictericia en estenosis dominantes. **60–80 % tiene EII**, típicamente una colitis ulcerosa **extensa con respeto rectal e ileítis por reflujo** (backwash), clínicamente leve pero con alto riesgo de cáncer colorrectal.
+Imagen: Colangiorresonancia con estenosis cortas y anulares alternadas con dilataciones («en cuentas de rosario», beaded) y «árbol podado» (pruned tree).
+Patología: **Fibrosis periductal concéntrica «en capas de cebolla»** (onion-skin) y lesión fibro-obliterativa (cicatriz donde había un conducto). Se ve en una minoría de biopsias porque la lesión es parcheada.
+Laboratorio: p-ANCA atípicos en ~80 % (no específicos). **Medir siempre IgG4** (elevada en ~10 %): excluir colangitis por IgG4.
+- **CEP de conducto pequeño**: colangiografía normal con biopsia compatible; mejor pronóstico, ~25 % progresa a conducto grande.
+- **Colangiocarcinoma**: riesgo de por vida 10–20 %, y un tercio a la mitad se diagnostica en el **primer año** desde el diagnóstico de CEP. Estenosis dominante: cepillado con citología y FISH, o colangioscopía.
+- **Pólipo vesicular > 8 mm**: colecistectomía (riesgo de adenocarcinoma).
+- **Colangitis esclerosante secundaria** (los imitadores): IgG4, isquémica (trasplante, quimioterapia intraarterial, paciente crítico), coledocolitiasis recurrente, colangiopatía del VIH (Cryptosporidium, CMV), mastocitosis e histiocitosis.
+
+@ Enfermedad relacionada con IgG4 :: Colangitis por IgG4
+Definición: Enfermedad fibroinflamatoria sistémica; hombres > 60 años.
+Clínica: **Pancreatitis autoinmune tipo 1** (páncreas «en salchicha» con halo hipodenso capsular), colangitis (estenosis **largas, distales o hiliares**), sialoadenitis (tumor de Küttner), dacrioadenitis (Mikulicz), fibrosis retroperitoneal, aortitis y nefritis tubulointersticial.
+Patología: Infiltrado linfoplasmocitario denso, **fibrosis estoriforme** (en remolino, «rueda de carreta»), **flebitis obliterante** y > 10 células IgG4+ por campo de gran aumento con relación IgG4/IgG > 40 %.
+Laboratorio: IgG4 sérica > 135 mg/dL (> 2 × LSN, más específica; > 4 × muy sugerente); normal en ~20 %.
+- **Respuesta a corticoides en 2–4 semanas** (prednisona 30–40 mg/día) apoya el diagnóstico; recaída en 30–50 % (rituximab o azatioprina).
+- Criterios HISORt: histología, imagen, serología, otros órganos y respuesta al tratamiento.
+- A diferencia de la CEP, no aumenta el riesgo de colangiocarcinoma y no se asocia a EII.
+
+# b11_metabolicas.html
+@ Hemocromatosis :: Hemocromatosis
+Definición: Sobrecarga de hierro por déficit de hepcidina; en caucásicos, homocigosis **HFE C282Y** (penetrancia clínica baja, mayor en hombres). H63D o C282Y/H63D rara vez dan sobrecarga significativa.
+Clínica: **«Diabetes bronceada»** (hiperpigmentación grisácea + diabetes), **artropatía de la 2.ª y 3.ª metacarpofalángicas** con osteofitos en gancho y condrocalcinosis, miocardiopatía (arritmias, falla cardíaca), hipogonadismo hipogonadotrópico, hepatomegalia y fatiga. La mujer se expresa más tarde (menstruación, embarazos).
+Patología: Hierro en **hepatocitos periportales (zona 1)** con gradiente decreciente hacia la zona 3 (**azul de Prusia o Perls**). En la sobrecarga secundaria (transfusiones) el hierro está en las **células de Kupffer** (reticuloendotelial).
+Laboratorio: **Saturación de transferrina ≥ 45 %**: el marcador más precoz. Ferritina > 300 µg/L (hombre) o > 200 (mujer). **Ferritina > 1.000 µg/L** con transaminasas elevadas o plaquetas bajas: riesgo de cirrosis, evaluar fibrosis.
+Imagen: RM con secuencias T2* cuantifica el hierro hepático y cardíaco.
+- **Infecciones por gérmenes sideróforos**: **Vibrio vulnificus** (mariscos crudos), **Yersinia enterocolitica** y Listeria.
+- Flebotomías de 500 mL semanales hasta ferritina 50–100 µg/L, luego de mantención. Evitar suplementos de vitamina C y de hierro.
+- HCC solo en cirrosis, pero el riesgo persiste aunque se remueva el hierro.
+
+@ Enfermedad de Wilson :: Enfermedad de Wilson
+Definición: Mutación de **ATP7B** (cromosoma 13, autosómica recesiva): falla la excreción biliar de cobre y su incorporación a la ceruloplasmina.
+Examen físico: **Anillos de Kayser-Fleischer** (depósito en la membrana de Descemet; lámpara de hendidura): ~95 % en la forma neurológica y ~50 % en la hepática. **Catarata «en girasol»**. Neurológico: temblor «en aleteo» (wing-beating), disartria, distonía, parkinsonismo, sonrisa sardónica; psiquiátrico: cambio de personalidad, depresión.
+Patología: Esteatosis (macro y microvesicular), **núcleos glucogenados**, hepatitis crónica con cuerpos de Mallory-Denk y cirrosis macronodular. La tinción de cobre (rodanina, orceína) es poco sensible por su distribución irregular: vale la **cuantificación** (> 250 µg/g de tejido seco).
+Imagen: RM cerebral con el signo de la **«cara de panda gigante»** en el mesencéfalo e hiperintensidades en ganglios basales.
+Laboratorio: Ceruloplasmina < 20 mg/dL (muy sugerente < 10); cobre urinario de 24 h > 100 µg (> 40 sugiere); cobre libre sérico alto; **cobre intercambiable relativo (REC) > 18,5 %**.
+- **FHA por Wilson**: FA/bilirrubina < 4, AST/ALT > 2,2 y **hemólisis Coombs negativa** (el cobre libre lisa eritrocitos); no responde a quelantes: trasplante.
+- **D-penicilamina**: empeoramiento neurológico paradójico (10–50 %), nefrotoxicidad, síndrome lúpico. Zinc: induce metalotioneína intestinal (mantención y presintomáticos).
+- Estudiar a los hermanos (25 % de riesgo). El trasplante cura el defecto hepático.
+
+@ Déficit de alfa-1 antitripsina :: Déficit de alfa-1 antitripsina
+Definición: Mutación de **SERPINA1**; el alelo **Z** (PiZZ) causa enfermedad hepática por **ganancia de función tóxica** (la proteína mal plegada se polimeriza en el retículo) y pulmonar por **pérdida de función** (falta de antiproteasa).
+Clínica: Colestasis neonatal, hepatitis crónica o cirrosis en adultos; **enfisema panacinar de predominio basal** en jóvenes fumadores; paniculitis necrotizante y vasculitis con c-ANCA (PR3).
+Patología: **Glóbulos PAS positivos resistentes a diastasa (PAS-D)** en hepatocitos **periportales**: polímeros Z retenidos; inmunohistoquímica para A1AT.
+Laboratorio: Nivel sérico bajo (< 11 µmol/L, ~50 mg/dL) y fenotipo o genotipo; es reactante de fase aguda (puede salir falsamente normal en inflamación). El proteinograma muestra ausencia de la banda α1.
+- **PiMZ** (heterocigoto) es modificador: empeora la fibrosis en MASLD y alcohol.
+- La terapia de aumento EV solo protege el pulmón; fazirsiran (RNA de interferencia) reduce la proteína Z hepática en ensayos.
+
+# b12_dili.html
+@ Definición y clasificación :: DILI: criterios y fenotipos
+Definición: Caso de DILI: **ALT ≥ 5 × LSN**, o **FA ≥ 2 × LSN** (con GGT alta y sin causa ósea), o **ALT ≥ 3 × LSN con bilirrubina > 2 × LSN**. Intrínseca (dosis dependiente, predecible: paracetamol), idiosincrática (impredecible) e indirecta (el fármaco desencadena otra enfermedad: HAI por anti-TNF, reactivación de VHB, empeoramiento de MASLD con corticoides).
+Patología: Pistas en la biopsia: **eosinófilos y granulomas** sugieren DILI; necrosis en zona 3 (paracetamol: el metabolito NAPQI se forma por CYP2E1 en la zona centrolobulillar); colestasis «blanda» sin inflamación (anabólicos, estrógenos).
+- **Amoxicilina-clavulánico**, la primera causa de DILI idiosincrática: colestásica o mixta, en hombres > 55 años; puede aparecer **hasta 4–6 semanas después de suspenderla**; HLA-DRB1*15:01.
+- Fenotipos por fármaco: granulomatoso (alopurinol, sulfas, carbamazepina, BCG); HAI-like (nitrofurantoína, minociclina); síndrome de obstrucción sinusoidal (oxaliplatino, busulfán, pirrolizidinas); hiperplasia nodular regenerativa (tioguanina, azatioprina, oxaliplatino); **peliosis** (anabólicos, azatioprina); **adenomas** (anticonceptivos, anabólicos); ductopenia (amoxicilina-clavulánico, carbamazepina); microvesicular (valproato, tetraciclinas EV); amiodarona: fosfolipidosis con cuerpos de Mallory (seudoalcohólica).
+- **DRESS** (fiebre, exantema, eosinofilia, compromiso de órganos, 2–8 semanas de latencia): anticonvulsivantes aromáticos, alopurinol (HLA-B*58:01), sulfas.
+- HLA clásicos: flucloxacilina (HLA-B*57:01), té verde y cúrcuma (HLA-B*35:01).
+- Hierbas y suplementos: extracto de té verde, cúrcuma, Garcinia cambogia, ashwagandha, kava, anabólicos, productos multicomponente para bajar de peso.
+
+@ Situaciones frecuentes :: Paracetamol e isoniazida
+Definición: **Paracetamol**: dosis tóxica aguda > 150 mg/kg o > 7,5–10 g; umbral menor con alcohol crónico, ayuno o desnutrición (glutatión bajo).
+Laboratorio: **Nomograma de Rumack-Matthew** desde las 4 h: solo para ingesta única aguda con hora conocida (línea de tratamiento de 150 µg/mL a las 4 h). ALT de miles con bilirrubina baja al inicio.
+- La N-acetilcisteína repone glutatión y es eficaz en cualquier momento, máximo beneficio en las primeras 8 h.
+- **Isoniazida**: hepatocelular, el riesgo sube con la edad, el alcohol y la combinación con rifampicina; suspender con ALT > 5 × LSN, o > 3 × con síntomas o ictericia.
+
+@ Hepatitis por inhibidores de punto de control :: Hepatitis por inhibidores de punto de control
+Definición: Hepatitis inmunomediada por anti-PD-1, anti-PD-L1 y sobre todo **anti-CTLA-4** (ipilimumab) y combinaciones; aparece a las **6–14 semanas** del inicio.
+Patología: Hepatitis lobulillar con infiltrado de linfocitos T CD8, poca célula plasmática; **granulomas en anillo de fibrina** (fibrin-ring) con ipilimumab. Puede ser colangítica (conductos).
+Laboratorio: IgG y autoanticuerpos habitualmente normales (a diferencia de la HAI).
+- Grado 3–4: prednisona 1–2 mg/kg/día; refractaria: **micofenolato** (evitar infliximab por su hepatotoxicidad).
+- Se puede reintroducir la inmunoterapia en grados 1–2 resueltos, con monitoreo.
+
+# b13_embarazo.html
+@ Cambios fisiológicos :: Embarazo: lo normal
+- **Normales**: FA alta 2–4 veces (placentaria), albúmina baja (dilución), colesterol y triglicéridos altos, ceruloplasmina alta (estrógenos), **arañas vasculares y eritema palmar** (hasta 60 %).
+- **Nunca normales**: transaminasas, bilirrubina, GGT, ácidos biliares e INR alterados.
+- El trimestre orienta: hiperémesis en el primero; CIE en el segundo y tercero; preeclampsia, HELLP e hígado graso agudo en el tercero.
+- **Hiperémesis gravídica**: transaminasas elevadas en ~50 % de las hospitalizadas, habitualmente < 200 U/L; se normalizan al ceder los vómitos.
+
+@ Colestasis intrahepática del embarazo :: Colestasis intrahepática del embarazo
+Clínica: **Prurito palmoplantar de predominio nocturno** en el segundo o tercer trimestre, sin lesiones primarias (solo excoriaciones); ictericia en < 10 %.
+Laboratorio: Ácidos biliares ≥ 10 µmol/L; **≥ 100 µmol/L** aumenta claramente el riesgo de mortinato. Transaminasas a menudo elevadas.
+- Chile tuvo una de las prevalencias más altas del mundo (población mapuche); recurre en 45–90 % de los embarazos siguientes y con anticonceptivos.
+- Genética: ABCB4 (MDR3) y ABCB11 (BSEP). Asociación con colelitiasis y hepatitis C.
+- Se resuelve en semanas tras el parto; si persiste, buscar CBP o mutación de ABCB4.
+
+@ Preeclampsia, HELLP y hematoma hepático :: HELLP y hematoma hepático
+Definición: Hemólisis, enzimas hepáticas elevadas y plaquetas bajas; criterios de Tennessee: plaquetas ≤ 100.000, AST ≥ 70 U/L y LDH ≥ 600 U/L.
+Patología: **Hemorragia periportal (zona 1)** y depósito de **fibrina en los sinusoides**: microangiopatía, a diferencia de la esteatosis microvesicular del hígado graso agudo.
+Clínica: Dolor epigástrico o en el hipocondrio derecho, náuseas; hasta 15 % sin hipertensión ni proteinuria. **Hematoma subcapsular y rotura**: dolor en el hombro derecho y shock.
+- Puede aparecer o empeorar en el **posparto** (hasta 30 %).
+- Rotura hepática: embolización o cirugía; el trasplante es excepcional.
+
+@ Hígado graso agudo del embarazo :: Hígado graso agudo del embarazo
+Clínica: Tercer trimestre; primigestas, gestación gemelar y **feto masculino**. Náuseas, vómitos, dolor abdominal, polidipsia (diabetes insípida transitoria), encefalopatía e hipoglicemia.
+Patología: **Esteatosis microvesicular** panlobulillar o de zona 3, **respetando la zona periportal**. La biopsia rara vez se hace (coagulopatía).
+Laboratorio: Hipoglicemia, ácido úrico alto, hiperamonemia, coagulopatía y falla renal; criterios de Swansea (≥ 6).
+- **Déficit fetal de LCHAD** (mutación G1528C; la madre es heterocigota): estudiar al recién nacido (hipoglicemia, miocardiopatía).
+- Tratamiento: interrupción del embarazo y soporte; diferenciarlo del HELLP por la hipoglicemia y la falla hepática.
+
+@ Hepatopatías coincidentes :: Hepatopatías coincidentes con el embarazo
+- **Hepatitis por herpes simple**: fiebre, transaminasas de miles **sin ictericia**, leucopenia; vesículas en solo la mitad. **Aciclovir empírico** ante la sospecha.
+- **VHE genotipo 1**: falla hepática con mortalidad de 20–25 % en el tercer trimestre.
+- **Budd-Chiari**: el embarazo y el puerperio son estados protrombóticos.
+- Coledocolitiasis: la CPRE es segura en el segundo trimestre con protección fetal.
+
+# b14_lesiones_hcc.html
+@ Lesiones focales en hígado no cirrótico :: Hemangioma
+Definición: El tumor hepático benigno más frecuente; malformación vascular, más en mujeres.
+Imagen: Ecografía hiperecogénica homogénea; TC o RM con **realce periférico nodular discontinuo y llenado centrípeto**; muy hiperintenso en T2 («en bombilla», light bulb).
+- No se biopsia ni se sigue si es típico; no contraindica el embarazo ni los anticonceptivos.
+- **Síndrome de Kasabach-Merritt**: coagulopatía de consumo y trombocitopenia en hemangiomas gigantes (> 10 cm).
+
+@ Lesiones focales en hígado no cirrótico :: Hiperplasia nodular focal
+Definición: Hiperplasia policlonal reactiva a una malformación arterial; mujeres de 20–50 años; sin riesgo de malignización ni de sangrado.
+Imagen: **Cicatriz central** (hiperintensa en T2, realce tardío) y arteria central con patrón **«en rueda de carro»** (spoke-wheel) en Doppler o CEUS. **Iso o hiperintensa en fase hepatobiliar** con gadoxetato (hepatocitos funcionantes), a diferencia del adenoma (hipointenso).
+Patología: Nódulos de hepatocitos separados por septos fibrosos con vasos distróficos y proliferación ductular; tinción de **glutamina sintetasa «en mapa»** (map-like), diagnóstica.
+- No requiere suspender anticonceptivos ni seguimiento si es típica.
+- El fibrolamelar también tiene cicatriz central: sospechar en joven con lesión grande y calcificada.
+
+@ Lesiones focales en hígado no cirrótico :: Adenoma hepatocelular
+Definición: Proliferación monoclonal benigna; mujeres con anticonceptivos, anabólicos, obesidad y glucogenosis (tipos I y III).
+Patología: Subtipos moleculares: **HNF1A inactivado** (esteatósico; pérdida de LFABP; caída de señal en fase opuesta; bajo riesgo), **inflamatorio** (el más frecuente; SAA y PCR positivas; obesidad y alcohol; «signo del atolón» en T2; sangra), **β-catenina activado** (riesgo de transformación a HCC; hombres y anabólicos; glutamina sintetasa difusa), sonic hedgehog (sangrado) y no clasificado.
+- **Resecar** si mide > 5 cm, en **hombres de cualquier tamaño** o con β-catenina activada.
+- En la mujer: suspender anticonceptivos, bajar de peso y reevaluar a los 6 meses.
+
+@ Lesiones focales en hígado no cirrótico :: Quiste hidatídico y abscesos
+Definición: **Hidatidosis** por Echinococcus granulosus, endémica en Chile (zonas rurales ganaderas).
+Imagen: Clasificación de la OMS (CE1–CE5); **signo del nenúfar** (membrana desprendida flotando), arena hidatídica y vesículas hijas en patrón «en rueda» o roseta; calcificación en el quiste inactivo.
+- Punción con riesgo de **anafilaxia** y siembra: albendazol antes y PAIR o cirugía según el estadio; la rotura a la vía biliar causa colangitis e ictericia.
+- **Absceso piógeno**: Klebsiella pneumoniae hipervirulenta (diabéticos; endoftalmitis y metástasis sépticas); buscar cáncer de colon si hay Streptococcus gallolyticus o Klebsiella sin causa.
+- **Absceso amebiano**: único, lóbulo derecho, hombre joven, contenido en **«pasta de anchoas»**; serología y metronidazol, rara vez drenaje.
+
+@ Hepatocarcinoma :: Hepatocarcinoma
+Definición: Tumor primario hepático más frecuente; > 80 % sobre cirrosis. Diagnóstico **sin biopsia** solo en cirrosis o VHB (LI-RADS 5: realce arterial no periférico más lavado no periférico, cápsula o crecimiento, ≥ 10 mm).
+Patología: Trabéculas engrosadas (> 3 células), pérdida de la trama de reticulina, **arterias no pareadas** y bilis en las células tumorales. Carcinoma precoz frente a nódulo displásico: **glipicano-3, HSP70 y glutamina sintetasa** (2 de 3 positivos = HCC).
+Clínica: Paraneoplásicos: **hipoglicemia** (IGF-2), **eritrocitosis** (eritropoyetina), hipercalcemia (PTHrP), hipercolesterolemia y diarrea.
+- **Fibrolamelar**: adolescentes y adultos jóvenes sin cirrosis, láminas de fibrosis lamelar, cicatriz central, AFP normal; fusión DNAJB1-PRKACA.
+- AFP > 400 ng/mL en cirrótico con nódulo es muy sugerente; PIVKA-II (DCP) y el modelo GALAD mejoran la detección.
+- Vigilancia: ecografía cada 6 meses ± AFP en cirrosis y en VHB de riesgo; un trombo portal que realza es tumoral.
+
+@ Colangiocarcinoma :: Colangiocarcinoma y cáncer de vesícula
+Definición: Intrahepático, **perihiliar** (tumor de Klatskin; el más frecuente; clasificación de Bismuth-Corlette I–IV) y distal.
+Patología: Adenocarcinoma con **estroma desmoplásico** abundante; CK7 y CK19 positivas, CK20 negativa. Mutaciones accionables en el intrahepático: **fusiones de FGFR2** (pemigatinib, futibatinib) e **IDH1** (ivosidenib).
+Laboratorio: CA 19-9 sube también en colestasis y colangitis; el ~10 % **Lewis negativo** no lo produce.
+- Factores de riesgo: CEP, quistes de colédoco (Todani), hepatolitiasis, parásitos (Clonorchis, Opisthorchis), VHB, VHC y MASLD.
+- Perihiliar irresecable < 3 cm sin metástasis: trasplante tras quimiorradioterapia (protocolo Mayo).
+- **Cáncer de vesícula**: Chile tiene una de las incidencias más altas del mundo (mujeres, ascendencia mapuche, colelitiasis); el GES cubre la colecistectomía preventiva entre los 35 y 49 años. Vesícula en porcelana y pólipos > 10 mm (> 8 mm en CEP): colecistectomía.
+
+# b15_trasplante.html
+@ Cuándo derivar :: Trasplante: indicaciones y contraindicaciones
+- Derivar con **MELD-Na ≥ 15**, primera descompensación mayor, HCC dentro de criterios o falla hepática aguda.
+- Puntos de excepción clásicos: HCC, síndrome hepatopulmonar (PaO₂ < 60), hipertensión portopulmonar controlada, polineuropatía amiloidótica familiar, hiperoxaluria primaria, colangitis recurrente en CEP y prurito intratable.
+- Contraindicaciones absolutas: neoplasia extrahepática activa, consumo activo de sustancias sin tratamiento, HPoP con PAPm ≥ 50 mmHg refractaria y falla multiorgánica no recuperable. La falta de soporte psicosocial es una contraindicación relativa de peso.
+
+@ Postrasplante :: Rechazo, complicaciones e inmunosupresión
+Patología: **Rechazo agudo celular** (días 5–30): tríada de **infiltrado portal mixto** (linfocitos activados, eosinófilos), **daño de conductos biliares** y **endotelitis** (inflamación subendotelial de vénulas portales y centrales). Se gradúa con el índice de actividad de Banff (RAI: cada componente de 0 a 3, total 0–9).
+Patología: **Rechazo crónico (ductopénico)**: pérdida de conductos en > 50 % de los espacios porta y **arteriopatía obliterativa con células espumosas**.
+- **Trombosis de la arteria hepática** precoz: alza brusca de transaminasas, necrosis o colangiopatía isquémica; Doppler diario los primeros días; suele requerir retrasplante.
+- Estenosis biliares **anastomóticas** (técnicas, responden a CPRE) frente a **no anastomóticas** (isquémicas; donante en asistolia, tiempo de isquemia largo).
+- **CMV**: mayor riesgo en donante positivo y receptor negativo (D+/R−): profilaxis con valganciclovir 3–6 meses.
+- Tacrolimus: nefrotoxicidad, temblor, PRES, diabetes, hiperkalemia, hipomagnesemia. Ciclosporina: hirsutismo e hiperplasia gingival. Inhibidores de mTOR: mala cicatrización, proteinuria, edema y neumonitis. Micofenolato: diarrea, citopenias, teratógeno.
+- Neoplasias de novo: piel la más frecuente; trastorno linfoproliferativo postrasplante asociado a VEB.
+- Recurrencia: CEP en 20–25 %, CBP, HAI, MASH y el consumo de alcohol.
+
+# b16_talleres.html
+@ Elastografía de transición (Fibroscan) :: Fibroscan: física y trampas
+Fisiopatología: Un vibrador genera una onda de corte (shear wave) de 50 Hz y el ultrasonido mide su velocidad; la rigidez se calcula como **E = 3ρv²** (kPa). Más fibrosis, más rápida la onda.
+- Factores que **elevan falsamente** la rigidez: inflamación (ALT > 5 × LSN), congestión (insuficiencia cardíaca), colestasis extrahepática, ingesta reciente (ayuno ≥ 3 h), alcohol reciente e infiltración (amiloidosis, linfoma).
+- Calidad: ≥ 10 mediciones válidas e IQR/mediana < 30 %; sonda XL si la distancia piel-cápsula es > 25 mm.
+- **CAP** mide esteatosis por atenuación del ultrasonido (dB/m); ≥ 275 dB/m sugiere esteatosis.
+- La rigidez esplénica (módulo de 100 Hz) es la que mejor descarta várices de alto riesgo.
+
+@ GPVH :: Gradiente de presión venosa hepática
+Definición: Presión suprahepática enclavada menos la libre; normal 1–5 mmHg. Refleja la presión sinusoidal.
+- **No mide** la hipertensión presinusoidal (PSVD, trombosis portal, esquistosomiasis: GPVH normal o casi) ni la postsinusoidal hepática (Budd-Chiari: no se puede cateterizar).
+- Respuesta hemodinámica a BBNS: caída ≥ 10 % (aguda, con propranolol EV) o a ≤ 12 mmHg o ≥ 20 % (crónica) predice menos sangrado y descompensación.
+- Umbrales: ≥ 10 HPCS, ≥ 12 sangrado variceal, ≥ 16 mortalidad, ≥ 20 en hemorragia aguda falla de control.
+
+@ Imágenes :: Imágenes: signos de examen
+- **Doppler portal**: flujo hepatópeto normal; velocidad < 15–16 cm/s o flujo **hepatófugo** indican hipertensión portal avanzada (riesgo de trombosis portal y encefalopatía).
+- **Gadoxetato (Primovist)**, fase hepatobiliar a los 20 min: HNF iso o hiperintensa; adenoma y HCC hipointensos.
+- **CEUS**: lavado **precoz (< 60 s) y marcado** orienta a malignidad no HCC (colangiocarcinoma, metástasis; LR-M); el HCC lava tarde y leve.
+- Signo ecográfico más específico de cirrosis: contorno nodular (mejor con transductor de alta frecuencia en la superficie).
+
+@ Endohepatología :: Endohepatología
+- **EUS-PPG**: punción directa de la vena porta y de una suprahepática o la cava con aguja de 25 G; correlaciona con el GPVH y mide la presión presinusoidal que el GPVH no ve.
+- **EUS-LB** (biopsia hepática por endosonografía): muestras bilaterales, menos dolor; se combina con la EUS-PPG en la misma sesión.
+- Várices gástricas (GOV2, IGV1): **coils más cianoacrilato guiados por EUS** con menos resangrado y embolia que el cianoacrilato solo.

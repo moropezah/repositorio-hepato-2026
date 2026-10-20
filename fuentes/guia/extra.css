@@ -30,3 +30,20 @@
 .thr b{display:block;font-size:15px;color:var(--marino);margin-bottom:3px}
 .thr .v{background:#e8f4f0}.thr .a{background:#fdf6e8}.thr .r{background:#fbecec}
 @media print{.qz .exp{display:block}.autoev{background:#fff}}
+/* ===== Perlas por patología ===== */
+.perla{background:#fdf8ee;border:1px solid #ecdcb8;border-left:4px solid #b8862b;border-radius:0 9px 9px 0;padding:12px 16px 10px;margin:12px 0 18px;font-size:13.6px}
+.perla .pt{font-weight:660;color:#7a5512;font-size:14.5px;margin-bottom:6px}
+.perla .pt span{display:inline-block;font-size:10.5px;letter-spacing:1.4px;text-transform:uppercase;background:#b8862b;color:#fff;border-radius:4px;padding:2px 7px;margin-right:9px;vertical-align:2px}
+.perla dl{display:grid;grid-template-columns:128px 1fr;gap:5px 14px;margin:4px 0 6px}
+.perla dt{font-weight:650;color:#8a6414;font-size:12.2px;padding-top:1px}
+.perla dd{margin:0}
+.perla .pq{border-top:1px dashed #e2cfa3;margin-top:8px;padding-top:7px}
+.perla .pq>b{font-size:11.5px;letter-spacing:1px;text-transform:uppercase;color:#8a6414}
+.perla .pq ul{margin:4px 0 2px;padding-left:19px}
+.perla .pq li{margin-bottom:4px}
+#soloperlas{display:block;width:calc(100% - 28px);margin:-4px 14px 12px;padding:7px 10px;border-radius:6px;border:1px solid #b8862b;background:transparent;color:#f0d9a6;font-family:inherit;font-weight:600;font-size:12.5px;cursor:pointer}
+#soloperlas[aria-pressed="true"]{background:#b8862b;color:#fff}
+body.solo-perlas main>div.inner>*:not(h2[id^="b"]):not(.perla){display:none!important}
+body.solo-perlas main>div.inner>h2[id^="b"]{margin-top:34px}
+@media (max-width:640px){.perla dl{grid-template-columns:1fr;gap:1px}.perla dd{margin-bottom:6px}}
+@media print{.perla{break-inside:avoid}}

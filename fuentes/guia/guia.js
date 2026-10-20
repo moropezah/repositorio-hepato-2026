@@ -77,3 +77,13 @@ document.getElementById('navsearch').addEventListener('input',function(e){
     bar.parentNode.insertBefore(sc, bar.nextSibling);
   });
 })();
+
+/* ---------- Modo «Solo perlas» ---------- */
+(function(){
+  var b=document.getElementById('soloperlas'); if(!b) return;
+  function fijar(on){document.body.classList.toggle('solo-perlas',on); b.setAttribute('aria-pressed',on); b.textContent=on?'Ver guía completa':'Solo perlas';
+    try{localStorage.setItem('hepato-soloperlas',on?'1':'0')}catch(e){}}
+  var ini=false; try{ini=localStorage.getItem('hepato-soloperlas')==='1'}catch(e){}
+  fijar(ini);
+  b.addEventListener('click',function(){var on=!document.body.classList.contains('solo-perlas'); fijar(on); if(window.onScroll)onScroll();});
+})();
