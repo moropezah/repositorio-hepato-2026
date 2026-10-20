@@ -500,6 +500,51 @@ const CALCS=[
    txt:`<b>EASL 2025:</b> ${er}<br><b>OMS 2024:</b> ${oms.length?oms.join('; ')+'.':'sin criterio (LSN de ALT 30 U/L hombres, 19 U/L mujeres).'}<br><b>MINSAL 2021:</b> ${mi.length?mi.join('; ')+'.':'sin criterio.'}${extra}${tr?'<br><b>Fármaco:</b> tenofovir disoproxil 300 mg/día, tenofovir alafenamida 25 mg/día (enfermedad renal u osteoporosis) o entecavir 0,5 mg/día (1 mg en descompensados). GES 68. Antes de tenofovir: serología VIH; todo HBsAg positivo: anti-VHD.':''}`}},
  ref:'EASL CPG hepatitis B. J Hepatol 2025 · OMS, Guidelines for the prevention, diagnosis, care and treatment of chronic hepatitis B, 2024 · MINSAL, Guía clínica hepatitis B, 3.ª ed., 2021.'},
 
+/* ---------- vía biliar ---------- */
+{id:'asge',g:'Vía biliar',t:'Coledocolitiasis: riesgo ASGE 2019',d:'Probabilidad de cálculo en el colédoco en el paciente con colelitiasis sintomática, y examen siguiente.',
+ i:[c('cal','Cálculo en el colédoco visto en ecografía o tomografía'),c('col','Colangitis aguda'),n('bili','Bilirrubina total','mg/dL','2.1'),
+    c('dil','Colédoco dilatado (> 6 mm con vesícula in situ)'),c('lab','Pruebas hepáticas alteradas (FA, GGT, transaminasas o bilirrubina)'),n('age','Edad','años','62')],
+ f(v){const alto=v.cal||v.col||(v.bili!==null&&v.bili>4&&v.dil);
+  const inter=!alto&&(v.lab||(v.bili!==null&&v.bili>1.2)||(v.age!==null&&v.age>55)||v.dil);
+  const r=alto?'Alto':inter?'Intermedio':'Bajo', cls=alto?'bad':inter?'mid':'ok';
+  const qu=[];if(v.cal)qu.push('cálculo visto');if(v.col)qu.push('colangitis');if(v.bili>4&&v.dil)qu.push('bilirrubina &gt; 4 con colédoco dilatado');
+  const qi=[];if(v.lab||(v.bili!==null&&v.bili>1.2))qi.push('pruebas alteradas');if(v.age>55)qi.push('edad &gt; 55');if(v.dil)qi.push('colédoco dilatado');
+  return {vals:[V('Riesgo',r,cls),V('Probabilidad',alto?'&gt; 50 %':inter?'10–50 %':'&lt; 10 %',cls)],
+   txt:alto?`Criterio de alto riesgo: ${qu.join(', ')}. <b>CPRE</b> preoperatoria (o exploración laparoscópica de la vía biliar) y colecistectomía en la misma hospitalización.`
+   :inter?`Riesgo intermedio por ${qi.join(', ')}. <b>Endosonografía o colangiorresonancia</b> antes de decidir la CPRE (la endosonografía ve mejor los cálculos &lt; 5 mm).`
+   :'Sin predictores: <b>colecistectomía</b> sin estudio adicional de la vía biliar.'}},
+ ref:'Buxbaum JL et al. ASGE guideline on choledocholithiasis. Gastrointest Endosc 2019;89:1075-1105.'},
+
+{id:'tg18cg',g:'Vía biliar',t:'Colangitis aguda: Tokio 2018',d:'Criterios diagnósticos, grado de gravedad y momento del drenaje biliar.',
+ i:[c('fie','A1 · Fiebre > 38 °C o calofríos'),c('inf','A2 · Leucocitos < 4.000 o > 10.000/mm³, o PCR ≥ 1 mg/dL'),c('ict','B1 · Ictericia (bilirrubina ≥ 2 mg/dL)'),c('lab','B2 · FA, GGT, AST o ALT > 1,5 × LSN'),
+    c('dil','C1 · Dilatación de la vía biliar'),c('cau','C2 · Causa visible (cálculo, estenosis, prótesis)'),
+    c('ofa','Disfunción orgánica: cualquier noradrenalina o dopamina ≥ 5 µg/kg/min, compromiso de conciencia, PaO₂/FiO₂ < 300, oliguria o creatinina > 2 mg/dL, INR > 1,5 o plaquetas < 100.000'),
+    n('wbc','Leucocitos','×10³/µL','16.5'),n('tem','Temperatura máxima','°C','39.2'),n('age','Edad','años','78'),n('bili','Bilirrubina total','mg/dL','4.1'),c('alb','Albúmina < 0,7 × límite inferior normal')],
+ f(v){const A=v.fie||v.inf,B=v.ict||v.lab,C=v.dil||v.cau; const dx=A&&B&&C?'Definitiva':A&&(B||C)?'Sospecha':'No cumple';
+  if(dx==='No cumple')return {vals:[V('Diagnóstico','No cumple','ok')],txt:'Se requiere inflamación sistémica (A) más colestasis (B) o imagen (C).'};
+  const k=[v.wbc!==null&&(v.wbc>12||v.wbc<4),v.tem!==null&&v.tem>=39,v.age!==null&&v.age>=75,v.bili!==null&&v.bili>=5,v.alb].filter(Boolean).length;
+  const g=v.ofa?3:k>=2?2:1;
+  const con={3:'<b>Grado III</b>: soporte orgánico, hemocultivos y antibiótico de amplio espectro; <b>drenaje biliar urgente</b> apenas se estabilice (basta descomprimir con prótesis o sonda nasobiliar).',2:'<b>Grado II</b>: antibiótico y <b>drenaje biliar precoz</b> (primeras 24 h); tratar la causa en el mismo acto si es posible.',1:'<b>Grado I</b>: antibiótico; drenaje si no responde en 24 h o para tratar la causa (cálculo).'}[g];
+  return {vals:[V('Diagnóstico',dx,dx==='Definitiva'?'bad':'mid'),V('Gravedad','Grado '+['','I','II','III'][g],['','ok','mid','bad'][g])],
+   txt:`${con}${g<3?` Criterios de grado II presentes: ${k} de 5.`:''} Antibiótico por 4–7 días tras controlar el foco; colecistectomía en la misma hospitalización si la causa fue litiásica.`}},
+ ref:'Kiriyama S et al. Tokyo Guidelines 2018: diagnostic criteria and severity grading of acute cholangitis. J Hepatobiliary Pancreat Sci 2018;25:17-30 · Miura F et al. TG18 flowchart, ibid. 2018;25:31-40.'},
+
+{id:'tg18cc',g:'Vía biliar',t:'Colecistitis aguda: Tokio 2018',d:'Criterios diagnósticos, grado de gravedad y conducta según comorbilidad.',
+ i:[c('mur','A · Signo de Murphy'),c('loc','A · Masa, dolor o sensibilidad en el hipocondrio derecho'),c('fie','B · Fiebre'),c('pcr','B · PCR elevada'),c('leu','B · Leucocitosis'),c('img','C · Imagen compatible (pared engrosada, líquido perivesicular, Murphy ecográfico)'),
+    c('ofa','Disfunción orgánica: cualquier noradrenalina o dopamina ≥ 5 µg/kg/min, compromiso de conciencia, PaO₂/FiO₂ < 300, oliguria o creatinina > 2 mg/dL, INR > 1,5 o plaquetas < 100.000'),
+    n('wbc','Leucocitos','×10³/µL','14'),c('mas','Masa palpable dolorosa'),n('dur','Horas desde el inicio de los síntomas','h','48'),c('mar','Inflamación local marcada (gangrenosa, enfisematosa, absceso perivesicular o hepático, peritonitis biliar)'),
+    n('cci','Índice de comorbilidad de Charlson','','2'),s('asa','ASA',[['1','I'],['2','II'],['3','III'],['4','IV o más']]),c('rev','La falla orgánica es cardiovascular o renal y revierte rápido')],
+ f(v){const A=v.mur||v.loc,B=v.fie||v.pcr||v.leu,C=v.img; const dx=A&&B&&C?'Definitiva':A&&B?'Sospecha':'No cumple';
+  if(dx==='No cumple')return {vals:[V('Diagnóstico','No cumple','ok')],txt:'Se requiere inflamación local (A) más sistémica (B); la imagen (C) la confirma.'};
+  const g=v.ofa?3:((v.wbc!==null&&v.wbc>18)||v.mas||(v.dur!==null&&v.dur>72)||v.mar)?2:1;
+  const cci=v.cci, asa=+v.asa; let con;
+  if(g===1)con='<b>Grado I</b>: colecistectomía laparoscópica precoz.';
+  else if(g===2)con=(cci!==null&&cci<=5&&asa<=2)?'<b>Grado II</b> con Charlson ≤ 5 y ASA ≤ 2: colecistectomía laparoscópica precoz en centro con experiencia.':'<b>Grado II</b> con comorbilidad (Charlson &gt; 5 o ASA ≥ 3): antibiótico y <b>drenaje vesicular</b> (percutáneo o por endosonografía) si no responde; cirugía diferida.';
+  else con=(v.rev&&cci!==null&&cci<=3&&asa<=2)?'<b>Grado III</b> con falla rápidamente reversible, Charlson ≤ 3 y ASA ≤ 2: soporte y colecistectomía precoz en centro avanzado.':'<b>Grado III</b>: soporte orgánico, antibiótico y <b>drenaje vesicular urgente</b>; colecistectomía diferida cuando mejore.';
+  return {vals:[V('Diagnóstico',dx,dx==='Definitiva'?'bad':'mid'),V('Gravedad','Grado '+['','I','II','III'][g],['','ok','mid','bad'][g])],
+   txt:con+' Momento ideal de la cirugía: primeras 72 h (hasta 7 días desde el inicio); pasado ese plazo, enfriar y operar a las 6 semanas.'}},
+ ref:'Yokoe M et al. Tokyo Guidelines 2018: diagnostic criteria and severity grading of acute cholecystitis. J Hepatobiliary Pancreat Sci 2018;25:41-54 · Okamoto K et al. TG18 flowchart, ibid. 2018;25:55-72.'},
+
 /* ---------- HCC ---------- */
 {id:'hcc',g:'Hepatocarcinoma',t:'BCLC y criterios de trasplante',d:'Ingresar los diámetros de cada nódulo; calcula BCLC 2026, Milán, UCSF, up-to-seven, Metroticket 2.0 simplificado y modelo AFP francés.',
  i:[tx('nod','Diámetros de los nódulos (cm, separados por coma)','3.5, 2'),n('afp','AFP','ng/mL','150'),c('vas','Invasión macrovascular'),c('ext','Diseminación extrahepática'),
@@ -711,6 +756,26 @@ vhb:{uso:'r',
  esc:(v,r)=>({h:['Criterio (EASL 2025)','Recomendación'],rows:[['Cirrosis con DNA detectable','Tratar (fuerte)'],['DNA &gt; 2.000 UI/mL y ALT &gt; LSN y/o fibrosis &gt; 7 kPa','Tratar (fuerte)'],['HBeAg positivo con riesgo de HCC (&gt; 30 años, familiar) o manifestaciones extrahepáticas','Tratar (fuerte)'],['Fibrosis avanzada (&gt; 8 kPa) con DNA detectable, o DNA &lt; 2.000 con ALT persistentemente alta','Puede tratarse (débil)'],['Sin lo anterior','Observar: DNA y ALT cada 6–12 meses'],['Inmunosupresión, o embarazo con DNA &gt; 200.000 UI/mL','Profilaxis (TDF desde la semana 24–28 en el embarazo)']],on:{'Tratar':r.txt.indexOf('Cirrosis con DNA')>=0?0:r.txt.indexOf('DNA &gt; 2.000 UI/mL con ALT')>=0?1:2,'Considerar':3,'Observar':4,'Profilaxis':5,'TDF semana 24–28':5}[r.vals[0].v]}),
  ej:[{l:'HBeAg (−) con hepatitis activa',v:{dna:25000,alt:68,sex:'m',age:44,ag:'n',lsm:6.5}},{l:'Infección HBeAg (−) inactiva',v:{dna:800,alt:22,sex:'f',age:38,ag:'n',lsm:5}},{l:'HBeAg (+) > 30 años, ALT normal',v:{dna:50000000,alt:28,sex:'m',age:34,ag:'p',lsm:5.8}},{l:'Cirrosis compensada',v:{dna:350,alt:35,sex:'m',age:61,ag:'n',lsm:16,cir:true}},{l:'Rituximab planificado',v:{dna:0,alt:20,sex:'f',age:55,ag:'n',ims:true}},{l:'Embarazo con DNA alto',v:{dna:3500000,alt:25,sex:'f',age:29,ag:'p',emb:true}}]},
 
+asge:{uso:'r',
+ que:'Clasifica la probabilidad de coledocolitiasis en alto, intermedio o bajo riesgo con predictores clínicos, de laboratorio y de ecografía.',
+ cuando:'Todo paciente con colelitiasis sintomática, pancreatitis biliar o colecistitis antes de la colecistectomía: decide entre CPRE, endosonografía o colangiorresonancia, o cirugía directa.',
+ ojo:'Los criterios de 2019 son más estrictos que los de 2010: la bilirrubina &gt; 4 o el colédoco dilatado aislados ya no son alto riesgo. La pancreatitis biliar sin colangitis no es por sí sola indicación de CPRE.',
+ esc:(v,r)=>({h:['Riesgo','Criterios','Conducta'],rows:[['Alto (&gt; 50 %)','Cálculo visto · colangitis · bilirrubina &gt; 4 + colédoco dilatado','CPRE'],['Intermedio (10–50 %)','Pruebas alteradas · edad &gt; 55 · colédoco dilatado','Endosonografía o colangiorresonancia'],['Bajo (&lt; 10 %)','Ninguno','Colecistectomía']],on:{Alto:0,Intermedio:1,Bajo:2}[r.vals[0].v]}),
+ ej:[{l:'Alto: cálculo visto',v:{cal:true,bili:2.5,dil:true,lab:true,age:48}},{l:'Alto: bilirrubina > 4 + dilatación',v:{bili:5.2,dil:true,lab:true,age:40}},{l:'Intermedio',v:{bili:1.4,lab:true,age:62}},{l:'Bajo',v:{bili:0.6,age:35}}]},
+
+tg18cg:{uso:'r',
+ que:'Criterios de Tokio 2018 para el diagnóstico (A inflamación, B colestasis, C imagen) y la gravedad de la colangitis aguda.',
+ cuando:'Al ingreso de toda sospecha de colangitis: el grado define cuándo drenar la vía biliar (urgente en III, precoz en II).',
+ ojo:'La tríada de Charcot es poco sensible (~25 %). La gravedad cambia en horas: reevaluar. En el grado III basta descomprimir; la extracción del cálculo se completa después.',
+ esc:(v,r)=>{const g=String(r.vals[1]?r.vals[1].v:'');return {h:['Grado','Definición','Drenaje'],rows:[['I · leve','Sin criterios de II ni III','Si no responde a 24 h de antibiótico'],['II · moderada','≥ 2 de: leucocitos &gt; 12.000 o &lt; 4.000, fiebre ≥ 39 °C, edad ≥ 75, bilirrubina ≥ 5, albúmina baja','Precoz (24 h)'],['III · grave','Disfunción de ≥ 1 órgano','Urgente tras estabilizar']],on:g.endsWith('III')?2:g.endsWith('II')?1:g.endsWith('I')?0:-1}},
+ ej:[{l:'Grado I',v:{fie:true,inf:true,ict:true,lab:true,dil:true,cau:true,wbc:11,tem:38.4,age:50,bili:2.6}},{l:'Grado II',v:{fie:true,inf:true,ict:true,lab:true,dil:true,cau:true,wbc:16.5,tem:39.2,age:78,bili:4.1}},{l:'Grado III',v:{fie:true,inf:true,ict:true,lab:true,dil:true,cau:true,ofa:true,wbc:22,tem:39.5,age:70,bili:6}},{l:'Solo sospecha',v:{fie:true,inf:true,lab:true,wbc:13,tem:38.6,age:60,bili:1.5}}]},
+
+tg18cc:{uso:'r',
+ que:'Criterios de Tokio 2018 para el diagnóstico (A local, B sistémico, C imagen) y la gravedad de la colecistitis aguda, con la conducta según Charlson y ASA.',
+ cuando:'Al diagnóstico de colecistitis: decide entre colecistectomía precoz y drenaje vesicular.',
+ ojo:'La edad avanzada por sí sola no contraindica la cirugía precoz (CHOCOLATE). Con más de 72 h de evolución el grado sube a II.',
+ esc:(v,r)=>{const g=String(r.vals[1]?r.vals[1].v:'');return {h:['Grado','Definición','Conducta'],rows:[['I · leve','Sin criterios de II ni III','Colecistectomía laparoscópica precoz'],['II · moderada','Leucocitos &gt; 18.000, masa palpable, &gt; 72 h o inflamación local marcada','Cirugía precoz si Charlson ≤ 5 y ASA ≤ 2; si no, drenaje'],['III · grave','Disfunción de ≥ 1 órgano','Soporte y drenaje; cirugía precoz solo en casos seleccionados']],on:g.endsWith('III')?2:g.endsWith('II')?1:g.endsWith('I')?0:-1}},
+ ej:[{l:'Grado I',v:{mur:true,fie:true,pcr:true,img:true,wbc:13,dur:30,cci:1,asa:'1'}},{l:'Grado II operable',v:{mur:true,loc:true,fie:true,leu:true,img:true,wbc:19,dur:80,cci:3,asa:'2'}},{l:'Grado II alto riesgo',v:{mur:true,leu:true,pcr:true,img:true,wbc:20,mas:true,dur:96,cci:7,asa:'3'}},{l:'Grado III',v:{mur:true,fie:true,leu:true,img:true,ofa:true,wbc:24,dur:60,cci:5,asa:'3'}}]},
 hcc:{uso:'r',
  que:'Estadio BCLC 2026 con su tratamiento de primera opción y criterios de trasplante (Milán, UCSF, up-to-seven, Metroticket 2.0, modelo AFP).',
  cuando:'Al diagnóstico de HCC y en cada comité.',

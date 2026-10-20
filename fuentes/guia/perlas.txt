@@ -338,6 +338,13 @@ Laboratorio: Nivel sérico bajo (< 11 µmol/L, ~50 mg/dL) y fenotipo o genotipo;
 - **PiMZ** (heterocigoto) es modificador: empeora la fibrosis en MASLD y alcohol.
 - La terapia de aumento EV solo protege el pulmón; fazirsiran (RNA de interferencia) reduce la proteína Z hepática en ensayos.
 
+@ Porfirias hepáticas :: Porfirias
+Clínica: **Aguda intermitente**: mujer joven con dolor abdominal intenso sin peritonismo, taquicardia, hipertensión, hiponatremia, neuropatía motora y orina que se oscurece con la luz. **Cutánea tarda**: ampollas y fragilidad en el dorso de las manos, hipertricosis.
+Laboratorio: Porfobilinógeno urinario en muestra aislada durante la crisis (aguda); uroporfirinas urinarias con fluorescencia rosada (cutánea tarda).
+- La cutánea tarda se asocia a **VHC**, alcohol, hierro (HFE) y estrógenos; se trata con flebotomías o hidroxicloroquina en dosis baja y remite al curar el VHC.
+- Crisis aguda: hemina EV; givosirán (RNA de interferencia contra ALAS1) con ≥ 4 crisis al año; HCC con vigilancia desde los 50 años.
+- Protoporfiria eritropoyética: fotosensibilidad dolorosa sin ampollas, cálculos biliares y hepatopatía colestásica.
+
 # b12_dili.html
 @ Definición y clasificación :: DILI: criterios y fenotipos
 Definición: Caso de DILI: **ALT ≥ 5 × LSN**, o **FA ≥ 2 × LSN** (con GGT alta y sin causa ósea), o **ALT ≥ 3 × LSN con bilirrubina > 2 × LSN**. Intrínseca (dosis dependiente, predecible: paracetamol), idiosincrática (impredecible) e indirecta (el fármaco desencadena otra enfermedad: HAI por anti-TNF, reactivación de VHB, empeoramiento de MASLD con corticoides).
@@ -396,32 +403,6 @@ Laboratorio: Hipoglicemia, ácido úrico alto, hiperamonemia, coagulopatía y fa
 - Coledocolitiasis: la CPRE es segura en el segundo trimestre con protección fetal.
 
 # b14_lesiones_hcc.html
-@ Lesiones focales en hígado no cirrótico :: Hemangioma
-Definición: El tumor hepático benigno más frecuente; malformación vascular, más en mujeres.
-Imagen: Ecografía hiperecogénica homogénea; TC o RM con **realce periférico nodular discontinuo y llenado centrípeto**; muy hiperintenso en T2 («en bombilla», light bulb).
-- No se biopsia ni se sigue si es típico; no contraindica el embarazo ni los anticonceptivos.
-- **Síndrome de Kasabach-Merritt**: coagulopatía de consumo y trombocitopenia en hemangiomas gigantes (> 10 cm).
-
-@ Lesiones focales en hígado no cirrótico :: Hiperplasia nodular focal
-Definición: Hiperplasia policlonal reactiva a una malformación arterial; mujeres de 20–50 años; sin riesgo de malignización ni de sangrado.
-Imagen: **Cicatriz central** (hiperintensa en T2, realce tardío) y arteria central con patrón **«en rueda de carro»** (spoke-wheel) en Doppler o CEUS. **Iso o hiperintensa en fase hepatobiliar** con gadoxetato (hepatocitos funcionantes), a diferencia del adenoma (hipointenso).
-Patología: Nódulos de hepatocitos separados por septos fibrosos con vasos distróficos y proliferación ductular; tinción de **glutamina sintetasa «en mapa»** (map-like), diagnóstica.
-- No requiere suspender anticonceptivos ni seguimiento si es típica.
-- El fibrolamelar también tiene cicatriz central: sospechar en joven con lesión grande y calcificada.
-
-@ Lesiones focales en hígado no cirrótico :: Adenoma hepatocelular
-Definición: Proliferación monoclonal benigna; mujeres con anticonceptivos, anabólicos, obesidad y glucogenosis (tipos I y III).
-Patología: Subtipos moleculares: **HNF1A inactivado** (esteatósico; pérdida de LFABP; caída de señal en fase opuesta; bajo riesgo), **inflamatorio** (el más frecuente; SAA y PCR positivas; obesidad y alcohol; «signo del atolón» en T2; sangra), **β-catenina activado** (riesgo de transformación a HCC; hombres y anabólicos; glutamina sintetasa difusa), sonic hedgehog (sangrado) y no clasificado.
-- **Resecar** si mide > 5 cm, en **hombres de cualquier tamaño** o con β-catenina activada.
-- En la mujer: suspender anticonceptivos, bajar de peso y reevaluar a los 6 meses.
-
-@ Lesiones focales en hígado no cirrótico :: Quiste hidatídico y abscesos
-Definición: **Hidatidosis** por Echinococcus granulosus, endémica en Chile (zonas rurales ganaderas).
-Imagen: Clasificación de la OMS (CE1–CE5); **signo del nenúfar** (membrana desprendida flotando), arena hidatídica y vesículas hijas en patrón «en rueda» o roseta; calcificación en el quiste inactivo.
-- Punción con riesgo de **anafilaxia** y siembra: albendazol antes y PAIR o cirugía según el estadio; la rotura a la vía biliar causa colangitis e ictericia.
-- **Absceso piógeno**: Klebsiella pneumoniae hipervirulenta (diabéticos; endoftalmitis y metástasis sépticas); buscar cáncer de colon si hay Streptococcus gallolyticus o Klebsiella sin causa.
-- **Absceso amebiano**: único, lóbulo derecho, hombre joven, contenido en **«pasta de anchoas»**; serología y metronidazol, rara vez drenaje.
-
 @ Hepatocarcinoma :: Hepatocarcinoma
 Definición: Tumor primario hepático más frecuente; > 80 % sobre cirrosis. Diagnóstico **sin biopsia** solo en cirrosis o VHB (LI-RADS 5: realce arterial no periférico más lavado no periférico, cápsula o crecimiento, ≥ 10 mm).
 Patología: Trabéculas engrosadas (> 3 células), pérdida de la trama de reticulina, **arterias no pareadas** y bilis en las células tumorales. Carcinoma precoz frente a nódulo displásico: **glipicano-3, HSP70 y glutamina sintetasa** (2 de 3 positivos = HCC).
@@ -437,6 +418,50 @@ Laboratorio: CA 19-9 sube también en colestasis y colangitis; el ~10 % **Lewis 
 - Factores de riesgo: CEP, quistes de colédoco (Todani), hepatolitiasis, parásitos (Clonorchis, Opisthorchis), VHB, VHC y MASLD.
 - Perihiliar irresecable < 3 cm sin metástasis: trasplante tras quimiorradioterapia (protocolo Mayo).
 - **Cáncer de vesícula**: Chile tiene una de las incidencias más altas del mundo (mujeres, ascendencia mapuche, colelitiasis); el GES cubre la colecistectomía preventiva entre los 35 y 49 años. Vesícula en porcelana y pólipos > 10 mm (> 8 mm en CEP): colecistectomía.
+
+# b17_litiasis.html
+@ Colecistitis aguda (Tokio 2018) :: Vesícula y vía biliar: semiología
+Examen físico: **Signo de Murphy** (detención de la inspiración al palpar el hipocondrio derecho). **Signo de Courvoisier-Terrier**: vesícula palpable no dolorosa con ictericia → neoplasia periampular o de páncreas (la vesícula litiásica es fibrótica y no se distiende). Signo de Boas: hiperestesia bajo la escápula derecha.
+Patología: **Colesterolosis** (macrófagos cargados de colesterol en la mucosa: vesícula «en fresa», seudopólipos) y **adenomiomatosis** (senos de Rokitansky-Aschoff: artefacto en cola de cometa en la ecografía y «collar de perlas» en la RM); ninguna es premaligna.
+- Ictericia en una colecistitis sin coledocolitiasis: síndrome de Mirizzi o colangitis por compresión.
+- **Barro biliar**: ceftriaxona, nutrición parenteral, ayuno prolongado, embarazo y octreotide.
+- Fiebre, ictericia y dolor (Charcot) es colangitis hasta demostrar lo contrario; agregar shock y confusión (Reynolds) = grado III.
+- **LPAC** (ABCB4): cálculos antes de los 40 años que recurren tras la colecistectomía; focos intrahepáticos con cola de cometa; AUDC.
+
+# b18_benignas.html
+@ Tumores sólidos benignos :: Hemangioma
+Definición: El tumor hepático benigno más frecuente; malformación vascular, más en mujeres.
+Imagen: Ecografía hiperecogénica homogénea; TC o RM con **realce periférico nodular discontinuo y llenado centrípeto**; muy hiperintenso en T2 («en bombilla», light bulb).
+- No se biopsia ni se sigue si es típico; no contraindica el embarazo ni los anticonceptivos.
+- **Síndrome de Kasabach-Merritt**: coagulopatía de consumo y trombocitopenia en hemangiomas gigantes (> 10 cm).
+
+@ Tumores sólidos benignos :: Hiperplasia nodular focal
+Definición: Hiperplasia policlonal reactiva a una malformación arterial; mujeres de 20–50 años; sin riesgo de malignización ni de sangrado.
+Imagen: **Cicatriz central** (hiperintensa en T2, realce tardío) y arteria central con patrón **«en rueda de carro»** (spoke-wheel) en Doppler o CEUS. **Iso o hiperintensa en fase hepatobiliar** con gadoxetato (hepatocitos funcionantes), a diferencia del adenoma (hipointenso).
+Patología: Nódulos de hepatocitos separados por septos fibrosos con vasos distróficos y proliferación ductular; tinción de **glutamina sintetasa «en mapa»** (map-like), diagnóstica.
+- No requiere suspender anticonceptivos ni seguimiento si es típica.
+- El fibrolamelar también tiene cicatriz central: sospechar en joven con lesión grande y calcificada.
+
+@ Tumores sólidos benignos :: Adenoma hepatocelular
+Definición: Proliferación monoclonal benigna; mujeres con anticonceptivos, anabólicos, obesidad y glucogenosis (tipos I y III).
+Patología: Subtipos moleculares: **HNF1A inactivado** (esteatósico; pérdida de LFABP; caída de señal en fase opuesta; bajo riesgo), **inflamatorio** (el más frecuente; SAA y PCR positivas; obesidad y alcohol; «signo del atolón» en T2; sangra), **β-catenina activado** (riesgo de transformación a HCC; hombres y anabólicos; glutamina sintetasa difusa), sonic hedgehog (sangrado) y no clasificado.
+- **Resecar** si mide > 5 cm, en **hombres de cualquier tamaño** o con β-catenina activada.
+- En la mujer: suspender anticonceptivos, bajar de peso y reevaluar a los 6 meses.
+
+@ Lesiones infecciosas :: Quiste hidatídico y abscesos
+Definición: **Hidatidosis** por Echinococcus granulosus, endémica en Chile (zonas rurales ganaderas).
+Imagen: Clasificación de la OMS (CE1–CE5); **signo del nenúfar** (membrana desprendida flotando), arena hidatídica y vesículas hijas en patrón «en rueda» o roseta; calcificación en el quiste inactivo.
+- Punción con riesgo de **anafilaxia** y siembra: albendazol antes y PAIR o cirugía según el estadio; la rotura a la vía biliar causa colangitis e ictericia.
+- **Absceso piógeno**: Klebsiella pneumoniae hipervirulenta (diabéticos; endoftalmitis y metástasis sépticas); buscar cáncer de colon si hay Streptococcus gallolyticus o Klebsiella sin causa.
+- **Absceso amebiano**: único, lóbulo derecho, hombre joven, contenido en **«pasta de anchoas»**; serología y metronidazol, rara vez drenaje.
+
+@ Lesiones quísticas :: Lesiones quísticas y Caroli
+Definición: Quiste simple: anecoico, sin septos ni nódulos, se da de alta. Neoplasia quística mucinosa: mujer, septos gruesos y nódulos, estroma ovárico; se reseca. Caroli: dilatación sacular congénita de los conductos intrahepáticos (Todani V).
+Imagen: **Signo del punto central** (rama portal rodeada por el conducto dilatado) en Caroli; «cielo estrellado» de pequeños quistes en los hamartomas biliares (von Meyenburg).
+- **Síndrome de Caroli** = Caroli + **fibrosis hepática congénita** (hipertensión portal con función conservada), asociado a riñón poliquístico autosómico recesivo (PKHD1); la enfermedad poliquística del adulto (PKD1, PKD2) da quistes sin comunicación biliar.
+- Complicaciones de Caroli: colangitis, hepatolitiasis, abscesos y colangiocarcinoma (~7 %).
+- Enfermedad poliquística: los estrógenos y embarazos la agravan; análogos de somatostatina reducen el volumen hepático.
+- La aspiración sola de un quiste simple recidiva casi siempre: fenestración o escleroterapia si da síntomas.
 
 # b15_trasplante.html
 @ Cuándo derivar :: Trasplante: indicaciones y contraindicaciones

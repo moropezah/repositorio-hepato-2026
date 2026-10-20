@@ -119,6 +119,13 @@
           "archivo": "b14_lesiones_hcc.html"
         },
         {
+          "id": "b18",
+          "num": 18,
+          "titulo": "Lesiones hepáticas benignas, quísticas e infecciosas",
+          "corto": "Lesiones benignas · quistes · abscesos",
+          "archivo": "b18_benignas.html"
+        },
+        {
           "id": "b15",
           "num": 15,
           "titulo": "Trasplante hepático",
@@ -136,6 +143,18 @@
           "titulo": "Imágenes, Fibroscan y endohepatología",
           "corto": "Imágenes · Fibroscan · endohepatología",
           "archivo": "b16_talleres.html"
+        }
+      ]
+    },
+    {
+      "nombre": "Vía biliar",
+      "bloques": [
+        {
+          "id": "b17",
+          "num": 17,
+          "titulo": "Litiasis biliar: colelitiasis, coledocolitiasis, colecistitis y colangitis",
+          "corto": "Litiasis biliar · Tokio · ASGE",
+          "archivo": "b17_litiasis.html"
         }
       ]
     }
