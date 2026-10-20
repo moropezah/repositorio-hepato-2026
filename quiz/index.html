@@ -2443,7 +2443,7 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",
 
 /* ---------- almacenamiento: este navegador + nube (Google Sheets) ---------- */
 const KEY="quizHepato_2026";
-const CLOUD_DEF={api:"",token:"hepato-2026"};
+const CLOUD_DEF={api:"https://script.google.com/macros/s/AKfycbwrh1RKcOHr-CEqEHMot4SsY-pk0gb9wDdKY70NLPAO3xxunA9ZsiBGcd-nMAjZS5eR/exec",token:"hepato-2026"};
 const CLOUD=(()=>{let o={};try{o=JSON.parse(localStorage.getItem("quizHepato_cloud")||"{}")}catch(e){}
   const api=o.api||CLOUD_DEF.api, tk=o.token||CLOUD_DEF.token;return {api:api.startsWith("http")?api:"",tokens:[tk],token:tk,id:"quizHepato_2026"}})();
 let tokenReady=null;         // se resuelve cuando se sabe qué clave acepta el script

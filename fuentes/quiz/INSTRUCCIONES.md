@@ -11,7 +11,7 @@ El progreso se guarda siempre en el navegador. Para sincronizarlo entre disposit
 3. **Implementar → Nueva implementación** → tipo **Aplicación web**.
    - Ejecutar como: **Yo**.
    - Quién tiene acceso: **Cualquier usuario**.
-4. Autorice los permisos (cuenta propia) y copie la **URL de la aplicación web** (termina en `/exec`).
+4. Autorice los permisos (cuenta propia) y copie la **URL de la aplicación web** (termina en `/exec`). Implementación activa: `…ZS5eR/exec` (configurada en `config.json`).
 5. En el quiz → pestaña **Progreso** → **Conexión con Google Sheets**: pegue la URL, clave `hepato-2026` → **Guardar y reconectar**.
 
 Para que quede fija en todos los dispositivos sin pegarla en cada uno, se escribe en `fuentes/quiz/config.json`:
