@@ -680,33 +680,45 @@
    "g": "mas",
    "cl": "Agonista del receptor de GLP-1.",
    "ind": "MASH no cirrótico F2–F3 (FDA, agosto 2025); obesidad y diabetes con MASLD.",
-   "dos": "SC semanal: 0,25 mg × 4 semanas, subir cada 4 semanas hasta <b>2,4 mg/semana</b>.",
+   "dos": "SC semanal: <b>0,25 mg</b> semanas 1–4 → <b>0,5 mg</b> semanas 5–8 → <b>1 mg</b> semanas 9–12 → <b>1,7 mg</b> semanas 13–16 → <b>2,4 mg</b> desde la semana 17. Con intolerancia: tratamiento sintomático, retrasar la subida o bajar un escalón.",
    "aj": "Cirrosis compensada: datos limitados; no en descompensada.",
    "mon": "ESSENCE: resolución de esteatohepatitis 63 % vs 34 %; mejoría de fibrosis 37 % vs 22 %. Peso, tolerancia.",
-   "ea": "Náuseas, vómitos, colelitiasis, pancreatitis; pérdida de masa magra (proteínas y ejercicio). Contraindicada con antecedente de carcinoma medular de tiroides o MEN2.",
+   "ea": "Náuseas, vómitos, diarrea o constipación (dependientes de la dosis, al titular); eventos biliares (+37 %: colelitiasis, colecistitis); pancreatitis rara; empeoramiento transitorio de la retinopatía diabética; neuropatía óptica isquémica anterior no arterítica (rara); pérdida de masa magra. Contraindicada con antecedente personal o familiar de carcinoma medular de tiroides o NEM2. Hasta 50 % la abandona el primer año en la vida real.",
    "cob": [
     "bol"
    ],
-   "ch": "Disponible (bolsillo).",
-   "ev": "ESSENCE (NEJM 2025) · EASL-EASD-EASO 2026",
+   "ch": "Disponible en farmacias (costo elevado, de bolsillo); registrada para DM2 y obesidad, no para MASH.",
+   "ev": "ESSENCE (NEJM 2025) · SELECT (NEJM 2023) · EASL-EASD-EASO 2026 (J Hepatol, doi 10.1016/j.jhep.2026.08.028)",
    "lin": "MASH F2–F3 con obesidad, DM2 o riesgo cardiovascular (EASL-EASD-EASO 2026: preferida en ese perfil).",
-   "resp": "Baja de ALT y peso en 3–6 meses. Meta de peso ≥ 10 %. Reevaluar fibrosis con tests no invasivos a los 12 meses.",
+   "resp": "Peso y ALT en 3–6 meses (meta de peso ≥ 10 %). Tests de fibrosis a los 12 meses y luego anuales; la evaluación hepática formal es a los <b>18 meses</b> (EASL 2026): fibrosis estable → puede continuar; empeora → buscar otra terapia para MASH y decidir si se mantiene por su beneficio cardiometabólico. Respuesta: rigidez −30 % (VCTE), RM-PDFF −30 %, ELF −0,5 o ALT −17 U/L.",
    "plan": [
     [
      "Basal",
-     "Peso, HbA1c, lipasa si hay antecedente de pancreatitis; descartar carcinoma medular de tiroides o MEN2; fondo de ojo si hay retinopatía diabética"
+     "Tests de fibrosis (excluir cirrosis), peso y composición corporal, HbA1c, lípidos, PA, función renal, alcohol (AUDIT-C); descartar carcinoma medular de tiroides o NEM2, pancreatitis, enfermedad biliar, gastroparesia; fondo de ojo si hay DM2"
     ],
     [
      "Cada 4 semanas",
-     "Subir dosis según tolerancia gastrointestinal"
+     "Subir la dosis según tolerancia; revisar efectos adversos"
     ],
     [
-     "Mes 3–6",
-     "Peso, ALT, glicemia; ajustar hipoglicemiantes (sulfonilureas, insulina)"
+     "Mes 3",
+     "Perfil hepático, peso, glicemia; ajustar sulfonilureas e insulina"
+    ],
+    [
+     "Mes 6",
+     "Perfil hepático, peso, glicemia, ingesta y actividad física, fuerza o masa muscular; vitaminas si baja rápido de peso"
     ],
     [
      "Mes 12",
-     "FIB-4 y elastografía; masa muscular (proteínas y ejercicio)"
+     "Tests de fibrosis, perfil hepático, peso, fondo de ojo en DM2"
+    ],
+    [
+     "Luego",
+     "Perfil hepático, peso, nutrición y fuerza cada 6 meses; glicemia cada 3 meses; fibrosis anual"
+    ],
+    [
+     "Siempre",
+     "Proteínas 1,2–1,5 g/kg/día durante la baja de peso (peso ajustado en obesidad) y ejercicio de resistencia; suspender ante pancreatitis, LRA por deshidratación, obstrucción intestinal, gastroparesia grave o enfermedad biliar"
     ]
    ]
   },
@@ -721,10 +733,9 @@
    "mon": "SYNERGY-NASH: resolución sin empeorar fibrosis 44–62 % vs 10 %.",
    "ea": "Gastrointestinales; igual perfil que GLP-1.",
    "cob": [
-    "bol",
-    "ver"
+    "bol"
    ],
-   "ch": "Verificar registro y costo.",
+   "ch": "Disponible en farmacias como Mounjaro (costo elevado, de bolsillo); registrada para DM2 y obesidad, no para MASH.",
    "ev": "SYNERGY-NASH (NEJM 2024)",
    "lin": "Obesidad o DM2 con MASLD; para MASH aún en estudio (fase 3).",
    "resp": "Igual que semaglutida; mayor pérdida de peso.",
@@ -749,29 +760,45 @@
    "g": "mas",
    "cl": "Agonista selectivo del receptor β de hormona tiroidea hepática.",
    "ind": "MASH no cirrótico F2–F3 (FDA marzo 2024; EMA 2025).",
-   "dos": "<b>80 mg/día</b> si &lt; 100 kg; <b>100 mg/día</b> si ≥ 100 kg.",
-   "aj": "Evitar inhibidores potentes de CYP2C8 (gemfibrozilo); limitar dosis de estatinas.",
+   "dos": "<b>80 mg/día</b> si &lt; 100 kg; <b>100 mg/día</b> si ≥ 100 kg, oral, sin titulación. Con inhibidores moderados de CYP2C8 (clopidogrel), reducir la dosis (ficha: 60 mg si &lt; 100 kg; 80 mg si ≥ 100 kg).",
+   "aj": "Gemfibrozilo y ciclosporina contraindicados. Estatinas: rosuvastatina y simvastatina ≤ 20 mg; atorvastatina y pravastatina ≤ 40 mg. Contraindicado en cirrosis descompensada, HAI o CBP activas, tiroides no controlada y consumo significativo de alcohol.",
    "mon": "MAESTRO-NASH: resolución 26–30 % vs 10 %; mejoría de fibrosis 24–26 % vs 14 %. Reevaluar con pruebas no invasivas al año.",
-   "ea": "Diarrea, náuseas.",
+   "ea": "Diarrea y náuseas (leves, primeras 12 semanas); colelitiasis, colecistitis y pancreatitis biliar (0,9 % vs 0,3 %); T4 libre baja ~14–18 % sin repercusión clínica; sube la SHBG. Un caso de hepatotoxicidad en MAESTRO-NASH.",
    "cob": [
     "nd"
    ],
    "ch": "Sin registro en Chile a octubre 2026 (verificar ISP).",
-   "ev": "MAESTRO-NASH (NEJM 2024) · EASL-EASD-EASO 2026",
+   "ev": "MAESTRO-NASH (NEJM 2024) · EASL-EASD-EASO 2026 (J Hepatol, doi 10.1016/j.jhep.2026.08.028) · AASLD 2025",
    "lin": "MASH F2–F3 sin obesidad, con intolerancia a GLP-1 o ya en uso de GLP-1 (EASL-EASD-EASO 2026).",
-   "resp": "A los 12 meses (AASLD 2025): caída de ALT ≥ 17 U/L o ≥ 20 %, de rigidez ≥ 30 % (VCTE) o de ELF ≥ 0,5. Sin respuesta al año → suspender.",
+   "resp": "Respuesta en tests no invasivos a los 12 meses: rigidez −30 % (VCTE), RM-PDFF −30 %, ELF −0,5 o ALT −17 U/L. <b>EASL 2026</b>: fibrosis estable a los 12 meses → puede continuar; empeora → suspender. <b>AASLD 2025</b>: sin respuesta al año → suspender.",
    "plan": [
     [
      "Basal",
-     "ALT, rigidez (VCTE 8–15 kPa) o ELF, lípidos, TSH; revisar estatinas y gemfibrozilo"
+     "Tests de fibrosis (VCTE 10–20 kPa confirmada; excluir cirrosis), perfil hepático, lípidos, TSH, peso; revisar estatinas, clopidogrel, gemfibrozilo; enfermedad biliar; alcohol"
     ],
     [
-     "Mes 3–6",
-     "ALT, lípidos (baja el LDL), tolerancia digestiva"
+     "Mes 3",
+     "Perfil hepático, peso, efectos adversos (diarrea y náuseas, transitorias)"
+    ],
+    [
+     "Mes 6",
+     "Perfil hepático, lípidos, peso"
     ],
     [
      "Mes 12",
-     "ALT, VCTE o ELF: decidir continuar"
+     "Tests de fibrosis, perfil hepático, lípidos: decidir continuar"
+    ],
+    [
+     "Luego",
+     "Perfil hepático y peso cada 6 meses; lípidos y fibrosis anuales"
+    ],
+    [
+     "Tiroides",
+     "Solo con hipo o hipertiroidismo previo o levotiroxina: TSH cada 3 meses el primer año y luego anual"
+    ],
+    [
+     "Suspender",
+     "Hepatotoxicidad (ALT o AST > 8 × LSN, > 5 × LSN por > 2 semanas, o bilirrubina > 2,5 mg/dL o INR > 1,5 con alza de enzimas); colecistitis o pancreatitis biliar hasta resolver"
     ]
    ]
   },
@@ -1290,7 +1317,7 @@
     "g88x",
     "nd"
    ],
-   "ch": "Sin registro en Chile (verificar ISP).",
+   "ch": "Sin registro ni comercialización en Chile a octubre de 2026.",
    "ev": "ELATIVE (NEJM 2024)",
    "lin": "2.ª línea en CBP (preferido si predomina la fatiga).",
    "resp": "FA baja desde la semana 4; evaluar respuesta (POISE o FA normal) a 6–12 meses.",
@@ -1403,7 +1430,7 @@
    "cob": [
     "nd"
    ],
-   "ch": "Sin registro en Chile (verificar ISP).",
+   "ch": "Sin registro ni comercialización en Chile a octubre de 2026.",
    "ev": "GLISTEN, fase 3 · Sandhu S, Semin Liver Dis 2026",
    "lin": "Prurito moderado a grave de la CBP (FDA 2026).",
    "resp": "Mejoría desde las 2 semanas; evaluar a las 12 semanas.",
@@ -2048,23 +2075,33 @@
    "r": [
     [
      "Base",
-     "Baja de peso ≥ 10 %, ejercicio, alcohol cero",
+     "Baja de peso ≥ 10 %, ejercicio (incluida fuerza), alcohol cero; optimizar comorbilidades",
      "6–12 meses"
     ],
     [
-     "Con obesidad o DM2",
-     "Semaglutida 2,4 mg/semana",
-     "Tests no invasivos a 12 meses"
+     "Obesidad, DM2, enfermedad cardiovascular o ERC",
+     "Semaglutida 2,4 mg/semana (titulación de 16 semanas)",
+     "Tests de fibrosis cada 12 meses; evaluación formal a 18 meses"
     ],
     [
-     "Sin obesidad o intolerancia",
+     "Sin obesidad, ya en GLP-1, dislipidemia o sarcopenia",
      "Resmetirom 80–100 mg/día (sin registro en Chile)",
-     "Sin respuesta a 12 meses → suspender"
+     "Evaluación a 12 meses: estable → continuar (EASL); empeora → suspender"
+    ],
+    [
+     "Ya en GLP-1 por diabetes",
+     "Pasar a semaglutida 2,4 mg o agregar resmetirom",
+     "No iniciar con ambos"
     ],
     [
      "Especialista",
      "Pioglitazona (DM2), vitamina E (no diabéticos)",
      "Histología 6–18 meses"
+    ],
+    [
+     "Cirrosis compensada",
+     "Ningún fármaco dirigido a MASH; semaglutida solo por DM2 u obesidad",
+     "—"
     ]
    ]
   },
