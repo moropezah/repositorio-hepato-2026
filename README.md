@@ -10,9 +10,9 @@ Material de estudio de hepatología para postgrado de gastroenterología, con el
 |---|---|---|
 | 01 | **Guía de estudio Hepatología 2026** — 16 bloques. Cada uno abre con "qué cambió" frente a la guía previa, trae algoritmos con fármaco, dosis y criterio de falla, marcadores (idea clave, error frecuente, Chile) y cierra con caso clínico, flashcards y preguntas con corrección razonada. | 16 / 16 bloques escritos |
 | 02 | **Consulta rápida** — 19 tarjetas con buscador: HPCS (Baveno VIII), hemorragia variceal, enfermedad vascular hepática (trombosis portal, Budd-Chiari, PSVD), ascitis, PBE, HRS-AKI, encefalopatía, ACLF, hepatitis alcohólica, FHA, DILI, VHB, VHC, BCLC, trasplante, GES 88, MASLD, autoinmunes y embarazo. En `index.html#rapida`. | Escrito |
-| 03 | **Vademécum hepatológico** — 76 fármacos en 13 grupos: mecanismo, indicación, dosis, ajustes, monitoreo y criterio de falla, efectos adversos y cobertura en Chile (canasta GES 88 según la Res. Exenta 1452, GES 68 y 69, Ley Ricarte Soto, sin registro). Filtros por grupo y cobertura. En `index.html#vademecum`. | Escrito |
-| 04 | **Calculadoras** — 24: Child-Pugh, MELD / MELD-Na / MELD 3.0, ALBI, cACLD y HPCS (Baveno VIII), puntaje PSVD/NCPF y anticoagulación en trombosis portal no cirrótica (Baveno VIII), ACLF (grado y CLIF-C), CLIF-C AD, LRA (ICA-ADQI), líquido ascítico, Maddrey, Lille, GAHS, ABIC, FIB-4, APRI, NFS, HAI simplificado, respuesta al AUDC, Leipzig, factor R y ley de Hy, King's College, BCLC con criterios de trasplante (Milán, UCSF, up-to-seven, Metroticket 2.0, AFP francés), PAGE-B. En `calc/`. | Escrito |
-| 05 | **Quiz Hepatología** — 164 casos propios (al menos 10 por bloque; 85 de estudio, 79 de examen) con explicación, por qué no las otras, perla y referencias; examen cronometrado, flashcards, progreso por tema, temario enlazado a la guía, siglas y exportación (HTML, CSV, Anki, JSON, PDF). Sincroniza con el Sheet propio «Quiz Hepatología 2026 · Progreso» vía Apps Script (`fuentes/quiz/Code.gs`, ver `INSTRUCCIONES.md`). En `quiz/`. | Escrito |
+| 03 | **Vademécum hepatológico** — 77 fármacos en 13 grupos: mecanismo, indicación, dosis, ajustes, monitoreo y criterio de falla, efectos adversos y cobertura en Chile (canasta GES 88 según la Res. Exenta 1452, GES 68 y 69, Ley Ricarte Soto, sin registro). Filtros por grupo y cobertura. En `index.html#vademecum`. | Escrito |
+| 04 | **Calculadoras** — 26: Child-Pugh, MELD / MELD-Na / MELD 3.0, ALBI, cACLD y HPCS con ANTICIPATE / ANTICIPATE-NASH (Baveno VIII), riesgo quirúrgico (con enlace a VOCAL-Penn), Liver Frailty Index, puntaje PSVD/NCPF y anticoagulación en trombosis portal no cirrótica (Baveno VIII), ACLF (grado y CLIF-C), CLIF-C AD, LRA (ICA-ADQI), líquido ascítico, Maddrey, Lille, GAHS, ABIC, FIB-4, APRI, NFS, HAI simplificado, respuesta al AUDC, Leipzig, factor R y ley de Hy, King's College, BCLC con criterios de trasplante (Milán, UCSF, up-to-seven, Metroticket 2.0, AFP francés), PAGE-B. En `calc/`. | Escrito |
+| 05 | **Quiz Hepatología** — 240 casos propios (15 por bloque; 117 de estudio, 123 de examen; 80 de nivel fellow y 46 staff) con explicación, por qué no las otras, perla y referencias; examen cronometrado, flashcards, progreso por tema, temario enlazado a la guía, siglas y exportación (HTML, CSV, Anki, JSON, PDF). Sincroniza con el Sheet propio «Quiz Hepatología 2026 · Progreso» vía Apps Script (`fuentes/quiz/Code.gs`, ver `INSTRUCCIONES.md`). En `quiz/`. | Escrito |
 
 ### Bloques de la guía
 
@@ -50,7 +50,7 @@ fuentes/rapida/rapida.html      · contenido del módulo 02
 fuentes/vademecum/farmacos.json · datos del módulo 03 (grupos, códigos de cobertura, fármacos)
 fuentes/repositorio/actualizar.py · inserta 02 y 03 en index.html entre sus marcas
 fuentes/quiz/plantilla.html     · motor del quiz (derivado del Quiz EII)
-fuentes/quiz/banco/*.js         · preguntas (Q1–Q4, por grupos de bloques)
+fuentes/quiz/banco/*.js         · preguntas (Q1–Q6: cuatro archivos por grupos de bloques y dos de ampliación)
 fuentes/quiz/actualizar.py      · valida el banco con Node y genera quiz/index.html
 fuentes/quiz/Code.gs, INSTRUCCIONES.md · conexión con Google Sheets
 .nojekyll           · evita el procesamiento Jekyll en GitHub Pages

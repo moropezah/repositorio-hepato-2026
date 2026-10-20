@@ -161,14 +161,17 @@ const CALCS=[
  ref:'Johnson PJ et al. J Clin Oncol 2015;33:550-8.'},
 
 {id:'hpcs',g:'Cirrosis',t:'cACLD y HPCS no invasiva (Baveno VIII)',d:'Reglas de Baveno VIII con rigidez hepática (VCTE, en ayuno), plaquetas y rigidez esplénica a 100 Hz; incluye la decisión de endoscopía en quien no puede recibir BBNS.',
- i:[n('lsm','Rigidez hepática (VCTE)','kPa','18'),n('plt','Plaquetas','×10³/µL','128'),n('ssm','Rigidez esplénica 100 Hz (opcional)','kPa',''),
+ i:[n('lsm','Rigidez hepática (VCTE)','kPa','18'),n('plt','Plaquetas','×10³/µL','128'),n('ssm','Rigidez esplénica 100 Hz (opcional)','kPa',''),n('bmi','IMC (para ANTICIPATE-NASH)','kg/m²','27'),
     s('et','Etiología',[['v','Viral'],['a','Alcohol'],['m','MASLD con IMC < 30'],['mo','MASLD con IMC ≥ 30'],['o','Otra']]),
     c('bb','Ya recibe betabloqueador no selectivo'),c('nobb','No puede recibir BBNS (contraindicación o intolerancia)'),
     c('sup','Causa retirada o suprimida (abstinencia, RVS, VHB suprimido)')],
  f(v){if(!need(v,['lsm','plt']))return null;
   const L=v.lsm,P=v.plt,S=v.ssm; let cacld=L<10?'Descarta cACLD':L<=15?'Sugiere cACLD':'cACLD muy probable';
   let h,cls; const out=L<=15&&P>=150;
-  const inA=(L>=25&&['v','a','m'].includes(v.et))||(S!==null&&S>55);
+  const nash=(v.et==='m'||v.et==='mo')&&v.bmi!==null;
+  const lg=nash?-3.9529402+2.2835809*ln(L)-0.033777725*v.bmi-0.014490895*P:-6.3320165+3.1001014*ln(L)-0.020481545*Math.min(P,150);
+  const pr=1/(1+Math.exp(-lg)), mod=nash?'ANTICIPATE-NASH':'ANTICIPATE', prOk=L>=10&&((v.et!=='m'&&v.et!=='mo')||nash);
+  const inA=(L>=25&&['v','a','m'].includes(v.et))||(S!==null&&S>55)||(prOk&&pr>=0.75);
   const vasc=L<10&&(P<150||(S!==null&&S>40));
   if(vasc){h='No aplica: sospecha vascular';cls='mid'}else if(out||L<10){h='HPCS descartada';cls='ok'}else if(inA){h='HPCS confirmada';cls='bad'}else{h='Zona gris';cls='mid'}
   if(vasc) return {vals:[V('cACLD','Descarta cACLD','ok'),V('HPCS',h,cls)],txt:'<b>Rigidez &lt; 10 kPa con signos de hipertensión portal:</b> los criterios de cACLD y HPCS no aplican. Sospechar <b>enfermedad vascular hepática</b> (Baveno VIII 1.6): Doppler y TC con contraste para trombosis portal o Budd-Chiari; si no hay trombosis, biopsia adecuada y puntaje PSVD/NCPF (calculadora en «Enfermedad vascular»). En PSVD la endoscopía se evita solo con rigidez esplénica &lt; 40 kPa y bilirrubina &lt; 1 mg/dL.'};
@@ -181,11 +184,14 @@ const CALCS=[
   else if(v.nobb) endo='<b>Endoscopía</b>: ligar várices grandes (esofágicas o GOV1). Sin várices, repetir a los '+rep+', salvo que antes cumpla los criterios para evitarla (Baveno VIII 1.19–1.20).';
   else if(L<25&&P>110) endo='Cumple el criterio expandido (&lt; 25 kPa y &gt; 110.000), que no es de consenso: riesgo bajo de várices que requieren tratamiento. Si no inicia BBNS, decisión individual.';
   else endo='Si no inicia BBNS: endoscopía de tamizaje. Sin várices, repetir a los '+rep+'.';
-  let nota=''; if(L>=25&&v.et==='mo'&&!(S>55)) nota='<br>En MASLD con obesidad el corte de 25 kPa pierde VPP: usar ANTICIPATE-NASH o rigidez esplénica.';
-  if(h==='Zona gris') nota+='<br>Zona gris: calcular ANTICIPATE ± NASH o NICER (≥ 75 % confirma), agregar rigidez esplénica o reevaluar a los 12 meses; GPVH si cambia la conducta.';
+  let nota=''; if(L>=25&&v.et==='mo'&&!(S>55)) nota='<br>En MASLD con obesidad el corte de 25 kPa pierde VPP: la decisión se apoya en ANTICIPATE-NASH o en la rigidez esplénica.';
+  if(prOk) nota+=`<br><b>${mod}</b>: probabilidad de HPCS ${Math.round(pr*100)} % (≥ 75 % confirma por Baveno VIII).`;
+  else if(v.et==='m'||v.et==='mo') nota+='<br>Ingrese el IMC para calcular ANTICIPATE-NASH.';
+  if(h==='Zona gris') nota+='<br>Zona gris: agregar rigidez esplénica o reevaluar a los 12 meses; GPVH si cambia la conducta.';
   if(L>=10) nota+='<br>Índice ≥ 10 kPa: confirmar con una segunda medición en ayuno u otro test de fibrosis avanzada antes de rotular la cACLD.';
-  return {vals:[V('cACLD',cacld,L<10?'ok':L<=15?'mid':'bad'),V('HPCS',h,cls)],txt:endo+nota}},
- ref:'Baveno VIII – Advancing consensus in portal hypertension. J Hepatol 2026;85:993-1018 (1.3–1.20, 3.18–3.19) · Baveno VII (J Hepatol 2022;76:959).'},
+  const vv=[V('cACLD',cacld,L<10?'ok':L<=15?'mid':'bad'),V('HPCS',h,cls)]; if(prOk)vv.push(V(mod,Math.round(pr*100)+' %',pr>=0.75?'bad':pr>=0.5?'mid':'ok'));
+  return {vals:vv,txt:endo+nota}},
+ ref:'Abraldes JG, Hepatology 2016;64:2173 (ANTICIPATE) · Pons M, Am J Gastroenterol 2021;116:723 (ANTICIPATE-NASH; fórmulas según Rabiee A, Hepatol Commun 2022) · Baveno VIII – Advancing consensus in portal hypertension. J Hepatol 2026;85:993-1018 (1.3–1.20, 3.18–3.19) · Baveno VII (J Hepatol 2022;76:959).'},
 
 {id:'aclf',g:'Cirrosis',t:'ACLF: grado EASL-CLIF y CLIF-C ACLF',d:'Fallas orgánicas por CLIF-OF, grado de ACLF y score pronóstico (si no hay ACLF, usar CLIF-C AD).',
  i:[n('age','Edad','años','56'),n('wbc','Leucocitos','×10⁹/L','14'),n('bili','Bilirrubina','mg/dL','8'),n('cr','Creatinina','mg/dL','2.4'),c('rrt','Terapia de reemplazo renal'),
@@ -271,6 +277,26 @@ const CALCS=[
   return {vals:[V('Riesgo de recurrencia',rc,cls)],txt:dur+'<br>'+txt+extra+'<br>Endoscopía al diagnóstico; sin várices de alto riesgo, repetir a los 12 meses y luego cada 2 años (se evita si la rigidez esplénica es &lt; 40 kPa). ACOD contraindicados en SAF doble o triple positivo, embarazo y filtración &lt; 30 mL/min.'}},
  ref:'Baveno VIII – J Hepatol 2026;85:993-1018, enunciados 9.1–9.15, Fig. 5 y tabla S4.'},
 
+{id:'cirugia',g:'Cirrosis',t:'Riesgo quirúrgico en cirrosis',d:'Orientación por Child-Pugh, MELD y tipo de cirugía; la estimación individual se hace con VOCAL-Penn.',
+ i:[s('cp','Child-Pugh',[['A','A'],['B','B'],['C','C']]),n('meld','MELD','','14'),
+    s('tipo','Tipo de cirugía',[['pa','Pared abdominal (hernias)'],['lap','Abdominal laparoscópica'],['ab','Abdominal abierta'],['vas','Vascular'],['ort','Ortopédica mayor'],['car','Torácica o cardíaca']]),
+    c('urg','Cirugía de urgencia'),c('asc','Ascitis no controlada'),c('hp','HPCS o GPVH ≥ 16 mmHg')],
+ f(v){if(!need(v,['meld']))return null;
+  const m=v.meld, cpM={A:'~10 %',B:'~31 %',C:'~76 %'}[v.cp], mM=m<8?'~6 %':m<12?'~6–25 %':m<=15?'~25 %':m<=20?'~25–50 %':'~50 %';
+  let nivel=0; if(v.cp==='B'||(m>=10&&m<=15))nivel=1; if(v.cp==='C'||m>15)nivel=2; if(v.urg||['ab','car'].includes(v.tipo))nivel=Math.min(2,nivel+1); if(v.asc||v.hp)nivel=Math.max(nivel,1);
+  const etq=['Bajo','Intermedio','Alto'][nivel];
+  const cond=['Operar con manejo perioperatorio estándar en centro con hepatología.','Optimizar antes: control de ascitis, nutrición, corrección de sodio y función renal; decidir en equipo con hepatología. Considerar alternativas menos invasivas.','Evitar la cirugía electiva; evaluar trasplante primero o en conjunto. Si es urgente, centro con trasplante y UPC.'][nivel];
+  return {vals:[V('Riesgo',etq,['ok','mid','bad'][nivel]),V('Mortalidad (Child)',cpM,''),V('Mortalidad 30 d (MELD)',mM,'')],
+   txt:`${cond}<br>La cirugía abdominal abierta, cardíaca y la de urgencia elevan el riesgo; la hernia umbilical con ascitis se repara con la ascitis controlada (TIPS previo en casos seleccionados).<br>Para una probabilidad individual a 30, 90 y 180 días use la <a href="https://www.vocalpennscore.com/" target="_blank" rel="noopener">calculadora oficial VOCAL-Penn</a> (edad, ASA, tipo de cirugía, urgencia, MASLD, albúmina, plaquetas, bilirrubina, obesidad): su fórmula usa splines no publicadas en el texto del artículo.`}},
+ ref:'Garrison RN, Ann Surg 1984 (Child) · Teh SH, Gastroenterology 2007 (Mayo/MELD) · Mahmud N, Hepatology 2021;73:204 (VOCAL-Penn) · Northup PG, AGA CPU 2019.'},
+
+{id:'lfi',g:'Cirrosis',t:'Liver Frailty Index (interpretación)',d:'Categoría y conducta a partir del LFI obtenido en la calculadora oficial (prensión, levantarse 5 veces de la silla, equilibrio).',
+ i:[n('lfi','Liver Frailty Index','','4.6'),c('lista','Candidato o en lista de trasplante')],
+ f(v){if(!need(v,['lfi']))return null; const x=v.lfi, cat=x<3.2?'Robusto':x<4.5?'Prefrágil':'Frágil';
+  return {vals:[V('Categoría',cat,x<3.2?'ok':x<4.5?'mid':'bad')],
+   txt:(x>=4.5?'<b>Frágil</b>: mayor mortalidad en lista independiente del MELD; prehabilitación supervisada (ejercicio de resistencia y aeróbico), 35–40 kcal/kg, proteínas 1,2–1,5 g/kg, colación nocturna; buscar sarcopenia por TC en L3. No contraindica el trasplante por sí solo.':x>=3.2?'<b>Prefrágil</b>: intervención nutricional y ejercicio; repetir el LFI cada 3 meses.':'<b>Robusto</b>: repetir en controles; cambio ≥ 0,3 es clínicamente relevante.')+(v.lista?' En lista: medir en cada control y presentar la tendencia al comité.':'')+'<br>El índice combina la prensión ajustada por sexo con una normalización que el artículo no publica: obtenga el valor en la <a href="https://liverfrailtyindex.ucsf.edu/" target="_blank" rel="noopener">calculadora de UCSF</a>.'}},
+ ref:'Lai JC, Hepatology 2017;66:564 · AASLD frailty and sarcopenia guidance 2021 · Wolff R, Curso Dávila 2026.'},
+
 /* ---------- alcohol ---------- */
 {id:'maddrey',g:'Hepatitis alcohólica',t:'Función discriminante de Maddrey',d:'Gravedad de la hepatitis alcohólica.',
  i:[n('pt','Tiempo de protrombina del paciente','s','24'),n('ptc','Tiempo de protrombina control','s','12'),n('bili','Bilirrubina','mg/dL','14')],
@@ -328,15 +354,25 @@ const CALCS=[
   return {vals:[V('Puntaje',p,p>=7?'bad':p>=6?'mid':'ok')],txt:p>=7?'<b>≥ 7: HAI definida</b>.':p>=6?'<b>6: HAI probable</b>.':'&lt; 6: no cumple; considerar otros diagnósticos o el puntaje revisado.'}},
  ref:'Hennes EM et al. Hepatology 2008;48:169-76.'},
 
-{id:'audc',g:'Autoinmunes y colestásicas',t:'CBP: respuesta al AUDC',d:'Criterios de respuesta bioquímica (6–12 meses; Toronto a 2 años).',
- i:[n('fa','Fosfatasa alcalina','× LSN','1.9'),n('fa0','Fosfatasa alcalina basal (opcional)','× LSN','3.2'),n('ast','AST','× LSN','1.2'),n('bili','Bilirrubina','mg/dL','0.9'),n('bu','Límite superior normal de bilirrubina','mg/dL','1.0')],
- f(v){if(!need(v,['fa','ast','bili']))return null; const bu=v.bu||1;
-  const p1=v.fa<=3&&v.ast<=2&&v.bili<=1, p2=v.fa<=1.5&&v.ast<=1.5&&v.bili<=bu, to=v.fa<=1.67, eas=v.fa<=1.67&&v.bili<=bu;
-  const po=v.fa0?(v.fa<1.67&&(v.fa0-v.fa)/v.fa0>=0.15&&v.bili<=bu):null;
-  const row=(a,b)=>`<tr><td>${a}</td><td class="${b?'si':'no'}">${b?'Cumple':'No cumple'}</td></tr>`;
-  return {vals:[V('Respuesta',eas?'Adecuada':'Incompleta',eas?'ok':'bad')],
-   txt:`<table><tr><th>Criterio</th><th></th></tr>${row('París I (FA ≤ 3, AST ≤ 2 × LSN, bilirrubina ≤ 1 mg/dL)',p1)}${row('París II (FA y AST ≤ 1,5 × LSN, bilirrubina normal)',p2)}${row('Toronto (FA ≤ 1,67 × LSN a 2 años)',to)}${po===null?'':row('POISE (FA &lt; 1,67 × LSN con caída ≥ 15 % y bilirrubina normal)',po)}</table>${eas?'':'<b>Respuesta incompleta</b> (FA &gt; 1,67 × LSN o bilirrubina &gt; LSN): agregar seladelpar, elafibranor o bezafibrato; verificar adherencia y dosis 13–15 mg/kg.'}`}},
- ref:'Corpechot C, Hepatology 2008/J Hepatol 2011 · Kumagi T, Am J Gastroenterol 2010 · Nevens F, NEJM 2016 · EASL CBP 2017.'},
+{id:'audc',g:'Autoinmunes y colestásicas',t:'CBP: respuesta al AUDC (enfoque por riesgo)',d:'Estratificación basal y meta según riesgo (6 o 12 meses), más los criterios clásicos de respuesta.',
+ i:[n('lsm','Rigidez hepática basal (VCTE)','kPa','11'),n('age','Edad al diagnóstico','años','54'),n('fa0','FA basal','× LSN','3.4'),n('bi0','Bilirrubina basal','× LSN','0.8'),
+    s('mes','Momento de la evaluación',[['6','6 meses'],['12','12 meses']]),
+    n('fa','FA actual','× LSN','1.9'),n('ast','AST actual (opcional)','× LSN','1.2'),n('bili','Bilirrubina actual','× LSN','0.8'),
+    c('hpcs','HPCS, descompensación o Child B–C')],
+ f(v){if(!need(v,['fa','bili']))return null;
+  const hr=(v.lsm!==null&&v.lsm>=10)||(v.bi0!==null&&v.bi0>1)||(v.fa0!==null&&v.fa0>3)||(v.age!==null&&v.age<=62);
+  const meta=hr?1.9:1.67, ok=v.fa<meta&&v.bili<=1, prof=v.fa<=1&&v.bili<=0.6;
+  const temprano=hr?'6 meses':'12 meses';
+  let estado,cls,txt;
+  if(!hr&&v.mes==='6'){estado='Aún no se evalúa';cls='mid';txt='Sin rasgos de alto riesgo: la respuesta se evalúa a los <b>12 meses</b> (meta FA &lt; 1,67 × LSN y bilirrubina normal).';}
+  else if(ok){estado=prof?'Respuesta profunda':'Adecuada';cls='ok';txt=prof?'FA normal y bilirrubina ≤ 0,6 × LSN: menor riesgo de trasplante o muerte (GLOBAL). Continuar AUDC; FA y bilirrubina cada 3–6 meses.':'Cumple la meta. Continuar AUDC y controlar FA y bilirrubina cada 3–6 meses; la FA normal es la meta ideal, sobre todo en alto riesgo.';}
+  else{estado='Incompleta';cls='bad';txt=v.hpcs?'<b>Con HPCS, descompensación o Child B–C</b>: derivar a trasplante; los agonistas PPAR y fibratos están contraindicados en cirrosis descompensada.':'Agregar <b>seladelpar 10 mg/día</b> (preferido con prurito), <b>elafibranor 80 mg/día</b> (preferido con fatiga) o <b>bezafibrato 400 mg/día</b> (disponible en Chile). Verificar antes adherencia y dosis de 13–15 mg/kg.';}
+  const p1=v.ast!==null?(v.fa<=3&&v.ast<=2&&v.bili<=1):null, p2=v.ast!==null?(v.fa<=1.5&&v.ast<=1.5&&v.bili<=1):null, to=v.fa<=1.67;
+  const po=v.fa0!==null?(v.fa<1.67&&(v.fa0-v.fa)/v.fa0>=0.15&&v.bili<=1):null;
+  const row=(a,b)=>b===null?'':`<tr><td>${a}</td><td class="${b?'si':'no'}">${b?'Cumple':'No cumple'}</td></tr>`;
+  return {vals:[V('Riesgo basal',hr?'Alto':'Estándar',hr?'mid':'ok'),V('Evaluar a',temprano,''),V('Respuesta',estado,cls)],
+   txt:`${hr?'Alto riesgo (rigidez ≥ 10 kPa, bilirrubina &gt; LSN, FA &gt; 3 × LSN o edad ≤ 62): meta a los 6 meses FA &lt; 1,9 × LSN y bilirrubina normal. ':'Sin alto riesgo: meta a los 12 meses FA &lt; 1,67 × LSN y bilirrubina normal. '}${txt}<table><tr><th>Criterio clásico</th><th></th></tr>${row('París I (FA ≤ 3, AST ≤ 2 × LSN, bilirrubina ≤ 1 mg/dL)',p1)}${row('París II (FA y AST ≤ 1,5 × LSN, bilirrubina normal)',p2)}${row('Toronto (FA ≤ 1,67 × LSN a 2 años)',to)}${row('POISE (FA &lt; 1,67 × LSN con caída ≥ 15 % y bilirrubina normal)',po)}</table>`}},
+ ref:'Sandhu S, Goel A. Semin Liver Dis 2026;46:103 (doi 10.1055/a-2952-2261) · Kowdley KV, Am J Gastroenterol 2023 · Murillo Perez CF, Am J Gastroenterol 2020 · Corpechot C, Hepatology 2008 · Nevens F, NEJM 2016.'},
 
 /* ---------- metabólicas ---------- */
 {id:'leipzig',g:'Metabólicas',t:'Wilson: puntaje de Leipzig',d:'Diagnóstico de enfermedad de Wilson.',

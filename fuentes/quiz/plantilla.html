@@ -220,7 +220,7 @@ textarea.dump{width:100%;min-height:180px;font:12px var(--mono);background:var(-
 (function(){
 "use strict";
 const SNAP="<!doctype html>\n"+document.documentElement.outerHTML;
-const ALL=[...Q1,...Q2,...Q3,...Q4].map(q=>({...q,mode:q.md||"E",m:q.m||""}));
+const ALL=[...Q1,...Q2,...Q3,...Q4,...Q5,...Q6].map(q=>({...q,mode:q.md||"E",m:q.m||""}));
 const byId=Object.fromEntries(ALL.map(q=>[q.id,q]));
 const BL={BA:"Bases y FHA",CI:"Cirrosis y complicaciones",ET:"Etiologías",OT:"Oncología, trasplante e imágenes"};
 const BS={BA:"Bases",CI:"Cirrosis",ET:"Etiologías",OT:"Onco · Tx · Img"};

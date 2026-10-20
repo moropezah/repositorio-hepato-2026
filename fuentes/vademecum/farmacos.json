@@ -826,8 +826,8 @@
    "cl": "Ácido biliar hidrofílico.",
    "ind": "Colangitis biliar primaria (primera línea, de por vida); colestasis intrahepática del embarazo; recurrencia de CBP postrasplante.",
    "dos": "<b>CBP: 13–15 mg/kg/día</b> en 2–3 tomas. Embarazo: 10–20 mg/kg/día.",
-   "aj": "<b>CEP: no usar 28–30 mg/kg/día</b> (más eventos graves).",
-   "mon": "Respuesta a 6–12 meses: FA &gt; 1,67 × LSN o bilirrubina &gt; LSN (o criterios de París II) → agregar segunda línea.",
+   "aj": "<b>CEP</b>: prueba de 13–23 mg/kg/día (AASLD 2023; EASL 15–20) si la FA sigue elevada, mantener solo si baja de forma significativa; <b>nunca 28–30 mg/kg/día</b> (más eventos graves y neoplasia colorrectal).",
+   "mon": "CBP según riesgo basal (rigidez ≥ 10 kPa, bilirrubina &gt; LSN, FA &gt; 3 × LSN o edad ≤ 62): a los 6 meses meta FA &lt; 1,9 × LSN y bilirrubina normal; sin alto riesgo, a los 12 meses FA &lt; 1,67 × LSN y bilirrubina normal. Si no se cumple → segunda línea (o trasplante si hay HPCS o descompensación).",
    "ea": "Diarrea, aumento de peso leve.",
    "cob": [
     "g88"
@@ -843,7 +843,7 @@
    "ind": "CBP con respuesta incompleta a AUDC (fuera de indicación); útil en prurito.",
    "dos": "<b>400 mg/día</b>.",
    "aj": "Evitar en cirrosis descompensada y ClCr &lt; 60 (ajustar).",
-   "mon": "Creatinina, CK, transaminasas. BEZURSO: normalización bioquímica 31 % vs 0 %.",
+   "mon": "Creatinina, CK, transaminasas. BEZURSO: normalización bioquímica 31 % vs 0 %; cohorte japonesa (3.908): menor mortalidad o trasplante (HR 0,33). FITCH: mejora el prurito (45 % vs 11 %).",
    "ea": "Mialgias, ↑ creatinina, hepatotoxicidad rara.",
    "cob": [
     "g88x",
@@ -860,8 +860,8 @@
    "ind": "CBP con respuesta incompleta o intolerancia a AUDC.",
    "dos": "80 mg/día.",
    "aj": "No estudiado en cirrosis descompensada.",
-   "mon": "ELATIVE: respuesta bioquímica 51 % vs 4 %.",
-   "ea": "Mialgias, ↑ CK, dolor abdominal.",
+   "mon": "ELATIVE: respuesta bioquímica (POISE) 51 % vs 4 %; FA normal 15 % vs 0 %; sin efecto significativo en prurito, mejora la fatiga. Extensión abierta: respuesta 72 % a 182 semanas.",
+   "ea": "Dolor abdominal, diarrea, náuseas, mialgias y ↑ CK (vigilar con estatinas). <b>Contraindicado en embarazo y lactancia</b>; reduce la eficacia de anticonceptivos hormonales (inducción de CYP3A4); suspender si progresa a Child B–C.",
    "cob": [
     "g88x",
     "nd"
@@ -876,8 +876,8 @@
    "cl": "Agonista selectivo PPAR-δ.",
    "ind": "CBP con respuesta incompleta a AUDC; segunda línea preferida si hay prurito.",
    "dos": "10 mg/día.",
-   "aj": "No en cirrosis descompensada.",
-   "mon": "RESPONSE: respuesta 62 % vs 20 %; normalización de FA 25 % vs 0 %; mejora prurito.",
+   "aj": "Contraindicado en cirrosis descompensada. Controlar función renal y salud ósea.",
+   "mon": "RESPONSE: respuesta 62 % vs 20 %; FA normal 25 % vs 0 %; mejora prurito (WI-NRS) y baja IL-31. ASSURE: respuesta sostenida 67 % a 36 meses, sin eventos graves atribuibles a 4 años.",
    "ea": "Cefalea, dolor abdominal.",
    "cob": [
     "g88x",
@@ -908,7 +908,7 @@
    "g": "ai",
    "cl": "Resina quelante de ácidos biliares.",
    "ind": "Prurito colestásico (primera línea).",
-   "dos": "4 g 1–4 veces al día, separada ≥ 4 h de otros fármacos (incluido AUDC).",
+   "dos": "4–16 g/día en 2–4 tomas, titulada; otros fármacos 1 h antes o 4 h después (incluido AUDC). Alternativa en comprimidos: colesevelam 3,75 g/día.",
    "aj": "—",
    "mon": "—",
    "ea": "Constipación, malabsorción de vitaminas liposolubles.",
@@ -919,14 +919,30 @@
    "ev": "EASL CBP 2017"
   },
   {
+   "id": "linerixibat",
+   "n": "Linerixibat",
+   "g": "ai",
+   "cl": "Inhibidor del transportador ileal de ácidos biliares (IBAT).",
+   "ind": "Prurito colestásico moderado-grave en CBP (FDA, marzo 2026).",
+   "dos": "40 mg cada 12 h.",
+   "aj": "—",
+   "mon": "GLISTEN (238 pacientes): reducción del prurito de −2,86 puntos en WI-NRS frente a placebo; bajan FGF-19, ácidos biliares, autotaxina e IL-31.",
+   "ea": "Diarrea (mecanismo de acción), dolor abdominal.",
+   "cob": [
+    "nd"
+   ],
+   "ch": "Sin registro en Chile (verificar ISP).",
+   "ev": "GLISTEN, fase 3 · Sandhu S, Semin Liver Dis 2026"
+  },
+  {
    "id": "rifampicina_prurito",
    "n": "Rifampicina (prurito)",
    "g": "ai",
    "cl": "Agonista PXR, inductor enzimático.",
    "ind": "Prurito colestásico refractario.",
-   "dos": "150–300 mg/día.",
+   "dos": "150–600 mg/día, titulada.",
    "aj": "—",
-   "mon": "<b>Transaminasas a las 2, 6 y 12 semanas</b> (hepatotoxicidad ~5–10 %).",
+   "mon": "<b>Transaminasas a las 2, 6 y 12 semanas</b> (hepatotoxicidad 10–15 %) y hemograma (hemólisis). Evitar si bilirrubina &gt; 2,5 mg/dL o hepatopatía avanzada.",
    "ea": "Hepatotoxicidad, orina anaranjada, interacciones (inductor).",
    "cob": [
     "g88x",

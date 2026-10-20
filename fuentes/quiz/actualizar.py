@@ -52,7 +52,7 @@ SIG = [
 
 VALIDA = r"""
 const fs=require('fs');const files=process.argv.slice(1);let src=files.map(f=>fs.readFileSync(f,'utf8')).join('\n');
-src+='\nmodule.exports=[...Q1,...Q2,...Q3,...Q4];';const m={exports:{}};new Function('module',src)(m);
+src+='\nmodule.exports=[...Q1,...Q2,...Q3,...Q4,...Q5,...Q6];';const m={exports:{}};new Function('module',src)(m);
 const T=JSON.parse(process.env.TMAP);const ids=new Set();const err=[];
 for(const q of m.exports){
   if(ids.has(q.id))err.push('id repetido '+q.id);ids.add(q.id);
