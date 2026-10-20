@@ -83,8 +83,40 @@ h1{font-family:var(--ff-s);font-size:clamp(1.5rem,3.6vw,2rem);margin:0 0 4px;let
 .si{color:var(--verde);font-weight:700}.no{color:var(--rojo);font-weight:700}
 .falta{color:var(--fg-3);font-size:.88rem;margin-top:16px}
 .ref{font-size:.76rem;color:var(--fg-3);margin-top:16px;font-style:italic}
-.btns{margin-top:14px;display:flex;gap:8px}
-.btns button{border:1px solid var(--line-2);background:var(--panel);color:var(--fg-2);border-radius:7px;padding:6px 11px;font:600 .78rem var(--ff-b);cursor:pointer}
+.uso{display:inline-flex;align-items:center;gap:6px;font:700 .66rem var(--ff-b);letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:99px;border:1px solid currentColor;margin:0 0 10px}
+.uso.r{color:var(--verde)}.uso.s{color:var(--marino-2)}.uso.x{color:var(--fg-3)}
+.uso span{font-weight:500;letter-spacing:0;text-transform:none;color:var(--fg-3)}
+nav.side a i{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:7px;vertical-align:1px}
+i.r{background:var(--verde)}i.s{background:var(--marino-2)}i.x{background:var(--line-2)}
+.ficha{background:var(--panel-2);border-radius:10px;padding:12px 16px;margin:0 0 16px;max-width:860px}
+.ficha summary{cursor:pointer;font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--fg-2)}
+.ficha dl{margin:8px 0 0;display:grid;grid-template-columns:110px 1fr;gap:6px 14px;font-size:.9rem}
+.ficha dt{font-weight:700;color:var(--acento);font-size:.78rem;padding-top:2px}
+.ficha dd{margin:0;color:var(--fg-2)}.ficha dd b{color:var(--fg)}
+.ejs{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 16px}
+.ejs small{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-3);margin-right:4px}
+.ejs button{border:1px solid var(--line-2);background:var(--bg);color:var(--fg-2);border-radius:99px;padding:5px 12px;font:600 .8rem var(--ff-b);cursor:pointer}
+.ejs button:hover{border-color:var(--marino-2);color:var(--marino-2)}
+.ejs button[aria-pressed="true"]{background:var(--marino);border-color:var(--marino);color:var(--bg)}
+.ejs button.lim{margin-left:auto;border-style:dashed}
+.esc{margin-top:14px}
+.esc h4{margin:0 0 4px;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fg-3)}
+.esc table{border-collapse:collapse;width:100%;font-size:.86rem}
+.esc td,.esc th{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+.esc th{font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--fg-3)}
+.esc tr.on td{background:color-mix(in srgb,var(--marino-2) 14%,transparent);color:var(--fg);font-weight:600}
+.esc tr.on td:first-child{box-shadow:inset 3px 0 0 var(--marino-2)}
+.cur table{border-collapse:collapse;width:100%;font-size:.87rem;background:var(--panel)}
+.cur td,.cur th{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cur th{font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--fg-3);background:var(--panel-2)}
+.cur td a{color:var(--marino-2);font-weight:600;text-decoration:none}
+.cur h2{font-family:var(--ff-s);font-size:1.15rem;margin:24px 0 8px}
+.cur .wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r)}
+.cur ul{color:var(--fg-2);font-size:.92rem;padding-left:20px}
+nav.side a.curl{font-weight:700;color:var(--acento);border:1px dashed var(--line-2);margin-bottom:6px}
+nav.side a.curl[aria-current="true"]{color:var(--bg)}
+.ley{font-size:.72rem;color:var(--fg-3);margin:0 0 4px 2px}.ley i{margin:0 4px 0 8px}.ley i:first-child{margin-left:0}
+@media (max-width:600px){.ficha dl{grid-template-columns:1fr;gap:2px}.ficha dd{margin-bottom:6px}.ejs button.lim{margin-left:0}}
 @media (max-width:820px){
   .lay{grid-template-columns:1fr;padding:14px 16px 80px;gap:12px}
   nav.side{display:none}
@@ -133,7 +165,7 @@ const CALCS=[
   const a=v.alb>3.5?1:v.alb>=2.8?2:3, i=v.inr<1.7?1:v.inr<=2.3?2:3;
   const p=b+a+i+(+v.asc)+(+v.eh); const cl=p<=6?'A':p<=9?'B':'C';
   return {vals:[V('Puntaje',p,p<=6?'ok':p<=9?'mid':'bad'),V('Clase',cl,p<=6?'ok':p<=9?'mid':'bad')],
-   txt:`Bilirrubina ${b} · albúmina ${a} · INR ${i} · ascitis ${v.asc} · encefalopatía ${v.eh}.<table><tr><th>Clase</th><th>Puntos</th><th>Sobrevida 1 año</th><th>2 años</th></tr><tr><td>A</td><td>5–6</td><td>100 %</td><td>85 %</td></tr><tr><td>B</td><td>7–9</td><td>80 %</td><td>60 %</td></tr><tr><td>C</td><td>10–15</td><td>45 %</td><td>35 %</td></tr></table>GES 88: queda en atención primaria con A5–6 o B7 y MELD-Na ≤ 14; Child ≥ 8 se deriva a especialidad. TIPS preventivo si C 10–13 (o B 8–9 con sangrado activo).`}},
+   txt:`Bilirrubina ${b} · albúmina ${a} · INR ${i} · ascitis ${v.asc} · encefalopatía ${v.eh}.<br>GES 88: queda en atención primaria con A5–6 o B7 y MELD-Na ≤ 14; Child ≥ 8 se deriva a especialidad. TIPS preventivo si C 10–13 (o B 8–9 con sangrado activo).`}},
  ref:'Pugh RN et al. Br J Surg 1973;60:646-9.'},
 
 {id:'meld',g:'Cirrosis',t:'MELD · MELD-Na · MELD 3.0',d:'Pronóstico a 90 días y prioridad en lista de trasplante (Chile asigna por MELD-Na).',
@@ -150,7 +182,7 @@ const CALCS=[
     m3=clamp(Math.round(m3),6,40); out.push(V('MELD 3.0',m3,m3<15?'ok':m3<25?'mid':'bad'));}
   const ref=mna??meld;
   const mort=ref<10?'~2 %':ref<20?'~6 %':ref<30?'~20 %':ref<40?'~53 %':'~71 %';
-  return {vals:out,txt:`Mortalidad a 90 días orientativa (MELD, Wiesner 2003): <b>${mort}</b>. MELD/MELD-Na ≥ 15: derivar a evaluación de trasplante. MELD-Na ≥ 15 también deriva a especialidad en el GES 88. Hepatitis alcohólica: MELD &gt; 20 grave; ventana de corticoides 21–39.<br>Límites aplicados: valores &lt; 1 llevados a 1; creatinina máx. 4 (MELD) y 3 (MELD 3.0); sodio 125–137; albúmina 1,5–3,5.`}},
+  return {vals:out,txt:`<b>Valor de referencia en Chile: ${mna!==null?'MELD-Na '+mna:'MELD '+meld+' (ingrese el sodio para el MELD-Na)'}</b>. Mortalidad a 90 días orientativa: <b>${mort}</b>. MELD/MELD-Na ≥ 15: derivar a evaluación de trasplante. MELD-Na ≥ 15 también deriva a especialidad en el GES 88. Hepatitis alcohólica: MELD &gt; 20 grave; ventana de corticoides 21–39.<br>Límites aplicados: valores &lt; 1 llevados a 1; creatinina máx. 4 (MELD) y 3 (MELD 3.0); sodio 125–137; albúmina 1,5–3,5.`}},
  ref:'Kamath PS, Hepatology 2001 · Kim WR, NEJM 2008 (MELD-Na) · Kim WR, Gastroenterology 2021;161:1887 (MELD 3.0).'},
 
 {id:'albi',g:'Cirrosis',t:'ALBI',d:'Función hepática por albúmina y bilirrubina; útil en HCC (BCLC 2026 la incorpora).',
@@ -432,11 +464,197 @@ const CALCS=[
  ref:'Papatheodoridis G et al. J Hepatol 2016;64:800-6.'}
 ];
 
+/* ===================== ficha, escala y ejemplos de cada calculadora ===================== */
+/* uso: 'r' rutina (sala/consulta diaria) · 's' situacional (escenario específico) · 'x' referencia (redundante o de nicho) */
+const USO={r:['Rutina','Uso diario en sala o consulta'],s:['Situacional','Escenario específico'],x:['Referencia','Redundante o de nicho: candidata a retirar']};
+const P=x=>typeof x==='number'?x:parseFloat(String(x).replace(/\s/g,'').replace(/\./g,'').replace(',','.').replace(/[−–]/,'-'));
+const META={
+child:{uso:'r',
+ que:'Clasifica la reserva funcional del cirrótico con 3 variables de laboratorio (bilirrubina, albúmina, INR) y 2 clínicas (ascitis, encefalopatía).',
+ cuando:'Pronóstico global y decisiones que la usan como criterio: TIPS preventivo (C 10–13, B 8–9 con sangrado activo), riesgo quirúrgico, elección de terapia en HCC, uso de ACOD (A sí, B con cautela, C no), derivación en el GES 88 (≥ 8).',
+ ojo:'Ascitis y encefalopatía son subjetivas; tiene techo (C 15) y no incluye función renal. Para priorizar trasplante se usa MELD-Na.',
+ esc:(v,r)=>{const p=+r.vals[0].v;return {h:['Clase','Puntos','Sobrevida 1 año','Sobrevida 2 años'],rows:[['A','5–6','100 %','85 %'],['B','7–9','80 %','60 %'],['C','10–15','45 %','35 %']],on:p<=6?0:p<=9?1:2}},
+ ej:[{l:'Child A',v:{bili:1.2,alb:3.9,inr:1.1,asc:'1',eh:'1'}},{l:'Child B',v:{bili:2.4,alb:3.1,inr:1.6,asc:'2',eh:'1'}},{l:'Child C',v:{bili:4.5,alb:2.5,inr:2.4,asc:'3',eh:'2'}},{l:'CBP (cortes colestásicos)',v:{bili:5,alb:3.6,inr:1.1,asc:'1',eh:'1',col:true}}]},
+
+meld:{uso:'r',
+ que:'Mortalidad a 90 días por bilirrubina, INR y creatinina; MELD-Na agrega sodio y MELD 3.0 agrega sexo femenino y albúmina.',
+ cuando:'<b>MELD-Na</b>: el que se usa en Chile para ordenar la lista de trasplante y el de referencia para pronóstico y derivación (≥ 15; GES 88). <b>MELD 3.0</b>: asignación en EE.UU. desde julio de 2023; corrige la subestimación en mujeres; útil como pronóstico complementario. <b>MELD clásico</b>: el que validan la hepatitis alcohólica (ACG: &gt; 20 grave, corticoides 21–39), el riesgo de TIPS (&gt; 18) y el riesgo quirúrgico (Mayo).',
+ ojo:'La creatinina sobreestima la función renal en sarcopénicos y mujeres; no captura fallas extrahepáticas (en ACLF usar CLIF-C).',
+ esc:(v,r)=>{const m=+(r.vals[1]?r.vals[1].v:r.vals[0].v);return {h:['MELD / MELD-Na','Mortalidad a 90 días','Conducta habitual'],rows:[['&lt; 10','~2 %','Control según etiología'],['10–14','~6 %','Optimizar; candidatos a evaluación si hay descompensación'],['15–19','~6 %','Derivar a evaluación de trasplante'],['20–29','~20 %','Prioridad en lista; HAA grave (MELD &gt; 20)'],['30–39','~53 %','Alta prioridad; evaluar trasplante precoz'],['≥ 40','~71 %','Máxima prioridad']],on:m<10?0:m<15?1:m<20?2:m<30?3:m<40?4:5}},
+ ej:[{l:'MELD-Na < 10',v:{bili:1.1,inr:1.1,cr:0.8,na:139,alb:3.9,sex:'m'}},{l:'10–14',v:{bili:1.6,inr:1.3,cr:0.9,na:137,alb:3.4,sex:'f'}},{l:'15–19: derivar',v:{bili:2.2,inr:1.5,cr:1.0,na:134,alb:3.1,sex:'m'}},{l:'20–29',v:{bili:3.2,inr:1.8,cr:1.4,na:131,alb:2.9,sex:'f'}},{l:'30–39',v:{bili:9,inr:2.6,cr:2.8,na:127,alb:2.4,sex:'m'}},{l:'En diálisis',v:{bili:6,inr:2.2,cr:2.0,na:132,alb:2.8,sex:'f',dial:true}}]},
+
+albi:{uso:'s',
+ que:'Función hepática objetiva solo con albúmina y bilirrubina, sin variables clínicas subjetivas.',
+ cuando:'Hepatocarcinoma: discrimina pronóstico dentro del Child A y BCLC 2026 la incorpora para elegir resección, TACE o sistémica. Preferirla sobre Child-Pugh cuando se decide tratamiento oncológico.',
+ ojo:'No validada como reemplazo del Child-Pugh o MELD en cirrosis descompensada ni para trasplante.',
+ esc:(v,r)=>{const g=+r.vals[1].v;return {h:['Grado','Puntaje','Lectura'],rows:[['1','≤ −2,60','Función preservada: candidato a cualquier terapia'],['2','−2,60 a −1,39','Intermedia: subdividir (2a/2b) para TACE y sistémica'],['3','&gt; −1,39','Deterioro: beneficio oncológico limitado']],on:g-1}},
+ ej:[{l:'Grado 1',v:{bili:0.7,alb:4.3}},{l:'Grado 2',v:{bili:1.4,alb:3.4}},{l:'Grado 3',v:{bili:3,alb:2.6}}]},
+
+hpcs:{uso:'r',
+ que:'Aplica Baveno VIII: rigidez hepática y plaquetas para cACLD y HPCS, rigidez esplénica opcional y ANTICIPATE/ANTICIPATE-NASH para la zona gris.',
+ cuando:'Toda hepatopatía crónica con rigidez ≥ 10 kPa: decide si iniciar carvedilol y si se necesita endoscopía.',
+ ojo:'Válida en cACLD compensada; no aplica a enfermedad vascular (rigidez &lt; 10 kPa con hipertensión portal) ni con inflamación, congestión o colestasis.',
+ esc:(v,r)=>{const L=v.lsm;return {h:['Rigidez (regla de los 5)','Lectura'],rows:[['&lt; 10 kPa','Descarta cACLD'],['10–15 kPa','Sugiere cACLD'],['15–20 kPa','cACLD muy probable; HPCS si plaquetas &lt; 110.000 (ANTICIPATE)'],['20–25 kPa','Sospecha de HPCS si plaquetas &lt; 150.000'],['≥ 25 kPa','HPCS (viral, alcohol, MASLD no obesa)']],on:L<10?0:L<15?1:L<20?2:L<25?3:4}},
+ ej:[{l:'HPCS descartada',v:{lsm:12,plt:180,et:'v'}},{l:'Zona gris',v:{lsm:18,plt:128,et:'v'}},{l:'HPCS confirmada',v:{lsm:27,plt:120,et:'a'}},{l:'MASLD con obesidad (zona gris)',v:{lsm:27,plt:130,bmi:34,et:'mo'}},{l:'Sospecha vascular',v:{lsm:6,plt:98,ssm:70,et:'o'}}]},
+
+aclf:{uso:'r',
+ que:'Cuenta fallas orgánicas (CLIF-OF), asigna el grado de ACLF (EASL-CLIF) y calcula el CLIF-C ACLF.',
+ cuando:'Todo cirrótico hospitalizado por descompensación aguda: al ingreso y entre los días 3 y 7. El grado orienta UPC y trasplante; el CLIF-C ACLF &gt; 64 persistente señala mal pronóstico.',
+ ojo:'Definición europea (exige cirrosis); APASL usa otra. El grado cambia en días: siempre reevaluar.',
+ esc:(v,r)=>{const g=String(r.vals[0].v);const k=g==='Sin ACLF'?0:+g.slice(-1);return {h:['Grado','Criterio','Mortalidad 28 días'],rows:[['Sin ACLF','Sin fallas, o una falla no renal con creatinina &lt; 1,5 y sin encefalopatía','~5 %'],['ACLF-1','Falla renal aislada, u otra falla única con creatinina 1,5–1,9 y/o encefalopatía I–II','~22 %'],['ACLF-2','Dos fallas','~32 %'],['ACLF-3','Tres o más fallas','~77 %']],on:k}},
+ ej:[{l:'Sin ACLF',v:{age:55,wbc:8,bili:4,cr:1.1,eh:'0',inr:1.6,circ:'1',resp:'1'}},{l:'ACLF-1',v:{age:55,wbc:11,bili:5,cr:2.3,eh:'0',inr:1.8,circ:'1',resp:'1'}},{l:'ACLF-2',v:{age:48,wbc:14,bili:13,cr:2.4,eh:'0',inr:1.9,circ:'1',resp:'1'}},{l:'ACLF-3',v:{age:52,wbc:15,bili:13,cr:2.6,eh:'1',inr:2.7,circ:'2',resp:'1'}}]},
+
+clifad:{uso:'s',
+ que:'Pronóstico de la descompensación aguda <b>sin</b> ACLF (edad, creatinina, INR, leucocitos, sodio).',
+ cuando:'Hospitalizado sin ACLF para estimar riesgo de progresión y mortalidad a 3–12 meses; ayuda a decidir seguimiento estrecho o evaluación de trasplante.',
+ ojo:'Poco usada en la práctica; con ACLF usar CLIF-C ACLF.',
+ esc:(v,r)=>{const x=+r.vals[0].v;return {h:['CLIF-C AD','Riesgo','Mortalidad a 3 meses'],rows:[['≤ 45','Bajo','&lt; 2 %'],['46–59','Intermedio','~10–20 %'],['≥ 60','Alto','&gt; 30 %']],on:x<=45?0:x<60?1:2}},
+ ej:[{l:'Riesgo bajo',v:{age:50,cr:0.8,inr:1.2,wbc:5,na:138}},{l:'Intermedio',v:{age:58,cr:1.2,inr:1.5,wbc:8,na:133}},{l:'Riesgo alto',v:{age:66,cr:1.8,inr:2.0,wbc:14,na:126}}]},
+
+aki:{uso:'r',
+ que:'Estadifica la lesión renal aguda del cirrótico por creatinina (ICA-ADQI 2024).',
+ cuando:'Todo cirrótico con alza de creatinina: el estadio decide expansión, suspensión de fármacos y si corresponde evaluar HRS-AKI.',
+ ojo:'La basal es la creatinina más reciente de los últimos 3 meses; la creatinina sobreestima la función renal en sarcopénicos.',
+ esc:(v,r)=>{const e=String(r.vals[1].v);const k={'Sin LRA':0,'1A':1,'1B':2,'2':3,'3':4}[e];return {h:['Estadio','Creatinina','Conducta'],rows:[['Sin LRA','Sin criterios','—'],['1A','≥ 0,3 mg/dL en 48 h o 1,5–1,9 × basal, &lt; 1,5 mg/dL','Retirar precipitantes; vigilar'],['1B','Igual, con creatinina ≥ 1,5 mg/dL','Expandir; evaluar HRS-AKI'],['2','2–2,9 × basal','Expandir; evaluar HRS-AKI'],['3','≥ 3 × basal, ≥ 4 mg/dL o diálisis','Igual; considerar diálisis']],on:k}},
+ ej:[{l:'1A',v:{base:0.8,act:1.25}},{l:'1B',v:{base:1.0,act:1.6}},{l:'2',v:{base:0.9,act:2.0}},{l:'3',v:{base:1.0,act:3.4}}]},
+
+ascitis:{uso:'r',
+ que:'Interpreta el líquido ascítico (GASA, proteínas, PMN corregidos por eritrocitos) y calcula la albúmina tras paracentesis evacuadora.',
+ cuando:'Toda paracentesis diagnóstica o evacuadora.',
+ ojo:'Corrección por sangre: 1 PMN por cada 250 eritrocitos. Buscar criterios de Runyon si se sospecha peritonitis secundaria.',
+ ej:[{l:'PBE',v:{as:2.8,aa:0.9,pt:1.1,pmn:480,gr:1000}},{l:'Paracentesis de 7 L',v:{as:2.9,aa:1.0,pt:1.0,pmn:120,gr:0,lit:7}},{l:'Ascitis cardíaca',v:{as:3.1,aa:1.6,pt:3.2,pmn:50}}]},
+
+psvd:{uso:'s',
+ que:'Puntaje diagnóstico de enfermedad vascular porto-sinusoidal o fibrosis portal no cirrótica (Baveno VIII).',
+ cuando:'Hipertensión portal con rigidez hepática baja o sin causa de cirrosis, con biopsia adecuada.',
+ ojo:'Solo válido con biopsia adecuada sin cirrosis y sin criterios de exclusión.',
+ esc:(v,r)=>{const p=+r.vals[0].v;return {h:['Puntaje','Categoría'],rows:[['0–2','No PSVD/NCPF'],['3–4','Posible'],['≥ 5','Definitivo']],on:p<=2?0:p<=4?1:2}},
+ ej:[{l:'Definitivo',v:{hp:'3',hi:'5',aso:true,ok:true}},{l:'Posible',v:{hp:'2',hi:'2',ok:true}},{l:'No cumple',v:{hp:'0',hi:'2',ok:true}}]},
+
+tvpnc:{uso:'s',
+ que:'Duración y estrategia de anticoagulación en trombosis portal no cirrótica según riesgo de recurrencia (Baveno VIII).',
+ cuando:'Al completar el estudio etiológico y a los 3–6 meses de anticoagulación.',
+ ojo:'No aplica a trombosis portal en cirrosis (ver bloque 3).',
+ ej:[{l:'Riesgo alto (NMP)',v:{pm:'ma',rec:'nd'}},{l:'Riesgo intermedio',v:{pm:'nm',prov:true,rec:'inc',ext:true}},{l:'Provocada y resuelta',v:{pm:'no',prov:true,res:true,rec:'c3'}}]},
+
+cirugia:{uso:'s',
+ que:'Orienta el riesgo de una cirugía no hepática en cirrosis por Child-Pugh, MELD, tipo de cirugía y urgencia.',
+ cuando:'Evaluación preoperatoria; para una probabilidad individual usar VOCAL-Penn (enlace en el resultado).',
+ ojo:'Orientación por bandas, no modelo validado; la HPCS y la ascitis no controlada suben el riesgo.',
+ esc:(v,r)=>{const e=r.vals[0].v;return {h:['Riesgo','Perfil típico','Conducta'],rows:[['Bajo','Child A, MELD &lt; 10, cirugía de pared o laparoscópica electiva','Operar con manejo estándar'],['Intermedio','Child B o MELD 10–15, ascitis o HPCS','Optimizar y decidir con hepatología'],['Alto','Child C, MELD &gt; 15, cirugía abierta, cardíaca o de urgencia','Evitar la electiva; trasplante primero']],on:['Bajo','Intermedio','Alto'].indexOf(e)}},
+ ej:[{l:'Bajo',v:{cp:'A',meld:8,tipo:'pa'}},{l:'Intermedio',v:{cp:'B',meld:13,tipo:'lap'}},{l:'Alto',v:{cp:'C',meld:18,tipo:'ab',urg:true}}]},
+
+lfi:{uso:'s',
+ que:'Interpreta el Liver Frailty Index (prensión, levantarse de la silla, equilibrio) calculado en la herramienta oficial de UCSF.',
+ cuando:'Cirróticos ambulatorios y candidatos a trasplante: predice mortalidad en lista más allá del MELD y guía la prehabilitación.',
+ ojo:'Esta calculadora no computa el índice (la normalización de la prensión no está publicada).',
+ esc:(v,r)=>{const x=v.lfi;return {h:['LFI','Categoría'],rows:[['&lt; 3,2','Robusto'],['3,2–4,4','Prefrágil'],['≥ 4,5','Frágil']],on:x<3.2?0:x<4.5?1:2}},
+ ej:[{l:'Robusto',v:{lfi:3.0}},{l:'Prefrágil',v:{lfi:4.0}},{l:'Frágil en lista',v:{lfi:4.8,lista:true}}]},
+
+maddrey:{uso:'r',
+ que:'Gravedad de la hepatitis alcohólica por tiempo de protrombina y bilirrubina.',
+ cuando:'Al ingreso por hepatitis alcohólica; ≥ 32 define gravedad y candidatura a corticoides. ACG 2024 prefiere el MELD (&gt; 20), pero el Maddrey sigue en ensayos y fichas.',
+ ojo:'Depende del tiempo de protrombina control del laboratorio (variabilidad entre reactivos).',
+ esc:(v,r)=>{const x=P(r.vals[0].v);return {h:['Maddrey','Lectura'],rows:[['&lt; 32','No grave: soporte y abstinencia'],['≥ 32','Grave: prednisolona 40 mg/día si no hay contraindicación']],on:x>=32?1:0}},
+ ej:[{l:'No grave',v:{pt:15,ptc:12,bili:5}},{l:'Grave',v:{pt:24,ptc:12,bili:14}}]},
+
+lille:{uso:'r',
+ que:'Respuesta a corticoides en hepatitis alcohólica por la evolución de la bilirrubina al día 4 o 7.',
+ cuando:'Día 4 o 7 de prednisolona: decide continuar 28 días o suspender y discutir trasplante precoz.',
+ ojo:'Solo tiene sentido en pacientes que reciben corticoides.',
+ esc:(v,r)=>{const x=P(r.vals[0].v);return {h:['Lille','Respuesta','Sobrevida a 28 días'],rows:[['≤ 0,16','Completa','~91 %'],['0,16–0,45','Parcial: completar 28 días','~79 %'],['0,45–0,56','Parcial (Louvet 2010), pero sobre el corte clásico de 0,45: suspender','~79 %'],['≥ 0,56','Nula','~53 %']],on:x<=0.16?0:x<=0.45?1:x<0.56?2:3}},
+ ej:[{l:'Respuesta completa',v:{age:48,alb:2.6,b0:15,b7:8,pt:18}},{l:'Respuesta parcial',v:{age:52,alb:2.5,b0:16,b7:12,pt:20}},{l:'Respuesta nula',v:{age:56,alb:2.3,b0:18,b7:19,pt:24,ren:true}}]},
+
+gahs:{uso:'x',
+ que:'Glasgow Alcoholic Hepatitis Score: edad, leucocitos, urea, INR y bilirrubina.',
+ cuando:'Alternativa británica al Maddrey/MELD (usada en STOPAH).',
+ ojo:'Redundante con MELD y Maddrey en la práctica chilena.',
+ esc:(v,r)=>{const p=+r.vals[0].v;return {h:['GAHS','Lectura'],rows:[['5–8','Mejor pronóstico'],['≥ 9','Mal pronóstico']],on:p>=9?1:0}},
+ ej:[{l:'GAHS < 9',v:{age:45,wbc:9,bun:12,inr:1.4,bili:6}},{l:'GAHS ≥ 9',v:{age:55,wbc:17,bun:25,inr:2.2,bili:18}}]},
+
+abic:{uso:'x',
+ que:'Edad, bilirrubina, INR y creatinina para pronóstico a 90 días en hepatitis alcohólica.',
+ cuando:'Alternativa española al Maddrey/MELD.',
+ ojo:'Redundante con MELD y Lille.',
+ esc:(v,r)=>{const x=P(r.vals[0].v);return {h:['ABIC','Riesgo','Sobrevida a 90 días'],rows:[['&lt; 6,71','Bajo','~100 %'],['6,71–8,99','Intermedio','~70 %'],['≥ 9','Alto','~25 %']],on:x<6.71?0:x<9?1:2}},
+ ej:[{l:'Bajo',v:{age:40,bili:4,inr:1.3,cr:0.7}},{l:'Intermedio',v:{age:50,bili:10,inr:1.8,cr:1.1}},{l:'Alto',v:{age:60,bili:22,inr:2.5,cr:2.5}}]},
+
+fib4:{uso:'r',
+ que:'Índice de fibrosis con edad, AST, ALT y plaquetas.',
+ cuando:'Primer escalón en MASLD, alcohol y hepatitis virales en atención primaria y consulta: decide quién va a elastografía.',
+ ojo:'Menor rendimiento en &lt; 35 años; en ≥ 65 años el corte bajo es 2,0.',
+ esc:(v,r)=>{const x=P(r.vals[0].v),lo=v.age>=65?2:1.3;return {h:['FIB-4','Riesgo de fibrosis avanzada','Conducta'],rows:[[`&lt; ${lo===2?'2,0':'1,3'}`,'Bajo','Repetir en 1–3 años'],[`${lo===2?'2,0':'1,3'}–2,67`,'Intermedio','Elastografía o ELF'],['&gt; 2,67','Alto','Elastografía y hepatología']],on:x<lo?0:x<=2.67?1:2}},
+ ej:[{l:'Bajo',v:{age:45,ast:25,alt:30,plt:250}},{l:'Intermedio',v:{age:58,ast:48,alt:52,plt:165}},{l:'Alto',v:{age:62,ast:70,alt:50,plt:110}},{l:'≥ 65 años',v:{age:68,ast:28,alt:30,plt:220}}]},
+
+apri:{uso:'s',
+ que:'Índice AST/plaquetas.',
+ cuando:'Hepatitis B y C donde no hay elastografía (OMS 2024: APRI &gt; 0,5 como criterio de tratamiento de VHB).',
+ ojo:'Inferior a FIB-4 y a la elastografía en MASLD.',
+ esc:(v,r)=>{const x=P(r.vals[0].v);return {h:['APRI','Lectura'],rows:[['&lt; 0,5','Descarta fibrosis significativa'],['0,5–1,5','Indeterminado'],['1,5–2,0','Fibrosis significativa'],['&gt; 2,0','Cirrosis probable']],on:x<0.5?0:x<=1.5?1:x<=2?2:3}},
+ ej:[{l:'Bajo',v:{ast:30,uln:40,plt:250}},{l:'Indeterminado',v:{ast:80,uln:40,plt:140}},{l:'Cirrosis probable',v:{ast:120,uln:40,plt:95}}]},
+
+nfs:{uso:'x',
+ que:'NAFLD Fibrosis Score: edad, IMC, glicemia, AST/ALT, plaquetas y albúmina.',
+ cuando:'Alternativa a FIB-4 en MASLD.',
+ ojo:'Las guías actuales prefieren FIB-4 (más simple, menos indeterminados por IMC y albúmina).',
+ esc:(v,r)=>{const x=P(r.vals[0].v);return {h:['NFS','Lectura'],rows:[['&lt; −1,455','Descarta fibrosis avanzada'],['−1,455 a 0,676','Indeterminado'],['&gt; 0,676','Fibrosis avanzada probable']],on:x<-1.455?0:x<=0.676?1:2}},
+ ej:[{l:'Bajo',v:{age:40,bmi:26,ast:25,alt:40,plt:260,alb:4.5}},{l:'Alto',v:{age:63,bmi:34,dm:true,ast:60,alt:45,plt:120,alb:3.6}}]},
+
+hai:{uso:'s',
+ que:'Criterios simplificados del IAIHG para el diagnóstico de hepatitis autoinmune.',
+ cuando:'Sospecha de HAI al evaluar biopsia, autoanticuerpos e IgG.',
+ ojo:'Menos sensible en presentación aguda grave y en variantes; no sirve para seguimiento.',
+ esc:(v,r)=>{const p=+r.vals[0].v;return {h:['Puntaje','Lectura'],rows:[['&lt; 6','No cumple'],['6','HAI probable'],['≥ 7','HAI definida']],on:p<6?0:p===6?1:2}},
+ ej:[{l:'Definida',v:{ac:'2',igg:'2',his:'2',vir:'2'}},{l:'Probable',v:{ac:'1',igg:'1',his:'2',vir:'2'}},{l:'No cumple',v:{ac:'1',igg:'0',his:'1',vir:'2'}}]},
+
+audc:{uso:'r',
+ que:'Define el riesgo basal de la CBP, cuándo evaluar la respuesta y si corresponde segunda línea.',
+ cuando:'Al diagnóstico de CBP y a los 6 o 12 meses de AUDC.',
+ ojo:'Verificar adherencia y dosis (13–15 mg/kg) antes de declarar falla.',
+ esc:(v,r)=>({h:['Perfil','Momento','Meta'],rows:[['Alto riesgo (rigidez ≥ 10 kPa, bilirrubina &gt; LSN, FA &gt; 3 × LSN o edad ≤ 62)','6 meses','FA &lt; 1,9 × LSN y bilirrubina normal'],['Sin alto riesgo','12 meses','FA &lt; 1,67 × LSN y bilirrubina normal'],['Meta ideal','Siempre','FA normal y bilirrubina ≤ 0,6 × LSN']],on:r.vals[2].v==='Respuesta profunda'?2:r.vals[0].v==='Alto'?0:1}),
+ ej:[{l:'Alto riesgo, falla a 6 meses',v:{lsm:11,age:54,fa0:3.4,bi0:0.8,mes:'6',fa:1.95,ast:1.2,bili:0.8}},{l:'Respuesta profunda',v:{lsm:7,age:66,fa0:2.2,bi0:0.7,mes:'12',fa:0.9,bili:0.5}},{l:'Falla con HPCS',v:{lsm:22,age:58,fa0:4,bi0:1.3,mes:'6',fa:2.5,bili:1.6,hpcs:true}}]},
+
+leipzig:{uso:'s',
+ que:'Puntaje diagnóstico de enfermedad de Wilson (clínica, ceruloplasmina, cobre urinario y hepático, genética).',
+ cuando:'Sospecha de Wilson: hepatopatía en &lt; 40 años, FHA con hemólisis, síntomas neuropsiquiátricos.',
+ ojo:'La ceruloplasmina puede ser normal con inflamación; el cobre urinario se eleva en otras colestasias.',
+ esc:(v,r)=>{const p=+r.vals[0].v;return {h:['Puntaje','Lectura'],rows:[['0–1','Improbable'],['2–3','Probable: completar estudio'],['≥ 4','Diagnóstico establecido']],on:p<=1?0:p<=3?1:2}},
+ ej:[{l:'Establecido',v:{kf:'2',neu:'1',hem:'0',cer:'2',cu:'2',hcu:'0',mut:'0'}},{l:'Probable',v:{kf:'0',neu:'0',hem:'0',cer:'1',cu:'1',hcu:'0',mut:'1'}},{l:'Improbable',v:{kf:'0',neu:'0',hem:'0',cer:'1',cu:'0',hcu:'0',mut:'0'}}]},
+
+rfactor:{uso:'r',
+ que:'Patrón de daño (factor R) y ley de Hy.',
+ cuando:'Toda alteración aguda del perfil hepático y toda sospecha de DILI: orienta el estudio y la causalidad (RUCAM).',
+ ojo:'Calcular con los valores del primer control alterado.',
+ esc:(v,r)=>{const x=P(r.vals[0].v);return {h:['Factor R','Patrón','Causas típicas'],rows:[['≤ 2','Colestásico','Amoxicilina-clavulánico, obstrucción, CBP/CEP'],['2–5','Mixto','DILI mixta, sepsis'],['≥ 5','Hepatocelular','Virus, isquemia, paracetamol, HAI']],on:x<=2?0:x<5?1:2}},
+ ej:[{l:'Hepatocelular con Hy',v:{alt:620,altu:40,fa:180,fau:120,bili:3.1,bu:1.2}},{l:'Colestásico',v:{alt:120,altu:40,fa:640,fau:120,bili:4,bu:1.2}},{l:'Mixto',v:{alt:200,altu:40,fa:250,fau:120,bili:1,bu:1.2}}]},
+
+kings:{uso:'s',
+ que:'Criterios de King\'s College para indicar trasplante en falla hepática aguda.',
+ cuando:'Toda FHA, al ingreso y de forma seriada.',
+ ojo:'Alta especificidad, sensibilidad moderada: no cumplirlos no excluye el trasplante.',
+ ej:[{l:'Paracetamol (cumple)',v:{tipo:'p',ph:7.25,inr:3,cr:2}},{l:'No paracetamol (cumple)',v:{tipo:'n',inr:4.2,cr:2,age:45,desf:true,ict7:true,bili:19}},{l:'No cumple',v:{tipo:'n',inr:2.1,cr:1,age:30,bili:8}}]},
+
+hcc:{uso:'r',
+ que:'Estadio BCLC 2026 con su tratamiento de primera opción y criterios de trasplante (Milán, UCSF, up-to-seven, Metroticket 2.0, modelo AFP).',
+ cuando:'Al diagnóstico de HCC y en cada comité.',
+ ojo:'Requiere imagen completa (número, tamaño, invasión) y función hepática; el comité ajusta según comorbilidad.',
+ esc:(v,r)=>{const st=r.vals[0].v;return {h:['BCLC','Definición','Primera opción'],rows:[['0','Único ≤ 2 cm, ECOG 0','Ablación o resección'],['A','Único o ≤ 3 nódulos ≤ 3 cm, ECOG 0','Resección, ablación o trasplante'],['B','Multinodular, ECOG 0','Trasplante extendido, TACE/TARE o sistémica'],['C','Invasión portal o extrahepática, o ECOG 1–2','Inmunoterapia combinada'],['D','ECOG &gt; 2 o hepatopatía terminal','Soporte']],on:['0','A','B','C','D'].indexOf(st)}},
+ ej:[{l:'BCLC 0',v:{nod:'1.8',afp:12,ecog:'0',fun:'p'}},{l:'BCLC A (Milán)',v:{nod:'2.5, 2, 1.5',afp:40,ecog:'0',fun:'p'}},{l:'BCLC B',v:{nod:'4, 3, 2.5, 2',afp:150,ecog:'0',fun:'p'}},{l:'BCLC C',v:{nod:'5.5',afp:850,vas:true,ecog:'1',fun:'p'}},{l:'BCLC D',v:{nod:'3',afp:20,ecog:'3',fun:'p'}}]},
+
+pageb:{uso:'s',
+ que:'Riesgo de HCC a 5 años en hepatitis B tratada con análogos (edad, sexo, plaquetas).',
+ cuando:'VHB sin cirrosis en tratamiento: decide si hacer vigilancia de HCC.',
+ ojo:'Validado en población caucásica; en asiáticos se usan otros puntajes.',
+ esc:(v,r)=>{const p=+r.vals[0].v;return {h:['PAGE-B','Riesgo a 5 años','Vigilancia'],rows:[['≤ 9','~0 %','Puede omitirse'],['10–17','~3 %','Individualizar'],['≥ 18','~17 %','Semestral']],on:p<=9?0:p<=17?1:2}},
+ ej:[{l:'Bajo',v:{age:35,sex:'f',plt:230}},{l:'Intermedio',v:{age:45,sex:'f',plt:180}},{l:'Alto',v:{age:62,sex:'m',plt:95}}]}
+};
+
 /* ===================== interfaz ===================== */
 const side=document.getElementById('side'), selm=document.getElementById('selm'), box=document.getElementById('calc');
 const grupos=[...new Set(CALCS.map(c=>c.g))];
-side.innerHTML='<input type="search" id="fq" placeholder="Buscar calculadora…" aria-label="Buscar calculadora">'+grupos.map(g=>`<h6>${g}</h6>`+CALCS.filter(c=>c.g===g).map(c=>`<a href="#${c.id}" data-id="${c.id}">${c.t}</a>`).join('')).join('');
-selm.innerHTML=grupos.map(g=>`<optgroup label="${g}">`+CALCS.filter(c=>c.g===g).map(c=>`<option value="${c.id}">${c.t}</option>`).join('')+'</optgroup>').join('');
+const dot=id=>{const u=(META[id]||{}).uso||'s';return `<i class="${u}" title="${USO[u][0]}"></i>`};
+side.innerHTML='<input type="search" id="fq" placeholder="Buscar calculadora…" aria-label="Buscar calculadora"><a href="#curaduria" data-id="curaduria" class="curl">Cuáles se usan de verdad</a><div class="ley"><i class="r"></i>rutina<i class="s"></i>situacional<i class="x"></i>referencia</div>'+grupos.map(g=>`<h6>${g}</h6>`+CALCS.filter(c=>c.g===g).map(c=>`<a href="#${c.id}" data-id="${c.id}">${dot(c.id)}${c.t}</a>`).join('')).join('');
+selm.innerHTML='<option value="curaduria">★ Cuáles se usan de verdad</option>'+grupos.map(g=>`<optgroup label="${g}">`+CALCS.filter(c=>c.g===g).map(c=>`<option value="${c.id}">${c.t}</option>`).join('')+'</optgroup>').join('');
 selm.onchange=()=>{location.hash=selm.value};
 document.getElementById('fq').addEventListener('input',e=>{const q=e.target.value.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
   side.querySelectorAll('a').forEach(a=>{a.hidden=!!q&&a.textContent.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').indexOf(q)<0});});
@@ -450,21 +668,47 @@ function campo(f){
 function leer(cal){const v={}; cal.i.forEach(f=>{const el=document.getElementById('i-'+f.id);
   if(f.t==='n'){const x=el.value.trim().replace(',','.'); v[f.id]=x===''?null:parseFloat(x);}
   else if(f.t==='c')v[f.id]=el.checked; else v[f.id]=el.value;}); return v;}
+/* carga un ejemplo completo: limpia todo y fija números, textos, listas y casillas */
+function cargar(cal,ej){
+  document.getElementById('frm').reset();
+  cal.i.forEach(f=>{const el=document.getElementById('i-'+f.id); if(!(f.id in ej.v))return; const x=ej.v[f.id];
+    if(f.t==='c')el.checked=!!x; else el.value=String(x);});
+}
+function escala(cal,v,r){const m=META[cal.id]; if(!m||!m.esc)return ''; let e=null; try{e=m.esc(v,r)}catch(err){e=null} if(!e)return '';
+  return `<div class="esc"><h4>Escala completa · fila marcada = este paciente</h4><table><tr>${e.h.map(x=>`<th>${x}</th>`).join('')}</tr>${e.rows.map((row,i)=>`<tr class="${i===e.on?'on':''}">${row.map(x=>`<td>${x}</td>`).join('')}</tr>`).join('')}</table></div>`;}
 function calcular(cal){const v=leer(cal); let r=null; try{r=cal.f(v)}catch(e){r=null}
   const out=document.getElementById('res');
-  if(!r){out.innerHTML='<p class="falta">Complete los campos para ver el resultado.</p>';return;}
-  out.innerHTML=`<div class="vals">${r.vals.map(x=>`<div class="val ${x.cls||''}"><small>${x.k}</small><b>${x.v}</b></div>`).join('')}</div><div class="interp">${r.txt||''}</div>`;
+  if(!r){out.innerHTML='<p class="falta">Complete los campos o cargue un ejemplo para ver el resultado.</p>';return;}
+  out.innerHTML=`<div class="vals">${r.vals.map(x=>`<div class="val ${x.cls||''}"><small>${x.k}</small><b>${x.v}</b></div>`).join('')}</div>${escala(cal,v,r)}<div class="interp">${r.txt||''}</div>`;
+}
+function ficha(cal){const m=META[cal.id]; if(!m)return '';
+  return `<details class="ficha" open><summary>Para qué sirve</summary><dl><dt>Qué mide</dt><dd>${m.que}</dd><dt>Cuándo usarla</dt><dd>${m.cuando}</dd><dt>Ojo</dt><dd>${m.ojo}</dd></dl></details>`;}
+function curaduria(){
+  side.querySelectorAll('a').forEach(a=>a.setAttribute('aria-current',a.dataset.id==='curaduria'));
+  selm.value='curaduria'; document.title='Cuáles se usan de verdad · Calculadoras Hepatología';
+  const filas=u=>CALCS.filter(c=>(META[c.id]||{}).uso===u).map(c=>`<tr><td><a href="#${c.id}">${c.t}</a></td><td>${c.g}</td><td>${META[c.id].cuando}</td></tr>`).join('');
+  const bloque=(u,txt)=>`<h2><span class="uso ${u}">${USO[u][0]}</span> ${CALCS.filter(c=>(META[c.id]||{}).uso===u).length} calculadoras</h2><p class="desc">${txt}</p><div class="wrap"><table><tr><th>Calculadora</th><th>Grupo</th><th>Cuándo usarla</th></tr>${filas(u)}</table></div>`;
+  box.innerHTML=`<div class="cur"><h1>Cuáles se usan de verdad</h1><p class="desc">Clasificación propuesta de las ${CALCS.length} calculadoras por uso real en sala y consulta. Por ahora se mantienen todas; la columna sirve para decidir cuáles quedan como uso diario.</p>
+   ${bloque('r','Las que se calculan a diario o en casi todo paciente de su escenario. Se mantienen en primer plano.')}
+   ${bloque('s','Se usan en un escenario concreto (HCC, enfermedad vascular, falla hepática aguda, sospecha de Wilson o HAI). Se mantienen.')}
+   ${bloque('x','Redundantes con otra calculadora de rutina o de nicho en la práctica chilena. Candidatas a retirar u ocultar.')}
+   <h2>Qué MELD leer</h2><ul><li><b>MELD-Na</b>: ordena la lista de trasplante en Chile y es el que se informa para pronóstico y derivación (≥ 15; GES 88).</li><li><b>MELD 3.0</b>: asignación en EE.UU. desde 2023; corrige la desventaja de las mujeres. Útil como complemento, no cambia la prioridad chilena.</li><li><b>MELD clásico</b>: el que validan la hepatitis alcohólica (ACG &gt; 20), el riesgo de TIPS y el riesgo quirúrgico (Mayo).</li></ul>
+   <h2>Pendientes por decidir</h2><ul><li>Retirar u ocultar GAHS, ABIC y NFS (redundantes con MELD, Lille y FIB-4).</li><li>Fusionar Maddrey y Lille en una sola ficha de hepatitis alcohólica (día 0 y día 4–7).</li><li>Candidatas a agregar: RUCAM (causalidad en DILI) e indicación de tratamiento de VHB.</li></ul></div>`;
 }
 function abrir(id){
-  const cal=CALCS.find(c=>c.id===id)||CALCS[0];
+  if(id==='curaduria')return curaduria();
+  const cal=CALCS.find(c=>c.id===id)||CALCS[0], m=META[cal.id]||{};
   side.querySelectorAll('a').forEach(a=>a.setAttribute('aria-current',a.dataset.id===cal.id));
   selm.value=cal.id; document.title=cal.t+' · Calculadoras Hepatología';
-  box.innerHTML=`<h1>${cal.t}</h1><p class="desc">${cal.d}</p><div class="card"><form class="grid" id="frm" onsubmit="return false">${cal.i.map(campo).join('')}</form>
-   <div class="btns"><button type="button" id="ej">Cargar ejemplo</button><button type="button" id="lim">Limpiar</button></div>
+  const u=m.uso?`<div class="uso ${m.uso}">${USO[m.uso][0]} <span>${USO[m.uso][1]}</span></div>`:'';
+  const ejs=(m.ej||[]).map((e,i)=>`<button type="button" data-ej="${i}">${e.l}</button>`).join('');
+  box.innerHTML=`${u}<h1>${cal.t}</h1><p class="desc">${cal.d}</p>${ficha(cal)}<div class="card"><div class="ejs"><small>Ejemplos</small>${ejs}<button type="button" class="lim" id="lim">Limpiar</button></div><form class="grid" id="frm" onsubmit="return false">${cal.i.map(campo).join('')}</form>
    <div class="res" id="res"></div><p class="ref">${cal.ref}</p></div>`;
-  const frm=document.getElementById('frm'); frm.addEventListener('input',()=>calcular(cal)); frm.addEventListener('change',()=>calcular(cal));
-  document.getElementById('ej').onclick=()=>{cal.i.forEach(f=>{if(f.ex!==undefined&&f.ex!==''){document.getElementById('i-'+f.id).value=f.ex}}); calcular(cal)};
-  document.getElementById('lim').onclick=()=>{frm.reset(); calcular(cal)};
+  const frm=document.getElementById('frm'), bts=[...box.querySelectorAll('[data-ej]')];
+  const marca=b=>bts.forEach(x=>x.setAttribute('aria-pressed',x===b));
+  frm.addEventListener('input',()=>{marca(null);calcular(cal)}); frm.addEventListener('change',()=>calcular(cal));
+  bts.forEach(b=>b.onclick=()=>{cargar(cal,m.ej[+b.dataset.ej]); marca(b); calcular(cal)});
+  document.getElementById('lim').onclick=()=>{frm.reset(); marca(null); calcular(cal)};
   calcular(cal);
 }
 window.addEventListener('hashchange',()=>{abrir(location.hash.slice(1)); window.scrollTo(0,0)});
