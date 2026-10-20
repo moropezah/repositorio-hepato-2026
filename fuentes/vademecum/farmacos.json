@@ -100,13 +100,33 @@
    "ind": "HPCS en cirrosis compensada (prevenir la descompensación); profilaxis primaria y secundaria de hemorragia variceal (con ligadura en secundaria).",
    "dos": "6,25 mg/día × 3 días → <b>6,25 mg cada 12 h</b>. Máximo 12,5 mg/día salvo hipertensión arterial. No se titula por frecuencia cardíaca.",
    "aj": "Ascitis: máximo 12,5 mg/día. Child C: usar con cautela y vigilar presión.",
-   "mon": "Presión arterial (PAS ≥ 90 mmHg). Suspender transitoriamente si PAS &lt; 90, sepsis, hemorragia aguda, lesión renal aguda o Na &lt; 130 mmol/L; reintroducir al estabilizar.",
+   "mon": "",
    "ea": "Hipotensión, bradicardia, fatiga. Contraindicado en asma grave, bloqueo AV avanzado.",
    "cob": [
     "g88"
    ],
    "ch": "En la canasta GES 88. Lineamiento GES 88 (Res. Exenta N° 1452): 3,125 mg c/12 h o 6,25 mg/día, máximo 6,25 mg c/12 h (concuerda con Baveno).",
-   "ev": "Baveno VII/VIII · PREDESCI (Villanueva, Lancet 2019)"
+   "ev": "Baveno VII/VIII · PREDESCI (Villanueva, Lancet 2019)",
+   "lin": "1.ª línea en HPCS compensada (prevenir la descompensación) y en profilaxis primaria; secundaria con ligadura.",
+   "resp": "No hay meta de frecuencia cardíaca: el efecto hemodinámico es inmediato. Beneficio clínico (menos descompensación) en meses a años (PREDESCI).",
+   "plan": [
+    [
+     "Basal",
+     "PA, FC, creatinina, Na"
+    ],
+    [
+     "Día 3",
+     "Subir a 6,25 mg c/12 h si PAS ≥ 90 mmHg"
+    ],
+    [
+     "Cada control",
+     "PAS ≥ 90 mmHg, ascitis, función renal y Na"
+    ],
+    [
+     "Si PAS < 90, Na < 125, LRA, sepsis o sangrado",
+     "Reducir o suspender transitoriamente; reintroducir al estabilizar"
+    ]
+   ]
   },
   {
    "id": "propranolol",
@@ -116,13 +136,29 @@
    "ind": "Profilaxis primaria y secundaria de hemorragia variceal; alternativa a carvedilol.",
    "dos": "20–40 mg cada 12 h; titular cada 2–3 días a FC 55–60 lpm.",
    "aj": "Máximo <b>160 mg/día sin ascitis y 80 mg/día con ascitis</b> (Baveno VII, no modificado por Baveno VIII).",
-   "mon": "FC, PAS. Mismos criterios de suspensión que carvedilol. Respuesta hemodinámica (GPVH): caída ≥ 10 % (primaria) o ≥ 20 % / &lt; 12 mmHg (secundaria).",
+   "mon": "",
    "ea": "Fatiga, broncoespasmo, enmascara hipoglicemia.",
    "cob": [
     "g88"
    ],
    "ch": "En la canasta GES 88. Lineamiento GES 88 (Res. Exenta N° 1452): techo de 320 mg/día (160 con ascitis), el doble del de Baveno: usar el techo de Baveno.",
-   "ev": "Baveno VII"
+   "ev": "Baveno VII",
+   "lin": "Alternativa a carvedilol si no lo tolera o en profilaxis secundaria con ligadura.",
+   "resp": "Meta: FC 55–60 lpm; respuesta hemodinámica (GPVH) solo si se mide.",
+   "plan": [
+    [
+     "Basal",
+     "FC, PA"
+    ],
+    [
+     "Cada 2–3 días",
+     "Titular a FC 55–60 lpm"
+    ],
+    [
+     "Cada control",
+     "FC, PAS ≥ 90 mmHg; mismos criterios de suspensión que carvedilol"
+    ]
+   ]
   },
   {
    "id": "nadolol",
@@ -170,7 +206,23 @@
     "hosp"
    ],
    "ch": "Arsenal hospitalario.",
-   "ev": "ICA-ADQI 2024 · CONFIRM (NEJM 2021) · Baveno VII"
+   "ev": "ICA-ADQI 2024 · CONFIRM (NEJM 2021) · Baveno VII",
+   "lin": "1.ª línea en HRS-AKI (con albúmina) y en hemorragia variceal aguda.",
+   "resp": "HRS-AKI: evaluar al día 3; si la creatinina cae < 25 %, subir la dosis. Respuesta completa: creatinina a ≤ 0,3 mg/dL del basal. Máximo 14 días.",
+   "plan": [
+    [
+     "Basal",
+     "SpO₂, ECG, volemia, creatinina"
+    ],
+    [
+     "Diario",
+     "Creatinina, SpO₂, signos de isquemia y sobrecarga"
+    ],
+    [
+     "Día 3",
+     "Respuesta parcial → subir dosis; sin respuesta al día 4–5 con dosis máxima → suspender"
+    ]
+   ]
   },
   {
    "id": "somatostatina",
@@ -213,13 +265,33 @@
    "ind": "Ascitis grado 2–3; primer episodio puede iniciarse en monoterapia.",
    "dos": "100 mg/día matinal (con furosemida 40 mg: relación 100:40); subir cada 72 h hasta <b>400 mg/día</b>.",
    "aj": "Ajustar a función renal y potasio.",
-   "mon": "Peso (meta: ≤ 0,5 kg/día sin edema; ≤ 1 kg/día con edema), Na, K y creatinina. Suspender si K &gt; 6 mmol/L, lesión renal aguda, Na &lt; 125 mmol/L o encefalopatía. Ascitis refractaria: sin respuesta con 400 mg + 160 mg de furosemida, o complicaciones que impiden la dosis efectiva.",
+   "mon": "",
    "ea": "Hiperkalemia, ginecomastia dolorosa (cambiar a amilorida o eplerenona), calambres.",
    "cob": [
     "g88"
    ],
    "ch": "En la canasta GES 88 (100–400 mg/día). Sin GES: ~$9.000/mes con 100 mg/día (Godoy, Curso Dávila 2026).",
-   "ev": "EASL 2018 · AASLD 2021"
+   "ev": "EASL 2018 · AASLD 2021",
+   "lin": "1.ª línea en ascitis grado 2–3 (sola en el primer episodio o con furosemida 100:40).",
+   "resp": "Pérdida de peso ≤ 0,5 kg/día sin edema (≤ 1 kg/día con edema). Falla: ascitis refractaria (sin respuesta con 400 mg + furosemida 160 mg).",
+   "plan": [
+    [
+     "Basal",
+     "Na, K, creatinina, peso"
+    ],
+    [
+     "Días 3–7",
+     "Electrolitos y creatinina; subir cada 72 h si no hay respuesta"
+    ],
+    [
+     "Primer mes",
+     "Electrolitos cada 1–2 semanas"
+    ],
+    [
+     "Luego",
+     "Mensual a trimestral; suspender si K > 6, Na < 125, LRA o encefalopatía"
+    ]
+   ]
   },
   {
    "id": "furosemida",
@@ -309,13 +381,29 @@
    "ind": "Tratamiento del episodio de encefalopatía; profilaxis secundaria (primera línea); profilaxis tras hemorragia variceal.",
    "dos": "<b>Episodio</b>: 25 mL cada 1–2 h hasta 2 deposiciones blandas, luego 15–30 mL cada 12 h.<br><b>Mantención</b>: titular a 2–3 deposiciones blandas al día. Enema: 300 mL en 700 mL de agua si no hay vía oral.",
    "aj": "—",
-   "mon": "Falla = recurrencia con buena adherencia → agregar rifaximina; buscar precipitante y shunt portosistémico espontáneo.",
+   "mon": "",
    "ea": "Diarrea excesiva → deshidratación, hipernatremia, lesión renal (empeora la encefalopatía). Distensión.",
    "cob": [
     "g88"
    ],
    "ch": "En la canasta GES 88 (30–45 mL 2–4 veces/día). $3.000–6.000 por frasco sin GES.",
-   "ev": "AASLD/EASL 2014 · EASL 2022"
+   "ev": "AASLD/EASL 2014 · EASL 2022",
+   "lin": "1.ª línea en el episodio y en la profilaxis secundaria de encefalopatía.",
+   "resp": "Mejoría del episodio en 24–72 h; si no, buscar precipitante o diagnóstico alternativo.",
+   "plan": [
+    [
+     "Episodio",
+     "Cada 1–2 h hasta deposición, luego titular"
+    ],
+    [
+     "Mantención",
+     "2–3 deposiciones blandas al día"
+    ],
+    [
+     "Recurrencia con adherencia",
+     "Agregar rifaximina; buscar shunt portosistémico espontáneo"
+    ]
+   ]
   },
   {
    "id": "peg3350",
@@ -347,7 +435,19 @@
     "g88"
    ],
    "ch": "En la canasta GES 88: 400 mg c/8 h junto a lactulosa si la EH grado ≥ II persiste pese a lactulosa (presentación de 200 mg en el ISP). Sin GES: $150.000–200.000/mes.",
-   "ev": "Bass (NEJM 2010) · EASL 2022"
+   "ev": "Bass (NEJM 2010) · EASL 2022",
+   "lin": "2.ª línea: se agrega a lactulosa tras la recurrencia (profilaxis secundaria).",
+   "resp": "Reduce recurrencias y hospitalizaciones en los primeros 6 meses (Bass 2010).",
+   "plan": [
+    [
+     "Inicio",
+     "Junto a lactulosa, indefinida"
+    ],
+    [
+     "Cada control",
+     "Episodios de encefalopatía, adherencia"
+    ]
+   ]
   },
   {
    "id": "lola",
@@ -421,13 +521,33 @@
    "ind": "Hepatitis alcohólica grave (Maddrey ≥ 32 o MELD 21–39) sin infección no controlada, hemorragia activa ni lesión renal en progresión.",
    "dos": "<b>Prednisolona 40 mg/día</b> (o prednisona 40 mg) × 28 días, luego suspender o descender en 2 semanas.",
    "aj": "MELD &gt; 39: beneficio improbable; discutir trasplante precoz.",
-   "mon": "<b>Lille al día 4 o 7</b>: &gt; 0,45 = no respondedor → suspender y presentar a comité. Reduce mortalidad a 28 días, no a 90 días (STOPAH).",
+   "mon": "STOPAH: reduce la mortalidad a 28 días, no a 90 días.",
    "ea": "Infecciones (buscar activamente), hiperglicemia, hemorragia digestiva.",
    "cob": [
     "g88x"
    ],
    "ch": "Fuera de la canasta GES 88; prednisona y prednisolona oral disponibles.",
-   "ev": "STOPAH (NEJM 2015) · ACG 2024 · EASL 2018"
+   "ev": "STOPAH (NEJM 2015) · ACG 2024 · EASL 2018",
+   "lin": "1.ª línea en hepatitis alcohólica grave (MELD 21–39).",
+   "resp": "<b>Lille al día 4 o 7</b>: > 0,45 = no respondedor → suspender y discutir trasplante precoz; ≤ 0,45 → completar 28 días.",
+   "plan": [
+    [
+     "Basal",
+     "Cultivos, paracentesis, radiografía: excluir infección; glicemia, creatinina"
+    ],
+    [
+     "Día 4 o 7",
+     "Lille"
+    ],
+    [
+     "Diario",
+     "Infección (la principal causa de muerte), glicemia, sangrado"
+    ],
+    [
+     "Día 28",
+     "Suspender (o descenso en 2 semanas)"
+    ]
+   ]
   },
   {
    "id": "nac_haa",
@@ -470,13 +590,29 @@
    "ind": "Trastorno por consumo de alcohol en cirrosis (el más estudiado en hepatopatía avanzada).",
    "dos": "5 mg cada 8 h; subir cada 3 días hasta 10–25 mg cada 8 h (máximo habitual 75 mg/día).",
    "aj": "Excreción renal: reducir en falla renal; evitar en encefalopatía.",
-   "mon": "Abstinencia y consumo (PEth).",
+   "mon": "",
    "ea": "Somnolencia, confusión (simula encefalopatía), síndrome de retirada si se suspende bruscamente.",
    "cob": [
     "bol"
    ],
    "ch": "Disponible.",
-   "ev": "ACG 2024 · EASL 2018"
+   "ev": "ACG 2024 · EASL 2018",
+   "lin": "1.ª línea del trastorno por consumo de alcohol en cirrosis.",
+   "resp": "Abstinencia o reducción del consumo en semanas; evaluar a los 3 meses.",
+   "plan": [
+    [
+     "Inicio",
+     "5 mg c/8 h; subir cada 3 días"
+    ],
+    [
+     "Cada control",
+     "Consumo (PEth), somnolencia o confusión"
+    ],
+    [
+     "Suspensión",
+     "Gradual (síndrome de retirada)"
+    ]
+   ]
   },
   {
    "id": "acamprosato",
@@ -502,13 +638,25 @@
    "ind": "Trastorno por consumo de alcohol sin cirrosis descompensada; prurito colestásico refractario.",
    "dos": "TUA: 50 mg/día. Prurito: iniciar 12,5–25 mg y subir a 50 mg.",
    "aj": "Evitar en cirrosis descompensada y falla hepática.",
-   "mon": "Pruebas hepáticas.",
+   "mon": "",
    "ea": "Precipita abstinencia en usuarios de opioides; hepatotoxicidad a dosis altas; reacción tipo abstinencia en prurito.",
    "cob": [
     "g88x"
    ],
    "ch": "Disponibilidad no confirmada.",
-   "ev": "ACG 2024 · EASL CBP 2017"
+   "ev": "ACG 2024 · EASL CBP 2017",
+   "lin": "Trastorno por consumo de alcohol sin cirrosis descompensada; 3.ª línea del prurito.",
+   "resp": "Prurito: alivio en días.",
+   "plan": [
+    [
+     "Inicio",
+     "12,5 mg y subir en 1–2 semanas (síntomas tipo abstinencia)"
+    ],
+    [
+     "Cada control",
+     "Transaminasas; contraindicada con opioides"
+    ]
+   ]
   },
   {
    "id": "topiramato",
@@ -540,7 +688,27 @@
     "bol"
    ],
    "ch": "Disponible (bolsillo).",
-   "ev": "ESSENCE (NEJM 2025) · EASL-EASD-EASO 2026"
+   "ev": "ESSENCE (NEJM 2025) · EASL-EASD-EASO 2026",
+   "lin": "MASH F2–F3 con obesidad, DM2 o riesgo cardiovascular (EASL-EASD-EASO 2026: preferida en ese perfil).",
+   "resp": "Baja de ALT y peso en 3–6 meses. Meta de peso ≥ 10 %. Reevaluar fibrosis con tests no invasivos a los 12 meses.",
+   "plan": [
+    [
+     "Basal",
+     "Peso, HbA1c, lipasa si hay antecedente de pancreatitis; descartar carcinoma medular de tiroides o MEN2; fondo de ojo si hay retinopatía diabética"
+    ],
+    [
+     "Cada 4 semanas",
+     "Subir dosis según tolerancia gastrointestinal"
+    ],
+    [
+     "Mes 3–6",
+     "Peso, ALT, glicemia; ajustar hipoglicemiantes (sulfonilureas, insulina)"
+    ],
+    [
+     "Mes 12",
+     "FIB-4 y elastografía; masa muscular (proteínas y ejercicio)"
+    ]
+   ]
   },
   {
    "id": "tirzepatida",
@@ -557,7 +725,23 @@
     "ver"
    ],
    "ch": "Verificar registro y costo.",
-   "ev": "SYNERGY-NASH (NEJM 2024)"
+   "ev": "SYNERGY-NASH (NEJM 2024)",
+   "lin": "Obesidad o DM2 con MASLD; para MASH aún en estudio (fase 3).",
+   "resp": "Igual que semaglutida; mayor pérdida de peso.",
+   "plan": [
+    [
+     "Cada 4 semanas",
+     "Subir 2,5 mg según tolerancia"
+    ],
+    [
+     "Mes 3–6",
+     "Peso, ALT, glicemia"
+    ],
+    [
+     "Mes 12",
+     "Tests no invasivos de fibrosis"
+    ]
+   ]
   },
   {
    "id": "resmetirom",
@@ -573,7 +757,23 @@
     "nd"
    ],
    "ch": "Sin registro en Chile a octubre 2026 (verificar ISP).",
-   "ev": "MAESTRO-NASH (NEJM 2024) · EASL-EASD-EASO 2026"
+   "ev": "MAESTRO-NASH (NEJM 2024) · EASL-EASD-EASO 2026",
+   "lin": "MASH F2–F3 sin obesidad, con intolerancia a GLP-1 o ya en uso de GLP-1 (EASL-EASD-EASO 2026).",
+   "resp": "A los 12 meses (AASLD 2025): caída de ALT ≥ 17 U/L o ≥ 20 %, de rigidez ≥ 30 % (VCTE) o de ELF ≥ 0,5. Sin respuesta al año → suspender.",
+   "plan": [
+    [
+     "Basal",
+     "ALT, rigidez (VCTE 8–15 kPa) o ELF, lípidos, TSH; revisar estatinas y gemfibrozilo"
+    ],
+    [
+     "Mes 3–6",
+     "ALT, lípidos (baja el LDL), tolerancia digestiva"
+    ],
+    [
+     "Mes 12",
+     "ALT, VCTE o ELF: decidir continuar"
+    ]
+   ]
   },
   {
    "id": "pioglitazona",
@@ -589,7 +789,23 @@
     "bol"
    ],
    "ch": "Disponible y de bajo costo.",
-   "ev": "AASLD 2023 · EASL 2024"
+   "ev": "AASLD 2023 · EASL 2024",
+   "lin": "MASH con DM2 (alternativa o asociada a GLP-1).",
+   "resp": "Mejoría histológica a 6–18 meses (ALT en 3–6 meses).",
+   "plan": [
+    [
+     "Basal",
+     "Insuficiencia cardíaca, densitometría si hay riesgo de fractura"
+    ],
+    [
+     "Cada 3–6 meses",
+     "Peso, edema, ALT"
+    ],
+    [
+     "Anual",
+     "Hematuria (cáncer vesical), fracturas"
+    ]
+   ]
   },
   {
    "id": "vitE",
@@ -615,13 +831,33 @@
    "ind": "Hepatitis B crónica; profilaxis de reactivación con inmunosupresión; VHB aguda grave.",
    "dos": "<b>0,5 mg/día</b> en ayunas. <b>1 mg/día</b> en cirrosis descompensada o resistencia a lamivudina (preferir tenofovir en este caso).",
    "aj": "ClCr 30–49: 50 % de la dosis; 10–29: 30 %; &lt; 10: 0,05 mg/día (o cada 5–7 días).",
-   "mon": "DNA-VHB a 3 y 6 meses, luego cada 6–12 meses; falla virológica primaria: caída &lt; 1 log a 12 semanas. HBsAg anual.",
+   "mon": "",
    "ea": "Acidosis láctica rara en descompensados con MELD &gt; 20.",
    "cob": [
     "g68"
    ],
    "ch": "GES 68 garantiza el tratamiento farmacológico (verificar molécula en el LEP).",
-   "ev": "EASL VHB 2025"
+   "ev": "EASL VHB 2025",
+   "lin": "1.ª línea en VHB (junto a TDF y TAF); preferida con enfermedad renal u ósea.",
+   "resp": "DNA cae ≥ 1 log a las 12 semanas (si no: falla primaria, revisar adherencia). DNA indetectable a las 48 semanas (si sigue detectable: respuesta parcial → cambiar a tenofovir). HBsAg se pierde en ~1 % al año.",
+   "plan": [
+    [
+     "Basal",
+     "DNA, ALT, HBeAg, creatinina, VIH, anti-VHD, rigidez"
+    ],
+    [
+     "Mes 3",
+     "DNA, ALT"
+    ],
+    [
+     "Mes 6 y 12",
+     "DNA, ALT, creatinina"
+    ],
+    [
+     "Luego",
+     "DNA y ALT cada 6–12 meses; HBsAg anual con DNA indetectable; vigilancia de HCC según riesgo"
+    ]
+   ]
   },
   {
    "id": "tdf",
@@ -631,13 +867,29 @@
    "ind": "Hepatitis B crónica; embarazo (DNA &gt; 200.000 UI/mL desde semana 24–28); resistencia a lamivudina/entecavir.",
    "dos": "<b>300 mg/día</b>.",
    "aj": "ClCr 30–49: cada 48 h; 10–29: cada 72–96 h. Preferir entecavir o TAF si hay enfermedad renal u osteoporosis.",
-   "mon": "Creatinina, fosfato, densitometría según riesgo.",
+   "mon": "",
    "ea": "Tubulopatía proximal, pérdida de densidad ósea.",
    "cob": [
     "g68"
    ],
    "ch": "GES 68 (verificar molécula en el LEP).",
-   "ev": "EASL VHB 2025 · EASL embarazo 2023"
+   "ev": "EASL VHB 2025 · EASL embarazo 2023",
+   "lin": "1.ª línea en VHB; de elección en embarazo y resistencia a lamivudina o entecavir.",
+   "resp": "Igual que entecavir.",
+   "plan": [
+    [
+     "Basal",
+     "DNA, ALT, creatinina, fósforo, examen de orina; densitometría si hay riesgo"
+    ],
+    [
+     "Mes 3",
+     "DNA, ALT, creatinina, fósforo"
+    ],
+    [
+     "Cada 6–12 meses",
+     "DNA, ALT, creatinina y fósforo; cambiar a TAF o entecavir si cae la filtración o hay osteoporosis"
+    ]
+   ]
   },
   {
    "id": "taf",
@@ -647,14 +899,30 @@
    "ind": "Hepatitis B crónica con riesgo renal u óseo.",
    "dos": "<b>25 mg/día</b>.",
    "aj": "Sin ajuste con ClCr ≥ 15 mL/min.",
-   "mon": "DNA-VHB, lípidos.",
+   "mon": "",
    "ea": "Mejor perfil renal y óseo que TDF; ↑ LDL leve.",
    "cob": [
     "g68",
     "ver"
    ],
    "ch": "Verificar disponibilidad e inclusión en GES 68.",
-   "ev": "EASL VHB 2025"
+   "ev": "EASL VHB 2025",
+   "lin": "1.ª línea en VHB con riesgo renal u óseo, o mayores de 60 años.",
+   "resp": "Igual que entecavir.",
+   "plan": [
+    [
+     "Basal",
+     "DNA, ALT, creatinina, lípidos"
+    ],
+    [
+     "Mes 3",
+     "DNA, ALT"
+    ],
+    [
+     "Cada 6–12 meses",
+     "DNA, ALT, creatinina, lípidos"
+    ]
+   ]
   },
   {
    "id": "pegifn",
@@ -680,13 +948,33 @@
    "ind": "Hepatitis C de cualquier genotipo, incluida cirrosis descompensada.",
    "dos": "<b>400/100 mg/día × 12 semanas</b>. Cirrosis descompensada: + ribavirina × 12 semanas (o 24 semanas sin ribavirina).",
    "aj": "Sin ajuste renal (incluida diálisis).",
-   "mon": "RVS a las 12 semanas (RNA indetectable). Con cirrosis: vigilancia de HCC y HPCS persiste.",
+   "mon": "",
    "ea": "<b>Amiodarona: bradicardia grave</b> (contraindicada). IBP reduce la absorción de velpatasvir (omeprazol ≤ 20 mg junto con el AAD). Inductores (rifampicina, carbamazepina) contraindicados.",
    "cob": [
     "g69"
    ],
    "ch": "GES 69 garantiza el tratamiento farmacológico (verificar molécula en el LEP).",
-   "ev": "ASTRAL-1 (NEJM 2015): RVS 99 % · AASLD-IDSA · EASL 2020"
+   "ev": "ASTRAL-1 (NEJM 2015): RVS 99 % · AASLD-IDSA · EASL 2020",
+   "lin": "1.ª línea pangenotípica en VHC (incluida la cirrosis descompensada).",
+   "resp": "RNA indetectable a las 12 semanas de terminar (RVS12) = cura; > 95 %.",
+   "plan": [
+    [
+     "Basal",
+     "RNA, HBsAg y anti-HBc (reactivación), embarazo, interacciones (amiodarona, IBP, inductores), FIB-4 o elastografía"
+    ],
+    [
+     "Durante",
+     "Sin controles en el esquema simplificado sin cirrosis; con cirrosis o VHB: control clínico y de laboratorio"
+    ],
+    [
+     "Semana 12 post",
+     "RNA (RVS12)"
+    ],
+    [
+     "Después",
+     "Con cirrosis: HCC y várices siguen; sin cirrosis: alta"
+    ]
+   ]
   },
   {
    "id": "gp",
@@ -696,13 +984,25 @@
    "ind": "Hepatitis C sin cirrosis o con cirrosis compensada.",
    "dos": "<b>300/120 mg/día</b> (3 comprimidos juntos con comida) <b>× 8 semanas</b>.",
    "aj": "Sin ajuste renal. <b>Contraindicado en Child B y C</b> (inhibidor de proteasa).",
-   "mon": "RVS 12.",
+   "mon": "",
    "ea": "Interacciones: atorvastatina/simvastatina, etinilestradiol, rifampicina, carbamazepina, dabigatrán.",
    "cob": [
     "g69"
    ],
    "ch": "GES 69 (verificar molécula en el LEP).",
-   "ev": "EASL 2020 · AASLD-IDSA"
+   "ev": "EASL 2020 · AASLD-IDSA",
+   "lin": "1.ª línea en VHC sin cirrosis o con cirrosis compensada (8 semanas).",
+   "resp": "RVS12 > 95 %.",
+   "plan": [
+    [
+     "Basal",
+     "Igual que sofosbuvir/velpatasvir; excluir Child B–C"
+    ],
+    [
+     "Semana 12 post",
+     "RNA (RVS12)"
+    ]
+   ]
   },
   {
    "id": "sofvelvox",
@@ -751,7 +1051,23 @@
     "nd"
    ],
    "ch": "Sin registro en Chile (verificar ISP).",
-   "ev": "MYR301 (NEJM 2023) · EASL VHD 2023"
+   "ev": "MYR301 (NEJM 2023) · EASL VHD 2023",
+   "lin": "1.ª línea en VHD compensada (± peg-interferón).",
+   "resp": "A las 48 semanas: RNA-VHD indetectable o caída ≥ 2 log con ALT normal (respuesta combinada).",
+   "plan": [
+    [
+     "Basal",
+     "RNA-VHD, DNA-VHB, ALT, rigidez"
+    ],
+    [
+     "Cada 3 meses",
+     "RNA-VHD, ALT, ácidos biliares (suben, sin síntomas)"
+    ],
+    [
+     "Semana 48",
+     "Evaluar respuesta combinada; tratamiento indefinido"
+    ]
+   ]
   },
   {
    "id": "prednisona_hai",
@@ -759,15 +1075,39 @@
    "g": "ai",
    "cl": "Corticoide.",
    "ind": "Inducción en hepatitis autoinmune; hepatitis autoinmune con cirrosis; DILI con rasgos autoinmunes; colangitis por IgG4.",
-   "dos": "<b>HAI</b>: 0,5–1 mg/kg/día (habitualmente 20–40 mg, máximo 60 mg), descenso según transaminasas a 5–10 mg/día.<br><b>IgG4</b>: 0,6 mg/kg/día (30–40 mg) × 2–4 semanas y descenso en 3 meses.",
+   "dos": "<b>HAI</b>: 0,5–1 mg/kg/día (habitualmente 20–40 mg, máximo 60 mg), descenso según transaminasas a 5–10 mg/día.<br><b>IgG4</b>: 0,6 mg/kg/día (30–40 mg) × 2–4 semanas y descenso en 3 meses.<br><b>Ejemplo de descenso</b>: 0,5–1 mg/kg (p. ej. 40–60 mg) la semana 1 → bajar 10 mg por semana hasta 20 mg → 5 mg cada 2 semanas hasta 10 mg (≈ semana 10–12) → 5–7,5 mg de mantención, guiado por transaminasas.",
    "aj": "Cirrosis descompensada: dosis bajas y vigilancia de infecciones.",
-   "mon": "Respuesta bioquímica completa (ALT e IgG normales) a los 6 meses; falla → segunda línea. Calcio + vitamina D, densitometría.",
+   "mon": "",
    "ea": "Diabetes, osteoporosis, infecciones, cataratas, psiquiátricos.",
    "cob": [
     "g88x"
    ],
    "ch": "Corticoides fuera de la canasta GES 88 (el Anexo 1 incluye azatioprina, no prednisona ni budesonida).",
-   "ev": "EASL HAI 2025"
+   "ev": "EASL HAI 2025",
+   "lin": "1.ª línea de inducción en HAI, con azatioprina desde la semana 2 (budesonida en no cirróticos como alternativa).",
+   "resp": "Transaminasas caen ≥ 50 % a las <b>4 semanas</b> (si no: «no respuesta», revisar diagnóstico y adherencia). Normalización de transaminasas e IgG a los <b>6 meses</b> = respuesta completa (si no: respuesta insuficiente → 2.ª línea). La remisión histológica se atrasa 3–8 meses. Retiro de toda inmunosupresión solo tras ≥ 24 meses de remisión bioquímica (recaída 50–90 %). HAI aguda grave: sin mejoría de INR y bilirrubina en 7 días → trasplante.",
+   "plan": [
+    [
+     "Basal",
+     "TPMT/NUDT15, HBsAg y anti-HBc, VHC, IGRA, glicemia, PA, densitometría; vacunas (inactivadas y zóster recombinante)"
+    ],
+    [
+     "Semanas 2–4",
+     "Transaminasas, IgG, glicemia, PA"
+    ],
+    [
+     "Cada 2–4 semanas",
+     "Transaminasas durante el descenso"
+    ],
+    [
+     "Mes 6",
+     "Transaminasas e IgG: ¿respuesta completa?"
+    ],
+    [
+     "Luego",
+     "Cada 3 meses; calcio + vitamina D; densitometría cada 1–2 años y control oftalmológico con uso prolongado"
+    ]
+   ]
   },
   {
    "id": "budesonida",
@@ -777,14 +1117,22 @@
    "ind": "Inducción de HAI en no cirróticos (alternativa a prednisona).",
    "dos": "<b>9 mg/día</b> (3 mg cada 8 h); mantención 6 mg/día.",
    "aj": "<b>Contraindicada en cirrosis</b> y en shunts portosistémicos (pierde el primer paso).",
-   "mon": "Igual que prednisona.",
+   "mon": "",
    "ea": "Menos efectos sistémicos.",
    "cob": [
     "g88x",
     "bol"
    ],
    "ch": "Disponible.",
-   "ev": "Manns (Gastroenterology 2010) · EASL 2025"
+   "ev": "Manns (Gastroenterology 2010) · EASL 2025",
+   "lin": "Alternativa a prednisona en inducción de HAI sin cirrosis.",
+   "resp": "Igual que prednisona; menos efectos sistémicos.",
+   "plan": [
+    [
+     "Igual que prednisona",
+     "Suspender y cambiar a prednisona si aparece cirrosis o shunt"
+    ]
+   ]
   },
   {
    "id": "azatioprina",
@@ -794,13 +1142,37 @@
    "ind": "Ahorrador de corticoides en HAI (primera línea junto a micofenolato); mantención.",
    "dos": "50 mg/día desde ~2 semanas de corticoide, subir a <b>1–2 mg/kg/día</b>.",
    "aj": "Medir TPMT/NUDT15 antes (deficiencia: evitar o reducir dosis). Perfil hipermetilador: alopurinol 100 mg + azatioprina al 25–50 %.",
-   "mon": "Hemograma y transaminasas cada 2 semanas al inicio, luego cada 3 meses. 6-TGN, 6-MMP si no hay respuesta.",
+   "mon": "",
    "ea": "Mielosupresión, pancreatitis, hepatotoxicidad, cáncer de piel no melanoma, linfoma.",
    "cob": [
     "g88"
    ],
    "ch": "En la canasta GES 88 (cirrosis por HAI, 1–2 mg/kg/día). El corticoide asociado no está en la canasta.",
-   "ev": "EASL HAI 2025"
+   "ev": "EASL HAI 2025",
+   "lin": "1.ª línea de mantención en HAI (ahorrador de corticoides).",
+   "resp": "Efecto ahorrador lento: 3–6 meses. Permite bajar el corticoide a 5–10 mg o suspenderlo. Sin respuesta: medir 6-TGN y 6-MMP (adherencia, perfil hipermetilador).",
+   "plan": [
+    [
+     "Basal",
+     "TPMT/NUDT15, hemograma, perfil hepático, VHB, VVZ; anticoncepción no es obligatoria (compatible con embarazo)"
+    ],
+    [
+     "Semanas 1–8",
+     "Hemograma y transaminasas cada 2 semanas (leucopenia, hepatotoxicidad); lipasa si hay dolor abdominal"
+    ],
+    [
+     "Luego",
+     "Hemograma y transaminasas cada 3 meses"
+    ],
+    [
+     "Anual",
+     "Control dermatológico (cáncer de piel); fotoprotección"
+    ],
+    [
+     "Ojo",
+     "Alopurinol o febuxostat: reducir la dosis a 25–33 %; no vacunas vivas"
+    ]
+   ]
   },
   {
    "id": "mmf",
@@ -810,14 +1182,30 @@
    "ind": "HAI en primera línea (alternativa a azatioprina) o segunda línea; inmunosupresión postrasplante.",
    "dos": "500 mg cada 12 h → <b>1,5–2 g/día</b>.",
    "aj": "<b>Teratogénico</b>: anticoncepción eficaz; suspender 6 semanas antes de embarazo.",
-   "mon": "Hemograma.",
+   "mon": "",
    "ea": "Diarrea, leucopenia, infecciones.",
    "cob": [
     "bol",
     "ver"
    ],
    "ch": "Disponible; cobertura según contexto.",
-   "ev": "EASL HAI 2025"
+   "ev": "EASL HAI 2025",
+   "lin": "1.ª línea alternativa a azatioprina (EASL 2025) o 2.ª línea tras falla o intolerancia.",
+   "resp": "Igual que azatioprina: 3–6 meses.",
+   "plan": [
+    [
+     "Basal",
+     "Hemograma, test de embarazo; anticoncepción eficaz"
+    ],
+    [
+     "Semanas 1–8",
+     "Hemograma cada 2 semanas"
+    ],
+    [
+     "Luego",
+     "Hemograma cada 3 meses; suspender 6 semanas antes de buscar embarazo"
+    ]
+   ]
   },
   {
    "id": "audc",
@@ -833,7 +1221,27 @@
     "g88"
    ],
    "ch": "En la canasta GES 88. Lineamiento GES 88 (Res. Exenta N° 1452): \"máximo 1 g/día\": discrepa de EASL/AASLD, que no fijan tope; calcular 13–15 mg/kg.",
-   "ev": "EASL CBP 2017 · AASLD 2021"
+   "ev": "EASL CBP 2017 · AASLD 2021",
+   "lin": "1.ª línea en CBP, de por vida.",
+   "resp": "La FA baja en semanas (máximo efecto a 6–12 meses). Evaluación formal a los <b>6 meses</b> (alto riesgo) o <b>12 meses</b> (sin alto riesgo); si no alcanza la meta → 2.ª línea.",
+   "plan": [
+    [
+     "Basal",
+     "FA, bilirrubina, plaquetas, rigidez, densitometría, TSH, perfil lipídico"
+    ],
+    [
+     "Mes 3",
+     "FA (adherencia, dosis por peso)"
+    ],
+    [
+     "Mes 6 o 12",
+     "FA y bilirrubina: ¿meta?"
+    ],
+    [
+     "Luego",
+     "FA, bilirrubina y plaquetas cada 6 meses; rigidez anual; densitometría cada 2–3 años; HCC si hay cirrosis"
+    ]
+   ]
   },
   {
    "id": "bezafibrato",
@@ -850,7 +1258,23 @@
     "bol"
    ],
    "ch": "Disponible en Chile, fuera de indicación.",
-   "ev": "BEZURSO (NEJM 2018)"
+   "ev": "BEZURSO (NEJM 2018)",
+   "lin": "2.ª línea en CBP (fuera de indicación; disponible en Chile); útil en prurito.",
+   "resp": "FA baja en 1–3 meses; evaluar a 6–12 meses.",
+   "plan": [
+    [
+     "Basal",
+     "Creatinina, CK, transaminasas"
+    ],
+    [
+     "Mes 1 y 3",
+     "Creatinina (sube), CK, transaminasas"
+    ],
+    [
+     "Luego",
+     "Cada 3–6 meses; suspender si progresa a cirrosis descompensada"
+    ]
+   ]
   },
   {
    "id": "elafibranor",
@@ -867,7 +1291,23 @@
     "nd"
    ],
    "ch": "Sin registro en Chile (verificar ISP).",
-   "ev": "ELATIVE (NEJM 2024)"
+   "ev": "ELATIVE (NEJM 2024)",
+   "lin": "2.ª línea en CBP (preferido si predomina la fatiga).",
+   "resp": "FA baja desde la semana 4; evaluar respuesta (POISE o FA normal) a 6–12 meses.",
+   "plan": [
+    [
+     "Basal",
+     "CK, transaminasas, test de embarazo; anticoncepción no hormonal o de barrera"
+    ],
+    [
+     "Mes 1–3",
+     "CK, transaminasas, mialgias"
+    ],
+    [
+     "Luego",
+     "Cada 3–6 meses; suspender si pasa a Child B–C"
+    ]
+   ]
   },
   {
    "id": "seladelpar",
@@ -884,7 +1324,23 @@
     "nd"
    ],
    "ch": "Sin registro en Chile (verificar ISP).",
-   "ev": "RESPONSE (NEJM 2024)"
+   "ev": "RESPONSE (NEJM 2024)",
+   "lin": "2.ª línea en CBP (preferido si predomina el prurito).",
+   "resp": "FA baja desde la semana 4; el prurito mejora en semanas; evaluar a 6–12 meses.",
+   "plan": [
+    [
+     "Basal",
+     "Creatinina, transaminasas, densitometría"
+    ],
+    [
+     "Mes 1–3",
+     "Transaminasas, creatinina, prurito"
+    ],
+    [
+     "Luego",
+     "Cada 3–6 meses; suspender si se descompensa"
+    ]
+   ]
   },
   {
    "id": "oca",
@@ -916,7 +1372,23 @@
     "g88"
    ],
    "ch": "En la canasta GES 88 (4 g/día; guías 4–16 g/día titulada).",
-   "ev": "EASL CBP 2017"
+   "ev": "EASL CBP 2017",
+   "lin": "1.ª línea del prurito colestásico.",
+   "resp": "Alivio en días; si no responde en 2–4 semanas con dosis plena → rifampicina.",
+   "plan": [
+    [
+     "Inicio",
+     "4 g en la mañana; subir hasta 16 g/día"
+    ],
+    [
+     "Siempre",
+     "Otros fármacos 1 h antes o 4 h después (incluido AUDC)"
+    ],
+    [
+     "Uso crónico",
+     "Vitaminas A, D, E, K y tiempo de protrombina"
+    ]
+   ]
   },
   {
    "id": "linerixibat",
@@ -932,7 +1404,15 @@
     "nd"
    ],
    "ch": "Sin registro en Chile (verificar ISP).",
-   "ev": "GLISTEN, fase 3 · Sandhu S, Semin Liver Dis 2026"
+   "ev": "GLISTEN, fase 3 · Sandhu S, Semin Liver Dis 2026",
+   "lin": "Prurito moderado a grave de la CBP (FDA 2026).",
+   "resp": "Mejoría desde las 2 semanas; evaluar a las 12 semanas.",
+   "plan": [
+    [
+     "Cada control",
+     "Prurito (escala), diarrea, vitaminas liposolubles"
+    ]
+   ]
   },
   {
    "id": "rifampicina_prurito",
@@ -942,14 +1422,26 @@
    "ind": "Prurito colestásico refractario.",
    "dos": "150–600 mg/día, titulada.",
    "aj": "—",
-   "mon": "<b>Transaminasas a las 2, 6 y 12 semanas</b> (hepatotoxicidad 10–15 %) y hemograma (hemólisis). Evitar si bilirrubina &gt; 2,5 mg/dL o hepatopatía avanzada.",
+   "mon": "",
    "ea": "Hepatotoxicidad, orina anaranjada, interacciones (inductor).",
    "cob": [
     "g88x",
     "bol"
    ],
    "ch": "Disponible.",
-   "ev": "EASL CBP 2017"
+   "ev": "EASL CBP 2017",
+   "lin": "2.ª línea del prurito colestásico.",
+   "resp": "Alivio en 1–2 semanas.",
+   "plan": [
+    [
+     "Semanas 2, 6 y 12",
+     "Transaminasas y hemograma (hepatotoxicidad 10–15 %)"
+    ],
+    [
+     "Siempre",
+     "Interacciones por inducción enzimática; orina anaranjada"
+    ]
+   ]
   },
   {
    "id": "sertralina",
@@ -982,7 +1474,27 @@
     "ver"
    ],
    "ch": "Verificar disponibilidad.",
-   "ev": "EASL-ERN Wilson 2025"
+   "ev": "EASL-ERN Wilson 2025",
+   "lin": "Quelante de inducción en Wilson hepático (trientina como alternativa de igual eficacia y mejor tolerada).",
+   "resp": "Mejoría hepática en 2–6 meses; el cuadro neurológico puede empeorar al inicio. Inducción hasta estabilizar (1–5 años), luego mantención con dosis menor o zinc.",
+   "plan": [
+    [
+     "Basal",
+     "Hemograma, orina completa, creatinina, cobre urinario 24 h"
+    ],
+    [
+     "Primer mes",
+     "Hemograma y orina cada 1–2 semanas (hipersensibilidad, proteinuria, citopenias)"
+    ],
+    [
+     "Meses 2–6",
+     "Mensual"
+    ],
+    [
+     "Luego",
+     "Cada 3–6 meses; cobre urinario 24 h y cobre libre cada 6–12 meses (adherencia)"
+    ]
+   ]
   },
   {
    "id": "trientina",
@@ -992,13 +1504,21 @@
    "ind": "Wilson con intolerancia a penicilamina o como primera línea.",
    "dos": "750–1.500 mg/día en 2–3 tomas en ayunas (dosis según la sal); mantención 750–1.000 mg/día.",
    "aj": "—",
-   "mon": "Cobre urinario igual que penicilamina.",
+   "mon": "",
    "ea": "Menos efectos que penicilamina; anemia sideroblástica rara.",
    "cob": [
     "ver"
    ],
    "ch": "Verificar disponibilidad.",
-   "ev": "EASL-ERN Wilson 2025"
+   "ev": "EASL-ERN Wilson 2025",
+   "lin": "Quelante de 1.ª línea en Wilson o tras intolerancia a penicilamina.",
+   "resp": "Igual que penicilamina.",
+   "plan": [
+    [
+     "Basal y cada 3–6 meses",
+     "Hemograma (anemia sideroblástica rara), cobre urinario 24 h"
+    ]
+   ]
   },
   {
    "id": "zinc",
@@ -1014,7 +1534,15 @@
     "ver"
    ],
    "ch": "Preparación magistral o importada.",
-   "ev": "EASL-ERN Wilson 2025"
+   "ev": "EASL-ERN Wilson 2025",
+   "lin": "Mantención en Wilson tras la quelación; 1.ª línea en presintomáticos.",
+   "resp": "Balance negativo de cobre en meses; meta cobre urinario < 75 µg/24 h.",
+   "plan": [
+    [
+     "Cada 6–12 meses",
+     "Cobre urinario 24 h, perfil hepático; dispepsia como causa de abandono"
+    ]
+   ]
   },
   {
    "id": "calcio_vitd",
@@ -1056,13 +1584,29 @@
    "ind": "Hemocromatosis HFE C282Y homocigota con sobrecarga.",
    "dos": "500 mL (~250 mg de hierro) semanal o quincenal hasta ferritina 50–100 µg/L; mantención 3–4 por año.",
    "aj": "Hb &gt; 12 g/dL antes de cada sesión.",
-   "mon": "Ferritina cada 4 semanas (cae ~30 µg/L por sesión).",
+   "mon": "",
    "ea": "Anemia, fatiga.",
    "cob": [
     "hosp"
    ],
    "ch": "Eritrocitaféresis como alternativa. Quelantes (deferasirox) solo si no se puede sangrar.",
-   "ev": "EASL HH 2022"
+   "ev": "EASL HH 2022",
+   "lin": "1.ª línea en hemocromatosis con sobrecarga.",
+   "resp": "Ferritina cae ~30 µg/L por sesión; meta 50–100 µg/L.",
+   "plan": [
+    [
+     "Antes de cada sesión",
+     "Hemoglobina > 12 g/dL"
+    ],
+    [
+     "Cada 4 semanas",
+     "Ferritina"
+    ],
+    [
+     "Mantención",
+     "Ferritina y saturación cada 3–6 meses"
+    ]
+   ]
   },
   {
    "id": "nitisinona",
@@ -1127,7 +1671,27 @@
     "bol"
    ],
    "ch": "Sin GES para HCC (anunciado en el decreto 2028). Alto costo.",
-   "ev": "IMbrave150 (NEJM 2020) · EASL HCC 2025 · BCLC 2026"
+   "ev": "IMbrave150 (NEJM 2020) · EASL HCC 2025 · BCLC 2026",
+   "lin": "1.ª línea en HCC avanzado o intermedio no candidato a TACE (Child A).",
+   "resp": "Respuesta radiológica a las 8–12 semanas (RECIST/mRECIST); continuar hasta progresión o toxicidad.",
+   "plan": [
+    [
+     "Basal",
+     "Endoscopía en los 6 meses previos (tratar várices), proteinuria, TSH, cortisol, perfil hepático, Child y ALBI"
+    ],
+    [
+     "Cada ciclo",
+     "PA, proteinuria, transaminasas y bilirrubina"
+    ],
+    [
+     "Cada 6 semanas",
+     "TSH"
+    ],
+    [
+     "Cada 8–12 semanas",
+     "TC o RM y AFP"
+    ]
+   ]
   },
   {
    "id": "stride",
@@ -1175,7 +1739,23 @@
     "bol"
    ],
    "ch": "Sin GES.",
-   "ev": "REFLECT (Lancet 2018)"
+   "ev": "REFLECT (Lancet 2018)",
+   "lin": "1.ª línea si la inmunoterapia está contraindicada; 2.ª línea.",
+   "resp": "Respuesta a las 8–12 semanas.",
+   "plan": [
+    [
+     "Cada 2 semanas el primer mes",
+     "PA, proteinuria"
+    ],
+    [
+     "Mensual",
+     "TSH, perfil hepático, amonio si hay encefalopatía"
+    ],
+    [
+     "Cada 8–12 semanas",
+     "Imagen y AFP"
+    ]
+   ]
   },
   {
    "id": "sorafenib",
@@ -1217,13 +1797,29 @@
    "ind": "Inmunosupresión de base postrasplante; HAI de segunda línea.",
    "dos": "<b>Trasplante</b>: valle 6–10 ng/mL el primer mes, 4–8 ng/mL después (4–6 tras el año). Liberación prolongada una vez al día. <b>HAI</b>: niveles 5–10 ng/mL.",
    "aj": "Riesgo renal: diferir ~5 días con basiliximab; combinar con micofenolato o everolimus para bajar niveles.",
-   "mon": "Niveles valle, creatinina, glicemia, K, Mg.",
+   "mon": "",
    "ea": "Nefrotoxicidad, neurotoxicidad (temblor, PRES), diabetes, hiperkalemia, hipertensión. <b>Interacciones CYP3A4</b>: suben azoles, claritromicina, diltiazem, nirmatrelvir/ritonavir; bajan rifampicina, carbamazepina, fenitoína.",
    "cob": [
     "ver"
    ],
    "ch": "Cobertura según programa de trasplante del centro.",
-   "ev": "EASL trasplante 2024"
+   "ev": "EASL trasplante 2024",
+   "lin": "Postrasplante: base de la inmunosupresión. HAI: 2.ª–3.ª línea.",
+   "resp": "Postrasplante: niveles en rango en 3–5 días. HAI: respuesta en 3–6 meses.",
+   "plan": [
+    [
+     "Primeras semanas",
+     "Nivel valle 2 veces por semana; creatinina, K, Mg, glicemia"
+    ],
+    [
+     "Meses 1–3",
+     "Nivel semanal a quincenal"
+    ],
+    [
+     "Luego",
+     "Nivel, creatinina y glicemia cada 1–3 meses; PA, lípidos; revisar interacciones con cada fármaco nuevo"
+    ]
+   ]
   },
   {
    "id": "everolimus",
@@ -1297,14 +1893,30 @@
    "ind": "Trombosis portal aguda o en candidato a trasplante; profilaxis de TEV en cirrótico hospitalizado.",
    "dos": "Tratamiento 1 mg/kg cada 12 h · profilaxis 40 mg/día.",
    "aj": "ClCr &lt; 30: 1 mg/kg/día. Anti-Xa poco fiable con antitrombina baja.",
-   "mon": "Plaquetas; recanalización a los 6 meses (si no, continuar en candidato a trasplante).",
+   "mon": "",
    "ea": "Sangrado, trombocitopenia inducida por heparina.",
    "cob": [
     "hosp",
     "bol"
    ],
    "ch": "Disponible.",
-   "ev": "Baveno VIII · EASL vascular 2026"
+   "ev": "Baveno VIII · EASL vascular 2026",
+   "lin": "1.ª línea en trombosis portal reciente del cirrótico (sobre todo Child B–C).",
+   "resp": "Recanalización en ~40–70 % a los 6 meses.",
+   "plan": [
+    [
+     "Basal",
+     "Plaquetas, creatinina; ligadura si hay várices de alto riesgo (no retrasar el inicio)"
+    ],
+    [
+     "Mes 3 y 6",
+     "Imagen (TC o Doppler)"
+    ],
+    [
+     "Luego",
+     "Continuar en candidatos a trasplante o con trombofilia"
+    ]
+   ]
   },
   {
    "id": "acod",
@@ -1314,13 +1926,29 @@
    "ind": "Trombosis portal y fibrilación auricular en cirrosis compensada.",
    "dos": "Apixabán 5 mg cada 12 h (2,5 mg cada 12 h según criterios) · rivaroxabán 20 mg/día.",
    "aj": "<b>Child A</b>: sí. <b>Child B</b>: apixabán con cautela; evitar rivaroxabán. <b>Child C</b>: evitar.",
-   "mon": "Función renal; hemoglobina.",
+   "mon": "",
    "ea": "Sangrado; menos sangrado mayor que warfarina en series.",
    "cob": [
     "bol"
    ],
    "ch": "Disponibles.",
-   "ev": "Baveno VIII · AASLD vascular 2020"
+   "ev": "Baveno VIII · AASLD vascular 2020",
+   "lin": "Alternativa en trombosis portal y fibrilación auricular en Child A (B con cautela).",
+   "resp": "Recanalización a 6 meses similar a HBPM.",
+   "plan": [
+    [
+     "Basal",
+     "Child-Pugh, creatinina, hemoglobina"
+    ],
+    [
+     "Cada 3–6 meses",
+     "Child, creatinina, hemoglobina; suspender si pasa a Child C"
+    ],
+    [
+     "Mes 6",
+     "Imagen"
+    ]
+   ]
   },
   {
    "id": "warfarina",
@@ -1337,6 +1965,248 @@
    ],
    "ch": "Acenocumarol es el más usado en Chile.",
    "ev": "Baveno VIII"
+  }
+ ],
+ "lineas": [
+  {
+   "e": "Hipertensión portal (HPCS y várices)",
+   "r": [
+    [
+     "1.ª",
+     "Carvedilol 6,25 mg c/12 h",
+     "Efecto inmediato; sin meta de FC"
+    ],
+    [
+     "Alternativa",
+     "Propranolol o nadolol a FC 55–60; ligadura si no tolera BBNS",
+     "Ligadura cada 2–4 semanas hasta erradicar"
+    ],
+    [
+     "Secundaria",
+     "BBNS + ligadura",
+     "Resangrado pese a ambos → TIPS"
+    ]
+   ]
+  },
+  {
+   "e": "Ascitis",
+   "r": [
+    [
+     "1.ª",
+     "Espironolactona ± furosemida (100:40) y sodio < 2 g",
+     "Peso −0,5 kg/día; ajustar cada 72 h"
+    ],
+    [
+     "2.ª",
+     "Paracentesis evacuadora + albúmina 6–8 g/L",
+     "Refractaria: sin respuesta con 400/160 mg"
+    ],
+    [
+     "3.ª",
+     "TIPS (o trasplante)",
+     "Respuesta de la ascitis en 1–3 meses"
+    ]
+   ]
+  },
+  {
+   "e": "Encefalopatía hepática",
+   "r": [
+    [
+     "1.ª",
+     "Lactulosa (o PEG 3350 en el episodio)",
+     "Mejoría en 24–72 h"
+    ],
+    [
+     "2.ª",
+     "+ Rifaximina 550 mg c/12 h",
+     "Tras la primera recurrencia"
+    ],
+    [
+     "Refractaria",
+     "LOLA, buscar shunt (embolización), trasplante",
+     "—"
+    ]
+   ]
+  },
+  {
+   "e": "Hepatitis alcohólica grave",
+   "r": [
+    [
+     "1.ª",
+     "Prednisolona 40 mg/día × 28 días (MELD 21–39)",
+     "Lille día 4–7 ≤ 0,45 → continuar"
+    ],
+    [
+     "Falla",
+     "Suspender corticoides",
+     "Lille > 0,45 → trasplante precoz en seleccionados"
+    ]
+   ]
+  },
+  {
+   "e": "MASH F2–F3",
+   "r": [
+    [
+     "Base",
+     "Baja de peso ≥ 10 %, ejercicio, alcohol cero",
+     "6–12 meses"
+    ],
+    [
+     "Con obesidad o DM2",
+     "Semaglutida 2,4 mg/semana",
+     "Tests no invasivos a 12 meses"
+    ],
+    [
+     "Sin obesidad o intolerancia",
+     "Resmetirom 80–100 mg/día (sin registro en Chile)",
+     "Sin respuesta a 12 meses → suspender"
+    ],
+    [
+     "Especialista",
+     "Pioglitazona (DM2), vitamina E (no diabéticos)",
+     "Histología 6–18 meses"
+    ]
+   ]
+  },
+  {
+   "e": "Hepatitis B",
+   "r": [
+    [
+     "1.ª",
+     "Entecavir 0,5 mg, TDF 300 mg o TAF 25 mg",
+     "DNA −1 log a 12 semanas; indetectable a 48"
+    ],
+    [
+     "Respuesta parcial",
+     "Cambiar a tenofovir (desde entecavir) o asociar",
+     "DNA detectable a 48 semanas"
+    ],
+    [
+     "Seleccionados",
+     "Peg-interferón 48 semanas",
+     "HBsAg cuantitativo a semana 12 y 24"
+    ]
+   ]
+  },
+  {
+   "e": "Hepatitis C",
+   "r": [
+    [
+     "1.ª",
+     "Sofosbuvir/velpatasvir 12 sem o glecaprevir/pibrentasvir 8 sem",
+     "RVS12 > 95 %"
+    ],
+    [
+     "Retratamiento",
+     "Sofosbuvir/velpatasvir/voxilaprevir 12 sem",
+     "RVS12"
+    ]
+   ]
+  },
+  {
+   "e": "Hepatitis autoinmune",
+   "r": [
+    [
+     "1.ª",
+     "Prednisona 0,5–1 mg/kg (o budesonida 9 mg sin cirrosis) + azatioprina 1–2 mg/kg o micofenolato",
+     "−50 % a 4 sem; normalización a 6 meses"
+    ],
+    [
+     "2.ª",
+     "Micofenolato (si falló azatioprina) o tacrolimus",
+     "3–6 meses"
+    ],
+    [
+     "3.ª",
+     "Rituximab, infliximab (centros expertos)",
+     "—"
+    ],
+    [
+     "Retiro",
+     "Tras ≥ 24 meses de remisión",
+     "Recaída 50–90 %"
+    ]
+   ]
+  },
+  {
+   "e": "Colangitis biliar primaria",
+   "r": [
+    [
+     "1.ª",
+     "AUDC 13–15 mg/kg/día",
+     "Meta a 6 meses (alto riesgo) o 12 meses"
+    ],
+    [
+     "2.ª",
+     "Seladelpar 10 mg (prurito), elafibranor 80 mg (fatiga) o bezafibrato 400 mg",
+     "6–12 meses"
+    ],
+    [
+     "Prurito",
+     "Colestiramina → rifampicina → naltrexona → sertralina; linerixibat",
+     "Días a semanas"
+    ],
+    [
+     "Falla con HPCS o descompensación",
+     "Trasplante",
+     "—"
+    ]
+   ]
+  },
+  {
+   "e": "Wilson",
+   "r": [
+    [
+     "Inducción",
+     "Trientina o D-penicilamina (+ piridoxina)",
+     "Hepática 2–6 meses; hasta estabilizar"
+    ],
+    [
+     "Mantención",
+     "Quelante en dosis menor o zinc 150 mg/día",
+     "Cobre urinario según fármaco"
+    ],
+    [
+     "FHA",
+     "Trasplante",
+     "—"
+    ]
+   ]
+  },
+  {
+   "e": "HCC avanzado",
+   "r": [
+    [
+     "1.ª",
+     "Atezolizumab + bevacizumab, durvalumab + tremelimumab o nivolumab + ipilimumab",
+     "Imagen cada 8–12 semanas"
+    ],
+    [
+     "Contraindicación a inmunoterapia",
+     "Lenvatinib o sorafenib",
+     "Imagen cada 8–12 semanas"
+    ],
+    [
+     "2.ª",
+     "Regorafenib, cabozantinib, ramucirumab (AFP ≥ 400)",
+     "—"
+    ]
+   ]
+  },
+  {
+   "e": "Trombosis portal en cirrosis",
+   "r": [
+    [
+     "1.ª",
+     "HBPM o ACOD (Child A)",
+     "Imagen a 3 y 6 meses; recanalización ~40–70 %"
+    ],
+    [
+     "Sin recanalización",
+     "Continuar en candidato a trasplante; TIPS en seleccionados",
+     "—"
+    ]
+   ]
   }
  ]
 }
