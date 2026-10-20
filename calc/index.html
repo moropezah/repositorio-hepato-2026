@@ -115,7 +115,7 @@ i.r{background:var(--verde)}i.s{background:var(--marino-2)}i.x{background:var(--
 .cur ul{color:var(--fg-2);font-size:.92rem;padding-left:20px}
 nav.side a.curl{font-weight:700;color:var(--acento);border:1px dashed var(--line-2);margin-bottom:6px}
 nav.side a.curl[aria-current="true"]{color:var(--bg)}
-.ley{font-size:.72rem;color:var(--fg-3);margin:0 0 4px 2px}.ley i{margin:0 4px 0 8px}.ley i:first-child{margin-left:0}
+.ley{font-size:.72rem;color:var(--fg-3);margin:0 0 4px 2px}.ley i{display:inline-block;width:7px;height:7px;border-radius:50%;margin:0 4px 0 8px}.ley i:first-child{margin-left:0}
 @media (max-width:600px){.ficha dl{grid-template-columns:1fr;gap:2px}.ficha dd{margin-bottom:6px}.ejs button.lim{margin-left:0}}
 @media (max-width:820px){
   .lay{grid-template-columns:1fr;padding:14px 16px 80px;gap:12px}
@@ -437,6 +437,69 @@ const CALCS=[
   return {vals:[V("King's",ok?'Cumple':'No cumple',ok?'bad':'ok')],txt:det+(ok?' <b>Listar para trasplante en urgencia nacional</b>.':' No cumplir no excluye el trasplante: reevaluar de forma seriada (MELD &gt; 30, lactato).')}},
  ref:"O'Grady JG et al. Gastroenterology 1989 · ACG FHA 2023."},
 
+{id:'rucam',g:'Daño agudo y DILI',t:'RUCAM: causalidad en DILI',d:'Roussel Uclaf Causality Assessment Method actualizado (2016). Se puntúa un fármaco a la vez; el patrón sale del factor R al primer control alterado.',
+ i:[s('pat','Patrón de daño (factor R)',[['h','Hepatocelular (R ≥ 5)'],['c','Colestásico o mixto (R < 5)']]),
+    s('lat','1. Latencia',[['2','5–90 días desde el inicio (reexposición: 1–15 d hepatocelular · 1–90 d colestásico)'],['1','< 5 o > 90 días desde el inicio (reexposición: > 15 d · > 90 d)'],['1s','Comenzó tras suspender: ≤ 15 d (hepatocelular) o ≤ 30 d (colestásico)'],['x','Antes de iniciar el fármaco, o > 15 d (hepatocelular) / > 30 d (colestásico) tras suspender']]),
+    s('ch','2. Evolución tras suspender — hepatocelular (ALT)',[['3','Cae ≥ 50 % en ≤ 8 días'],['2','Cae ≥ 50 % en ≤ 30 días'],['0','Sin información, fármaco continuado o caída ≥ 50 % después del día 30'],['-2','Cae < 50 % después del día 30, o nueva alza']]),
+    s('cc','2. Evolución tras suspender — colestásico o mixto (FA o bilirrubina)',[['2','Cae ≥ 50 % en ≤ 180 días'],['1','Cae < 50 % en ≤ 180 días'],['0','Sin información, persiste, sube o fármaco continuado']]),
+    n('age','Edad','años','62'),
+    c('alc','3. Alcohol (> 2 tragos/día en mujeres, > 3 en hombres); en patrón colestásico también embarazo'),
+    s('con','4. Fármacos concomitantes',[['0','Ninguno, sin información o con latencia incompatible'],['-1','Con latencia compatible o sugerente'],['-2','Hepatotóxico conocido con latencia compatible'],['-3','Con evidencia de su rol (reexposición positiva o test validado)']]),
+    s('alt','5. Causas alternativas',[['2','Grupos I y II descartados'],['1','Las 7 causas del grupo I descartadas'],['0','5 o 6 causas del grupo I descartadas'],['-2','Menos de 5 causas del grupo I descartadas'],['-3','Causa alternativa muy probable']]),
+    s('prev','6. Hepatotoxicidad conocida del fármaco',[['2','Descrita en la ficha técnica'],['1','Publicada pero no en la ficha'],['0','Desconocida']]),
+    s('rex','7. Reexposición',[['0','No hubo u otra situación'],['3','Positiva: ALT (o FA/bilirrubina) se duplica con el fármaco solo, partiendo de ALT < 5 × LSN'],['1','Se duplica, pero con los mismos fármacos que en la primera reacción'],['-2','Sube sin superar el LSN en las mismas condiciones']])],
+ f(v){
+  if(v.lat==='x')return {vals:[V('RUCAM','—',''),V('Causalidad','No relacionado','ok')],txt:'Latencia incompatible: el caso se considera <b>no relacionado</b> con este fármaco y no se puntúa.'};
+  const lat=v.lat==='2'?2:1, cur=v.pat==='h'?+v.ch:+v.cc, ag=v.age!==null&&v.age>=55?1:0, al=v.alc?1:0;
+  const p=lat+cur+ag+al+(+v.con)+(+v.alt)+(+v.prev)+(+v.rex);
+  const cat=p<=0?'Excluido':p<=2?'Improbable':p<=5?'Posible':p<=8?'Probable':'Muy probable';
+  return {vals:[V('RUCAM',p,p>=6?'bad':p>=3?'mid':'ok'),V('Causalidad',cat,p>=6?'bad':p>=3?'mid':'ok')],
+   txt:`Latencia ${lat} · evolución ${cur} (${v.pat==='h'?'ALT':'FA/bilirrubina'}) · edad ${ag} · alcohol${v.pat==='c'?'/embarazo':''} ${al} · concomitantes ${v.con} · causas alternativas ${v.alt} · hepatotoxicidad conocida ${v.prev} · reexposición ${v.rex}.<br><b>Grupo I</b> (7): VHA (IgM anti-VHA), VHB (HBsAg, IgM anti-HBc, DNA), VHC (anti-VHC, RNA), VHE (IgM/IgG anti-VHE, RNA), imagen hepatobiliar con Doppler, alcohol (AST/ALT ≥ 2), hipotensión reciente. <b>Grupo II</b>: sepsis, metástasis, HAI, VHB o VHC crónica, CBP/CEP, enfermedades genéticas, CMV, VEB, VHS, VVZ.<br>No se reexpone de forma deliberada: el ítem 7 solo puntúa reexposiciones accidentales. Con ${v.pat==='c'?'patrón colestásico la evolución se mide con FA o bilirrubina, no con ALT.':'patrón hepatocelular la evolución se mide con ALT.'}`}},
+ ref:'Danan G, Teschke R. Int J Mol Sci 2016;17:14 (RUCAM actualizado) · Danan G, Bénichou C. J Clin Epidemiol 1993;46:1323 · Fontana RJ et al. AASLD DILI guidance, Hepatology 2023;77:1036.'},
+
+{id:'vhb',g:'Hepatitis virales',t:'Hepatitis B: indicación de tratamiento',d:'Compara EASL 2025, OMS 2024 y la guía MINSAL 2021 con los mismos datos. HBsAg positivo > 6 meses.',
+ i:[n('dna','DNA-VHB (vacío si no está disponible)','UI/mL','25000'),n('alt','ALT','U/L','52'),s('sex','Sexo',[['m','Hombre'],['f','Mujer']]),n('age','Edad','años','44'),
+    s('ag','HBeAg',[['n','Negativo'],['p','Positivo']]),n('lsm','Rigidez hepática (opcional)','kPa','6.5'),n('apri','APRI (opcional)','','0.4'),
+    c('cir','Cirrosis clínica o por imagen'),c('fam','Familiar de 1.er grado con HCC o cirrosis'),c('ehm','Manifestaciones extrahepáticas (glomerulonefritis, vasculitis)'),
+    c('coi','Coinfección VIH, VHD o VHC'),c('ims','Inmunosupresión o quimioterapia en curso o planificada'),c('met','Diabetes o MASLD'),c('emb','Embarazo')],
+ f(v){if(!need(v,['alt']))return null;
+  const D=v.dna, det=D===null?null:D>0, L=v.lsm, cir=v.cir||(L!==null&&L>11), f2=(L!==null&&L>7)||(v.apri!==null&&v.apri>0.5), f3=L!==null&&L>8;
+  const ulnO=v.sex==='f'?19:30;
+  /* EASL 2025 */
+  let e,ek,er;
+  if(cir&&det!==false){e='Tratar';ek='bad';er='Cirrosis con DNA detectable, cualquier carga y ALT (fuerte).';}
+  else if(D!==null&&D>2000&&(v.alt>40||f2)){e='Tratar';ek='bad';er='DNA &gt; 2.000 UI/mL con ALT &gt; 40 U/L y/o fibrosis significativa (&gt; 7 kPa) (fuerte).';}
+  else if(v.ehm){e='Tratar';ek='bad';er='Manifestaciones extrahepáticas por VHB (fuerte).';}
+  else if(v.ag==='p'&&D!==null&&D>2000&&(v.age>30||v.fam)){e='Tratar';ek='bad';er='Infección crónica HBeAg positivo con riesgo aumentado de HCC (&gt; 30 años o familiar con HCC) (fuerte).';}
+  else if(f3&&det){e='Considerar';ek='mid';er='Fibrosis avanzada (&gt; 8 kPa) con DNA detectable: puede tratarse con cualquier carga y ALT (débil).';}
+  else if(D!==null&&D<=2000&&det&&v.alt>40){e='Considerar';ek='mid';er='DNA &lt; 2.000 con ALT persistentemente &gt; 40: puede tratarse tras descartar otra hepatopatía (débil).';}
+  else if(v.fam&&det){e='Considerar';ek='mid';er='Familiar con HCC: manejo más intensivo; en principio todo HBsAg con DNA detectable es candidato.';}
+  else if(D===null){e='Falta DNA';ek='';er='La indicación EASL requiere DNA-VHB.';}
+  else {e='Observar';ek='ok';er='Sin criterio de tratamiento: DNA y ALT cada 6–12 meses, rigidez anual'+(v.ag==='p'&&v.age<=30?'; HBeAg positivo &lt; 30 años sin fibrosis ni factores: no se trata de inmediato.':'.');}
+  if(e==='Observar'||e==='Considerar'){if(v.emb&&D!==null&&D>200000){e='TDF semana 24–28';ek='mid';er+=' Embarazo con DNA &gt; 200.000 UI/mL: TDF para prevenir la transmisión vertical (fuerte).';}
+   else if(v.ims&&e==='Observar'){e='Profilaxis';ek='mid';er+=' Inmunosupresión: profilaxis antiviral (fuerte).';}}
+  /* OMS 2024 */
+  const oms=[];
+  if(cir||(v.apri!==null&&v.apri>1)||(L!==null&&L>12.5))oms.push('cirrosis');
+  else if(f2)oms.push('fibrosis significativa (APRI &gt; 0,5 o &gt; 7 kPa)');
+  if(D!==null&&D>2000&&v.alt>ulnO)oms.push(`DNA &gt; 2.000 con ALT &gt; ${ulnO} U/L (confirmar en 2 controles en 6 meses)`);
+  if(D===null&&v.alt>ulnO)oms.push(`sin DNA disponible: ALT &gt; ${ulnO} U/L persistente (2 controles en 6–12 meses)`);
+  ['coi','fam','ims','met','ehm'].forEach(k=>{if(v[k])oms.push({coi:'coinfección',fam:'historia familiar',ims:'inmunosupresión',met:'diabetes o MASLD',ehm:'manifestaciones extrahepáticas'}[k])});
+  /* MINSAL 2021 */
+  const mi=[];
+  if(cir&&det!==false)mi.push('cirrosis con viremia');
+  if(D!==null&&D>=2000&&v.alt>40)mi.push('DNA ≥ 2.000 con ALT elevada');
+  if(f2&&det)mi.push('fibrosis ≥ F2');
+  if(D!==null&&D>=2000&&(v.age>40||v.fam||v.ehm))mi.push('DNA ≥ 2.000 con edad &gt; 40, familiar con HCC/cirrosis o manifestaciones extrahepáticas');
+  let extra='';
+  if(v.ims)extra+='<br><b>Inmunosupresión</b>: profilaxis con entecavir o tenofovir antes de iniciar y hasta 12 meses después de suspender (18 meses con anti-CD20), aunque no cumpla criterios de tratamiento.';
+  if(v.emb)extra+='<br><b>Embarazo</b>: '+(D!==null&&D>200000?'DNA &gt; 200.000 UI/mL → <b>TDF 300 mg/día</b> desde la semana 24–28 para prevenir la transmisión vertical.':'si DNA &gt; 200.000 UI/mL, TDF desde la semana 24–28.');
+  if(v.coi)extra+='<br>Coinfección: VIH → esquema con tenofovir; VHD → evaluar bulevirtida; VHC → tratar VHB antes o durante los AAD.';
+  const tr=e==='Tratar'||oms.length||mi.length;
+  return {vals:[V('EASL 2025',e,ek),V('OMS 2024',oms.length?'Tratar':'No cumple',oms.length?'bad':'ok'),V('MINSAL 2021',mi.length?'Tratar':'No cumple',mi.length?'bad':'ok')],
+   txt:`<b>EASL 2025:</b> ${er}<br><b>OMS 2024:</b> ${oms.length?oms.join('; ')+'.':'sin criterio (LSN de ALT 30 U/L hombres, 19 U/L mujeres).'}<br><b>MINSAL 2021:</b> ${mi.length?mi.join('; ')+'.':'sin criterio.'}${extra}${tr?'<br><b>Fármaco:</b> tenofovir disoproxil 300 mg/día, tenofovir alafenamida 25 mg/día (enfermedad renal u osteoporosis) o entecavir 0,5 mg/día (1 mg en descompensados). GES 68. Antes de tenofovir: serología VIH; todo HBsAg positivo: anti-VHD.':''}`}},
+ ref:'EASL CPG hepatitis B. J Hepatol 2025 · OMS, Guidelines for the prevention, diagnosis, care and treatment of chronic hepatitis B, 2024 · MINSAL, Guía clínica hepatitis B, 3.ª ed., 2021.'},
+
 /* ---------- HCC ---------- */
 {id:'hcc',g:'Hepatocarcinoma',t:'BCLC y criterios de trasplante',d:'Ingresar los diámetros de cada nódulo; calcula BCLC 2026, Milán, UCSF, up-to-seven, Metroticket 2.0 simplificado y modelo AFP francés.',
  i:[tx('nod','Diámetros de los nódulos (cm, separados por coma)','3.5, 2'),n('afp','AFP','ng/mL','150'),c('vas','Invasión macrovascular'),c('ext','Diseminación extrahepática'),
@@ -466,7 +529,7 @@ const CALCS=[
 
 /* ===================== ficha, escala y ejemplos de cada calculadora ===================== */
 /* uso: 'r' rutina (sala/consulta diaria) · 's' situacional (escenario específico) · 'x' referencia (redundante o de nicho) */
-const USO={r:['Rutina','Uso diario en sala o consulta'],s:['Situacional','Escenario específico'],x:['Referencia','Redundante o de nicho: candidata a retirar']};
+const USO={r:['Rutina','Uso diario en sala o consulta'],s:['Situacional','Escenario específico'],x:['Oculta','Redundante: fuera del menú']};
 const P=x=>typeof x==='number'?x:parseFloat(String(x).replace(/\s/g,'').replace(/\./g,'').replace(',','.').replace(/[−–]/,'-'));
 const META={
 child:{uso:'r',
@@ -551,16 +614,16 @@ lfi:{uso:'s',
  esc:(v,r)=>{const x=v.lfi;return {h:['LFI','Categoría'],rows:[['&lt; 3,2','Robusto'],['3,2–4,4','Prefrágil'],['≥ 4,5','Frágil']],on:x<3.2?0:x<4.5?1:2}},
  ej:[{l:'Robusto',v:{lfi:3.0}},{l:'Prefrágil',v:{lfi:4.0}},{l:'Frágil en lista',v:{lfi:4.8,lista:true}}]},
 
-maddrey:{uso:'r',
+maddrey:{uso:'s',
  que:'Gravedad de la hepatitis alcohólica por tiempo de protrombina y bilirrubina.',
- cuando:'Al ingreso por hepatitis alcohólica; ≥ 32 define gravedad y candidatura a corticoides. ACG 2024 prefiere el MELD (&gt; 20), pero el Maddrey sigue en ensayos y fichas.',
- ojo:'Depende del tiempo de protrombina control del laboratorio (variabilidad entre reactivos).',
- esc:(v,r)=>{const x=P(r.vals[0].v);return {h:['Maddrey','Lectura'],rows:[['&lt; 32','No grave: soporte y abstinencia'],['≥ 32','Grave: prednisolona 40 mg/día si no hay contraindicación']],on:x>=32?1:0}},
+ cuando:'En desuso: el pronóstico de la hepatitis alcohólica hoy se define con el <b>MELD</b> (ACG 2024: &gt; 20 grave; corticoides en MELD 21–39). El Maddrey ≥ 32 persiste en ensayos antiguos, fichas y algunos protocolos.',
+ ojo:'Depende del tiempo de protrombina control del laboratorio (variabilidad entre reactivos). Para pronóstico usar MELD; para respuesta, Lille.',
+ esc:(v,r)=>{const x=4.6*(v.pt-v.ptc)+v.bili;return {h:['Maddrey','Lectura'],rows:[['&lt; 32','No grave: soporte y abstinencia'],['≥ 32','Grave: prednisolona 40 mg/día si no hay contraindicación']],on:x>=32?1:0}},
  ej:[{l:'No grave',v:{pt:15,ptc:12,bili:5}},{l:'Grave',v:{pt:24,ptc:12,bili:14}}]},
 
 lille:{uso:'r',
  que:'Respuesta a corticoides en hepatitis alcohólica por la evolución de la bilirrubina al día 4 o 7.',
- cuando:'Día 4 o 7 de prednisolona: decide continuar 28 días o suspender y discutir trasplante precoz.',
+ cuando:'Día 4 o 7 de prednisolona: decide continuar 28 días o suspender y discutir trasplante precoz. Es el complemento del MELD: el MELD define gravedad e indicación (día 0) y el Lille la respuesta.',
  ojo:'Solo tiene sentido en pacientes que reciben corticoides.',
  esc:(v,r)=>{const x=P(r.vals[0].v);return {h:['Lille','Respuesta','Sobrevida a 28 días'],rows:[['≤ 0,16','Completa','~91 %'],['0,16–0,45','Parcial: completar 28 días','~79 %'],['0,45–0,56','Parcial (Louvet 2010), pero sobre el corte clásico de 0,45: suspender','~79 %'],['≥ 0,56','Nula','~53 %']],on:x<=0.16?0:x<=0.45?1:x<0.56?2:3}},
  ej:[{l:'Respuesta completa',v:{age:48,alb:2.6,b0:15,b7:8,pt:18}},{l:'Respuesta parcial',v:{age:52,alb:2.5,b0:16,b7:12,pt:20}},{l:'Respuesta nula',v:{age:56,alb:2.3,b0:18,b7:19,pt:24,ren:true}}]},
@@ -634,6 +697,20 @@ kings:{uso:'s',
  ojo:'Alta especificidad, sensibilidad moderada: no cumplirlos no excluye el trasplante.',
  ej:[{l:'Paracetamol (cumple)',v:{tipo:'p',ph:7.25,inr:3,cr:2}},{l:'No paracetamol (cumple)',v:{tipo:'n',inr:4.2,cr:2,age:45,desf:true,ict7:true,bili:19}},{l:'No cumple',v:{tipo:'n',inr:2.1,cr:1,age:30,bili:8}}]},
 
+rucam:{uso:'s',
+ que:'Puntúa la probabilidad de que un fármaco o suplemento cause el daño hepático (7 dominios: latencia, evolución, factores de riesgo, concomitantes, causas alternativas, hepatotoxicidad conocida y reexposición).',
+ cuando:'Toda sospecha de DILI, tras completar el estudio de causas alternativas; útil para documentar la causalidad en la ficha y en la notificación a farmacovigilancia (ISP).',
+ ojo:'Baja reproducibilidad entre observadores y pondera poco la hepatotoxicidad conocida; el estándar en investigación es la opinión experta (DILIN) y el RECAM (2022) es su revisión electrónica. Se puntúa cada fármaco por separado.',
+ esc:(v,r)=>{const c=r.vals[1].v;return {h:['Puntaje','Causalidad'],rows:[['≤ 0 o latencia incompatible','Excluida / no relacionado'],['1–2','Improbable'],['3–5','Posible'],['6–8','Probable'],['≥ 9','Muy probable']],on:{'Excluido':0,'No relacionado':0,'Improbable':1,'Posible':2,'Probable':3,'Muy probable':4}[c]}},
+ ej:[{l:'Amoxicilina-clavulánico (colestásico)',v:{pat:'c',lat:'2',cc:'2',age:45,con:'0',alt:'1',prev:'2',rex:'0'}},{l:'Isoniazida (hepatocelular)',v:{pat:'h',lat:'2',ch:'3',age:58,con:'0',alt:'2',prev:'2',rex:'0'}},{l:'Posible',v:{pat:'h',lat:'2',ch:'0',age:60,con:'-1',alt:'1',prev:'1',rex:'0'}},{l:'Improbable',v:{pat:'h',lat:'1',ch:'0',age:40,con:'-1',alt:'0',prev:'1',rex:'0'}},{l:'Latencia incompatible',v:{pat:'h',lat:'x'}}]},
+
+vhb:{uso:'r',
+ que:'Aplica a un mismo paciente los criterios de tratamiento de EASL 2025, OMS 2024 y MINSAL 2021 (DNA-VHB, ALT, fibrosis, HBeAg, edad y factores de riesgo).',
+ cuando:'Todo HBsAg positivo crónico al diagnóstico y en cada control (DNA y ALT cada 6–12 meses, rigidez anual): define si tratar, observar o dar profilaxis por inmunosupresión.',
+ ojo:'EASL 2025 considera ALT elevada &gt; 40 U/L (con 30/19 U/L como mejor predictor); OMS usa 30/19. La ALT debe estar persistentemente alterada (2 controles); descartar otra causa (MASLD, alcohol). Siempre pedir anti-VHD.',
+ esc:(v,r)=>({h:['Criterio (EASL 2025)','Recomendación'],rows:[['Cirrosis con DNA detectable','Tratar (fuerte)'],['DNA &gt; 2.000 UI/mL y ALT &gt; LSN y/o fibrosis &gt; 7 kPa','Tratar (fuerte)'],['HBeAg positivo con riesgo de HCC (&gt; 30 años, familiar) o manifestaciones extrahepáticas','Tratar (fuerte)'],['Fibrosis avanzada (&gt; 8 kPa) con DNA detectable, o DNA &lt; 2.000 con ALT persistentemente alta','Puede tratarse (débil)'],['Sin lo anterior','Observar: DNA y ALT cada 6–12 meses'],['Inmunosupresión, o embarazo con DNA &gt; 200.000 UI/mL','Profilaxis (TDF desde la semana 24–28 en el embarazo)']],on:{'Tratar':r.txt.indexOf('Cirrosis con DNA')>=0?0:r.txt.indexOf('DNA &gt; 2.000 UI/mL con ALT')>=0?1:2,'Considerar':3,'Observar':4,'Profilaxis':5,'TDF semana 24–28':5}[r.vals[0].v]}),
+ ej:[{l:'HBeAg (−) con hepatitis activa',v:{dna:25000,alt:68,sex:'m',age:44,ag:'n',lsm:6.5}},{l:'Infección HBeAg (−) inactiva',v:{dna:800,alt:22,sex:'f',age:38,ag:'n',lsm:5}},{l:'HBeAg (+) > 30 años, ALT normal',v:{dna:50000000,alt:28,sex:'m',age:34,ag:'p',lsm:5.8}},{l:'Cirrosis compensada',v:{dna:350,alt:35,sex:'m',age:61,ag:'n',lsm:16,cir:true}},{l:'Rituximab planificado',v:{dna:0,alt:20,sex:'f',age:55,ag:'n',ims:true}},{l:'Embarazo con DNA alto',v:{dna:3500000,alt:25,sex:'f',age:29,ag:'p',emb:true}}]},
+
 hcc:{uso:'r',
  que:'Estadio BCLC 2026 con su tratamiento de primera opción y criterios de trasplante (Milán, UCSF, up-to-seven, Metroticket 2.0, modelo AFP).',
  cuando:'Al diagnóstico de HCC y en cada comité.',
@@ -651,10 +728,11 @@ pageb:{uso:'s',
 
 /* ===================== interfaz ===================== */
 const side=document.getElementById('side'), selm=document.getElementById('selm'), box=document.getElementById('calc');
-const grupos=[...new Set(CALCS.map(c=>c.g))];
+const VIS=CALCS.filter(c=>(META[c.id]||{}).uso!=='x'); /* las de referencia quedan ocultas del menú, accesibles desde la curaduría */
+const grupos=[...new Set(VIS.map(c=>c.g))];
 const dot=id=>{const u=(META[id]||{}).uso||'s';return `<i class="${u}" title="${USO[u][0]}"></i>`};
-side.innerHTML='<input type="search" id="fq" placeholder="Buscar calculadora…" aria-label="Buscar calculadora"><a href="#curaduria" data-id="curaduria" class="curl">Cuáles se usan de verdad</a><div class="ley"><i class="r"></i>rutina<i class="s"></i>situacional<i class="x"></i>referencia</div>'+grupos.map(g=>`<h6>${g}</h6>`+CALCS.filter(c=>c.g===g).map(c=>`<a href="#${c.id}" data-id="${c.id}">${dot(c.id)}${c.t}</a>`).join('')).join('');
-selm.innerHTML='<option value="curaduria">★ Cuáles se usan de verdad</option>'+grupos.map(g=>`<optgroup label="${g}">`+CALCS.filter(c=>c.g===g).map(c=>`<option value="${c.id}">${c.t}</option>`).join('')+'</optgroup>').join('');
+side.innerHTML='<input type="search" id="fq" placeholder="Buscar calculadora…" aria-label="Buscar calculadora"><a href="#curaduria" data-id="curaduria" class="curl">Cuáles se usan de verdad</a><div class="ley"><i class="r"></i>rutina<i class="s"></i>situacional</div>'+grupos.map(g=>`<h6>${g}</h6>`+VIS.filter(c=>c.g===g).map(c=>`<a href="#${c.id}" data-id="${c.id}">${dot(c.id)}${c.t}</a>`).join('')).join('');
+selm.innerHTML='<option value="curaduria">★ Cuáles se usan de verdad</option>'+grupos.map(g=>`<optgroup label="${g}">`+VIS.filter(c=>c.g===g).map(c=>`<option value="${c.id}">${c.t}</option>`).join('')+'</optgroup>').join('');
 selm.onchange=()=>{location.hash=selm.value};
 document.getElementById('fq').addEventListener('input',e=>{const q=e.target.value.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
   side.querySelectorAll('a').forEach(a=>{a.hidden=!!q&&a.textContent.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').indexOf(q)<0});});
@@ -688,17 +766,18 @@ function curaduria(){
   selm.value='curaduria'; document.title='Cuáles se usan de verdad · Calculadoras Hepatología';
   const filas=u=>CALCS.filter(c=>(META[c.id]||{}).uso===u).map(c=>`<tr><td><a href="#${c.id}">${c.t}</a></td><td>${c.g}</td><td>${META[c.id].cuando}</td></tr>`).join('');
   const bloque=(u,txt)=>`<h2><span class="uso ${u}">${USO[u][0]}</span> ${CALCS.filter(c=>(META[c.id]||{}).uso===u).length} calculadoras</h2><p class="desc">${txt}</p><div class="wrap"><table><tr><th>Calculadora</th><th>Grupo</th><th>Cuándo usarla</th></tr>${filas(u)}</table></div>`;
-  box.innerHTML=`<div class="cur"><h1>Cuáles se usan de verdad</h1><p class="desc">Clasificación propuesta de las ${CALCS.length} calculadoras por uso real en sala y consulta. Por ahora se mantienen todas; la columna sirve para decidir cuáles quedan como uso diario.</p>
+  box.innerHTML=`<div class="cur"><h1>Cuáles se usan de verdad</h1><p class="desc">Clasificación de las ${CALCS.length} calculadoras por uso real en sala y consulta.</p>
    ${bloque('r','Las que se calculan a diario o en casi todo paciente de su escenario. Se mantienen en primer plano.')}
    ${bloque('s','Se usan en un escenario concreto (HCC, enfermedad vascular, falla hepática aguda, sospecha de Wilson o HAI). Se mantienen.')}
-   ${bloque('x','Redundantes con otra calculadora de rutina o de nicho en la práctica chilena. Candidatas a retirar u ocultar.')}
+   ${bloque('x','Ocultas del menú por redundantes con MELD, Lille y FIB-4. Siguen disponibles desde estos enlaces.')}
    <h2>Qué MELD leer</h2><ul><li><b>MELD-Na</b>: ordena la lista de trasplante en Chile y es el que se informa para pronóstico y derivación (≥ 15; GES 88).</li><li><b>MELD 3.0</b>: asignación en EE.UU. desde 2023; corrige la desventaja de las mujeres. Útil como complemento, no cambia la prioridad chilena.</li><li><b>MELD clásico</b>: el que validan la hepatitis alcohólica (ACG &gt; 20), el riesgo de TIPS y el riesgo quirúrgico (Mayo).</li></ul>
-   <h2>Pendientes por decidir</h2><ul><li>Retirar u ocultar GAHS, ABIC y NFS (redundantes con MELD, Lille y FIB-4).</li><li>Fusionar Maddrey y Lille en una sola ficha de hepatitis alcohólica (día 0 y día 4–7).</li><li>Candidatas a agregar: RUCAM (causalidad en DILI) e indicación de tratamiento de VHB.</li></ul></div>`;
+   <h2>Hepatitis alcohólica</h2><ul><li><b>MELD</b> (día 0): gravedad y pronóstico; &gt; 20 grave, corticoides en 21–39.</li><li><b>Lille</b> (día 4–7): respuesta a corticoides.</li><li><b>Maddrey</b>: en desuso, se mantiene como situacional.</li></ul></div>`;
 }
 function abrir(id){
   if(id==='curaduria')return curaduria();
   const cal=CALCS.find(c=>c.id===id)||CALCS[0], m=META[cal.id]||{};
   side.querySelectorAll('a').forEach(a=>a.setAttribute('aria-current',a.dataset.id===cal.id));
+  if(!selm.querySelector(`option[value="${cal.id}"]`))selm.insertAdjacentHTML('beforeend',`<option value="${cal.id}">${cal.t} (oculta)</option>`);
   selm.value=cal.id; document.title=cal.t+' · Calculadoras Hepatología';
   const u=m.uso?`<div class="uso ${m.uso}">${USO[m.uso][0]} <span>${USO[m.uso][1]}</span></div>`:'';
   const ejs=(m.ej||[]).map((e,i)=>`<button type="button" data-ej="${i}">${e.l}</button>`).join('');
