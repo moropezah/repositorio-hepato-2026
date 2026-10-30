@@ -225,27 +225,52 @@ const CALCS=[
   return {vals:vv,txt:endo+nota}},
  ref:'Abraldes JG, Hepatology 2016;64:2173 (ANTICIPATE) · Pons M, Am J Gastroenterol 2021;116:723 (ANTICIPATE-NASH; fórmulas según Rabiee A, Hepatol Commun 2022) · Baveno VIII – Advancing consensus in portal hypertension. J Hepatol 2026;85:993-1018 (1.3–1.20, 3.18–3.19) · Baveno VII (J Hepatol 2022;76:959).'},
 
-{id:'aclf',g:'Cirrosis',t:'ACLF: grado EASL-CLIF y CLIF-C ACLF',d:'Fallas orgánicas por CLIF-OF, grado de ACLF y score pronóstico (si no hay ACLF, usar CLIF-C AD).',
- i:[n('age','Edad','años','56'),n('wbc','Leucocitos','×10⁹/L','14'),n('bili','Bilirrubina','mg/dL','8'),n('cr','Creatinina','mg/dL','2.4'),c('rrt','Terapia de reemplazo renal'),
-    s('eh','Encefalopatía (West Haven)',[[0,'Ausente'],[1,'Grado I–II'],[3,'Grado III–IV']]),n('inr','INR','','2.1'),
-    s('circ','Circulación',[[1,'PAM ≥ 70 mmHg'],[2,'PAM < 70 mmHg'],[3,'Vasopresores']]),
-    s('resp','Respiración',[[1,'PaO₂/FiO₂ > 300 (SpO₂/FiO₂ > 357)'],[2,'PaO₂/FiO₂ 201–300 (SpO₂/FiO₂ 215–357)'],[3,'PaO₂/FiO₂ ≤ 200 (≤ 214) o ventilación mecánica']])],
+{id:'aclf',g:'Cirrosis',t:'ACLF: definición global 2026, EASL-CLIF y CLIF-C ACLF',d:'Grado por la definición global multisociedad 2026 (falla hepática obligatoria + disfunciones o fallas extrahepáticas), grado EASL-CLIF por CLIF-OF y score pronóstico CLIF-C ACLF.',
+ i:[s('tip','Tipo',[['B','B: con descompensación previa'],['A','A: ACLD compensada, con descompensación nueva en ≤ 2–4 semanas']]),
+    n('age','Edad','años','56'),n('wbc','Leucocitos','×10⁹/L','14'),n('bili','Bilirrubina','mg/dL','8'),n('inr','INR','','2.1'),
+    n('cr','Creatinina','mg/dL','2.4'),s('kd','LRA (KDIGO/ICA)',[['0','Sin LRA'],['1','Estadio 1'],['2','Estadio 2–3']]),c('rrt','Terapia de reemplazo renal nueva'),
+    s('eh','Encefalopatía (West Haven)',[['0','Ausente'],['1','Grado I'],['2','Grado II'],['3','Grado III–IV o ventilación mecánica por encefalopatía']]),
+    s('circ','Circulación',[['1','PAM ≥ 70 mmHg'],['2','PAM 65–69 mmHg'],['2b','PAM < 65 mmHg sin vasopresores'],['3','Vasopresores por shock'],['3h','Vasopresor solo para HRS-AKI (terlipresina o noradrenalina)']]),
+    s('resp','Respiración',[['1','PaO₂/FiO₂ > 300 o sin O₂ suplementario'],['2','PaO₂/FiO₂ 226–300'],['2c','PaO₂/FiO₂ 201–225'],['3','PaO₂/FiO₂ ≤ 200 o ventilación mecánica por causa respiratoria']]),
+    c('mon','Paciente monitorizado (intermedio o UPC): permite contar disfunción circulatoria y respiratoria')],
  f(v){if(!need(v,['age','wbc','bili','cr','inr']))return null;
-  const liv=v.bili<6?1:v.bili<12?2:3, kid=(v.rrt||v.cr>=3.5)?3:v.cr>=2?2:1, bra=v.eh==0?1:v.eh==1?2:3, coa=v.inr<2?1:v.inr<2.5?2:3, cir=+v.circ, res=+v.resp;
+  /* --- definición global multisociedad 2026 --- */
+  const LF=v.bili>=5&&v.inr>=1.5;
+  const fo={ren:v.kd==='2'||v.rrt,cer:v.eh==='3',cir:v.circ==='3',res:v.resp==='2c'||v.resp==='3'};
+  const di={ren:v.kd==='1'&&!fo.ren,cer:v.eh==='2',cir:v.circ==='2b'&&v.mon,res:v.resp==='2'&&v.mon};
+  const nF=Object.values(fo).filter(Boolean).length, nD=Object.values(di).filter(Boolean).length;
+  let gG=0; if(LF){gG=nF>=2?3:nF===1?2:nD>=1?1:0;}
+  const nom={ren:'renal',cer:'cerebral',cir:'circulatoria',res:'respiratoria'};
+  const lf=Object.keys(fo).filter(k=>fo[k]).map(k=>nom[k]).join(', ')||'ninguna', ld=Object.keys(di).filter(k=>di[k]).map(k=>nom[k]).join(', ')||'ninguna';
+  /* --- EASL-CLIF / CLIF-OF --- */
+  const bra=v.eh==='0'?1:v.eh==='3'?3:2, cir=v.circ==='1'?1:(v.circ==='2'||v.circ==='2b')?2:3, res=v.resp==='1'?1:v.resp==='3'?3:2;
+  const liv=v.bili<6?1:v.bili<12?2:3, kid=(v.rrt||v.cr>=3.5)?3:v.cr>=2?2:1, coa=v.inr<2?1:v.inr<2.5?2:3;
   const of=liv+kid+bra+coa+cir+res;
-  const F={hig:v.bili>=12,ren:v.cr>=2||v.rrt,cer:v.eh==3,coa:v.inr>=2.5,cir:v.circ==3,res:v.resp==3};
-  const nf=Object.values(F).filter(Boolean).length;
-  const crMod=v.cr>=1.5&&v.cr<2, ehMod=v.eh==1;
-  let g;
-  if(nf>=3)g=3;else if(nf===2)g=2;
-  else if(nf===1){ if(F.ren)g=1; else if(F.cer)g=crMod?1:0; else g=(crMod||ehMod)?1:0; }
-  else g=0;
+  const F={hig:v.bili>=12,ren:v.cr>=2||v.rrt,cer:v.eh==='3',coa:v.inr>=2.5,cir:cir===3,res:res===3};
+  const nf=Object.values(F).filter(Boolean).length, crMod=v.cr>=1.5&&v.cr<2, ehMod=v.eh==='1'||v.eh==='2';
+  let g; if(nf>=3)g=3;else if(nf===2)g=2;else if(nf===1){ if(F.ren)g=1; else if(F.cer)g=crMod?1:0; else g=(crMod||ehMod)?1:0; } else g=0;
   const score=10*(0.33*of+0.04*v.age+0.63*ln(v.wbc)-2);
   const mort={0:'~5 %',1:'~22 %',2:'~32 %',3:'~77 %'}[g];
   const lista=Object.entries(F).filter(e=>e[1]).map(e=>({hig:'hepática',ren:'renal',cer:'cerebral',coa:'coagulación',cir:'circulatoria',res:'respiratoria'})[e[0]]).join(', ')||'ninguna';
-  return {vals:[V('Grado',g?('ACLF-'+g):'Sin ACLF',g===0?'ok':g===1?'mid':'bad'),V('CLIF-OF',of,''),V('CLIF-C ACLF',g?Math.round(score):'—',g?(score>=64?'bad':'mid'):'')],
-   txt:`Fallas: <b>${lista}</b>. Mortalidad a 28 días del grado: <b>${mort}</b>.${g?' CLIF-C ACLF &gt; 64 persistente a los 3–7 días: pronóstico muy malo sin trasplante. Reevaluar el grado a los 3–7 días.':' Sin ACLF: usar CLIF-C AD.'}`}},
- ref:'Moreau R et al. Gastroenterology 2013 (CANONIC) · Jalan R et al. J Hepatol 2014;61:1038 (CLIF-C ACLF).'},
+  const ga=gG?'ACLF-'+gG:'Sin ACLF', ge=g?'ACLF-'+g:'Sin ACLF', cls=x=>x===0?'ok':x===1?'mid':'bad';
+  let t=`<b>Definición global 2026</b> (tipo ${v.tip}): falla hepática ${LF?'<b>presente</b> (bilirrubina ≥ 5 mg/dL e INR ≥ 1,5)':'<b>ausente</b>: sin ella no hay ACLF por esta definición'}; fallas extrahepáticas: <b>${lf}</b>; disfunciones: <b>${ld}</b>.`;
+  if(LF&&!gG) t+=' Falla hepática sin disfunción extrahepática: descompensación grave en riesgo, reevaluar a diario.';
+  if(!v.mon&&(v.circ==='2b'||v.resp==='2')) t+=' La disfunción circulatoria o respiratoria solo cuenta en un paciente monitorizado.';
+  if(v.circ==='3h') t+=' El vasopresor solo para HRS-AKI no es falla circulatoria en la definición global (sí en CLIF-OF).';
+  t+=`<br><b>EASL-CLIF</b>: fallas por CLIF-OF <b>${lista}</b>; mortalidad a 28 días del grado ~${mort.replace('~','')}.`;
+  if(gG!==g) t+=` <b>Las definiciones discrepan</b> (${ga} global frente a ${ge} EASL-CLIF): típico en la falla renal aislada sin falla hepática o en la falla hepática con disfunción no considerada por CLIF-OF.`;
+  t+=(g||gG)?' <b>CLIF-C ACLF</b>: el score pronóstico más validado (consenso 2026); recalcular a los días 3–7. &gt; 64 persistente pese a soporte máximo, o AARC &gt; 10, identifica pronóstico extremo sin trasplante. ACLF-3: no indicar corticoides por hepatitis alcohólica; con 2 fallas la respuesta es ≤ 40 %, decidir caso a caso.':' Sin ACLF: usar CLIF-C AD.';
+  return {vals:[V('Global 2026',ga,cls(gG)),V('EASL-CLIF',ge,cls(g)),V('CLIF-OF',of,''),V('CLIF-C ACLF',(g||gG)?Math.round(score):'—',(g||gG)?(score>64?'bad':'mid'):'')],txt:t}},
+ ref:'ACLF multisociety consensus (EASL, AASLD, APASL, ALEH, SOLDA). J Hepatol 2026; doi 10.1016/j.jhep.2026.09.005 · Moreau R et al. Gastroenterology 2013 (CANONIC) · Jalan R et al. J Hepatol 2014;61:1038 (CLIF-C ACLF).'},
+
+{id:'aarc',g:'Cirrosis',t:'AARC-ACLF score',d:'Score del consorcio APASL basado en la falla hepática y el lactato; dinámico durante la primera semana.',
+ i:[n('bili','Bilirrubina','mg/dL','22'),s('eh','Encefalopatía (West Haven)',[['1','Ausente'],['2','Grado I–II'],['3','Grado III–IV']]),n('inr','INR','','2.2'),n('lac','Lactato','mmol/L','2.1'),n('cr','Creatinina','mg/dL','1.2')],
+ f(v){if(!need(v,['bili','inr','lac','cr']))return null;
+  const b=v.bili<15?1:v.bili<=25?2:3, i=v.inr<1.8?1:v.inr<=2.5?2:3, l=v.lac<1.5?1:v.lac<=2.5?2:3, c=v.cr<0.7?1:v.cr<=1.5?2:3, e=+v.eh;
+  const p=b+e+i+l+c, gr=p<=7?'I':p<=10?'II':'III';
+  return {vals:[V('AARC',p,p<=7?'ok':p<=10?'mid':'bad'),V('Grado',gr,p<=7?'ok':p<=10?'mid':'bad')],
+   txt:`Bilirrubina ${b} · encefalopatía ${e} · INR ${i} · lactato ${l} · creatinina ${c}. Cada punto sobre 10 aumenta el riesgo ~20 %. <b>AARC &gt; 10</b> persistente en la primera semana pese a soporte máximo: pronóstico extremo sin trasplante (consenso 2026); con ≥ 11 basal o persistente, decidir trasplante en esa semana.`}},
+ ref:'Choudhury A et al. Hepatol Int 2017;11:461-71 (doi 10.1007/s12072-017-9816-z) · ACLF multisociety consensus, J Hepatol 2026.'},
 
 {id:'clifad',g:'Cirrosis',t:'CLIF-C AD',d:'Pronóstico en descompensación aguda sin ACLF.',
  i:[n('age','Edad','años','58'),n('cr','Creatinina','mg/dL','1.2'),n('inr','INR','','1.5'),n('wbc','Leucocitos','×10⁹/L','8'),n('na','Sodio','mmol/L','133')],
@@ -606,11 +631,18 @@ hpcs:{uso:'r',
  ej:[{l:'HPCS descartada',v:{lsm:12,plt:180,et:'v'}},{l:'Zona gris',v:{lsm:18,plt:128,et:'v'}},{l:'HPCS confirmada',v:{lsm:27,plt:120,et:'a'}},{l:'MASLD con obesidad (zona gris)',v:{lsm:27,plt:130,bmi:34,et:'mo'}},{l:'Sospecha vascular',v:{lsm:6,plt:98,ssm:70,et:'o'}}]},
 
 aclf:{uso:'r',
- que:'Cuenta fallas orgánicas (CLIF-OF), asigna el grado de ACLF (EASL-CLIF) y calcula el CLIF-C ACLF.',
- cuando:'Todo cirrótico hospitalizado por descompensación aguda: al ingreso y entre los días 3 y 7. El grado orienta UPC y trasplante; el CLIF-C ACLF &gt; 64 persistente señala mal pronóstico.',
- ojo:'Definición europea (exige cirrosis); APASL usa otra. El grado cambia en días: siempre reevaluar.',
- esc:(v,r)=>{const g=String(r.vals[0].v);const k=g==='Sin ACLF'?0:+g.slice(-1);return {h:['Grado','Criterio','Mortalidad 28 días'],rows:[['Sin ACLF','Sin fallas, o una falla no renal con creatinina &lt; 1,5 y sin encefalopatía','~5 %'],['ACLF-1','Falla renal aislada, u otra falla única con creatinina 1,5–1,9 y/o encefalopatía I–II','~22 %'],['ACLF-2','Dos fallas','~32 %'],['ACLF-3','Tres o más fallas','~77 %']],on:k}},
- ej:[{l:'Sin ACLF',v:{age:55,wbc:8,bili:4,cr:1.1,eh:'0',inr:1.6,circ:'1',resp:'1'}},{l:'ACLF-1',v:{age:55,wbc:11,bili:5,cr:2.3,eh:'0',inr:1.8,circ:'1',resp:'1'}},{l:'ACLF-2',v:{age:48,wbc:14,bili:13,cr:2.4,eh:'0',inr:1.9,circ:'1',resp:'1'}},{l:'ACLF-3',v:{age:52,wbc:15,bili:13,cr:2.6,eh:'1',inr:2.7,circ:'2',resp:'1'}}]},
+ que:'Aplica la <b>definición global multisociedad 2026</b> (EASL, AASLD, APASL, ALEH, SOLDA): falla hepática obligatoria (bilirrubina ≥ 5 mg/dL e INR ≥ 1,5) más disfunciones o fallas extrahepáticas; y en paralelo el grado EASL-CLIF (CLIF-OF) y el score pronóstico CLIF-C ACLF.',
+ cuando:'Todo cirrótico hospitalizado por descompensación aguda, al ingreso y de forma seriada (días 3–7). El grado orienta UPC y evaluación de trasplante; el CLIF-C ACLF sigue siendo el score pronóstico recomendado.',
+ ojo:'Cambio clave: con la definición global la <b>falla renal aislada sin falla hepática ya no es ACLF</b> (en EASL-CLIF es ACLF-1). Riñón por KDIGO (no por creatinina absoluta), cerebro por West Haven 3–4, respiración PaO₂/FiO₂ ≤ 225 (SpO₂/FiO₂ ≤ 244), circulación por vasopresores excepto los usados solo para HRS-AKI. Disfunción circulatoria y respiratoria solo en paciente monitorizado. Las cifras de mortalidad por grado de la nueva definición aún no se publican; las de la tabla de texto son EASL-CLIF.',
+ esc:(v,r)=>{const g=String(r.vals[0].v);const k=g==='Sin ACLF'?0:+g.slice(-1);return {h:['Grado (global 2026)','Definición'],rows:[['Sin ACLF','Sin falla hepática (bilirrubina &lt; 5 o INR &lt; 1,5), o falla hepática sin disfunción extrahepática'],['ACLF-1','Falla hepática + 1 disfunción extrahepática: LRA estadio 1, encefalopatía grado II, PAM &lt; 65 o PaO₂/FiO₂ 226–300 (las dos últimas solo monitorizado)'],['ACLF-2','Falla hepática + 1 falla extrahepática: LRA estadio 2–3 o TRR, encefalopatía III–IV, vasopresores, PaO₂/FiO₂ ≤ 225 o VM'],['ACLF-3','Falla hepática + ≥ 2 fallas extrahepáticas']],on:k}},
+ ej:[{l:'Sin ACLF',v:{tip:'B',age:55,wbc:8,bili:4,cr:1.1,kd:'0',eh:'0',inr:1.6,circ:'1',resp:'1'}},{l:'Falla renal aislada (discrepan)',v:{tip:'B',age:55,wbc:11,bili:3,cr:2.3,kd:'2',eh:'0',inr:1.8,circ:'1',resp:'1'}},{l:'Global ACLF-1',v:{tip:'B',age:58,wbc:10,bili:9,cr:1.4,kd:'1',eh:'0',inr:1.9,circ:'1',resp:'1'}},{l:'Global ACLF-2',v:{tip:'A',age:48,wbc:14,bili:13,cr:2.4,kd:'2',eh:'0',inr:1.9,circ:'1',resp:'1'}},{l:'Global ACLF-3',v:{tip:'B',age:52,wbc:15,bili:13,cr:2.6,kd:'2',eh:'3',inr:2.7,circ:'3',resp:'1',mon:true}}]},
+
+aarc:{uso:'s',
+ que:'Cinco variables (bilirrubina, encefalopatía, INR, lactato, creatinina) en un score de 5–15 puntos con tres grados.',
+ cuando:'ACLF de predominio hepático (concepto APASL) y reevaluación en la primera semana; el consenso 2026 lo cita junto al CLIF-C ACLF para identificar pronóstico extremo (&gt; 10).',
+ ojo:'Derivado en población asiática (VHB, alcohol); requiere lactato. No reemplaza al CLIF-C ACLF, que es el más validado.',
+ esc:(v,r)=>{const p=+r.vals[0].v;return {h:['Grado','Puntaje','Mortalidad 28 días'],rows:[['I','5–7','~13 %'],['II','8–10','~45 %'],['III','11–15','~86 %']],on:p<=7?0:p<=10?1:2}},
+ ej:[{l:'Grado I',v:{bili:8,eh:'1',inr:1.6,lac:1.2,cr:0.8}},{l:'Grado II',v:{bili:18,eh:'2',inr:2.0,lac:1.8,cr:1.0}},{l:'Grado III',v:{bili:28,eh:'3',inr:2.8,lac:3.1,cr:1.8}}]},
 
 clifad:{uso:'s',
  que:'Pronóstico de la descompensación aguda <b>sin</b> ACLF (edad, creatinina, INR, leucocitos, sodio).',

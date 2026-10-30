@@ -172,6 +172,12 @@ Patología: **Bilirrubinostasis ductular** (colangiolar) en la biopsia o el expl
 - Precipitantes: infección bacteriana y alcohol; en ~40 % no se identifica.
 - La ACLF sin precipitante aparente puede tener una infección oculta: cultivos, paracentesis e imágenes antes de rotularla.
 
+@ Definición global multisociedad 2026 :: ACLF: definición global 2026
+Definición: Consenso EASL–AASLD–APASL–ALEH–SOLDA 2026: hepatopatía avanzada (≥ F3) + **falla hepática obligatoria** (bilirrubina ≥ 5 mg/dL e INR ≥ 1,5) + disfunción (grado 1), una falla (grado 2) o ≥ 2 fallas (grado 3) extrahepáticas. **Tipo A** sin descompensación previa, **tipo B** con ella.
+- Riñón por KDIGO: estadio 1 disfunción, 2–3 o diálisis falla. Cerebro: West Haven II disfunción, III–IV falla. Respiración: PaO₂/FiO₂ ≤ 225 falla.
+- **Falla renal aislada**: ACLF-1 en EASL-CLIF, **no es ACLF** en la definición global.
+- No hay fórmula nueva: CLIF-C ACLF sigue siendo el score más validado; pronóstico extremo con CLIF-C ACLF > 64 o AARC > 10 pese a soporte máximo a los días 3–7.
+
 # b07_cirrotico_integral.html
 @ Infecciones bacterianas :: Infecciones en el cirrótico
 Fisiopatología: Disfunción inmune asociada a cirrosis (CAID): translocación bacteriana, fagocitosis defectuosa y complemento bajo.
