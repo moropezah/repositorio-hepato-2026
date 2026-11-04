@@ -217,6 +217,14 @@ Laboratorio: **Hiperferritinemia dismetabólica**: ferritina alta con saturació
 - Genética: PNPLA3 I148M (más frecuente en hispanos, la población con mayor prevalencia) y TM6SF2.
 - MetALD: 140–350 g/semana en mujeres y 210–420 g/semana en hombres. MASLD «delgada» (lean): peor pronóstico relativo, no benigna.
 
+@ Definiciones y alcohol :: Ferritina alta en MASLD: por qué
+Fisiopatología: Hasta un tercio de los pacientes con MASLD tiene ferritina alta. Tres mecanismos, ninguno exige sobrecarga real: (1) **reactante de fase aguda**: IL-1β, IL-6 y TNF-α inducen la síntesis de ferritina; (2) **liberación por daño hepatocelular** (la ferritina sérica es en buena parte hepática); (3) **resistencia a la insulina**: la insulina estimula la síntesis de ferritina y la captación celular de hierro, y la IL-6 eleva la **hepcidina**, que retiene el hierro en macrófagos y hepatocitos con saturación de transferrina normal. El alcohol suma: suprime la hepcidina y aumenta la absorción.
+Patología: **Síndrome de sobrecarga de hierro dismetabólica** (DIOS): sobrecarga hepática leve, mixta (hepatocitos y células de Kupffer), sin el gradiente periportal de la hemocromatosis.
+Laboratorio: La clave es la **saturación de transferrina**: normal (< 45 %) con ferritina alta = dismetabólica o inflamatoria; elevada = estudiar HFE.
+- Ferritina > 1,5 × LSN en MASLD se asocia a MASH y fibrosis avanzada (NASH CRN, Kowdley 2012): es marcador de gravedad, no de hierro.
+- Las **flebotomías no mejoran** la esteatosis ni las enzimas en MASLD con hiperferritinemia (ECA de Adams, 2015): no indicarlas.
+- Ferritina > 1.000 µg/L en MASLD: medir saturación y genotipo HFE y cuantificar hierro por RM (T2*/R2*) antes de atribuirla al síndrome metabólico.
+
 @ La fibrosis manda :: Biopsia de hígado graso: macro o microvesicular
 Patología: **Macrovesicular**: una gran vacuola (o pocas gotas medianas) que **desplaza el núcleo a la periferia**. Proceso crónico y de buen pronóstico inmediato: MASLD, alcohol, corticoides, metotrexato, tamoxifeno, nutrición parenteral, desnutrición proteica (kwashiorkor), VHC genotipo 3 y Wilson.
 Patología: **Microvesicular**: múltiples gotas finas que dejan el **núcleo central** y un citoplasma espumoso. Traduce **falla mitocondrial de la β-oxidación** y es de mal pronóstico: falla hepática, hipoglicemia, acidosis láctica e hiperamonemia. Causas: **hígado graso agudo del embarazo**, **síndrome de Reye** (aspirina en niños con virosis), **valproato**, tetraciclinas EV en dosis altas, análogos de nucleósidos antiguos (didanosina, estavudina, zidovudina), cocaína y la **degeneración espumosa alcohólica**.
@@ -320,11 +328,12 @@ Laboratorio: IgG4 sérica > 135 mg/dL (> 2 × LSN, más específica; > 4 × muy 
 Definición: Sobrecarga de hierro por déficit de hepcidina; en caucásicos, homocigosis **HFE C282Y** (penetrancia clínica baja, mayor en hombres). H63D o C282Y/H63D rara vez dan sobrecarga significativa.
 Clínica: **«Diabetes bronceada»** (hiperpigmentación grisácea + diabetes), **artropatía de la 2.ª y 3.ª metacarpofalángicas** con osteofitos en gancho y condrocalcinosis, miocardiopatía (arritmias, falla cardíaca), hipogonadismo hipogonadotrópico, hepatomegalia y fatiga. La mujer se expresa más tarde (menstruación, embarazos).
 Patología: Hierro en **hepatocitos periportales (zona 1)** con gradiente decreciente hacia la zona 3 (**azul de Prusia o Perls**). En la sobrecarga secundaria (transfusiones) el hierro está en las **células de Kupffer** (reticuloendotelial).
-Laboratorio: **Saturación de transferrina ≥ 45 %**: el marcador más precoz. Ferritina > 300 µg/L (hombre) o > 200 (mujer). **Ferritina > 1.000 µg/L** con transaminasas elevadas o plaquetas bajas: riesgo de cirrosis, evaluar fibrosis.
+Laboratorio: **Saturación de transferrina**, el marcador más precoz: corte de tamizaje **≥ 45 %** (AASLD 2011, ACG 2019); EASL 2022 usa **> 45 % en mujeres y > 50 % en hombres**. Confirmar con una segunda muestra. Ferritina > 300 µg/L (hombre) o > 200 (mujer) documenta la sobrecarga. **Ferritina > 1.000 µg/L** con transaminasas elevadas o plaquetas bajas: riesgo de cirrosis, evaluar fibrosis.
 Imagen: RM con secuencias T2* cuantifica el hierro hepático y cardíaco.
 - **Infecciones por gérmenes sideróforos**: **Vibrio vulnificus** (mariscos crudos), **Yersinia enterocolitica** y Listeria.
 - Flebotomías de 500 mL semanales hasta ferritina 50–100 µg/L, luego de mantención. Evitar suplementos de vitamina C y de hierro.
 - HCC solo en cirrosis, pero el riesgo persiste aunque se remueva el hierro.
+- Saturación alta con ferritina normal: hemocromatosis temprana (la saturación sube primero). Ferritina alta con saturación normal: casi siempre inflamación o síndrome metabólico, no hemocromatosis HFE.
 
 @ Enfermedad de Wilson :: Enfermedad de Wilson
 Definición: Mutación de **ATP7B** (cromosoma 13, autosómica recesiva): falla la excreción biliar de cobre y su incorporación a la ceruloplasmina.
@@ -360,6 +369,15 @@ Patología: Pistas en la biopsia: **eosinófilos y granulomas** sugieren DILI; n
 - **DRESS** (fiebre, exantema, eosinofilia, compromiso de órganos, 2–8 semanas de latencia): anticonvulsivantes aromáticos, alopurinol (HLA-B*58:01), sulfas.
 - HLA clásicos: flucloxacilina (HLA-B*57:01), té verde y cúrcuma (HLA-B*35:01).
 - Hierbas y suplementos: extracto de té verde, cúrcuma, Garcinia cambogia, ashwagandha, kava, anabólicos, productos multicomponente para bajar de peso.
+
+@ Definición y clasificación :: Listas de comisión: fármacos por fenotipo
+Patología: **Esteatosis macrovesicular o esteatohepatitis por fármacos** (la pregunta «¿qué fármacos dan hígado graso?»): **amiodarona** (esteatohepatitis seudoalcohólica con cuerpos de Mallory-Denk y fosfolipidosis; vida media de semanas, el daño persiste meses tras suspender), **tamoxifeno** (esteatosis en hasta un tercio de las mujeres tratadas, sobre todo con obesidad; MASH y cirrosis ocasional), **metotrexato** (esteatosis y fibrosis; riesgo mayor con MASLD, alcohol y DM2), **corticoides**, **irinotecán y 5-fluorouracilo** (esteatohepatitis asociada a quimioterapia, CASH), antipsicóticos atípicos y antirretrovirales antiguos.
+Patología: **Esteatosis microvesicular** (toxicidad mitocondrial, grave): **valproato**, **tetraciclinas EV**, **aspirina** en niños (Reye), análogos de nucleósidos antiguos (zidovudina, didanosina, estavudina), amiodarona EV en dosis altas y cocaína.
+Patología: **HAI-like** (la pregunta «¿qué fármacos dan hepatitis autoinmune?»): **nitrofurantoína** (latencia de meses a años, mujer mayor con ITU recurrente) y **minociclina** (joven con acné, latencia > 1 año): ~90 % de los casos. Además metildopa, hidralazina, estatinas, **anti-TNF** (infliximab > adalimumab, tras 3–5 infusiones), interferón, diclofenaco e imatinib.
+- La **nitrofurantoína no es causa de esteatosis**: su fenotipo es HAI-like, hepatitis crónica o neumonitis. Si en la comisión la ponen en la lista de hígado graso, aclararlo.
+- Nomenclatura 2023: la esteatosis por fármacos es «enfermedad hepática esteatósica de etiología específica», no MASLD; puede coexistir con MASLD si hay criterios cardiometabólicos (el tamoxifeno y los corticoides también agravan la MASLD previa).
+- HAI-like frente a HAI idiopática: ambas con ANA, IgG alta e interfase; la DILI responde a corticoides y **no recae al retirarlos** (suspender a los 3–6 meses y vigilar); la recaída obliga a rotular HAI y mantener la inmunosupresión.
+- Las hepatitis por inhibidores de punto de control no son HAI-like: autoanticuerpos e IgG habitualmente normales, infiltrado CD8.
 
 @ Situaciones frecuentes :: Paracetamol e isoniazida
 Definición: **Paracetamol**: dosis tóxica aguda > 150 mg/kg o > 7,5–10 g; umbral menor con alcohol crónico, ayuno o desnutrición (glutatión bajo).

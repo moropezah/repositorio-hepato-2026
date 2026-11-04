@@ -451,17 +451,32 @@ const CALCS=[
   return {vals:[V('R',fmt(R,1),''),V('Patrón',pat,'')],txt:'R ≥ 5 hepatocelular · 2–5 mixto · ≤ 2 colestásico. '+hy}},
  ref:'CIOMS · AASLD DILI 2023.'},
 
-{id:'kings',g:'Daño agudo y DILI',t:"Criterios de King's College",d:'Indicación de trasplante en falla hepática aguda.',
- i:[s('tipo','Etiología',[['p','Paracetamol'],['n','No paracetamol']]),n('ph','pH arterial tras resucitación','','7.28'),n('lac','Lactato tras resucitación','mmol/L',''),
-    n('inr','INR','','4.2'),n('cr','Creatinina','mg/dL','2.0'),c('eh34','Encefalopatía grado III–IV'),
-    n('age','Edad','años','45'),c('desf','Etiología desfavorable (idiosincrática, indeterminada, Wilson)'),c('ict7','Ictericia → encefalopatía > 7 días'),n('bili','Bilirrubina','mg/dL','19')],
- f(v){let ok=false,det='';
-  if(v.tipo==='p'){const a=(v.ph!==null&&v.ph<7.3)||(v.lac!==null&&v.lac>3.0); const b=v.inr>6.5&&v.cr>3.4&&v.eh34; ok=a||b;
-   det=`pH &lt; 7,30 o lactato &gt; 3,0: ${a?'sí':'no'} · INR &gt; 6,5 + creatinina &gt; 3,4 + encefalopatía III–IV: ${b?'sí':'no'}.`;}
-  else{const big=v.inr>6.5; let k=0; if(v.age!==null&&(v.age<10||v.age>40))k++; if(v.desf)k++; if(v.ict7)k++; if(v.inr>3.5)k++; if(v.bili>17.5)k++;
-   ok=big||k>=3; det=`INR &gt; 6,5: ${big?'sí':'no'} · criterios menores: ${k} de 5 (edad &lt; 10 o &gt; 40; etiología desfavorable; ictericia → encefalopatía &gt; 7 días; INR &gt; 3,5; bilirrubina &gt; 17,5).`;}
-  return {vals:[V("King's",ok?'Cumple':'No cumple',ok?'bad':'ok')],txt:det+(ok?' <b>Listar para trasplante en urgencia nacional</b>.':' No cumplir no excluye el trasplante: reevaluar de forma seriada (MELD &gt; 30, lactato).')}},
- ref:"O'Grady JG et al. Gastroenterology 1989 · ACG FHA 2023."},
+{id:'kings',g:'Daño agudo y DILI',t:"King's College y Clichy: trasplante en falla hepática aguda",d:"Criterios pronósticos para indicar trasplante en falla hepática aguda (FHA): King's College clásico y modificado por lactato (paracetamol y no paracetamol) y Clichy-Villejuif (factor V).",
+ i:[s('tipo','Etiología',[['p','Paracetamol'],['n','No paracetamol']]),
+    s('eh','Encefalopatía (West Haven)',[['0','Ausente'],['12','Grado I–II'],['34','Grado III–IV']]),
+    n('inr','INR','','4.2'),n('cr','Creatinina','mg/dL','2.0'),
+    n('ph','pH arterial tras reanimación con volumen','','7.28'),n('lac4','Lactato a las 4 h del ingreso','mmol/L','3.8'),n('lac12','Lactato a las 12 h, tras reanimación','mmol/L','3.2'),
+    n('age','Edad','años','45'),c('desf','Etiología desfavorable: idiosincrática por fármacos, indeterminada (no A-no B) o halotano'),c('ict7','Ictericia → encefalopatía > 7 días'),n('bili','Bilirrubina','mg/dL','19'),
+    n('fv','Factor V (opcional, para Clichy)','% del normal','')],
+ f(v){if(v.inr===null)return null;
+  let ok=false,det='',mod=false;
+  const eh34=v.eh==='34';
+  if(v.tipo==='p'){
+   const a=v.ph!==null&&v.ph<7.3; const b=v.inr>6.5&&v.cr!==null&&v.cr>3.4&&eh34;
+   mod=(v.lac4!==null&&v.lac4>3.5)||(v.lac12!==null&&v.lac12>3.0);
+   ok=a||b;
+   det=`<b>Clásico</b>: pH &lt; 7,30 tras reanimación: ${a?'<b>sí</b>':'no'} · o los tres: INR &gt; 6,5 + creatinina &gt; 3,4 mg/dL + encefalopatía III–IV en 24 h: ${b?'<b>sí</b>':'no'}.<br><b>Modificado por lactato</b> (Bernal 2002): lactato &gt; 3,5 a las 4 h o &gt; 3,0 a las 12 h tras reanimación: ${mod?'<b>sí</b>':'no'}.`;}
+  else{const big=v.inr>6.5; let k=0; if(v.age!==null&&(v.age<10||v.age>40))k++; if(v.desf)k++; if(v.ict7)k++; if(v.inr>3.5)k++; if(v.bili!==null&&v.bili>17.5)k++;
+   ok=big||k>=3; det=`INR &gt; 6,5 (con cualquier grado de encefalopatía): ${big?'<b>sí</b>':'no'} · o ≥ 3 de 5 criterios: <b>${k}</b> (edad &lt; 10 o &gt; 40; etiología desfavorable; ictericia → encefalopatía &gt; 7 días; INR &gt; 3,5; bilirrubina &gt; 17,5 mg/dL).`;
+   if(v.eh==='0') det+=' Sin encefalopatía no hay FHA por definición: es hepatitis aguda grave; vigilar y derivar precoz si INR ≥ 1,5.';}
+  let cl=null; if(v.fv!==null&&v.age!==null){const cut=v.age<30?20:30; cl=eh34&&v.fv<cut;
+   det+=`<br><b>Clichy</b>: encefalopatía III–IV + factor V &lt; ${cut} % (${v.age<30?'&lt; 30 años':'≥ 30 años'}): ${cl?'<b>sí</b>':'no'}. Validado sobre todo en FHA viral.`;}
+  const any=ok||mod||cl;
+  const vals=[V("King's",ok?'Cumple':'No cumple',ok?'bad':'ok')];
+  if(v.tipo==='p')vals.push(V("King's + lactato",(ok||mod)?'Cumple':'No cumple',(ok||mod)?'bad':'ok'));
+  if(cl!==null)vals.push(V('Clichy',cl?'Cumple':'No cumple',cl?'bad':'ok'));
+  return {vals,txt:det+(any?'<br><b>Indica trasplante</b>: solicitar urgencia nacional y trasladar a centro con trasplante si no se está en uno.':'<br>No cumplir no excluye el trasplante (sensibilidad ~60–70 %): reevaluar cada 12–24 h; MELD &gt; 30–32, lactato y fósforo &gt; 1,2 mmol/L a las 48–96 h (paracetamol) apoyan la indicación.')}},
+ ref:"O'Grady JG et al. Gastroenterology 1989;97:439 · Bernal W et al. Lancet 2002;359:558 (lactato) · Bernuau J et al. Hepatology 1986;6:648 (Clichy) · EASL CPG ALF 2017 · ACG FHA 2023."},
 
 {id:'rucam',g:'Daño agudo y DILI',t:'RUCAM: causalidad en DILI',d:'Roussel Uclaf Causality Assessment Method actualizado (2016). Se puntúa un fármaco a la vez; el patrón sale del factor R al primer control alterado.',
  i:[s('pat','Patrón de daño (factor R)',[['h','Hepatocelular (R ≥ 5)'],['c','Colestásico o mixto (R < 5)']]),
@@ -772,10 +787,11 @@ rfactor:{uso:'r',
  ej:[{l:'Hepatocelular con Hy',v:{alt:620,altu:40,fa:180,fau:120,bili:3.1,bu:1.2}},{l:'Colestásico',v:{alt:120,altu:40,fa:640,fau:120,bili:4,bu:1.2}},{l:'Mixto',v:{alt:200,altu:40,fa:250,fau:120,bili:1,bu:1.2}}]},
 
 kings:{uso:'s',
- que:'Criterios de King\'s College para indicar trasplante en falla hepática aguda.',
- cuando:'Toda FHA, al ingreso y de forma seriada.',
- ojo:'Alta especificidad, sensibilidad moderada: no cumplirlos no excluye el trasplante.',
- ej:[{l:'Paracetamol (cumple)',v:{tipo:'p',ph:7.25,inr:3,cr:2}},{l:'No paracetamol (cumple)',v:{tipo:'n',inr:4.2,cr:2,age:45,desf:true,ict7:true,bili:19}},{l:'No cumple',v:{tipo:'n',inr:2.1,cr:1,age:30,bili:8}}]},
+ que:"Criterios de King's College (clásico y modificado por lactato) y de Clichy para decidir trasplante en falla hepática aguda (FHA: INR ≥ 1,5 + encefalopatía, sin cirrosis, en &lt; 26 semanas).",
+ cuando:'Toda FHA al ingreso y cada 12–24 h. Con cualquier criterio positivo: urgencia nacional. La derivación a un centro con trasplante es antes, con INR ≥ 1,5 o cualquier encefalopatía.',
+ ojo:'Especificidad alta (~90 %) y sensibilidad moderada (~60–70 %): no cumplirlos no excluye el trasplante. Los criterios se aplican tras la reanimación con volumen (pH, lactato). Wilson fulminante e hígado graso agudo del embarazo tienen indicaciones propias (índice de Wilson revisado ≥ 11; parto). Fuera de paracetamol, el factor V (Clichy) no se mide de rutina en muchos centros chilenos.',
+ esc:(v,r)=>({h:['Etiología',"King's College (cualquiera de)"],rows:[['Paracetamol','pH &lt; 7,30 tras reanimación · o INR &gt; 6,5 + creatinina &gt; 3,4 mg/dL + encefalopatía III–IV · modificado: lactato &gt; 3,5 a las 4 h o &gt; 3,0 a las 12 h'],['No paracetamol','INR &gt; 6,5 · o ≥ 3 de: edad &lt; 10 o &gt; 40, etiología desfavorable, ictericia → encefalopatía &gt; 7 días, INR &gt; 3,5, bilirrubina &gt; 17,5 mg/dL'],['Clichy (viral)','Encefalopatía III–IV + factor V &lt; 20 % (&lt; 30 años) o &lt; 30 % (≥ 30 años)']],on:v.tipo==='p'?0:(v.fv!==null&&v.fv!==undefined)?2:1}),
+ ej:[{l:'Paracetamol: pH',v:{tipo:'p',eh:'12',ph:7.25,inr:3,cr:2}},{l:'Paracetamol: solo lactato',v:{tipo:'p',eh:'12',ph:7.34,inr:3.4,cr:1.6,lac4:3.9}},{l:'No paracetamol (cumple)',v:{tipo:'n',eh:'34',inr:4.2,cr:2,age:45,desf:true,ict7:true,bili:19}},{l:'Viral: Clichy',v:{tipo:'n',eh:'34',inr:3.1,cr:1.1,age:34,bili:12,fv:22}},{l:'No cumple',v:{tipo:'n',eh:'12',inr:2.1,cr:1,age:30,bili:8}}]},
 
 rucam:{uso:'s',
  que:'Puntúa la probabilidad de que un fármaco o suplemento cause el daño hepático (7 dominios: latencia, evolución, factores de riesgo, concomitantes, causas alternativas, hepatotoxicidad conocida y reexposición).',
