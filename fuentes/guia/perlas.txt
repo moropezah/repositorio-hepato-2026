@@ -12,6 +12,7 @@
 Definición: Las transaminasas miden daño del hepatocito, la FA y la GGT colestasis, y la bilirrubina, la albúmina y el INR la función. «Pruebas de función hepática» es un mal nombre: solo las tres últimas miden función.
 Fisiopatología: La ALT es casi exclusiva del hígado y citosólica. La AST es también muscular, cardíaca y eritrocitaria, y en parte mitocondrial. La vida media de la albúmina es de ~20 días y la del factor VII de ~6 horas: el INR cae primero en la falla aguda y la albúmina, en la crónica.
 Laboratorio: **Prueba de Koller**: si el INR se corrige con vitamina K parenteral, el problema es malabsorción por colestasis y no falla de síntesis.
+- Equivalencias: **ALT = GPT** (transaminasa glutámico-pirúvica) y **AST = GOT** (glutámico-oxalacética). Los informes de laboratorio chilenos aún usan a menudo GOT/GPT.
 - **AST/ALT > 2** orienta a alcohol: la AST es en parte mitocondrial y la ALT necesita piridoxal-5-fosfato, que falta en el alcohólico. También se invierte en cirrosis de cualquier causa.
 - **ALT > 1.000 U/L**: virus, isquemia, paracetamol, HAI aguda o coledocolitiasis (pico transitorio que cae en 24–72 h). La hepatitis alcohólica casi nunca supera 300–400 U/L.
 - **ALT/LDH < 1,5**: hepatitis isquémica o paracetamol; > 1,5 orienta a hepatitis viral.

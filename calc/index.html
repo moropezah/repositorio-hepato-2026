@@ -384,20 +384,20 @@ const CALCS=[
 
 /* ---------- fibrosis ---------- */
 {id:'fib4',g:'Fibrosis y MASLD',t:'FIB-4',d:'Primer escalón no invasivo en MASLD y hepatopatía crónica.',
- i:[n('age','Edad','años','58'),n('ast','AST','U/L','48'),n('alt','ALT','U/L','52'),n('plt','Plaquetas','×10³/µL','165')],
+ i:[n('age','Edad','años','58'),n('ast','AST (GOT)','U/L','48'),n('alt','ALT (GPT)','U/L','52'),n('plt','Plaquetas','×10³/µL','165')],
  f(v){if(!need(v,['age','ast','alt','plt']))return null; const x=v.age*v.ast/(v.plt*Math.sqrt(v.alt)); const lo=v.age>=65?2.0:1.3;
   const k=x<lo?'ok':x<=2.67?'mid':'bad';
   return {vals:[V('FIB-4',fmt(x,2),k)],txt:`&lt; ${fmt(lo,1)} riesgo bajo${v.age>=65?' (corte para ≥ 65 años)':''} · ${fmt(lo,1)}–2,67 intermedio → elastografía · &gt; 2,67 alto → elastografía y hepatología. Menor rendimiento en &lt; 35 años.`}},
  ref:'Sterling RK, Hepatology 2006 · EASL-EASD-EASO MASLD 2024.'},
 
 {id:'apri',g:'Fibrosis y MASLD',t:'APRI',d:'Índice AST/plaquetas.',
- i:[n('ast','AST','U/L','80'),n('uln','Límite superior normal de AST','U/L','40'),n('plt','Plaquetas','×10³/µL','140')],
+ i:[n('ast','AST (GOT)','U/L','80'),n('uln','Límite superior normal de AST (GOT)','U/L','40'),n('plt','Plaquetas','×10³/µL','140')],
  f(v){if(!need(v,['ast','uln','plt']))return null; const x=(v.ast/v.uln)/v.plt*100;
   return {vals:[V('APRI',fmt(x,2),x<0.5?'ok':x<=1.5?'mid':'bad')],txt:'&lt; 0,5 descarta fibrosis significativa · &gt; 1,5 fibrosis significativa · &gt; 2,0 cirrosis. OMS 2024: APRI &gt; 0,5 es criterio de tratamiento de VHB donde no hay elastografía.'}},
  ref:'Wai CT, Hepatology 2003 · OMS VHB 2024.'},
 
 {id:'nfs',g:'Fibrosis y MASLD',t:'NAFLD Fibrosis Score',d:'Fibrosis avanzada en MASLD.',
- i:[n('age','Edad','años','55'),n('bmi','IMC','kg/m²','32'),c('dm','Glicemia alterada en ayunas o diabetes'),n('ast','AST','U/L','40'),n('alt','ALT','U/L','45'),n('plt','Plaquetas','×10³/µL','190'),n('alb','Albúmina','g/dL','4.2')],
+ i:[n('age','Edad','años','55'),n('bmi','IMC','kg/m²','32'),c('dm','Glicemia alterada en ayunas o diabetes'),n('ast','AST (GOT)','U/L','40'),n('alt','ALT (GPT)','U/L','45'),n('plt','Plaquetas','×10³/µL','190'),n('alb','Albúmina','g/dL','4.2')],
  f(v){if(!need(v,['age','bmi','ast','alt','plt','alb']))return null; const x=-1.675+0.037*v.age+0.094*v.bmi+1.13*(v.dm?1:0)+0.99*v.ast/v.alt-0.013*v.plt-0.66*v.alb;
   return {vals:[V('NFS',fmt(x,3),x<-1.455?'ok':x<=0.676?'mid':'bad')],txt:'&lt; −1,455 descarta fibrosis avanzada · −1,455 a 0,676 indeterminado · &gt; 0,676 fibrosis avanzada probable.'}},
  ref:'Angulo P et al. Hepatology 2007;45:846-54.'},
@@ -415,7 +415,7 @@ const CALCS=[
 {id:'audc',g:'Autoinmunes y colestásicas',t:'CBP: respuesta al AUDC (enfoque por riesgo)',d:'Estratificación basal y meta según riesgo (6 o 12 meses), más los criterios clásicos de respuesta.',
  i:[n('lsm','Rigidez hepática basal (VCTE)','kPa','11'),n('age','Edad al diagnóstico','años','54'),n('fa0','FA basal','× LSN','3.4'),n('bi0','Bilirrubina basal','× LSN','0.8'),
     s('mes','Momento de la evaluación',[['6','6 meses'],['12','12 meses']]),
-    n('fa','FA actual','× LSN','1.9'),n('ast','AST actual (opcional)','× LSN','1.2'),n('bili','Bilirrubina actual','× LSN','0.8'),
+    n('fa','FA actual','× LSN','1.9'),n('ast','AST (GOT) actual (opcional)','× LSN','1.2'),n('bili','Bilirrubina actual','× LSN','0.8'),
     c('hpcs','HPCS, descompensación o Child B–C')],
  f(v){if(!need(v,['fa','bili']))return null;
   const hr=(v.lsm!==null&&v.lsm>=10)||(v.bi0!==null&&v.bi0>1)||(v.fa0!==null&&v.fa0>3)||(v.age!==null&&v.age<=62);
@@ -445,7 +445,7 @@ const CALCS=[
 
 /* ---------- agudo ---------- */
 {id:'rfactor',g:'Daño agudo y DILI',t:'Factor R y ley de Hy',d:'Patrón de daño hepático.',
- i:[n('alt','ALT','U/L','620'),n('altu','LSN de ALT','U/L','40'),n('fa','Fosfatasa alcalina','U/L','180'),n('fau','LSN de FA','U/L','120'),n('bili','Bilirrubina','mg/dL','3.1'),n('bu','LSN de bilirrubina','mg/dL','1.2')],
+ i:[n('alt','ALT (GPT)','U/L','620'),n('altu','LSN de ALT (GPT)','U/L','40'),n('fa','Fosfatasa alcalina','U/L','180'),n('fau','LSN de FA','U/L','120'),n('bili','Bilirrubina','mg/dL','3.1'),n('bu','LSN de bilirrubina','mg/dL','1.2')],
  f(v){if(!need(v,['alt','altu','fa','fau']))return null; const R=(v.alt/v.altu)/(v.fa/v.fau); const pat=R>=5?'Hepatocelular':R<=2?'Colestásico':'Mixto';
   let hy=''; if(need(v,['bili','bu'])){const h=v.alt/v.altu>3&&v.bili/v.bu>2&&v.fa/v.fau<2; hy=h?'<b>Cumple ley de Hy</b> (ALT &gt; 3 × LSN + bilirrubina &gt; 2 × LSN sin colestasis): mortalidad o trasplante ~10 %.':'No cumple ley de Hy.';}
   return {vals:[V('R',fmt(R,1),''),V('Patrón',pat,'')],txt:'R ≥ 5 hepatocelular · 2–5 mixto · ≤ 2 colestásico. '+hy}},
@@ -499,7 +499,7 @@ const CALCS=[
  ref:'Danan G, Teschke R. Int J Mol Sci 2016;17:14 (RUCAM actualizado) · Danan G, Bénichou C. J Clin Epidemiol 1993;46:1323 · Fontana RJ et al. AASLD DILI guidance, Hepatology 2023;77:1036.'},
 
 {id:'vhb',g:'Hepatitis virales',t:'Hepatitis B: indicación de tratamiento',d:'Compara EASL 2025, OMS 2024 y la guía MINSAL 2021 con los mismos datos. HBsAg positivo > 6 meses.',
- i:[n('dna','DNA-VHB (vacío si no está disponible)','UI/mL','25000'),n('alt','ALT','U/L','52'),s('sex','Sexo',[['m','Hombre'],['f','Mujer']]),n('age','Edad','años','44'),
+ i:[n('dna','DNA-VHB (vacío si no está disponible)','UI/mL','25000'),n('alt','ALT (GPT)','U/L','52'),s('sex','Sexo',[['m','Hombre'],['f','Mujer']]),n('age','Edad','años','44'),
     s('ag','HBeAg',[['n','Negativo'],['p','Positivo']]),n('lsm','Rigidez hepática (opcional)','kPa','6.5'),n('apri','APRI (opcional)','','0.4'),
     c('cir','Cirrosis clínica o por imagen'),c('fam','Familiar de 1.er grado con HCC o cirrosis'),c('ehm','Manifestaciones extrahepáticas (glomerulonefritis, vasculitis)'),
     c('coi','Coinfección VIH, VHD o VHC'),c('ims','Inmunosupresión o quimioterapia en curso o planificada'),c('met','Diabetes o MASLD'),c('emb','Embarazo')],
