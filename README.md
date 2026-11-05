@@ -8,7 +8,7 @@ Material de estudio de hepatología para postgrado de gastroenterología, con el
 
 | Módulo | Qué es | Estado |
 |---|---|---|
-| 01 | **Guía de estudio Hepatología 2026** — 18 bloques (incluye lesiones benignas y litiasis biliar). Cada uno abre con "qué cambió" frente a la guía previa, trae algoritmos con fármaco, dosis y criterio de falla, marcadores (idea clave, error frecuente, Chile), una caja de **perlas** por patología (definición, examen físico, anatomía patológica, laboratorio y lo que preguntan; fuente `fuentes/guia/perlas.txt`, con modo «Solo perlas») y cierra con caso clínico, flashcards y preguntas con corrección razonada. | 18 / 18 bloques escritos |
+| 01 | **Guía de estudio Hepatología 2026** — 19 bloques (incluye un bloque 0 de histología con láminas propias, lesiones benignas y litiasis biliar). Cada uno abre con "qué cambió" frente a la guía previa, trae algoritmos con fármaco, dosis y criterio de falla, marcadores (idea clave, error frecuente, Chile), una caja de **perlas** por patología (definición, examen físico, anatomía patológica, laboratorio y lo que preguntan; fuente `fuentes/guia/perlas.txt`, con modo «Solo perlas») y cierra con caso clínico, flashcards y preguntas con corrección razonada. | 19 / 19 bloques escritos |
 | 02 | **Consulta rápida** — 19 tarjetas con buscador: HPCS (Baveno VIII), hemorragia variceal, enfermedad vascular hepática (trombosis portal, Budd-Chiari, PSVD), ascitis, PBE, HRS-AKI, encefalopatía, ACLF, hepatitis alcohólica, FHA, DILI, VHB, VHC, BCLC, trasplante, GES 88, MASLD, autoinmunes y embarazo. En `index.html#rapida`. | Escrito |
 | 03 | **Vademécum hepatológico** — 77 fármacos en 13 grupos: mecanismo, indicación, dosis, ajustes, monitoreo y criterio de falla, efectos adversos y cobertura en Chile (canasta GES 88 según la Res. Exenta 1452, GES 68 y 69, Ley Ricarte Soto, sin registro). 39 fichas con línea de uso, respuesta esperada y plan de seguimiento (basal, primeras semanas, mantención), y pestaña «Líneas de tratamiento y cinética» con 12 enfermedades (campos `lin`, `resp`, `plan` y `lineas` en `farmacos.json`). Filtros por grupo y cobertura. En `index.html#vademecum`. | Escrito |
 | 04 | **Calculadoras** — 28 visibles + 3 ocultas (GAHS, ABIC, NFS): Child-Pugh, MELD / MELD-Na / MELD 3.0, ALBI, cACLD y HPCS con ANTICIPATE / ANTICIPATE-NASH (Baveno VIII), riesgo quirúrgico (con enlace a VOCAL-Penn), Liver Frailty Index, puntaje PSVD/NCPF y anticoagulación en trombosis portal no cirrótica (Baveno VIII), ACLF (grado y CLIF-C), CLIF-C AD, LRA (ICA-ADQI), líquido ascítico, Maddrey, Lille, GAHS, ABIC, FIB-4, APRI, NFS, HAI simplificado, respuesta al AUDC, Leipzig, factor R y ley de Hy, King's College, RUCAM, ASGE 2019, Tokio 2018 (colangitis y colecistitis), indicación de tratamiento de VHB (EASL 2025 / OMS 2024 / MINSAL 2021), BCLC con criterios de trasplante (Milán, UCSF, up-to-seven, Metroticket 2.0, AFP francés), PAGE-B. Cada una con ficha (qué mide, cuándo usarla, limitaciones), escala completa con la fila del paciente marcada, ejemplos por categoría (Child A/B/C, ACLF 0–3…) y clasificación de uso (rutina / situacional / referencia) resumida en `calc/#curaduria`. En `calc/`. | Escrito |
@@ -16,6 +16,7 @@ Material de estudio de hepatología para postgrado de gastroenterología, con el
 
 ### Bloques de la guía
 
+0. **Histología hepática: zonas del acino y patrones de lesión** (láminas en `fuentes/guia/figuras/histologia.py`)
 1. **Perfil hepático alterado, hepatitis aguda y falla hepática aguda**
 2. **Cirrosis: diagnóstico, cACLD, HPCS y recompensación**
 3. **Hipertensión portal: várices, hemorragia, TIPS y enfermedad vascular hepática** (trombosis portal, Budd-Chiari, PSVD/NCPF)
@@ -42,10 +43,11 @@ quiz/index.html     · módulo 05, GENERADO por fuentes/quiz/actualizar.py — n
 guia-2026.html      · módulo 01, GENERADO por fuentes/guia/actualizar.py — no editar a mano
 manifest.webmanifest, sw.js, icons/   · app instalable (funciona sin conexión)
 fuentes/guia/
-  bloques.json      · orden, grupos y estado de los 16 bloques
+  bloques.json      · orden, grupos y estado de los bloques
   bloques/bNN_*.html· un archivo por bloque (empieza con <h2 id="bN">)
   estilos.css, extra.css, pwa.css, guia.js · diseño y comportamiento (heredados del repositorio EII)
   actualizar.py     · ensambla guia-2026.html
+  figuras/histologia.py · dibuja las láminas SVG del bloque 0 y las inserta entre sus marcas <!--FIG:…-->
 fuentes/rapida/rapida.html      · contenido del módulo 02
 fuentes/vademecum/farmacos.json · datos del módulo 03 (grupos, códigos de cobertura, fármacos)
 fuentes/repositorio/actualizar.py · inserta 02 y 03 en index.html entre sus marcas
@@ -60,6 +62,7 @@ fuentes/quiz/Code.gs, INSTRUCCIONES.md · conexión con Google Sheets
 
 | Cambio | Dónde | Luego |
 |---|---|---|
+| Láminas del bloque 0 | `fuentes/guia/figuras/histologia.py` | `python3 fuentes/guia/figuras/histologia.py` y luego `python3 fuentes/guia/actualizar.py` |
 | Escribir o corregir un bloque | `fuentes/guia/bloques/bNN_*.html` (y `"archivo"` en `bloques.json` si es nuevo) | `python3 fuentes/guia/actualizar.py` |
 | Consulta rápida o vademécum | `fuentes/rapida/rapida.html` o `fuentes/vademecum/farmacos.json` | `python3 fuentes/repositorio/actualizar.py` |
 | Calculadoras | `calc/index.html` (arreglos `CALCS` y `META`: ficha, escala, ejemplos y uso) | — |

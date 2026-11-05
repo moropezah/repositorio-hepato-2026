@@ -47,3 +47,21 @@ body.solo-perlas main>div.inner>*:not(h2[id^="b"]):not(.perla){display:none!impo
 body.solo-perlas main>div.inner>h2[id^="b"]{margin-top:34px}
 @media (max-width:640px){.perla dl{grid-template-columns:1fr;gap:1px}.perla dd{margin-bottom:6px}}
 @media print{.perla{break-inside:avoid}}
+/* Bloque 0 · láminas de histología (SVG en línea, fuentes/guia/figuras/histologia.py) */
+.histo{--h-panel:#ffffff;--h-panel2:#f2f4f7;--h-fg:var(--tinta);--h-fg2:var(--gris);--h-fg3:#8a94a0;--h-line2:#c7cfd8;
+ --h-marino:var(--marino);--h-marino2:#2e6aa3;--h-rojo:#a3302a;--h-verde:var(--verde);--h-ambar:var(--ambar);--h-zona:#b0561c}
+.histo svg{display:block;width:100%;height:auto}
+.histo svg text{font-family:inherit}
+.histo .h-wide{overflow-x:auto;border:1px solid var(--linea);border-radius:8px;background:#fff;padding:10px}
+.histo .h-wide svg{min-width:520px}
+.histo .h-wide.he{padding:0;border:0;background:none}
+.histo figure.lam svg{background:#fff}
+.histo figure.lam figcaption b{color:var(--tinta)}
+.histo .h-tres{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.histo .h-minis{grid-template-columns:repeat(auto-fill,minmax(190px,1fr))}
+.histo .h-minis figure.lam svg{padding:8px 8px 0}
+.h-ley{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--gris);margin:10px 0 0}
+.h-ley i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+@media (max-width:640px){.histo .h-minis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media print{.histo .h-wide{overflow:visible}.histo .h-wide svg{min-width:0}}
+.histo .hc{fill:#efb3c3;stroke:#cf8ca1;stroke-width:.8;stroke-linejoin:round}.histo .hn{fill:#4f3c86}.histo .hl{fill:#2b2160}

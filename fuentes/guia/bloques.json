@@ -1,10 +1,17 @@
 {
   "titulo": "Hepatología 2026",
-  "actualizado": "octubre 2026",
+  "actualizado": "noviembre 2026",
   "grupos": [
     {
       "nombre": "Bases",
       "bloques": [
+        {
+          "id": "b0",
+          "num": 0,
+          "titulo": "Histología hepática: zonas del acino y patrones de lesión",
+          "corto": "Histología · zonas y patrones",
+          "archivo": "b00_histologia.html"
+        },
         {
           "id": "b1",
           "num": 1,
