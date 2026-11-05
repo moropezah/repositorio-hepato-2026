@@ -258,6 +258,13 @@ Clínica: Extrahepáticas: **poliarteritis nodosa**, **glomerulonefritis membran
 - Reactivación con rituximab (anti-CD20): riesgo alto incluso con HBsAg negativo y anti-HBc positivo.
 - HBsAg cuantitativo < 1.000 UI/mL con DNA < 2.000 en HBeAg negativo: infección inactiva de bajo riesgo.
 
+@ Hepatitis B :: Hepatitis B: ¿vacuna o infección pasada?
+Definición: La **vacuna** contiene solo **HBsAg recombinante** (producido en levadura; antígeno de superficie, partícula sin DNA viral) y **no contiene antígeno core**. Por eso el vacunado tiene **anti-HBs aislado**, y el **anti-HBc solo aparece por contacto con el virus**: es el marcador de infección natural.
+Laboratorio: **HBsAg − / anti-HBc + / anti-HBs +** = infección **resuelta**, inmunidad natural (aunque se haya vacunado después). **HBsAg − / anti-HBc − / anti-HBs ≥ 10 mUI/mL** = vacunado. **HBsAg − / anti-HBc − / anti-HBs −** = susceptible: vacunar. **Anti-HBc + aislado** = resuelta con anti-HBs perdido, oculta o falso positivo: DNA y, si es negativo, una dosis de vacuna y medir anti-HBs.
+- Infección resuelta no es erradicación: el **cccDNA persiste** en el núcleo del hepatocito; con rituximab, quimioterapia o trasplante puede reactivarse (seroconversión reversa).
+- Trampas: HBsAg transitoriamente positivo hasta ~2–3 semanas tras la vacuna; inmunoglobulina IV o anti-hepatitis B y transfusiones pueden dar anti-HBs y anti-HBc pasivos.
+- Las vacunas nuevas tampoco tienen core: Heplisav-B (HBsAg + adyuvante CpG 1018, 2 dosis) y la de tres antígenos (S, pre-S1 y pre-S2). En Chile, la vacuna está en el Programa Nacional de Inmunizaciones (hexavalente del lactante).
+
 @ Hepatitis D (delta) :: Hepatitis D
 Definición: Virus RNA defectuoso que usa el HBsAg como envoltura: solo existe con VHB.
 - **Coinfección** (VHB y VHD juntos): cura en > 90 %. **Sobreinfección** de un portador de VHB: cronifica en ~90 % y es la hepatitis viral crónica más agresiva.
@@ -401,9 +408,14 @@ Laboratorio: IgG y autoanticuerpos habitualmente normales (a diferencia de la HA
 - **Hiperémesis gravídica**: transaminasas elevadas en ~50 % de las hospitalizadas, habitualmente < 200 U/L; se normalizan al ceder los vómitos.
 
 @ Colestasis intrahepática del embarazo :: Colestasis intrahepática del embarazo
-Clínica: **Prurito palmoplantar de predominio nocturno** en el segundo o tercer trimestre, sin lesiones primarias (solo excoriaciones); ictericia en < 10 %.
-Laboratorio: Ácidos biliares ≥ 10 µmol/L; **≥ 100 µmol/L** aumenta claramente el riesgo de mortinato. Transaminasas a menudo elevadas.
-- Chile tuvo una de las prevalencias más altas del mundo (población mapuche); recurre en 45–90 % de los embarazos siguientes y con anticonceptivos.
+Clínica: **Prurito palmoplantar de predominio nocturno**, sin lesiones primarias (solo excoriaciones); ictericia en < 10 %. **Cuándo**: segunda mitad del embarazo, la mayoría en el **tercer trimestre** (sobre las 30 semanas), cuando estrógenos y progesterona llegan al máximo; inicio antes de las 32 semanas se asocia a formas más graves. Embarazo gemelar: más precoz y más grave.
+Laboratorio: **Cómo se miden**: ácidos biliares **totales séricos** (ensayo enzimático); suben tras comer, por eso el corte depende de la muestra: **≥ 10 µmol/L en ayunas** (EASL 2023, AASLD) o **≥ 19 µmol/L sin ayuno** (RCOG 2022). Se usa el **valor máximo** del embarazo para estratificar; repetir cada 1–2 semanas. Transaminasas elevadas en ~60 % y pueden preceder a los ácidos biliares; la GGT suele ser normal (si está alta, pensar en ABCB4).
+Laboratorio: **Gravedad** por el pico de ácidos biliares: **leve 10 (o 19)–39**, **moderada 40–99**, **grave ≥ 100 µmol/L**. Mortinato ~0,13 %, ~0,28 % y **~3,4 %** respectivamente (Ovadia 2019); el riesgo sube sobre todo después de las 35 semanas.
+Fisiopatología: **Riesgo fetal** por paso transplacentario de ácidos biliares: arritmia fetal (alteran la conducción del cardiomiocito fetal), vasoconstricción de las venas coriónicas placentarias y aumento de la motilidad del colon fetal (meconio). Prematurez espontánea e iatrogénica, líquido amniótico con meconio, distrés respiratorio e ingreso a neonatología. El monitoreo fetal (registro, perfil biofísico) **no predice** el mortinato.
+- **Riesgo materno**: el prurito (insomnio, calidad de vida) y asociaciones obstétricas: **preeclampsia** y **diabetes gestacional** (~2–3 veces). A largo plazo, más colelitiasis, colangitis, hepatitis C, CBP y cirrosis: control de pruebas hepáticas posparto. Déficit de vitamina K solo con esteatorrea o colestasis prolongada.
+- **Recurrencia**: **45–90 %** en embarazos siguientes, a menudo más precoz; también con anticonceptivos combinados (preferir progestágeno solo o DIU).
+- **Chile**: históricamente una de las prevalencias más altas del mundo (hasta ~15 % en los años setenta y más en mujeres mapuche), hoy bastante menor. Norma chilena de CIE 2025.
+- **Conducta**: AUDC 10–15 mg/kg/día (prurito y bioquímica; PITCHES sin beneficio perinatal compuesto); parto a las 38–39 semanas si < 100 µmol/L, a las **35–36 semanas si ≥ 100**. Control de ácidos biliares y pruebas hepáticas a las **4–6 semanas posparto**.
 - Genética: ABCB4 (MDR3) y ABCB11 (BSEP). Asociación con colelitiasis y hepatitis C.
 - Se resuelve en semanas tras el parto; si persiste, buscar CBP o mutación de ABCB4.
 

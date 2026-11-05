@@ -37,6 +37,15 @@ w:{0:"Contraindicado en trasplante renal (rechazo).",2:"Sin eficacia consistente
 p:"Medir RNA en sangre y heces al final para prevenir recaída.",
 r:"EASL VHE 2018"},
 
+{id:"VI16",b:"ET",t:"Hepatitis virales",n:"R",md:"X",
+q:"Mujer de 45 años, chequeo preoperatorio: HBsAg negativo, anti-HBc total positivo, anti-HBs 85 mUI/mL. Refiere haber recibido la vacuna. ¿Interpretación?",
+o:["Respuesta a la vacuna","Infección resuelta con inmunidad natural","Infección crónica","Hepatitis B aguda en período de ventana","Falso positivo de anti-HBs"],
+c:1,
+e:"La vacuna contiene solo <b>HBsAg recombinante, sin antígeno core</b>: genera anti-HBs, nunca anti-HBc. Un <b>anti-HBc positivo</b> indica contacto con el virus; con HBsAg negativo y anti-HBs positivo corresponde a <b>infección resuelta</b>, aunque también se haya vacunado.",
+w:{0:"La vacuna no induce anti-HBc.",2:"Requiere HBsAg positivo.",3:"El período de ventana tiene anti-HBc IgM y anti-HBs negativo.",4:"Con anti-HBc positivo, el anti-HBs es coherente con resolución."},
+p:"El cccDNA persiste: riesgo de reactivación con rituximab o quimioterapia.",
+r:"EASL VHB 2025 · CDC 2023"},
+
 {id:"VI15",b:"ET",t:"Hepatitis virales",n:"R",md:"X",
 q:"Antes de iniciar AAD para VHC, ¿qué serología es obligatoria por riesgo de reactivación?",
 o:["Anti-VHA","HBsAg (y anti-HBc)","Anti-VHE","Toxoplasma"],

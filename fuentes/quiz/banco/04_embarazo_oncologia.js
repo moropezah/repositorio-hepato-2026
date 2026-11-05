@@ -91,6 +91,24 @@ w:{0:"No es universal (salvo indicación materna propia).",2:"No con esta carga.
 p:"OMS 2024 sugiere tratar a toda embarazada HBsAg+ donde no se puede medir DNA.",
 r:"EASL embarazo 2023 · OMS VHB 2024"},
 
+{id:"EM16",b:"ET",t:"Embarazo",n:"R",md:"E",
+q:"Embarazada de 33 semanas, segundo embarazo; en el primero tuvo prurito al final. Consulta por prurito palmoplantar nocturno. Ácidos biliares totales sin ayuno 118 µmol/L, ALT 160 U/L, GGT normal. ¿Clasificación y conducta?",
+o:["CIE leve; AUDC y parto a término","CIE grave; AUDC y parto a las 35–36 semanas","CIE moderada; parto a las 38–39 semanas","Hígado graso agudo; interrupción inmediata","Dermatosis del embarazo; antihistamínicos"],
+c:1,
+e:"Pico ≥ 100 µmol/L = <b>CIE grave</b>: riesgo de mortinato ~3,4 %, sobre todo después de las 35 semanas. AUDC para el prurito y la bioquímica y <b>parto a las 35–36 semanas</b>. El antecedente es típico: recurre en 45–90 % de los embarazos.",
+w:{0:"Leve es &lt; 40 µmol/L.",2:"Moderada es 40–99.",3:"No hay hipoglicemia, coagulopatía ni encefalopatía.",4:"Sin lesiones primarias y con ácidos biliares altos, es CIE."},
+p:"El monitoreo fetal no predice el mortinato: la decisión se basa en el pico de ácidos biliares.",
+r:"EASL embarazo 2023 · RCOG 2022 · Ovadia C, Lancet 2019"},
+
+{id:"EM17",b:"ET",t:"Embarazo",n:"F",md:"X",
+q:"Sobre la medición de ácidos biliares en la colestasis intrahepática del embarazo, ¿cuál es correcta?",
+o:["Se miden los ácidos biliares fraccionados en orina","Los ácidos biliares totales séricos suben tras comer; el corte es ≥ 10 µmol/L en ayunas o ≥ 19 µmol/L sin ayuno","Las transaminasas definen la gravedad","Basta una medición normal para descartar CIE","El corte es igual con o sin ayuno"],
+c:1,
+e:"Se miden <b>ácidos biliares totales séricos</b>. Suben en el período posprandial, por eso RCOG 2022 usa ≥ 19 µmol/L sin ayuno y EASL/AASLD ≥ 10 en ayunas. Se estratifica por el valor máximo y se repite cada 1–2 semanas si el prurito persiste.",
+w:{0:"Es medición sérica.",2:"El riesgo fetal se relaciona con los ácidos biliares, no con las transaminasas.",3:"Las transaminasas pueden preceder a los ácidos biliares: repetir.",4:"El corte depende del ayuno."},
+p:"Control de ácidos biliares y pruebas hepáticas a las 4–6 semanas posparto.",
+r:"RCOG Green-top 43, 2022 · EASL embarazo 2023"},
+
 /* ===================== Bloque 14 · Lesiones focales y HCC ===================== */
 {id:"HC01",b:"OT",t:"Lesiones focales y HCC",n:"R",md:"E",
 q:"Cirrótico en vigilancia con nódulo nuevo de 2,3 cm: hiperrealce arterial no periférico y lavado en fase portal en TC multifásica. ¿Conducta?",
