@@ -1866,16 +1866,48 @@
    "id": "basiliximab",
    "n": "Basiliximab",
    "g": "tx",
-   "cl": "Anti-CD25 (receptor de IL-2).",
-   "ind": "Inducción con riesgo renal para diferir el inhibidor de calcineurina.",
+   "cl": "Monoclonal quimérico anti-CD25 (cadena α del receptor de IL-2); no depletor.",
+   "ind": "Inducción con riesgo renal para diferir el inhibidor de calcineurina; trasplante hepatorrenal simultáneo.",
    "dos": "20 mg EV el día 0 y el día 4.",
    "aj": "—",
-   "mon": "—",
-   "ea": "Reacciones de infusión raras.",
+   "mon": "Sin niveles; efecto ~4–6 semanas (saturación de CD25).",
+   "ea": "Bien tolerado; reacciones de hipersensibilidad raras. No depleta linfocitos.",
    "cob": [
     "hosp"
    ],
    "ch": "Hospitalario.",
+   "ev": "EASL trasplante 2024"
+  },
+  {
+   "id": "timoglobulina",
+   "n": "Timoglobulina (globulina antitimocito de conejo)",
+   "g": "tx",
+   "cl": "Policlonal antitimocito; depleta linfocitos T (complemento, citotoxicidad, apoptosis).",
+   "ind": "Inducción en alto riesgo inmunológico o renal (incluido trasplante hepatorrenal), rechazo celular corticorresistente.",
+   "dos": "<b>Inducción</b>: 1–1,5 mg/kg/día EV por 3–5 días (dosis total habitual 4,5–6 mg/kg), por vía central o periférica con heparina e hidrocortisona; <b>premedicar</b> con corticoide, antihistamínico y paracetamol. Infusión de 6 h la primera dosis.",
+   "aj": "Reducir 50 % con plaquetas 50.000–75.000 o leucocitos 2.000–3.000/µL; suspender con plaquetas &lt; 50.000 o leucocitos &lt; 2.000.",
+   "mon": "Hemograma diario durante el curso; recuento de linfocitos o CD3.",
+   "ea": "Síndrome de liberación de citoquinas (fiebre, escalofríos, hipotensión) en la primera dosis, leucopenia, trombocitopenia, infecciones oportunistas (<b>CMV</b>), enfermedad del suero, trastorno linfoproliferativo por VEB.",
+   "cob": [
+    "hosp"
+   ],
+   "ch": "Hospitalario (programas de trasplante).",
+   "ev": "EASL trasplante 2024 · KDIGO trasplante renal"
+  },
+  {
+   "id": "ciclosporina",
+   "n": "Ciclosporina",
+   "g": "tx",
+   "cl": "Inhibidor de calcineurina (se une a ciclofilina).",
+   "ind": "Alternativa al tacrolimus por neurotoxicidad o diabetes postrasplante; HAI refractaria (tercera línea).",
+   "dos": "Microemulsión cada 12 h según niveles; valle habitual 150–250 ng/mL los primeros meses y 75–150 ng/mL en la mantención (o nivel a las 2 h, C2), según el protocolo del centro.",
+   "aj": "Interacciones CYP3A4 y glicoproteína P iguales a tacrolimus.",
+   "mon": "Niveles, creatinina, potasio, magnesio, presión arterial, lípidos, ácido úrico.",
+   "ea": "Nefrotoxicidad, <b>hipertensión y dislipidemia</b> (más que tacrolimus), <b>hirsutismo e hiperplasia gingival</b>, hiperuricemia y gota, hipomagnesemia, temblor; menos diabetes que tacrolimus.",
+   "cob": [
+    "bol"
+   ],
+   "ch": "Sandimmun Neoral y genéricos.",
    "ev": "EASL trasplante 2024"
   },
   {

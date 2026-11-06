@@ -503,6 +503,7 @@ Imagen: **Signo del punto central** (rama portal rodeada por el conducto dilatad
 # b16_trasplante.html
 @ Cuándo derivar :: Trasplante: indicaciones y contraindicaciones
 - Derivar con **MELD-Na ≥ 15**, primera descompensación mayor, HCC dentro de criterios o falla hepática aguda.
+- **Chile**: MELD-Na desde 2016; excepción para HCC > 2 cm dentro de Milán con 20 puntos + 1 cada 2 meses (regla publicada en 2020). Cardiológico: FEVI < 40 % contraindica; cardiomiopatía cirrótica con FEVI ≤ 50 % o strain global < 18 %.
 - Puntos de excepción clásicos: HCC, síndrome hepatopulmonar (PaO₂ < 60), hipertensión portopulmonar controlada, polineuropatía amiloidótica familiar, hiperoxaluria primaria, colangitis recurrente en CEP y prurito intratable.
 - Contraindicaciones absolutas: neoplasia extrahepática activa, consumo activo de sustancias sin tratamiento, HPoP con PAPm ≥ 50 mmHg refractaria y falla multiorgánica no recuperable. La falta de soporte psicosocial es una contraindicación relativa de peso.
 
@@ -513,6 +514,8 @@ Patología: **Rechazo crónico (ductopénico)**: pérdida de conductos en > 50 %
 - Estenosis biliares **anastomóticas** (técnicas, responden a CPRE) frente a **no anastomóticas** (isquémicas; donante en asistolia, tiempo de isquemia largo).
 - **CMV**: mayor riesgo en donante positivo y receptor negativo (D+/R−): profilaxis con valganciclovir 3–6 meses.
 - Tacrolimus: nefrotoxicidad, temblor, PRES, diabetes, hiperkalemia, hipomagnesemia. Ciclosporina: hirsutismo e hiperplasia gingival. Inhibidores de mTOR: mala cicatrización, proteinuria, edema y neumonitis. Micofenolato: diarrea, citopenias, teratógeno.
+- Mecanismos: tacrolimus (FKBP-12) y ciclosporina (ciclofilina) inhiben la **calcineurina** → menos IL-2; everolimus y sirolimus (FKBP-12) inhiben **mTOR**; micofenolato inhibe la **IMPDH**; azatioprina es profármaco de 6-mercaptopurina (**alopurinol** la potencia: mielotoxicidad grave).
+- Inducción: **basiliximab** (anti-CD25, no depleta; diferir tacrolimus en riesgo renal) frente a **timoglobulina** (policlonal de conejo, **depleta** linfocitos T; liberación de citoquinas, citopenias, CMV). Ambas en trasplante hepatorrenal.
 - Neoplasias de novo: piel la más frecuente; trastorno linfoproliferativo postrasplante asociado a VEB.
 - Recurrencia: CEP en 20–25 %, CBP, HAI, MASH y el consumo de alcohol.
 
