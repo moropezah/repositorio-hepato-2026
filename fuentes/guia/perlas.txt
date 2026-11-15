@@ -503,7 +503,7 @@ Imagen: **Signo del punto central** (rama portal rodeada por el conducto dilatad
 # b16_trasplante.html
 @ Cuándo derivar :: Trasplante: indicaciones y contraindicaciones
 - Derivar con **MELD-Na ≥ 15**, primera descompensación mayor, HCC dentro de criterios o falla hepática aguda.
-- **Chile**: MELD-Na desde 2016; excepción para HCC > 2 cm dentro de Milán con 20 puntos + 1 cada 2 meses (regla publicada en 2020). Cardiológico: FEVI < 40 % contraindica; cardiomiopatía cirrótica con FEVI ≤ 50 % o strain global < 18 %.
+- **Chile, norma ISP–MINSAL 2026**: MELD-Na 15–40 con prioridad pediátrica a igual puntaje; **HCC de Milán a Metroticket 2.0** (enlistar si ≥ 2 cm, sobrevida específica a 5 años > 70 %, AFP < 500 y sin invasión macrovascular ni extrahepática; 50–69 % = downstaging); encefalopatía: MELD 15 + 1 cada 90 días vía subcomisión; hepatopulmonar con PaO₂ < 70: 20, 25 o 30 puntos + 1 cada 30 días; portopulmonar 20 o 25 + 1 cada 30 días; CBP y CEP pierden el score de Mayo. Cardiológico: FEVI < 40 % contraindica; cardiomiopatía cirrótica con FEVI ≤ 50 % o strain global < 18 %.
 - Puntos de excepción clásicos: HCC, síndrome hepatopulmonar (PaO₂ < 60), hipertensión portopulmonar controlada, polineuropatía amiloidótica familiar, hiperoxaluria primaria, colangitis recurrente en CEP y prurito intratable.
 - Contraindicaciones absolutas: neoplasia extrahepática activa, consumo activo de sustancias sin tratamiento, HPoP con PAPm ≥ 50 mmHg refractaria y falla multiorgánica no recuperable. La falta de soporte psicosocial es una contraindicación relativa de peso.
 
