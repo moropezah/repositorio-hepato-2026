@@ -18,6 +18,13 @@
           "titulo": "Perfil hepático alterado, hepatitis aguda y falla hepática aguda",
           "corto": "Perfil hepático · hepatitis aguda · FHA",
           "archivo": "b01_perfil_hepatitis_fha.html"
+        },
+        {
+          "id": "b19",
+          "num": "1B",
+          "titulo": "Sospecha de enfermedad hepática: estudio inicial, fibrosis y derivación (BSG 2026)",
+          "corto": "Checklist inicial · BSG 2026",
+          "archivo": "b19_sospecha_bsg2026.html"
         }
       ]
     },
