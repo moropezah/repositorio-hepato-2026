@@ -7,6 +7,36 @@
 #   **texto**                   → negrita
 # Se regenera la guía con: python3 fuentes/guia/actualizar.py
 
+# b00_histologia.html
+@ Las zonas en el corte :: Orientarse en la biopsia
+Patología: **Espacio porta**: estroma fibroso con la tríada (vena porta, arteria hepática, conducto biliar). **Vena central**: sola, pared fina, sin estroma ni conducto; las trabéculas convergen hacia ella. Los límites entre zonas son una convención por distancia: no se ven.
+Fisiopatología: La sangre entra por la zona 1 y sale por la zona 3; la bilis fluye al revés. Por eso la zona 3 recibe la sangre más pobre en oxígeno y la zona 1 lo que llega primero por la porta.
+- Muestra adecuada (AASLD 2026): **> 1,5 cm y > 11 espacios porta**. La biopsia es ~1/50.000 del hígado: error de muestreo y concordancia entre patólogos para fibrosis de ~78 %.
+- Arteria sin conducto acompañante en varios espacios porta = pensar en **ductopenia** (CBP o CEP avanzadas, DILI, rechazo crónico).
+- Lobulillo clásico (hexágono centrado en la vena central) = lenguaje del informe. Acino de Rappaport (centrado en el eje portal) = modelo que explica por qué cada zona enferma distinto.
+
+@ Placa limitante y hepatitis de interfase :: Interfase no es sinónimo de HAI
+Definición: **Placa limitante**: primera hilera de hepatocitos en contacto con el estroma portal. **Hepatitis de interfase**: el infiltrado la cruza y destruye hepatocitos periportales; es el nombre actual de la «necrosis en sacabocados» (piecemeal necrosis).
+Patología: La interfase mide **actividad**, no etiología: aparece en HAI, VHB y VHC crónicas, DILI (nitrofurantoína, minociclina, anti-TNF, inhibidores de checkpoint), Wilson y CBP con rasgos de HAI.
+- **Consenso IAIHPG 2022**: rosetas y emperipolesis **ya no se consideran específicas** de HAI (en los criterios simplificados 2008 definían la histología «típica»).
+- **HAI aguda**: puede ser predominantemente lobulillar con **necrosis centrolobulillar** y poca interfase; es compatible si hay al menos un rasgo portal. Una necrosis de zona 3 no descarta HAI.
+- Lo que inclina a HAI es el conjunto: plasmocitos abundantes, interfase más que leve, IgG alta, autoanticuerpos y exclusión de otras causas.
+
+@ Patrones zonales de lesión :: Ubicar primero, nombrar después
+Fisiopatología: **Zona 3**: menor pO₂ (≈ 30–35 mmHg), más CYP2E1 y menos glutatión, por eso sufre la hipoxia y la bioactivación de fármacos (NAPQI del paracetamol). **Zona 1**: más oxígeno y primer contacto con lo que llega por la porta.
+Patología: **Zona 3**: isquemia, paracetamol, congestión (insuficiencia cardíaca derecha, Budd-Chiari, síndrome de obstrucción sinusoidal), alcohol y MASH del adulto, colestasis aguda (sepsis, estrógenos, anabólicos), HAI aguda. **Zona 1**: interfase, hierro de la hemocromatosis HFE, glóbulos PAS-D de A1AT, cobre de la colestasis crónica, eclampsia y HELLP (fibrina periportal), fósforo e intoxicación por hierro. **Zona 2**: fiebre amarilla (cuerpos de Councilman).
+- Hierro en **hepatocitos** con gradiente zona 1 → 3 = hemocromatosis HFE. Hierro en **células de Kupffer** = sobrecarga secundaria o ferroportina tipo A.
+- MASLD en niños: esteatosis **periportal** (tipo 2), al revés que en el adulto.
+- Esteatosis **microvesicular** difusa = falla mitocondrial y cuadro grave: hígado graso agudo del embarazo, Reye, valproato, tetraciclina intravenosa.
+- Puente **porta–central** tiene peor pronóstico que el porta–porta; la necrosis panacinar es la de la falla hepática aguda.
+
+@ Cómo se gradúa: Ishak modificado :: Grado, estadio y equivalencias de fibrosis
+Definición: **Grado** = actividad necroinflamatoria (mHAI de Ishak 0–18; METAVIR A0–A3): cambia rápido y responde al tratamiento. **Estadio** = fibrosis (Ishak 0–6; METAVIR, Kleiner o NASH CRN F0–F4): define pronóstico.
+Patología: Equivalencia aproximada METAVIR → Ishak: **F1 = 1–2 · F2 = 3 · F3 = 4 · F4 = 5–6** (Ishak 5 = cirrosis incompleta). En MASH (NASH CRN) el F1 se subdivide: **1a–1b** perisinusoidal zona 3 leve o moderada, **1c** solo portal; F2 suma zona 3 y portal.
+- Umbrales que cambian conducta: fibrosis **significativa ≥ F2**, **avanzada ≥ F3**, cirrosis F4.
+- **Laennec** subdivide la cirrosis por grosor de septos: **4A** finos, **4B** ≥ 2 septos anchos, **4C** ≥ 1 septo muy ancho o muchos micronódulos; se correlaciona con el GPVH.
+- En HAI, la **remisión histológica** es mHAI < 4/18; la interfase persistente con transaminasas normales predice recaída al suspender.
+
 # b01_perfil_hepatitis_fha.html
 @ El perfil hepático: qué mide cada examen :: Perfil hepático
 Definición: Las transaminasas miden daño del hepatocito, la FA y la GGT colestasis, y la bilirrubina, la albúmina y el INR la función. «Pruebas de función hepática» es un mal nombre: solo las tres últimas miden función.
