@@ -861,8 +861,9 @@ table.vplan td{vertical-align:top;padding:5px 0;border-bottom:1px solid var(--li
   function chips(id,list,key){
     var box=document.getElementById(id);
     box.innerHTML=list.map(function(o){return '<button type="button" class="chip" data-v="'+o[0]+'" aria-pressed="'+(st[key]===o[0])+'">'+o[1]+'</button>';}).join('');
-    box.onclick=function(e){var b=e.target.closest('button'); if(!b) return; st[key]=b.getAttribute('data-v');
-      [].forEach.call(box.children,function(x){x.setAttribute('aria-pressed',x===b);}); guardar(); pintar();};
+    box.onclick=function(e){var b=e.target.closest('button'); if(!b) return; var v=b.getAttribute('data-v');
+      st[key]=(st[key]===v)?'all':v; /* volver a tocar el filtro activo lo desmarca y vuelve a «todos» */
+      [].forEach.call(box.children,function(x){x.setAttribute('aria-pressed',x.getAttribute('data-v')===st[key]);}); guardar(); pintar();};
   }
   function guardar(){try{localStorage.setItem('hepato-vad',JSON.stringify({g:st.g,c:st.c}));}catch(e){}}
   chips('vad-g',[['all','Todos los grupos']].concat(D.grupos),'g');
