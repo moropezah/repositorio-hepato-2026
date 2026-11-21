@@ -173,7 +173,7 @@
       html+='<div class="bq-grupo"><div class="bq-g">'+MOD[m]+'</div>';
       lista.slice(0,lim).forEach(function(r){
         var it=r.it, i=actuales.length; actuales.push(it);
-        html+='<a class="bq-it" data-i="'+i+'" href="'+esc(href(it,q))+'"><span class="bq-t">'+marcar(it.t,ts)+(it.s?'<span class="bq-s">'+esc(it.s)+'</span>':'')+'</span><span class="bq-x2">'+fragmento(it,ts)+'</span></a>';
+        html+='<a class="bq-it" data-i="'+i+'" href="'+esc(href(it,q))+'"><span class="bq-t"><span>'+marcar(it.t,ts)+'</span>'+(it.s?'<span class="bq-s">'+esc(it.s)+'</span>':'')+'</span><span class="bq-x2">'+fragmento(it,ts)+'</span></a>';
       });
       if(lista.length>lim) html+='<a class="bq-it bq-mas" data-m="'+m+'" href="#">Ver los '+lista.length+' resultados de '+MOD[m]+'</a>';
       html+='</div>';
