@@ -115,6 +115,7 @@ doc = f"""<!DOCTYPE html>
 <div id="wrap">
 <aside id="nav">
   <div class="brand"><span>Guía de estudio</span><b>Hepatología 2026</b></div>
+  <a class="navback" href="./">← Volver al repositorio</a>
   <input id="navsearch" type="search" placeholder="Buscar en todo el repositorio…" autocomplete="off" data-buscador readonly>
   <button id="soloperlas" type="button" aria-pressed="false">Solo perlas</button>
   <div id="navlinks">
@@ -180,7 +181,6 @@ La canasta de fármacos del GES 88 está verificada contra los lineamientos téc
 </div>
 </main>
 </div>
-<a class="volver" href="./">← Repositorio</a>
 <script src="buscador.js"></script>
 <script>
 {js}

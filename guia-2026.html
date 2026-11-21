@@ -168,10 +168,7 @@ figure.lam img{display:block;width:100%;height:auto;background:#fff}
 figure.lam a{display:block;line-height:0}
 figure.lam figcaption{font-size:12.2px;color:#3b4552;padding:9px 11px;border-top:1px solid var(--linea);line-height:1.45}
 figure.lam .cred{display:block;margin-top:4px;font-size:10.5px;color:#9aa4b0;letter-spacing:.3px}
-.volver{position:fixed;right:18px;bottom:18px;z-index:20;background:var(--marino);color:#fff;text-decoration:none;
-  font-size:13px;font-weight:600;padding:10px 16px;border-radius:24px;box-shadow:0 4px 14px rgba(15,44,76,.28)}
-.volver:hover{background:var(--marino2)}
-@media print{.laminas{page-break-inside:avoid}.volver{display:none}}
+@media print{.laminas{page-break-inside:avoid}}
 
 
 header.hero .autor-g{display:flex;align-items:center;gap:12px;margin-top:18px;padding:12px 15px;
@@ -184,6 +181,10 @@ header.hero .autor-g .r-g{font-size:12px;line-height:1.4;color:#a9c3dc}
 
 figure.lam.sinimg{background:rgba(128,128,128,.07)}
 figure.lam.sinimg figcaption{border-top:0;border-left:3px solid var(--acento);padding:10px 12px}
+
+#nav a.navback{display:block;margin:12px 14px 0;padding:7px 12px;border:1px solid rgba(255,255,255,.22);border-radius:6px;color:#fff;font-size:12.8px;font-weight:600;text-align:center;border-left-width:1px}
+#nav a.navback:hover{background:rgba(255,255,255,.1)}
+@media print{#nav a.navback{display:none}}
 
 /* ===== Añadidos del repositorio de hepatología ===== */
 .pend{border:1px dashed var(--linea);border-radius:9px;background:#fff;padding:16px 18px;margin:18px 0;color:var(--gris);font-size:13.8px}
@@ -262,6 +263,7 @@ body.solo-perlas main>div.inner>h2[id^="b"]{margin-top:34px}
 <div id="wrap">
 <aside id="nav">
   <div class="brand"><span>Guía de estudio</span><b>Hepatología 2026</b></div>
+  <a class="navback" href="./">← Volver al repositorio</a>
   <input id="navsearch" type="search" placeholder="Buscar en todo el repositorio…" autocomplete="off" data-buscador readonly>
   <button id="soloperlas" type="button" aria-pressed="false">Solo perlas</button>
   <div id="navlinks">
@@ -4487,7 +4489,6 @@ El criterio expandido (&lt; 25 kPa y &gt; 110.000/mm³) no es de consenso: su ri
 </div>
 </main>
 </div>
-<a class="volver" href="./">← Repositorio</a>
 <script src="buscador.js"></script>
 <script>
 /* ---------- Navegación activa ---------- */
