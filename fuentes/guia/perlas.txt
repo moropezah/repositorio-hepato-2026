@@ -86,6 +86,14 @@ Laboratorio: Trombocitopenia (< 150.000: el marcador más precoz, por hiperesple
 - **MELD (Malinchoc, 2000)** nació para predecir la sobrevida a 3 meses tras TIPS electivo; luego se validó para la lista de trasplante (2002).
 - Child-Pugh tiene techo y variables subjetivas (ascitis, encefalopatía); el MELD es objetivo pero ignora la ascitis, la sarcopenia y la hiponatremia (de ahí MELD-Na y MELD 3.0).
 
+@ Recompensación (Baveno VIII, panel 7) :: Recompensación: cifras que preguntan
+Definición: Paso de cirrosis descompensada a compensada tras controlar la causa: sin ascitis sin diuréticos, sin encefalopatía sin lactulosa, rifaximina ni LOLA y sin resangrado, por **> 6 meses** (antes 12 meses en Baveno VII), con **Child-Pugh A5–A6**. Es un concepto **clínico**; la regresión es histológica.
+Fisiopatología: Al retirar la causa baja la presión portal, se restaura el eje intestino-hígado (menos translocación e inflamación sistémica) y quizá regresa la fibrosis. El remodelado vascular va detrás del parénquima: las colaterales y várices pueden persistir con GPVH < 10 mmHg.
+- **35 %** de los descompensados se recompensa; virus B ~50 %, alcohol 34 % a 5 años, MASLD 17–24 %, CBP ~15 %.
+- Más probable si la hemorragia fue el único evento; menos con ascitis, MELD alto o tratamiento etiológico tardío.
+- **No elimina el hepatocarcinoma** ni, a menudo, la HPCS: vigilancia semestral y BBNS hasta demostrar que la HPCS resolvió.
+- Salida de lista de trasplante: recompensado y MELD < 15, con seguimiento de por vida.
+
 # b03_hipertension_portal.html
 @ Historia natural de las várices :: Hipertensión portal y várices
 Definición: Gradiente de presión venosa hepática (GPVH) > 5 mmHg. **≥ 10 mmHg**: HPCS (aparecen várices y descompensación). **≥ 12 mmHg**: riesgo de sangrado variceal. **≥ 20 mmHg** durante la hemorragia: alto riesgo de falla de control y muerte.
