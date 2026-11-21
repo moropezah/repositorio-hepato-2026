@@ -291,7 +291,14 @@ table.vplan td{vertical-align:top;padding:5px 0;border-bottom:1px solid var(--li
 @media (max-width:700px){dl.vad{grid-template-columns:1fr;gap:2px}dl.vad dd{margin-bottom:8px}.vad-pills{max-width:none;justify-content:flex-start}
   details.ac>summary{flex-wrap:wrap}}
 
+.bq-hero{display:flex;align-items:center;gap:10px;width:min(620px,100%);margin:22px 0 4px;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--panel);color:var(--fg-3,#6b7684);font:500 .95rem var(--ff-b,Inter),sans-serif;cursor:text;text-align:left;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.bq-hero:hover{border-color:var(--marino)}
+.bq-hero span{flex:1}
+.bq-hero kbd{font:600 .72rem Inter,sans-serif;border:1px solid var(--line);border-radius:5px;padding:1px 7px;color:var(--fg-2)}
+@media (max-width:600px){.bq-hero kbd{display:none}}
 </style>
+<link rel="stylesheet" href="buscador.css">
+<script src="buscador.js" defer></script>
 </head>
 <body>
 <header class="top">
@@ -316,6 +323,7 @@ table.vplan td{vertical-align:top;padding:5px 0;border-bottom:1px solid var(--li
     <p class="eyebrow">Postgrado Gastroenterología · Universidad de los Andes</p>
     <h1>Hepatología:<br><em>repositorio de estudio 2026</em></h1>
     <p class="sub">Clase de repaso de toda la patología hepática, consulta rápida, fármacos con su cobertura en Chile, calculadoras de los scores que se usan en sala y un banco de preguntas propio — construido sobre el Curso de Becados 2026 y el Curso de Cirrosis y Trasplante Hepático de Clínica Dávila 2026.</p>
+    <button type="button" class="bq-hero" onclick="window.Buscador&&Buscador.abrir()" aria-label="Buscar en todo el repositorio"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg><span>Buscar en guía, consulta rápida, vademécum y calculadoras…</span><kbd>/</kbd></button>
     <div class="meta">
       <span>Actualizado octubre 2026</span>
       <span>Baveno VIII · EASL · AASLD · ACG · AGA</span>
@@ -402,7 +410,7 @@ table.vplan td{vertical-align:top;padding:5px 0;border-bottom:1px solid var(--li
 </div>
 <div id="r-lista">
 
-<details class="ac" data-k="cirrosis cacld hpcs baveno elastografía rigidez plaquetas carvedilol endoscopía">
+<details class="ac" id="r-1" data-k="cirrosis cacld hpcs baveno elastografía rigidez plaquetas carvedilol endoscopía">
 <summary>Cirrosis compensada: cACLD y HPCS (Baveno VIII)</summary><div class="in">
 <div class="tw"><table class="t"><thead><tr><th>Pregunta</th><th>Criterio</th><th>Conducta</th></tr></thead><tbody>
 <tr><td><strong>¿Hay cACLD?</strong></td><td>Rigidez en ayuno &lt; 10 kPa descarta · 10–15 sugiere · &gt; 15 muy sugerente (≥ 10: repetir o segundo test)</td><td>&lt; 10 kPa <strong>con</strong> signos de hipertensión portal: pensar en enfermedad vascular (PSVD)</td></tr>
@@ -415,7 +423,7 @@ table.vplan td{vertical-align:top;padding:5px 0;border-bottom:1px solid var(--li
 <p class="ref">Bloque 2 · Calculadoras: Child-Pugh, MELD, FIB-4, HPCS no invasiva</p>
 </div></details>
 
-<details class="ac" data-k="hemorragia variceal hda terlipresina octreótido ceftriaxona transfusión ligadura tips preventivo">
+<details class="ac" id="r-2" data-k="hemorragia variceal hda terlipresina octreótido ceftriaxona transfusión ligadura tips preventivo">
 <summary>Hemorragia variceal aguda: paquete de las primeras 72 h</summary><div class="in">
 <div class="algo-r"><ol>
 <li><strong>Vasoactivo desde la sospecha</strong>: terlipresina 2 mg c/4 h (→ 1 mg c/4 h al controlar) u octreótido 50 µg + 50 µg/h; 2–5 días.</li>
@@ -430,7 +438,7 @@ table.vplan td{vertical-align:top;padding:5px 0;border-bottom:1px solid var(--li
 <p class="ref">Bloque 3 · Baveno VIII · ACG 2026</p>
 </div></details>
 
-<details class="ac" data-k="trombosis portal budd-chiari psvd ncpf porto-sinusoidal vascular anticoagulación acod valdig cavernoma hiperplasia nodular azatioprina">
+<details class="ac" id="r-3" data-k="trombosis portal budd-chiari psvd ncpf porto-sinusoidal vascular anticoagulación acod valdig cavernoma hiperplasia nodular azatioprina">
 <summary>Enfermedad vascular hepática: trombosis portal, Budd-Chiari y PSVD (Baveno VIII)</summary><div class="in">
 <div class="tw"><table class="t"><thead><tr><th>Situación</th><th>Criterio</th><th>Conducta</th></tr></thead><tbody>
 <tr><td><strong>Grado de trombosis portal</strong> (VALDIG)</td><td>Luz remanente en TC/RM portal: mínima ≥ 50 % · parcial &lt; 50 % · completa 0 %. Reciente &lt; 6 meses; crónica &gt; 6 meses; cavernoma: venas peribiliares ≥ 2 mm</td><td>Describir cronología, grado y extensión (mesentérica superior, esplénica)</td></tr>
@@ -443,7 +451,7 @@ table.vplan td{vertical-align:top;padding:5px 0;border-bottom:1px solid var(--li
 <p class="ref">Bloque 3 · Calculadoras: puntaje PSVD/NCPF, anticoagulación en trombosis portal no cirrótica</p>
 </div></details>
 
-<details class="ac" data-k="ascitis paracentesis saag diuréticos espironolactona furosemida albúmina refractaria">
+<details class="ac" id="r-4" data-k="ascitis paracentesis saag diuréticos espironolactona furosemida albúmina refractaria">
 <summary>Ascitis: diagnóstico y tratamiento</summary><div class="in">
 <div class="tw"><table class="t"><thead><tr><th>Paso</th><th>Corte / dosis</th></tr></thead><tbody>
 <tr><td><strong>Paracentesis diagnóstica</strong></td><td>A todo cirrótico con ascitis que se hospitaliza o descompensa. Recuento celular, albúmina, proteínas totales, cultivo en frascos de hemocultivo (10 mL)</td></tr>
@@ -457,7 +465,7 @@ table.vplan td{vertical-align:top;padding:5px 0;border-bottom:1px solid var(--li
 <p class="ref">Bloque 4 · Calculadora: albúmina para paracentesis</p>
 </div></details>
 
-<details class="ac" data-k="pbe peritonitis bacteriana espontánea pmn 250 profilaxis norfloxacino ceftriaxona albúmina">
+<details class="ac" id="r-5" data-k="pbe peritonitis bacteriana espontánea pmn 250 profilaxis norfloxacino ceftriaxona albúmina">
 <summary>PBE: diagnóstico, tratamiento y profilaxis</summary><div class="in">
 <div class="tw"><table class="t"><thead><tr><th>Ítem</th><th>Criterio</th></tr></thead><tbody>
 <tr><td><strong>Diagnóstico</strong></td><td>PMN en ascitis ≥ 250/mm³ (ascitis hemorrágica: restar 1 PMN por cada 250 eritrocitos). Bacteriascitis: cultivo + con PMN &lt; 250 → repetir paracentesis</td></tr>
@@ -471,7 +479,7 @@ table.vplan td{vertical-align:top;padding:5px 0;border-bottom:1px solid var(--li
 <p class="ref">Bloque 4 · EASL 2018 · AASLD 2021</p>
 </div></details>
 
-<details class="ac" data-k="lesión renal aguda hrs-aki síndrome hepatorrenal ica kdigo creatinina terlipresina">
+<details class="ac" id="r-6" data-k="lesión renal aguda hrs-aki síndrome hepatorrenal ica kdigo creatinina terlipresina">
 <summary>Lesión renal aguda y HRS-AKI (ICA-ADQI 2024)</summary><div class="in">
 <div class="tw"><table class="t"><thead><tr><th>Estadio</th><th>Creatinina</th><th>Diuresis</th></tr></thead><tbody>
 <tr><td><strong>1</strong> (1A &lt; 1,5 · 1B ≥ 1,5 mg/dL)</td><td>Alza ≥ 0,3 mg/dL en 48 h o 1,5–1,9 × basal</td><td>&lt; 0,5 mL/kg/h por 6–12 h</td></tr>
@@ -488,7 +496,7 @@ table.vplan td{vertical-align:top;padding:5px 0;border-bottom:1px solid var(--li
 <p class="ref">Bloque 4 · Calculadora: estadio de LRA (ICA)</p>
 </div></details>
 
-<details class="ac" data-k="encefalopatía west haven lactulosa rifaximina precipitante amonio">
+<details class="ac" id="r-7" data-k="encefalopatía west haven lactulosa rifaximina precipitante amonio">
 <summary>Encefalopatía hepática</summary><div class="in">
 <div class="tw"><table class="t"><thead><tr><th>Grado</th><th>Clínica</th></tr></thead><tbody>
 <tr><td><strong>Mínima</strong></td><td>Solo alteración psicométrica (PHES, Stroop)</td></tr>
@@ -507,7 +515,7 @@ table.vplan td{vertical-align:top;padding:5px 0;border-bottom:1px solid var(--li
 <p class="ref">Bloque 5</p>
 </div></details>
 
-<details class="ac" data-k="aclf clif-c falla orgánica grado mortalidad futilidad trasplante global 2026 multisociedad aarc kdigo">
+<details class="ac" id="r-8" data-k="aclf clif-c falla orgánica grado mortalidad futilidad trasplante global 2026 multisociedad aarc kdigo">
 <summary>ACLF: definición global 2026 y EASL-CLIF</summary><div class="in">
 <p><strong>Definición global multisociedad 2026</strong> (EASL, AASLD, APASL, ALEH, SOLDA): hepatopatía avanzada + <strong>falla hepática obligatoria</strong> (bilirrubina ≥ 5 mg/dL e INR ≥ 1,5). Tipo A: sin descompensación previa; tipo B: con ella.</p>
 <div class="tw"><table class="t"><thead><tr><th>Órgano</th><th>Disfunción</th><th>Falla</th></tr></thead><tbody>
@@ -536,7 +544,7 @@ table.vplan td{vertical-align:top;padding:5px 0;border-bottom:1px solid var(--li
 <p class="ref">Bloque 6 · Calculadoras: ACLF (global 2026, EASL-CLIF, CLIF-C ACLF), AARC, CLIF-C AD · Consenso multisociedad, J Hepatol 2026</p>
 </div></details>
 
-<details class="ac" data-k="hepatitis alcohólica maddrey meld lille prednisolona trasplante precoz">
+<details class="ac" id="r-9" data-k="hepatitis alcohólica maddrey meld lille prednisolona trasplante precoz">
 <summary>Hepatitis alcohólica</summary><div class="in">
 <div class="tw"><table class="t"><thead><tr><th>Score</th><th>Corte</th><th>Conducta</th></tr></thead><tbody>
 <tr><td><strong>MELD</strong></td><td>&gt; 20 grave · 21–39 ventana de corticoides · &gt; 39 beneficio improbable</td><td>Prednisolona 40 mg/día × 28 días si no hay infección, sangrado ni LRA progresiva</td></tr>
@@ -548,7 +556,7 @@ table.vplan td{vertical-align:top;padding:5px 0;border-bottom:1px solid var(--li
 <p class="ref">Bloque 8 · Calculadoras: Maddrey, MELD, Lille, GAHS, ABIC</p>
 </div></details>
 
-<details class="ac" data-k="falla hepática aguda fha king's college paracetamol nac trasplante urgencia">
+<details class="ac" id="r-10" data-k="falla hepática aguda fha king's college paracetamol nac trasplante urgencia">
 <summary>Falla hepática aguda</summary><div class="in">
 <p><strong>Definición</strong>: INR ≥ 1,5 + encefalopatía en paciente sin hepatopatía crónica, &lt; 26 semanas (Wilson, VHB y HAI se incluyen aunque tengan daño previo).</p>
 <div class="tw"><table class="t"><thead><tr><th>King's College</th><th>Criterios de trasplante</th></tr></thead><tbody>
@@ -559,7 +567,7 @@ table.vplan td{vertical-align:top;padding:5px 0;border-bottom:1px solid var(--li
 <p class="ref">Bloque 1 · Calculadora: King's College</p>
 </div></details>
 
-<details class="ac" data-k="checklist estudio inicial sospecha enfermedad hepática bsg 2026 perfil alterado etiología fib-4 elastografía derivación esteatosis incidental dm2 alcohol case finding">
+<details class="ac" id="r-11" data-k="checklist estudio inicial sospecha enfermedad hepática bsg 2026 perfil alterado etiología fib-4 elastografía derivación esteatosis incidental dm2 alcohol case finding">
 <summary>Checklist inicial: sospecha de enfermedad hepática (BSG 2026)</summary><div class="in">
 <div class="tw"><table class="t"><thead><tr><th>Paso</th><th>Qué hacer</th></tr></thead><tbody>
 <tr><td><strong>1. Perfil base</strong></td><td>Bilirrubina, albúmina, ALT, FA, GGT, hemograma (+ AST para FIB-4). Toda alteración se estudia: no «repetir y ver»</td></tr>
@@ -576,7 +584,7 @@ table.vplan td{vertical-align:top;padding:5px 0;border-bottom:1px solid var(--li
 <p class="ref">Bloque 1B · Propuesta chilena (DM2): deriva con &gt; 12 kPa o FIB-4 &gt; 2,67 · Calculadora: FIB-4</p>
 </div></details>
 
-<details class="ac" data-k="perfil hepático factor r hepatocelular colestásico dili rucam">
+<details class="ac" id="r-12" data-k="perfil hepático factor r hepatocelular colestásico dili rucam">
 <summary>Patrón de alteración hepática y DILI</summary><div class="in">
 <p><strong>ALT (GPT)</strong>: alanina aminotransferasa, específica del hígado · <strong>AST (GOT)</strong>: aspartato aminotransferasa, también muscular, cardíaca y eritrocitaria.</p>
 <div class="tw"><table class="t"><thead><tr><th>Herramienta</th><th>Corte</th></tr></thead><tbody>
@@ -588,7 +596,7 @@ table.vplan td{vertical-align:top;padding:5px 0;border-bottom:1px solid var(--li
 <p class="ref">Bloques 1 y 12 · Calculadora: factor R</p>
 </div></details>
 
-<details class="ac" data-k="hepatitis b serología hbsag anti-hbc hbeag dna tratar entecavir tenofovir reactivación">
+<details class="ac" id="r-13" data-k="hepatitis b serología hbsag anti-hbc hbeag dna tratar entecavir tenofovir reactivación">
 <summary>Hepatitis B: serología y a quién tratar</summary><div class="in">
 <div class="tw"><table class="t"><thead><tr><th>HBsAg</th><th>Anti-HBc</th><th>Anti-HBs</th><th>Interpretación</th></tr></thead><tbody>
 <tr><td>+</td><td>IgM +</td><td>−</td><td>Infección aguda (o exacerbación)</td></tr>
@@ -603,7 +611,7 @@ table.vplan td{vertical-align:top;padding:5px 0;border-bottom:1px solid var(--li
 <p class="ref">Bloque 9 · Calculadora: PAGE-B</p>
 </div></details>
 
-<details class="ac" data-k="hepatitis c aad sofosbuvir velpatasvir glecaprevir pibrentasvir rvs tratamiento simplificado">
+<details class="ac" id="r-14" data-k="hepatitis c aad sofosbuvir velpatasvir glecaprevir pibrentasvir rvs tratamiento simplificado">
 <summary>Hepatitis C: tratamiento simplificado</summary><div class="in">
 <ul>
 <li>Anti-VHC + → <strong>RNA-VHC</strong> (idealmente reflejo en la misma muestra).</li>
@@ -616,7 +624,7 @@ table.vplan td{vertical-align:top;padding:5px 0;border-bottom:1px solid var(--li
 <p class="ref">Bloque 9</p>
 </div></details>
 
-<details class="ac" data-k="hcc bclc hepatocarcinoma vigilancia milán ablación tace inmunoterapia">
+<details class="ac" id="r-15" data-k="hcc bclc hepatocarcinoma vigilancia milán ablación tace inmunoterapia">
 <summary>Hepatocarcinoma: vigilancia y BCLC 2026</summary><div class="in">
 <p><strong>Vigilancia</strong>: ecografía ± AFP cada 6 meses en cirrosis (y VHB de riesgo); visualización C → RM abreviada o TC. LI-RADS 5 = HCC sin biopsia.</p>
 <div class="tw"><table class="t"><thead><tr><th>Estadio</th><th>Definición</th><th>Tratamiento</th></tr></thead><tbody>
@@ -629,7 +637,7 @@ table.vplan td{vertical-align:top;padding:5px 0;border-bottom:1px solid var(--li
 <p class="ref">Bloque 14 · Calculadoras: BCLC, Milán/UCSF/up-to-seven, Metroticket 2.0, AFP francés, ALBI</p>
 </div></details>
 
-<details class="ac" data-k="trasplante derivación meld 15 milán metroticket norma chile excepciones contraindicaciones evaluación">
+<details class="ac" id="r-16" data-k="trasplante derivación meld 15 milán metroticket norma chile excepciones contraindicaciones evaluación">
 <summary>Trasplante hepático: cuándo derivar</summary><div class="in">
 <ul>
 <li>MELD o MELD-Na ≥ 15, o primera descompensación mayor.</li>
@@ -649,7 +657,7 @@ table.vplan td{vertical-align:top;padding:5px 0;border-bottom:1px solid var(--li
 <p class="ref">Bloque 16 · Calculadora BCLC y criterios de trasplante</p>
 </div></details>
 
-<details class="ac" data-k="ges 88 derivación atención primaria especialidad child meld copago cirrosis alta">
+<details class="ac" id="r-17" data-k="ges 88 derivación atención primaria especialidad child meld copago cirrosis alta">
 <summary>GES 88: tras el alta por cirrosis</summary><div class="in">
 <div class="tw"><table class="t"><thead><tr><th>Garantía</th><th>Contenido</th></tr></thead><tbody>
 <tr><td><strong>Acceso</strong></td><td>Toda persona (incluida pediatría) que egresa de hospitalización por cirrosis desde el 1 de diciembre de 2025</td></tr>
@@ -663,7 +671,7 @@ table.vplan td{vertical-align:top;padding:5px 0;border-bottom:1px solid var(--li
 <p class="ref">Bloque 7 · Godoy A., Curso Dávila 2026 · ficha GES 88 (Superintendencia de Salud)</p>
 </div></details>
 
-<details class="ac" data-k="masld fib-4 elastografía riesgo cardiovascular semaglutida resmetirom">
+<details class="ac" id="r-18" data-k="masld fib-4 elastografía riesgo cardiovascular semaglutida resmetirom">
 <summary>MASLD: estratificación</summary><div class="in">
 <div class="tw"><table class="t"><thead><tr><th>Paso</th><th>Corte</th><th>Conducta</th></tr></thead><tbody>
 <tr><td><strong>FIB-4</strong></td><td>&lt; 1,3 (&lt; 2,0 si ≥ 65 años) bajo · 1,3–2,67 intermedio · &gt; 2,67 alto</td><td>Bajo: repetir en 1–3 años. Intermedio/alto: elastografía</td></tr>
@@ -673,7 +681,7 @@ table.vplan td{vertical-align:top;padding:5px 0;border-bottom:1px solid var(--li
 <p class="ref">Bloque 8 · Calculadoras: FIB-4, NFS</p>
 </div></details>
 
-<details class="ac" data-k="autoinmune hai cbp cep audc respuesta parís puntaje simplificado">
+<details class="ac" id="r-19" data-k="autoinmune hai cbp cep audc respuesta parís puntaje simplificado">
 <summary>Autoinmunes: HAI y CBP</summary><div class="in">
 <ul>
 <li><strong>HAI</strong>: puntaje simplificado ≥ 6 probable, ≥ 7 definida. Prednisona 0,5–1 mg/kg (o budesonida 9 mg sin cirrosis) + azatioprina 1–2 mg/kg o micofenolato. Meta: ALT e IgG normales a 6 meses.</li>
@@ -683,7 +691,7 @@ table.vplan td{vertical-align:top;padding:5px 0;border-bottom:1px solid var(--li
 <p class="ref">Bloque 10 · Calculadoras: HAI simplificado, respuesta a AUDC</p>
 </div></details>
 
-<details class="ac" data-k="embarazo hepatopatía colestasis intrahepática hellp aflp hiperemesis">
+<details class="ac" id="r-20" data-k="embarazo hepatopatía colestasis intrahepática hellp aflp hiperemesis">
 <summary>Hígado y embarazo</summary><div class="in">
 <div class="tw"><table class="t"><thead><tr><th>Entidad</th><th>Trimestre</th><th>Clave</th></tr></thead><tbody>
 <tr><td>Hiperemesis gravídica</td><td>1.º</td><td>Transaminasas &lt; 200, cede con el control de los vómitos</td></tr>
@@ -694,7 +702,7 @@ table.vplan td{vertical-align:top;padding:5px 0;border-bottom:1px solid var(--li
 <p class="ref">Bloque 13</p>
 </div></details>
 
-<details class="ac" data-k="ajuste fármacos dosis child pugh paracetamol aine opioides fentanilo tramadol morfina benzodiacepinas lorazepam antidepresivos escitalopram anticoagulantes heparina apixabán rivaroxabán metformina insulina antibióticos">
+<details class="ac" id="r-21" data-k="ajuste fármacos dosis child pugh paracetamol aine opioides fentanilo tramadol morfina benzodiacepinas lorazepam antidepresivos escitalopram anticoagulantes heparina apixabán rivaroxabán metformina insulina antibióticos">
 <summary>Ajuste de fármacos frecuentes en el cirrótico (Child-Pugh)</summary><div class="in">
 <ul>
 <li><strong>Por qué cambia la dosis</strong>: las derivaciones portosistémicas suben la biodisponibilidad oral (menos primer paso); la ascitis aumenta el volumen de distribución de los hidrofílicos (subdosis) y la hipoalbuminemia la fracción libre de los muy unidos a proteínas (&gt; 70 %); cae el metabolismo por CYP450 y el aclaramiento de los fármacos de alta extracción (propranolol, verapamilo, morfina); la colestasis reduce la excreción biliar (rifampicina, clindamicina, metotrexato) y la absorción de lipofílicos (ciclosporina, vitamina D).</li>
@@ -711,7 +719,7 @@ table.vplan td{vertical-align:top;padding:5px 0;border-bottom:1px solid var(--li
 <p class="ref">Severino N, Suárez M, Idalsoaga F. Ajuste de fármacos frecuentes en las enfermedades hepáticas. Hepatología Esencial, 2026 (tabla 1) · Bloque 7</p>
 </div></details>
 
-<details class="ac" data-k="vacunas inmunización hepatitis a b neumococo influenza covid zóster vrs trasplante cirrosis pni">
+<details class="ac" id="r-22" data-k="vacunas inmunización hepatitis a b neumococo influenza covid zóster vrs trasplante cirrosis pni">
 <summary>Vacunas en el hepatópata y el trasplantado (MINSAL 2025)</summary><div class="in">
 <div class="tw"><table class="t"><thead><tr><th>Momento</th><th>Qué indicar</th></tr></thead><tbody>
 <tr><td><strong>Cirrosis Child A, B o C</strong></td><td>Revisar serologías e historia de vacunas. Hepatitis A (2 dosis) y hepatitis B (3 dosis) si no es inmune · neumococo (PCV13 + PPSV23) · meningococo ACWY + B · influenza anual · COVID anual · refuerzo dTpa · VPH si corresponde · herpes zóster recombinante y VRS (disponibles en Chile, fuera del PNI)</td></tr>
@@ -726,7 +734,7 @@ table.vplan td{vertical-align:top;padding:5px 0;border-bottom:1px solid var(--li
 <p class="ref">Castro L, Gorziglia F. Inmunizaciones en hepatología. Hepatología Esencial, 2026 (figura 1, según recomendaciones MINSAL 2025) · Bloques 7 y 16</p>
 </div></details>
 
-<details class="ac" data-k="litiasis biliar coledocolitiasis asge colangitis colecistitis tokio cpre pancreatitis biliar mirizzi">
+<details class="ac" id="r-23" data-k="litiasis biliar coledocolitiasis asge colangitis colecistitis tokio cpre pancreatitis biliar mirizzi">
 <summary>Litiasis biliar: ASGE 2019 y Tokio 2018</summary><div class="in">
 <div class="tw"><table class="t"><thead><tr><th>Pregunta</th><th>Criterio</th><th>Conducta</th></tr></thead><tbody>
 <tr><td><strong>Coledocolitiasis: alto riesgo</strong></td><td>Cálculo visto · colangitis · bilirrubina &gt; 4 mg/dL + colédoco &gt; 6 mm</td><td>CPRE</td></tr>
@@ -740,7 +748,7 @@ table.vplan td{vertical-align:top;padding:5px 0;border-bottom:1px solid var(--li
 <p class="ref">Bloque 18 · Calculadoras: ASGE, Tokio colangitis, Tokio colecistitis</p>
 </div></details>
 
-<details class="ac" data-k="lesión focal benigna hemangioma hnf hiperplasia nodular focal adenoma angiomiolipoma quiste caroli absceso hidatídico seguimiento">
+<details class="ac" id="r-24" data-k="lesión focal benigna hemangioma hnf hiperplasia nodular focal adenoma angiomiolipoma quiste caroli absceso hidatídico seguimiento">
 <summary>Lesión hepática benigna: ¿se sigue?</summary><div class="in">
 <div class="tw"><table class="t"><thead><tr><th>Lesión</th><th>¿Se sigue?</th><th>Cuándo tratar</th></tr></thead><tbody>
 <tr><td><strong>Hemangioma</strong> típico</td><td>No, a cualquier tamaño</td><td>Síntomas claros o complicación</td></tr>
@@ -825,10 +833,23 @@ table.vplan td{vertical-align:top;padding:5px 0;border-bottom:1px solid var(--li
   });
   var VISTAS=['inicio','rapida','vademecum','fuentes'], tabs=document.getElementById('tabs');
   function ir(nombre){
+    var sub=''; nombre=nombre.split('?')[0]; if(nombre.indexOf('/')>0){ sub=nombre.split('/')[1]; nombre=nombre.split('/')[0]; }
     if(VISTAS.indexOf(nombre)<0) nombre='inicio';
     VISTAS.forEach(function(v){var el=document.getElementById('v-'+v); if(el) el.classList.toggle('on',v===nombre);});
     Array.prototype.forEach.call(tabs.querySelectorAll('a'),function(a){a.setAttribute('aria-current',a.getAttribute('href')==='#'+nombre?'true':'false');});
     window.scrollTo(0,0);
+    if(sub) setTimeout(function(){ irA(nombre,sub); },30);
+  }
+  /* destino de un resultado del buscador: abre la tarjeta o el fármaco y resalta el término */
+  function irA(vista,sub){
+    var el=null;
+    if(vista==='rapida'){ var rq=document.getElementById('rq'); if(rq&&rq.value){ rq.value=''; rq.dispatchEvent(new Event('input')); } el=document.getElementById(sub); }
+    else if(vista==='vademecum'&&window.vadIr){ el=window.vadIr(sub); }
+    if(!el) return;
+    if(el.nodeName==='DETAILS') el.open=true;
+    var mk=window.Buscador?Buscador.resaltar(el,Buscador.qDeUrl(),function(){return true;}):null;
+    var y=(mk||el).getBoundingClientRect().top+window.scrollY-(mk?140:84);
+    window.scrollTo({top:Math.max(0,y),behavior:'smooth'});
   }
   window.addEventListener('hashchange',function(){ir((location.hash||'#inicio').slice(1));});
   ir((location.hash||'#inicio').slice(1));
@@ -878,7 +899,7 @@ table.vplan td{vertical-align:top;padding:5px 0;border-bottom:1px solid var(--li
   function fila(t,v){return v&&v!=='—'?'<dt>'+t+'</dt><dd>'+v+'</dd>':'';}
   function plan(p){return p&&p.length?'<dt>Seguimiento</dt><dd><table class="vplan">'+p.map(function(r){return '<tr><th>'+r[0]+'</th><td>'+r[1]+'</td></tr>';}).join('')+'</table></dd>':'';}
   (function(){var L=document.getElementById('vad-lin'); if(!L||!D.lineas) return;
-    L.innerHTML=D.lineas.map(function(x){return '<details class="ac"><summary>'+x.e+'</summary><div class="in"><div class="tw"><table class="t"><thead><tr><th>Línea</th><th>Esquema</th><th>Cuándo esperar respuesta · falla</th></tr></thead><tbody>'+x.r.map(function(r){return '<tr><td><strong>'+r[0]+'</strong></td><td>'+r[1]+'</td><td>'+r[2]+'</td></tr>';}).join('')+'</tbody></table></div></div></details>';}).join('');
+    L.innerHTML=D.lineas.map(function(x,i){return '<details class="ac" id="l-'+i+'"><summary>'+x.e+'</summary><div class="in"><div class="tw"><table class="t"><thead><tr><th>Línea</th><th>Esquema</th><th>Cuándo esperar respuesta · falla</th></tr></thead><tbody>'+x.r.map(function(r){return '<tr><td><strong>'+r[0]+'</strong></td><td>'+r[1]+'</td><td>'+r[2]+'</td></tr>';}).join('')+'</tbody></table></div></div></details>';}).join('');
     var tb=document.getElementById('vad-tabs'); tb.onclick=function(e){var b=e.target.closest('button'); if(!b) return; var lin=b.getAttribute('data-v')==='lin';
       [].forEach.call(tb.children,function(x){x.setAttribute('aria-pressed',x===b);});
       L.hidden=!lin; ['vad-g','vad-c','vad-n','vad-lista','vq'].forEach(function(i){var el=document.getElementById(i); if(el) (i==='vq'?el.parentNode:el).hidden=lin;});};
@@ -905,6 +926,14 @@ table.vplan td{vertical-align:top;padding:5px 0;border-bottom:1px solid var(--li
   var q=document.getElementById('vq');
   q.addEventListener('input',function(){st.q=q.value; pintar(); if(st.q.trim()) [].forEach.call(document.querySelectorAll('#vad-lista details'),function(d){d.open=true;});});
   pintar();
+  window.vadIr=function(id){
+    var tb=document.getElementById('vad-tabs'), lin=id.indexOf('l-')===0;
+    var boton=tb.querySelector('[data-v="'+(lin?'lin':'far')+'"]'); if(boton&&boton.getAttribute('aria-pressed')!=='true') boton.click();
+    if(!lin){ st.g='all'; st.c='all'; st.q=''; q.value=''; guardar();
+      ['vad-g','vad-c'].forEach(function(b){[].forEach.call(document.getElementById(b).children,function(x){x.setAttribute('aria-pressed',x.getAttribute('data-v')==='all');});});
+      pintar(); }
+    return document.getElementById(lin?id:'f-'+id.slice(2));
+  };
 })();
 </script>
 <style>

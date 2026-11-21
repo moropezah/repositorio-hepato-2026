@@ -8,11 +8,27 @@ function onScroll(){
 }
 window.addEventListener('scroll',onScroll); onScroll();
 
-/* ---------- Filtro del índice ---------- */
-document.getElementById('navsearch').addEventListener('input',function(e){
-  var q=e.target.value.toLowerCase();
-  links.forEach(function(a){ a.style.display = a.textContent.toLowerCase().indexOf(q)>-1 ? '' : 'none'; });
-});
+/* ---------- Buscador: destino dentro de la guía ---------- */
+(function(){
+  if(!window.Buscador) return;
+  Buscador.prefer='g';
+  function irSeccion(id,q){
+    var el=document.getElementById(id); if(!el) return;
+    if(document.body.classList.contains('solo-perlas')){ var sp=document.getElementById('soloperlas'); if(sp) sp.click(); }
+    var mk=Buscador.resaltar(el,q,function(e){return /^H[23]$/.test(e.nodeName);});
+    var y=(mk||el).getBoundingClientRect().top+window.scrollY-(mk?120:16);
+    window.scrollTo({top:Math.max(0,y),behavior:'smooth'});
+  }
+  Buscador.alAbrir=function(it,q){
+    if(it.m!=='g') return false;
+    var id=it.h.split('#')[1];
+    try{ history.pushState(null,'','?q='+encodeURIComponent(q)+'#'+id); }catch(e){ location.hash=id; }
+    irSeccion(id,q); return true;
+  };
+  function desdeUrl(){ var id=location.hash.slice(1), q=Buscador.qDeUrl(); if(id&&q) setTimeout(function(){irSeccion(id,q);},60); }
+  window.addEventListener('load',desdeUrl);
+  window.addEventListener('popstate',desdeUrl);
+})();
 
 /* ---------- Flashcards ---------- */
 [].forEach.call(document.querySelectorAll('.fc'),function(c){

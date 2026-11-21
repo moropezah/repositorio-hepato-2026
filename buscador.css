@@ -1,0 +1,40 @@
+/* Buscador global · Repositorio Hepatología 2026 */
+#bq{--bq-bg:#fffefb;--bq-fg:#1c2530;--bq-fg2:#5b6673;--bq-line:#e3ddd3;--bq-hover:#f3efe8;--bq-acc:#173a5e;--bq-mark:#fbe7a8;
+  position:fixed;inset:0;z-index:1000;background:rgba(15,23,42,.45);display:flex;justify-content:center;align-items:flex-start;
+  padding:max(4vh,env(safe-area-inset-top,0px)) 12px 12px;font-family:Inter,-apple-system,"Segoe UI",Roboto,sans-serif}
+#bq[hidden]{display:none}
+html[data-theme="dark"] #bq{--bq-bg:#1a2029;--bq-fg:#e6e9ed;--bq-fg2:#9aa6b3;--bq-line:#2c3642;--bq-hover:#222b36;--bq-acc:#8fbde6;--bq-mark:#6b5414}
+@media (prefers-color-scheme:dark){html:not([data-theme="light"]) #bq{--bq-bg:#1a2029;--bq-fg:#e6e9ed;--bq-fg2:#9aa6b3;--bq-line:#2c3642;--bq-hover:#222b36;--bq-acc:#8fbde6;--bq-mark:#6b5414}}
+html.bq-on{overflow:hidden}
+.bq-caja{width:min(760px,100%);max-height:calc(100vh - 8vh);max-height:calc(100dvh - 6vh);display:flex;flex-direction:column;background:var(--bq-bg);color:var(--bq-fg);
+  border-radius:14px;box-shadow:0 18px 60px rgba(0,0,0,.35);overflow:hidden}
+.bq-barra{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--bq-line);color:var(--bq-fg2)}
+.bq-barra input{flex:1;min-width:0;border:0;outline:0;background:transparent;color:var(--bq-fg);font:500 1.05rem Inter,-apple-system,sans-serif;padding:6px 0}
+.bq-barra input::-webkit-search-cancel-button{cursor:pointer}
+.bq-x{border:1px solid var(--bq-line);background:transparent;color:var(--bq-fg2);border-radius:6px;font:600 .72rem Inter,sans-serif;padding:4px 8px;cursor:pointer}
+.bq-filtros{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px}
+.bq-filtros:not(:empty){padding:10px 14px 0}
+.chip-bq{border:1px solid var(--bq-line);background:transparent;color:var(--bq-fg2);border-radius:999px;padding:4px 11px;font:600 .76rem Inter,sans-serif;cursor:pointer}
+.chip-bq b{color:var(--bq-fg);font-weight:700;margin-left:2px}
+.chip-bq[aria-pressed="true"]{background:var(--bq-acc);border-color:var(--bq-acc);color:var(--bq-bg)}
+.chip-bq[aria-pressed="true"] b{color:var(--bq-bg)}
+.bq-estado{padding:10px 16px 4px;font-size:.78rem;color:var(--bq-fg2)}
+.bq-res{overflow-y:auto;padding:0 8px 12px;-webkit-overflow-scrolling:touch}
+.bq-grupo{margin-top:6px}
+.bq-g{position:sticky;top:0;background:var(--bq-bg);padding:8px 8px 4px;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--bq-acc)}
+.bq-it{display:block;padding:9px 10px;border-radius:9px;text-decoration:none;color:var(--bq-fg)}
+.bq-it:hover,.bq-it.sel{background:var(--bq-hover)}
+.bq-t{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;font-weight:600;font-size:.93rem;line-height:1.3}
+.bq-s{font-weight:500;font-size:.74rem;color:var(--bq-fg2)}
+.bq-x2{display:block;margin-top:3px;font-size:.8rem;line-height:1.45;color:var(--bq-fg2);overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.bq-it mark,.bq-hl{background:var(--bq-mark,#fbe7a8);color:inherit;border-radius:3px;padding:0 1px}
+mark.bq-hl{background:#fbe28a;color:inherit;box-shadow:0 0 0 2px #fbe28a}
+html[data-theme="dark"] mark.bq-hl{background:#7a5f12;box-shadow:0 0 0 2px #7a5f12}
+.bq-mas{font-size:.8rem;font-weight:600;color:var(--bq-acc)}
+.bq-rec{display:inline-block;margin:6px 4px 0;border:1px solid var(--bq-line);background:transparent;color:var(--bq-fg);border-radius:999px;padding:5px 12px;font:500 .82rem Inter,sans-serif;cursor:pointer}
+#bq-fab{display:inline-flex;align-items:center;gap:7px;border:0;border-radius:999px;padding:10px 16px 10px 13px;background:#173a5e;color:#fff;
+  font:600 .84rem Inter,-apple-system,sans-serif;box-shadow:0 4px 18px rgba(0,0,0,.25);cursor:pointer}
+#bq-fab.solo{position:fixed;right:14px;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);z-index:300}
+html[data-theme="dark"] #bq-fab{background:#8fbde6;color:#12161c}
+@media (max-width:600px){#bq{padding:0}.bq-caja{border-radius:0;max-height:100vh;max-height:100dvh;height:100dvh}#bq-fab span{display:none}#bq-fab{padding:12px}}
+@media print{#bq,#bq-fab{display:none!important}}

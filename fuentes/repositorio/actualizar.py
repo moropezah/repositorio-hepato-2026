@@ -25,6 +25,11 @@ def main():
     html = INDEX.read_text(encoding="utf-8")
 
     rapida = (RAIZ / "fuentes/rapida/rapida.html").read_text(encoding="utf-8").strip()
+    n = [0]
+    def _id(m):  # id estable por orden (r-1, r-2…) para los enlaces del buscador
+        n[0] += 1
+        return f'<details class="ac" id="r-{n[0]}"'
+    rapida = re.sub(r'<details class="ac"(?![^>]*\bid=)', _id, rapida)
     html = reemplazar(html, "RAPIDA", rapida)
 
     datos = json.loads((RAIZ / "fuentes/vademecum/farmacos.json").read_text(encoding="utf-8"))
@@ -44,6 +49,7 @@ def main():
     INDEX.write_text(html, encoding="utf-8")
     n_r = rapida.count('<details class="ac"')
     print(f"index.html: consulta rápida {n_r} tarjetas · vademécum {len(datos['farmacos'])} fármacos en {len(grupos)} grupos")
+    import runpy; runpy.run_path(str(RAIZ / "fuentes/buscador/actualizar.py"), run_name="__main__")
 
 
 if __name__ == "__main__":

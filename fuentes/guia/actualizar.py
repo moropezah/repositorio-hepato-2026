@@ -70,6 +70,11 @@ for g in cfg["grupos"]:
             frag = (AQUI / "bloques" / b["archivo"]).read_text(encoding="utf-8")
             if b["archivo"] in PERLAS:
                 frag = insertar_perlas(frag, PERLAS[b["archivo"]]); nperlas += len(PERLAS[b["archivo"]])
+            k = [0]
+            def _h3(m, bid=b["id"]):  # id por sección (bN-s1, bN-s2…) para el buscador
+                k[0] += 1
+                return f'<h3 id="{bid}-s{k[0]}"{m.group(1)}>'
+            frag = re.sub(r'<h3(?![^>]*\bid=)([^>]*)>', _h3, frag)
             if f'id="{b["id"]}"' not in frag:
                 raise SystemExit(f'El bloque {b["archivo"]} no contiene id="{b["id"]}"')
             nfc += frag.count('class="fc"')
@@ -101,6 +106,7 @@ doc = f"""<!DOCTYPE html>
 <style>
 {css}
 </style>
+<link rel="stylesheet" href="buscador.css">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
@@ -109,7 +115,7 @@ doc = f"""<!DOCTYPE html>
 <div id="wrap">
 <aside id="nav">
   <div class="brand"><span>Guía de estudio</span><b>Hepatología 2026</b></div>
-  <input id="navsearch" type="search" placeholder="Filtrar secciones…" autocomplete="off">
+  <input id="navsearch" type="search" placeholder="Buscar en todo el repositorio…" autocomplete="off" data-buscador readonly>
   <button id="soloperlas" type="button" aria-pressed="false">Solo perlas</button>
   <div id="navlinks">
   <a href="#inicio">Cómo usar esta guía</a>
@@ -175,6 +181,7 @@ La canasta de fármacos del GES 88 está verificada contra los lineamientos téc
 </main>
 </div>
 <a class="volver" href="./">← Repositorio</a>
+<script src="buscador.js"></script>
 <script>
 {js}
 </script>
@@ -205,4 +212,5 @@ La canasta de fármacos del GES 88 está verificada contra los lineamientos téc
 </html>
 """
 (RAIZ / "guia-2026.html").write_text(doc, encoding="utf-8")
+import runpy; runpy.run_path(str(RAIZ / "fuentes/buscador/actualizar.py"), run_name="__main__")
 print(f"guia-2026.html: {escritos}/{total} bloques, {nperlas} perlas, {nfc} flashcards, {npreg} preguntas, {len(doc)//1024} KB")
